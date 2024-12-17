@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>회원</title>
+    <meta charset="utf-8">
+
+    <!-- 기본 css -->
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font-awesome.min.css">
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/guide.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/common.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/tab.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/basic_manager.css" type="text/css"  />
+	<link rel="stylesheet" href="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.css">
+
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/lib/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/jquery.scrollUp.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/toggle.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-tab.js"></script>
+	<script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
+    <!-- 공통 -->
+    <script src="[TPH_Vdesign_dir]/js/common/common.js"></script>
+    <!-- 생산공통 -->
+    <script src="[TPH_Vdesign_dir]/js/common/member_common.js"></script>
+    <!-- 페이지별 js -->
+    <script src="[TPH_Vdesign_dir]/js/member/member_common_popup.js"></script>
+
+	<script>
+		$(function () {
+			$.scrollUp({
+				scrollName: 'scrollUp', // Element ID
+				scrollDistance: 300, // Distance from top/bottom before showing element (px)
+				scrollFrom: 'top', // 'top' or 'bottom'
+				scrollSpeed: 300, // Speed back to top (ms)
+				easingType: 'linear', // top easing (see http://easings.net/)
+				animation: 'fade', // Fade, slide, none
+				animationInSpeed: 200, // Animation in speed (ms)
+				animationOutSpeed: 200, // Animation out speed (ms)
+		        scrollText: '<img src="[TPH_Vdesign_dir]/images/top.png">', // Text for element, can contain HTML
+				scrollTitle: false, // Set a custom <a> title if required. Defaults to scrollText
+				scrollImg: false, // Set true to use image
+				activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+				zIndex: 2147483647 // Z-Index for the overlay
+			});
+		});
+	</script>
+    <!--script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"></script-->
+    <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
+    <script>
+    //우편번호 팝업
+    var getPostcode = function(el) {
+        new daum.Postcode({
+            oncomplete: function(data) {
+               var fullAddr = ''; // 최종 주소 변수
+               var extraAddr = ''; // 조합형 주소 변수
+
+               // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+               if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                   fullAddr = data.roadAddress;
+
+               } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                   fullAddr = data.jibunAddress;
+               }
+
+               // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+               if (data.userSelectedType === 'R'){
+                   //법정동명이 있을 경우 추가한다.
+                   if(data.bname !== ''){
+                       extraAddr += data.bname;
+                   }
+                   // 건물명이 있을 경우 추가한다.
+                   if(data.buildingName !== ''){
+                       extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                   }
+                   // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                   fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+               }
+
+               // 우편번호와 주소 정보를 해당 필드에 넣는다.
+               $("#" + el + "zipcode").val(data.zonecode); //5자리 새우편번호 사용
+               $("#" + el + "addr").val(fullAddr);
+
+               // 커서를 상세주소 필드로 이동한다.
+               $("#" + el + "addr_detail").focus();
+            }
+        }).open({
+            popupName: 'postcodePopup'
+        });
+    }
+    </script>
+
+</head>
+<body>
+        <div id="loading_img" style="display:none">
+          <img src='[TPH_Vdesign_dir]/images/loading.gif' style="position:absolute;z-index:9999999;top:30%; left:30%;" alt="로딩" />
+        </div>
+        <div id="black_mask" style="display:none;position:absolute;left:0;top:0;z-index:9998;background-color:#000;opacity:0.3;"></div>
+        <div id="pop_mask" style="display:none;position:absolute;left:0;top:0;z-index:99998;background-color:#000;opacity:0.3;"></div>
+        <div id="pop_pop_mask" style="display:none;position:absolute;left:0;top:0;z-index:999998;background-color:#000;opacity:0.3;"></div>
+<!--  onmousedown="startDrag(event, this)"-->
+        <div id="pop_popup" style="display:none;position:absolute;z-index:99999;" class="pop_add_box"></div>
+        <div id="regi_popup" style="display:none;position:absolute;z-index:9999;" class="pop_add_box"></div>
+
+            <!-- 기본정보 Tab box -->
+            <div class="tb_group2 fix_width1200">
+
+               <form id="member_common_info">
+               </form>
+
+               <div class="tab_box_con">
+
+                   <div class="tabbable">
+                        <ul class="nav nav-tabs">
+                           <li class="active"><a href="#member_summary_info" data-toggle="tab" onclick="detailTabCtrl('summary');"> 요약정보 </a> </li>
+                           <li><a href="#member_detail_info" data-toggle="tab" onclick="detailTabCtrl('detail');">회원정보</a> </li>
+                           <li><a href="#member_add_info" data-toggle="tab" onclick="detailTabCtrl('add');">추가회원정보</a> </li>
+                           <li><a href="#member_dlvr_info" data-toggle="tab" onclick="detailTabCtrl('dlvr');">배송관리</a> </li>
+                           <li><a href="#member_sales_info" data-toggle="tab" onclick="detailTabCtrl('sales');">매출정보 </a> </li>
+                           <li><a href="#member_grade_info" data-toggle="tab" onclick="detailTabCtrl('grade');">등급 </a> </li>
+                           <li><a href="#member_point_info" data-toggle="tab" onclick="detailTabCtrl('point');">포인트 </a> </li>
+                           <li><a href="#member_coupon_info" data-toggle="tab" onclick="detailTabCtrl('coupon');">쿠폰 </a> </li>
+                           <li><a href="#member_event_info" data-toggle="tab" onclick="detailTabCtrl('event');">이벤트 </a> </li>
+                           <li><a href="#member_reduce_info" data-toggle="tab" onclick="detailTabCtrl('reduce');">탈퇴 </a> </li>
+                           <li><a href="#member_calcul_info" data-toggle="tab" onclick="detailTabCtrl('calcul');">정산 </a> </li>
+                        </ul>
+
+                     <div class="tab-content">
+                       <input type="hidden" id="seqno" value="[TPH_Vseqno]">
+                       <div class="tab-pane active fs12" id="member_summary_info"> <!-- 요약 -->
+                       </div><!-- 요약 -->
+
+                       <div class="tab-pane" id="member_detail_info"><!-- 회원 -->
+                       </div><!-- 회원 -->
+
+                       <div class="tab-pane" id="member_add_info"><!-- 추가 -->
+
+                       </div><!-- 추가정보 -->
+
+                       <div class="tab-pane" id="member_dlvr_info"><!-- 배송 -->
+                       </div><!-- 배송관리 -->
+
+                       <div class="tab-pane" id="member_sales_info"><!-- 매출 -->
+
+                       </div><!-- 매출 -->
+
+                       <div class="tab-pane" id="member_grade_info"><!-- 등급 -->
+
+                       </div><!-- 등급 -->
+
+                       <div class="tab-pane" id="member_point_info"><!-- 포인트 -->
+                       </div><!-- 포인트 -->
+
+                       <div class="tab-pane" id="member_coupon_info"><!-- 쿠폰 -->
+                       </div><!-- 쿠폰 -->
+
+                       <div class="tab-pane" id="member_event_info"><!-- 이벤트 -->
+                       </div><!-- 이벤트 -->
+
+                       <div class="tab-pane" id="member_reduce_info"><!-- 탈퇴 -->
+
+                       </div><!-- 탈퇴 -->
+
+                       <div class="tab-pane" id="member_calcul_info"><!-- 정산 -->
+
+                       </div><!-- 정산 -->
+                     </div>
+                   </div>
+               </div>
+            </div>
+</body>
+</html>

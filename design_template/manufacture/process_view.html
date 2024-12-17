@@ -1,0 +1,125 @@
+<html lang="ko">
+<head>
+<title>[TPH_Vmain_title]</title>
+<meta charset="utf-8">
+[TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+
+  <!-- TOP NAVIGATION -->
+  [TPH_I/common/header.html]
+
+  <!-- LEFT NAVIGATION -->
+  [TPH_Vleft]
+
+  <!-- CONTENT -->
+  <section id="page-content">
+
+
+  <!-- 본문 컨텐츠  시작-->
+    <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <colgroup>
+                                <col class="normal_search_col_01">
+                                <col class="normal_search_col_02">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th class="th_text th_manu_process_view_01">조판번호</th>
+                                    <td>
+                                        <input type="text" class="input_co2 input_manu_process_view_01" id="typset_num">
+                                        <button type="button" class="btn_float_right btn_Turquoise01" onclick="searchProcess();">검색</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_manu_process_view_01">날짜</th>
+                                    <td colspan="2">
+                                        <select id="date_cnd" class="select_member_common_cnd">
+                                            <option value="regi_date">조판등록일</option>
+                                        </select>
+                                        <input type="text" class="datepicker_input input_manu_process_view_02" readonly="readonly" id="basic_from">-
+                                        <input type="text" class="datepicker_input input_manu_process_view_02" readonly="readonly" id="basic_to">
+                                        <span class="container_btn_align_02">
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -1,  0, $(this).text(), true);">어제</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 't',  0,  0, $(this).text(), false);">오늘</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -7,  0, $(this).text(), false);">일주일</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'm', -1,  0, $(this).text(), false);">한달</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'y', -1, -1, $(this).text(), true);">작년동기</button>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!--ul class="nav nav-tabs">
+                            <li class="active"><a href="#" data-toggle="tab" onclick="tabView('list');"> 낱장형</a> </li>
+                            <li><a href="#" data-toggle="tab" onclick="tabView('add');"> 책자형</a> </li>
+                        </ul-->
+                        <table class="table_basic_layout">
+                            <colgroup>
+                                <col style="width:50px;">
+                                <col style="width:120px;">
+                                <col style="width:80px;">
+                                <col style="width:80px;">
+                                <col style="width:80px;">
+                                <col style="width:120px;">
+                                <col style="width:260px;">
+                                <col style="width:100px;">
+                            </colgroup>
+                            <thead>
+                                <tr style="height:31px;">
+                                    <th>번호</th>
+                                    <th>조판번호</th>
+                                    <th>종이</th>
+                                    <th>출력</th>
+                                    <th>인쇄</th>
+                                    <th>조판후공정</th>
+                                    <th>특이사항</th>
+                                    <th>관리</th>
+                                </tr>
+                            </thead>
+                            <tbody id="list">
+                                <tr>
+                                    <td colspan="7">검색 된 내용이 없습니다.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="p_num_b fs12">
+                            <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+                                <option>5</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option selected="selected">30</option>
+                            </select>
+                            개씩 보기
+                        </p>
+                        <div class="tac clear" id="page"></div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+  </section>
+</div>
+</body>
+</html>

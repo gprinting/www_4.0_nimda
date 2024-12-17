@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <style>
+        #content1 .table_basic_layout .big_body .hidden_row {display:none;}
+        #content1 .table_basic_layout .big_body .hidden_ground {background:#f9f9f7;}
+        #content2 .detail_table .big_body .hidden_row {display:none;}
+        #content2 .detail_table .big_body .hidden_ground {background:#f9f9f7;}
+        body {overflow-y:scroll;}
+    </style>
+</head>
+<body>
+
+<div id="container">
+
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content">
+
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container calcul_common income_data">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+
+                        <!-- 탭 박스 1 기본검색 -->
+                        <div class="">
+                            <form id="income_form" name="income_form">
+                                <table class="table_search_layout">
+                                    <tbody>
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">판매채널</th>
+                                        <td>
+                                            <select id="sell_site" name="sell_site" class="fix_width180">
+                                                <option value="">전체</option>
+                                                [TPH_Vsell_site]
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <!--tr>
+                                        <th class="th_text calcul_mng_th_left">입출금경로</th>
+                                        <td>
+                                            <select id="depo_path" name="path" onchange="loadPathDetail('N');" class="fix_width85">
+                                                <option value="">선택</option>
+                                                [TPH_Vpath_html]
+                                            </select>
+                                            <select id="depo_path_detail" name="path_detail" class="fix_width85">
+                                                <option value="">선택</option>
+                                            </select>
+                                        </td>
+                                    </tr-->
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">회원명</th>
+                                        <td>
+                                            <input type="text" id="office_nick" onkeydown="searchOfficeNick(event, this.value, '')" name="office_nick" class="input_co2 fix_width200" placeholder="검색창 팝업 사용">
+                                            <input type="hidden" name="member_seqno" id="member_seqno">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">조회일</th>
+                                        <td>
+                                            <div class="form-group">
+														<span class="">
+															<input placeholder="yyyy-MM-dd" class="input_co2 fix_width150 date" id="date_from" name="date_from">
+															~
+															<input placeholder="yyyy-MM-dd" class="input_co2 fix_width150 date" id="date_to" name="date_to">
+															<button type="button" class="btn_gray01" onclick="dateSet('date','1')">어제</button>
+															<button type="button" class="btn_gray01" onclick="dateSet('date','0')">오늘</button>
+															<button type="button" class="btn_gray01" onclick="dateSet('date','7')">일주일</button>
+															<button type="button" class="btn_gray01" onclick="dateSet('date','30')">한달</button>
+															<button type="button" class="btn_gray01" onclick="dateSet('date','all')">전체</button>
+                                                            <button type="button" class="btn_Turquoise01" onclick="loadIncomeList(1);">검색</button>
+															<input type="hidden" name="buf_date_from" id="buf_date_from" value="">
+															<input type="hidden" name="buf_date_to" id="buf_date_to" value="">
+
+														</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </form>
+                        </div> <!-- 탭 박스 1 기본검색 -->
+                    </div>
+                </section>
+
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <div class="table-body" style="padding: 0;">
+                            <ul class="table_top tar" style="display: inline-flex;">
+                                <li style="width: 30%">
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <!--th style="background: #eee;">발주업체</th>
+                                            <td id="company_cnt">0원</td-->
+                                            <th style="background: #eee;width: 100px;">대리점명</th>
+                                            <td id="member_name"></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background: #eee;width: 100px;">대표전화</th>
+                                            <td id="tel_num"></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background: #eee;width: 100px;">FAX</th>
+                                            <td id="fax_num"></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background: #eee;width: 100px;">휴대폰</th>
+                                            <td id="cell_num"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li style="margin-left:50px;width: 30%">
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <th style="background: #eee;width: 100px;">선입금</th>
+                                            <td id="depo_price"></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background: #eee;width: 100px;">거래명세 발송</th>
+                                            <td id="cell_num"></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background: #eee;width: 100px;">최근거래일</th>
+                                            <td id="depo_finish_date"></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background: #eee;">입금액</th>
+                                            <td id="depo_sum"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                                <li style="margin-left:50px;width: 30%">
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <th style="background: #eee;width: 100px;">이전미수액</th>
+                                            <td id="prev_misu">0원</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background: #eee;width: 100px;">약속미수액</th>
+                                            <td id="promise_misu">0원</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background: #eee;width: 100px;">총매출</th>
+                                            <td id="period_pay_price"></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background: #eee;">에누리</th>
+                                            <td id="period_enuri"></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="tb_group2 mt25">
+                                <div class="tabbable" style="display: inline-flex;width: 100%;">
+                                    <div class="tab_content" style="width: 26%;">
+                                        <section class="content_section">
+                                            <div class="content_wrapper">
+                                                <form name="frm" id="frm">
+                                                    <input type="hidden" id="seqno" name="seqno">
+                                                </form>
+                                                <ul class="table_top">
+                                                    <li class="sel">
+                                                        메모
+                                                    </li>
+                                                    <li class="sel" style="text-align: right;">
+                                                        <button type="button" style="width: 30px;height: 30px;" class="" onclick="openMemoPopup();">+</button>
+                                                        <button type="button" style="width: 30px;height: 30px;" class="" onclick="removeMemo();">-</button>
+                                                        <br>
+                                                        <br>
+                                                        <input placeholder="yyyy-MM-dd" class="input_co2 fix_width70 date" id="date_from5" name="date_from">
+                                                        ~
+                                                        <input placeholder="yyyy-MM-dd" class="input_co2 fix_width70 date" id="date_to5" name="date_to">
+                                                        <button type="button" class='btn_Turquoise01' style="width: 50px;height: 30px;" onclick="search_memo();">검색</button>
+                                                    </li>
+                                                </ul>
+                                                <table class="table_basic_layout">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="" style="width: 25px;"></th>
+                                                        <th class="" style='width:50px;'>기록일자</th>
+                                                        <th class="">내용</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="memo_list">
+                                                    <tr><td colspan="3">검색 된 내용이 없습니다.</td></tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="tac clear" id="page"></div>
+                                                <!-- 탭 박스 -->
+                                            </div>
+                                        </section>
+                                        <section class="content_section">
+                                            <div class="content_wrapper">
+                                                <div class="content_wrapper">
+                                                    <ul class="nav nav-tabs">
+                                                        <li class="li1 active"><a href="#" data-toggle="tab" onclick="tabView('1');"> 주간별 매출 </a> </li>
+                                                        <li class="li2"><a href="#" data-toggle="tab" onclick="tabView('2');"> 월간별 매출 </a> </li>
+                                                        <li class="li3"><a href="#" data-toggle="tab" onclick="tabView('3');"> 연간별 매출 </a> </li>
+                                                    </ul>
+                                                    <div id="paper_op_1">
+                                                        <section class="content_section">
+                                                            <div class="content_wrapper">
+                                                                <ul class="table_top">
+                                                                    <li class="sel">
+                                                                        주간별 집계
+                                                                    </li>
+                                                                    <li class="sel" style="text-align: right;">
+                                                                        <input placeholder="yyyy-MM-dd" class="input_co2 fix_width70 date" id="date_from2" name="date_from">
+                                                                        ~
+                                                                        <input placeholder="yyyy-MM-dd" class="input_co2 fix_width70 date" id="date_to2" name="date_to">
+                                                                        <button type="button" class='btn_Turquoise01' style="width: 50px;height: 30px;" onclick="search_week();">검색</button>
+                                                                    </li>
+                                                                </ul>
+                                                                <table class="table_basic_layout">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th class="" style="width: 100px;">기간</th>
+                                                                        <th class="" style="width:90px;">순매출액</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody id="list1">
+                                                                    <tr><td colspan="6">검색 된 내용이 없습니다.</td></tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <div class="tac clear" id="page"></div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                    <div id="paper_op_2">
+                                                        <section class="content_section">
+                                                            <div class="content_wrapper">
+                                                                <ul class="table_top">
+                                                                    <li class="sel">
+                                                                        월간별 집계
+                                                                    </li>
+                                                                    <li class="sel" style="text-align: right;">
+                                                                        <input placeholder="yyyy-MM-dd" class="input_co2 fix_width70 date" id="date_from6" name="date_from">
+                                                                        ~
+                                                                        <input placeholder="yyyy-MM-dd" class="input_co2 fix_width70 date" id="date_to6" name="date_to">
+                                                                        <button type="button" class='btn_Turquoise01' style="width: 50px;height: 30px;" onclick="search_months();">검색</button>
+                                                                    </li>
+                                                                </ul>
+                                                                <table class="table_basic_layout">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th class="" style="width: 100px;">기간</th>
+                                                                        <th class="" style="width:90px;">총매출액</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody id="list_month">
+                                                                    <tr><td colspan="6">검색 된 내용이 없습니다.</td></tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <div class="tac clear" id="page"></div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                    <div id="paper_op_3">
+                                                        <section class="content_section">
+                                                            <div class="content_wrapper">
+                                                                <ul class="table_top">
+                                                                    <li class="sel">
+                                                                        연간별 집계
+                                                                    </li>
+                                                                    <li class="sel" style="text-align: right;">
+                                                                        <input placeholder="yyyy-MM-dd" class="input_co2 fix_width70 date" id="date_from7" name="date_from">
+                                                                        ~
+                                                                        <input placeholder="yyyy-MM-dd" class="input_co2 fix_width70 date" id="date_to7" name="date_to">
+                                                                        <button type="button" class='btn_Turquoise01' style="width: 50px;height: 30px;" onclick="search_years();">검색</button>
+                                                                    </li>
+                                                                </ul>
+                                                                <table class="table_basic_layout">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th class="" style="width: 100px;">기간</th>
+                                                                        <th class="" style="width:90px;">총매출액</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody id="list_year">
+                                                                    <tr><td colspan="6">검색 된 내용이 없습니다.</td></tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <div class="tac clear" id="page"></div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                    <div style="width: 73%;">
+                                        <section class="content_section">
+                                            <div class="content_wrapper">
+                                                <ul class="table_top">
+                                                    <li class="sel">
+                                                        거래 내역 일별 집계
+                                                    </li>
+                                                    <li class="sel" style="text-align: right;">
+                                                        <input placeholder="yyyy-MM-dd" class="input_co2 fix_width70 date" id="date_from3" name="date_from">
+                                                        ~
+                                                        <input placeholder="yyyy-MM-dd" class="input_co2 fix_width70 date" id="date_to3" name="date_to">
+                                                        <button type="button" class='btn_Turquoise01' style="width: 50px;height: 30px;" onclick="search_day();">검색</button>
+                                                    </li>
+                                                </ul>
+                                                <table class="table_basic_layout">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="" style="width: 100px;">일자</th>
+                                                        <th class="">선입금</th>
+                                                        <th class="">매출액</th>
+                                                        <th class="">에누리</th>
+                                                        <th class="">순매출액</th>
+                                                        <th class="">카드매출</th>
+                                                        <th class="">입금액</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="list2">
+                                                    <tr><td colspan="6">검색 된 내용이 없습니다.</td></tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="tac clear" id="page"></div>
+                                                <!-- 탭 박스 -->
+                                            </div>
+                                        </section>
+
+                                        <section id="content2" class="content_section">
+                                            <div class="content_wrapper">
+                                                <ul class="table_top">
+                                                    <li class="sel">
+                                                        거래일자별 주문 상세내역
+                                                    </li>
+                                                    <li class="sel" style="text-align: right;">
+                                                        <input placeholder="yyyy-MM-dd" class="input_co2 fix_width70 date" id="date_from4" name="date_from">
+                                                        <button type="button" class='btn_Turquoise01' style="width: 50px;height: 30px;" onclick="search_day_detail();">검색</button>
+                                                    </li>
+                                                </ul>
+                                                <div class="detail_table">
+                                                    <table class="table_basic_layout">
+                                                        <colgroup>
+                                                            <col style="width:50px">
+                                                            <col style="width:150px">
+                                                            <col style="width:340px">
+                                                            <col style="width:120px">
+                                                            <col style="width:80px">
+                                                            <col style="width:80px">
+                                                            <col style="width:80px">
+                                                        </colgroup>
+                                                        <thead>
+                                                        <tr class="big_table">
+                                                            <th>No</th>
+                                                            <th>품목</th>
+                                                            <th>상품정보</th>
+                                                            <th>금액</th>
+                                                            <th>상태</th>
+                                                            <th>배송유형</th>
+                                                            <th>메모</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <thead>
+                                                        <tr class="big_table2" id="order_info_sum">
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody class="big_body" id="order_info_list">
+                                                        </tbody>
+                                                    </table>
+
+                                                    <div class="loading_oh" id="order_info_mask" style="display:none; top:874px;">
+                                                        <table  height="288" align="center" cellpadding="0" cellspacing="0" style="opacity:0.5; width:100%">
+                                                            <tr style="background:#CCC">
+                                                                <td align="center"><img src="[TPH_Vdesign_dir]/images/business/loading.gif" border="0"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- 탭 박스 -->
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,1362 @@
+<?php
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/member/member_mng/MemberCommonListDAO.inc");
+include_once(INC_PATH . "/common_define/common_info.inc");
+include_once(INC_PATH . "/define/nimda/order_mng_define.inc");
+include_once(INC_PATH . "/common_lib/DateUtil.inc");
+include_once(INC_PATH . "/define/nimda/member_define.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$dao = new MemberCommonListDAO();
+
+$fb = $fb->getForm();
+
+$seqno = $fb["seqno"];
+
+if (!$seqno) {
+    echo "<script>alert('잘못된 접근입니다.');window.close();</script>";
+    exit;
+}
+
+$param = [];
+$param["member_seqno"] = $fb["seqno"];
+
+// 공통사항 미리 검색
+$param = [];
+$param["member_seqno"] = $seqno;
+$param["group_id"] = $seqno;
+// 기본정보
+$default_info  = $dao->selectMemberDefaultInfo($conn, $param);
+// 사업자정보
+$licensee_info = $dao->selectMemberLicenseeInfo($conn, $param);
+// 회원주문담당자정보
+$group_info = $dao->selectMemberGroupInfo($conn, $param);
+// 회원회계담당자정보
+$accting_info = $dao->selectAcctingMngInfo($conn, $param);
+// 회원관리사업자정보
+$admin_licensee_info = $dao->selectAdminLicenseeregiInfo($conn, $param);
+// 직원입력 회원담당자정보
+$empl_input_mng_info = $dao->selectEmplInputMemberMngInfo($conn, $param);
+// 회원 인증 정보
+$certi_info = $dao->selectMemberCertiInfo($conn, $param);
+
+$member_dvs = $default_info["member_dvs"];
+// 회원 기본정보 html
+$param["default_info"]  = $default_info;
+$param["licensee_info"] = $licensee_info;
+
+$default_html = getDefaultInfoHtml($conn, $dao, $param);
+$template->reg("default_info"      , $default_html); 
+$template->reg("member_zipcode"    , $default_info["zipcode"]); 
+$template->reg("member_addr"       , $default_info["addr"]); 
+$template->reg("member_addr_detail", $default_info["addr_detail"]); 
+
+// 사업자 등록 정보 html
+$template->reg("licensee_info", ''); 
+if ($member_dvs === "기업") {
+    $param["group_info"] = $group_info->fields;
+    $param["admin_licensee"] = $admin_licensee_info;
+
+    $licensee_html = getLicenseeInfoHtml($param);
+    $template->reg("licensee_info", $licensee_html); 
+
+}
+
+// 직원입력 회원담당자 정보
+$param["empl_input_mng"] = $empl_input_mng_info;
+$mng_info_html = getEmplInputMngInfoHtml($param);
+$template->reg("mng_info", $mng_info_html); 
+
+if ($member_dvs === "기업") {
+    // 회원 등록 주문 담당자 정보
+    $param["group_info"] = $group_info;
+    $group_html = getMemberGroupInfoHtml($param);
+    $template->reg("group_info", $group_html); 
+    // 회원 등록 회계 담당자 정보
+    $param["accting_info"] = $accting_info;
+    $group_html = getMemberAcctingInfoHtml($param);
+    $template->reg("accting_info", $group_html); 
+}
+
+// 결제정보
+getPaymentInfo($conn, $dao, $template, $param);
+$excpt_html = getExcptMemberInfo($conn, $dao, $param);
+$template->reg("excpt_member", $excpt_html); 
+
+// 기타정보
+getEtcInfo($conn, $dao, $template, $param);
+
+// 사내 담당자 정보
+getMemberMngInfo($conn, $dao, $template, $param);
+
+// 회원 인증 정보
+$template->reg("member_certi_seqno"    , $certi_info["member_certi_seqno"]); 
+$template->reg("member_certi_file_name", $certi_info["origin_file_name"]); 
+
+$template->reg("member_seqno", $seqno); 
+
+$template->reg("design_dir" , "/design_template"); 
+$template->htmlPrint($_SERVER["PHP_SELF"]); 
+$conn->Close();
+exit;
+
+/****************************************************************************** 
+ ************ html 함수
+ ******************************************************************************/
+
+/**
+ * @brief 회원기본정보
+ */
+function getDefaultInfoHtml($conn, $dao, $param) {
+
+    $default_info = $param["default_info"];
+    $licensee_info = $param["licensee_info"];
+
+    $cpn_admin_rs = $dao->selectCpnAdmin($conn);
+
+    $cpn_admin_seqno = $default_info["cpn_admin_seqno"];
+    $member_dvs      = $default_info["member_dvs"];
+    $member_grade    = $default_info["grade"];
+    $cell_num = explode('-', $default_info["cell_num"]);
+    $tel_num  = explode('-', $default_info["tel_num"]);
+
+    // 판매채널
+    $sell_site_html = '';
+    while ($cpn_admin_rs && !$cpn_admin_rs->EOF) {
+        $fields = $cpn_admin_rs->fields;
+
+        $attr = '';
+        if ($fields["cpn_admin_seqno"] === $cpn_admin_seqno) {
+            $attr = "selected=\"selected\"";
+        }
+
+        $sell_site_html .= option($fields["sell_site"],
+                                  $fields["cpn_admin_seqno"],
+                                  $attr);
+
+        $cpn_admin_rs->MoveNext();
+    }
+
+    // 회원등급
+    $grade_arr = GRADE_EN;
+    $grade_en = '';
+    foreach ($grade_arr as $grade => $name) {
+        if ($member_grade == $grade) {
+            $grade_en = $name;
+            break;
+        }
+    }
+
+    // 신규/기존
+    $is_new_exist = "기존회원";
+    if (intval($member_grade) > 8) {
+        $is_new_exist = "신규회원";
+    }
+
+    $yn_html = "<option %s value=\"Y\">허용</option>"
+               . "<option %s value=\"N\">거부</option>";
+    // 메일 수신여부
+    if ($default_info["mailing_yn"] === 'Y') {
+        $mailing_yn = sprintf($yn_html, "selected=\"selected\""
+                                      , "");
+    } else {
+        $mailing_yn = sprintf($yn_html, ""
+                                      , "selected=\"selected\"");
+    }
+
+    // SMS 수신여부
+    if ($default_info["sms_yn"] === 'Y') {
+        $sms_yn = sprintf($yn_html, "selected=\"selected\""
+                                  , "");
+    } else {
+        $sms_yn = sprintf($yn_html, ""
+                                  , "selected=\"selected\"");
+    }
+
+    $default_release_ih = "";
+    $default_release_ss = "";
+    if ($default_info["default_release"] === '인현') {
+        $default_release_ih = "selected=\"selected\"";
+    } else if ($default_info["default_release"] === '성수') {
+        $default_release_ss = "selected=\"selected\"";
+    }
+
+    $is_except_y = "";
+    $is_except_n = "";
+    if ($default_info["is_except"] === 'Y') {
+        $is_except_y = "selected=\"selected\"";
+    } else if ($default_info["is_except"] === 'N') {
+        $is_except_n = "selected=\"selected\"";
+    }
+
+    // 기본정보 tr
+    $html = null;
+    if ($member_dvs === "기업") {
+        $member_dvs_selected_p = '';
+        $member_dvs_selected_e = "selected=\"selected\"";
+
+        $html = <<<HTML
+            <tr>
+                <th>회사명(닉네임)</th>
+                <td><input type="text" id="office_nick" value="{$default_info["member_name"]}" /></td>
+                <th>아이디</th>
+                <td><input type="text" value="{$default_info["id"]}" readonly="readonly" /></td>
+                <th>회원구분</th>
+                <td>
+                    <select id="member_dvs">
+                        <option {$member_dvs_selected_e} value="기업">기업회원</option>
+                        <option {$member_dvs_selected_p} value="개인">개인회원</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>채널구분</th>
+                <td>
+                    <select id="cpn_admin">
+                        {$sell_site_html}
+                    </select>
+                </td>
+                <th>회원등급</th>
+                <td><input type="text" value="{$default_info["erp_grade_name"]}" readonly="readonly" /></td>
+                <th>신규/기존</th>
+                <td>
+                    <select>
+                        <option>{$is_new_exist}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>대표자 성명</th>
+                <td><input type="text" value="{$licensee_info["repre_name"]}" readonly="readonly" /></td>
+                <th>전화번호</th>
+                <td>
+                    <input type="text" id="tel_num0" value="{$tel_num[0]}" maxlength="3" style="width:25px;" />
+                    <input type="text" id="tel_num1" value="{$tel_num[1]}" maxlength="4" style="width:55px;" />
+                    <input type="text" id="tel_num2" value="{$tel_num[2]}" maxlength="4" style="width:55px;" />
+                </td>
+                <th>휴대폰번호</th>
+                <td>
+                    <input type="text" id="cell_num0" value="{$cell_num[0]}" maxlength="3" style="width:25px;" />
+                    <input type="text" id="cell_num1" value="{$cell_num[1]}" maxlength="4" style="width:55px;" />
+                    <input type="text" id="cell_num2" value="{$cell_num[2]}" maxlength="4" style="width:55px;" />
+                </td>
+            </tr>
+            <tr>
+                <th>생년월일</th>
+                <td><input type="text" id="brith" value="{$default_info["birth"]}" class="datepicker_input" readonly="readonly" /></td>
+                <th>이메일</th>
+                <td><input type="text" id="mail" value="{$default_info["mail"]}" /></td>
+                <th>이메일 수신여부</th>
+                <td>
+                    <select id="mailing_yn">
+                        {$mailing_yn}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>출고지</th>
+                <td>
+                    <select id="default_release">
+                        <option {$default_release_ih} value="인현">인현</option>
+                        <option {$default_release_ss} value="성수">성수</option>
+                    </select>
+                </td>
+                <th>예외업체여부</th>
+                <td>
+                    <select id="is_except">
+                        <option {$is_except_n} value="N">일반</option>
+                        <option {$is_except_y} value="Y">예외업체</option>
+                    </select>
+                </td>
+                <th>SMS수신여부</th>
+                <td>
+                    <select id="sms_yn">
+                        {$sms_yn}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td></td>
+                <th></th>
+                <td></td>
+                <th>홈페이지</th>
+                <td><input type="text" id="hp" value="{$default_info["hp"]}" /></td>
+            </tr>
+HTML;
+    } else {
+        $member_dvs_selected_e = '';
+        $member_dvs_selected_p = "selected=\"selected\"";
+
+        $html = <<<HTML
+            <tr>
+                <th class="th_text th_member_01">회원명</th>
+                <td><input type="text" id="office_nick" value="{$default_info["member_name"]}"/></td>
+                <th class="th_text th_member_02">아이디</th>
+                <td><input type="text" id="member_id" value="{$default_info["id"]}"/></td>
+                <th class="th_text th_member_03">회원구분</th>
+                <td>
+                    <select id="member_dvs">
+                        <option {$member_dvs_selected_e} value="기업">기업회원</option>
+                        <option {$member_dvs_selected_p} value="개인">개인회원</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="th_text th_member_01">채널구분</th>
+                <td>
+                    <select>
+                        {$sell_site_html}
+                    </select>
+                </td>
+                <th class="th_text th_member_02">회원등급</th>
+                <td><input type="text" value="{$default_info["erp_grade_name"]}" readonly="readonly" /></td>
+                <th class="th_text th_member_03">신규/기존</th>
+                <td>
+                    <select>
+                        <option>{$is_new_exist}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="th_text th_member_01">생년월일</th>
+                <td><input type="text" id="birth" value="{$default_info["birth"]}" class="datepicker_input" readonly="readonly" /></td>
+                <th class="th_text th_member_02">휴대폰번호</th>
+                <td><input type="text" id="cell_num" value="{$default_info["cell_num"]}" /></td>
+                <th class="th_text th_member_03">이메일</th>
+                <td><input type="text" id="mail" value="{$default_info["mail"]}" /></td>
+            </tr>
+            <tr>
+                <th class="th_text th_member_01">홈페이지</th>
+                <td><input type="text" id="hp" value="{$default_info["hp"]}" /></td>
+                <th class="th_text th_member_02">SMS수신여부</th>
+                <td>
+                    <select id="sms_yn">
+                        {$sms_yn}
+                    </select>
+                </td>
+                <th class="th_text th_member_03">이메일 수신여부</th>
+                <td>
+                    <select id="mailing_yn">
+                        {$mailing_yn}
+                    </select>
+                </td>
+            </tr>
+HTML;
+    }
+
+    return $html;
+}
+
+/**
+ * @brief 사업자 등록정보
+ */
+function getLicenseeInfoHtml($param) {
+    $member_seqno = $param["member_sqeno"];
+    $default_info = $param["default_info"];
+    $licensee_info = $param["licensee_info"];
+    $group_info = $param["group_info"];
+    $admin_licensee_info = $param["admin_licensee"];
+
+    $licensee_tel_num = explode('-', $default_info["cell_num"]);
+    $group_tel_num    = explode('-', $group_info["tel_num"]);
+    $licensee_fax_num    = explode('-', $default_info["fax_num"]);
+
+    $crn_arr = explode('-', $licensee_info["crn"]);
+
+    $html = <<<HTML
+        <div class="member_layout">
+            <div class="member_top">
+                <p>사업자 등록 정보</p>
+                <button type="button" class="big-link" data-reveal-id="licensee_add_pop" data-animation="none" onclick="showLicenseeAddPop();">추가 사업자 등록 +</button>
+                <button style="float:right;margin:10px 0;" onclick="showLicenseeImgAddPop('{$member_seqno}');">등록증 이미지 추가</button>
+            </div>
+            <table class="container_table">
+                <tboby>
+                    <tr>
+                        <th>기업명</th>
+                        <td>
+                            <input type="text" id="corp_name" value="{$licensee_info["corp_name"]}" />
+                            <input type="hidden" id="licensee_info_seqno" value="{$licensee_info["licensee_info_seqno"]}" />
+                        </td>
+                        <th>대표자명</th>
+                        <td><input type="text" id="repre_name" value="{$licensee_info["repre_name"]}" /></td>
+                        <th>이메일</th>
+                        <td><input type="text" value="{$default_info["mail"]}" readonly="readonly" /></td>
+                    </tr>
+                    <tr>
+                        <th>사업자 등록 번호</th>
+                        <td>
+                            <input type="text" id="crn0" value="{$crn_arr[0]}" style="width:32px;" maxlength="3" />
+                            <input type="text" id="crn1" value="{$crn_arr[1]}" style="width:25px;" maxlength="2" />
+                            <input type="text" id="crn2" value="{$crn_arr[2]}" style="width:78px;" maxlength="5" />
+                        </td>
+                        <th>업태</th>
+                        <td><input type="text" id="bc" value="{$licensee_info["bc"]}" /></td>
+                        <th>종목</th>
+                        <td><input type="text" id="tob" value="{$licensee_info["tob"]}" /></td>
+                    </tr>
+                    <tr>
+                        <th>회사 전화번호</th>
+                        <td>
+                            <input type="text" maxlength="3" value="{$licensee_tel_num[0]}" readonly="readonly" style="width:25px;" />
+                            <input type="text" maxlength="4" value="{$licensee_tel_num[1]}" readonly="readonly" style="width:55px;" />
+                            <input type="text" maxlength="4" value="{$licensee_tel_num[2]}" readonly="readonly" style="width:55px;" />
+                        </td>
+                        <th>담당자핸드폰번호</th>
+                        <td>
+                            <input type="text" maxlength="3" value="{$group_tel_num[0]}" readonly="readonly" style="width:25px;" />
+                            <input type="text" maxlength="4" value="{$group_tel_num[1]}" readonly="readonly" style="width:55px;" />
+                            <input type="text" maxlength="4" value="{$group_tel_num[2]}" readonly="readonly" style="width:55px;" />
+                        </td>
+                        <th>팩스번호</th>
+                        <td>
+                            <input type="text" id="licensee_fax_num0" maxlength="3" value="{$licensee_fax_num[0]}" style="width:25px;" />
+                            <input type="text" id="licensee_fax_num1" maxlength="4" value="{$licensee_fax_num[1]}" style="width:55px;" />
+                            <input type="text" id="licensee_fax_num2" maxlength="4" value="{$licensee_fax_num[2]}" style="width:55px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                        <th></th>
+                        <td></td>
+                        <th>대표자 생년월일</th>
+                        <td><input type="text" value="{$default_info["birth"]}" readonly="readonly" /></td>
+                    </tr>
+                    <tr>
+                        <th style="vertical-align:top;">주소</th>
+                        <td colspan="5">
+                            <div class="postNum">
+                                <input type="text" id="licensee_zipcode" value="{$licensee_info["zipcode"]}" readonly="readonly">
+                                <button type="button" onclick="showPostcodePop('licensee_');">우편번호 찾기</button>
+                            </div>
+                            <div class="rowWrap">
+                                <input type="text" id="licensee_addr" value="{$licensee_info["addr"]}" readonly="readonly" />
+                                <input type="text" id="licensee_addr_detail" value="{$licensee_info["addr_detail"]}" />
+                            </div>
+                        </td>
+                    </tr>
+                </tboby>
+            </table>
+HTML;
+
+
+    $html .=          "<table class=\"container_table\">";
+    if (!$admin_licensee_info->EOF) {
+        $html .=             "<tr>";
+        $html .=                 "<td colspan=\"8\"><hr/></td>";
+        $html .=             "</tr>";
+    }
+
+    $table_form  =         "<tr>";
+    $table_form .=             "<th>기업명</th>";
+    $table_form .=             "<td>";
+    $table_form .=                 "<input type=\"text\" name=\"corp_name\" value=\"%s\" />";
+    $table_form .=                 "<input type=\"hidden\" name=\"seqno\" value=\"%s\" />";
+    $table_form .=             "</td>";
+    $table_form .=             "<th>대표자명</th>";
+    $table_form .=             "<td><input type=\"text\" name=\"repre_name\" value=\"%s\" /></td>";
+    $table_form .=             "<th>사업자 등록 번호</th>";
+    $table_form .=             "<td>";
+    $table_form .=                 "<input type=\"text\" name=\"crn0\" value=\"%s\" style=\"width:32px;\" maxlength=\"3\" />";
+    $table_form .=                 "<input type=\"text\" name=\"crn1\" value=\"%s\" style=\"width:25px;\" maxlength=\"2\" />";
+    $table_form .=                 "<input type=\"text\" name=\"crn2\" value=\"%s\" style=\"width:78px;\" maxlength=\"5\" />";
+    $table_form .=             "</td>";
+    $table_form .=         "</tr>";
+    $table_form .=         "<tr>";
+    $table_form .=             "<th>업태</th>";
+    $table_form .=             "<td><input type=\"text\" name=\"bc\" value=\"%s\" /></td>";
+    $table_form .=             "<th>종목</th>";
+    $table_form .=             "<td><input type=\"text\" name=\"tob\" value=\"%s\" /></td>";
+    $table_form .=             "<th></th>";
+    $table_form .=             "<td></td>";
+    $table_form .=         "</tr>";
+    $table_form .=         "<tr>";
+    $table_form .=             "<th>회사 전화번호</th>";
+    $table_form .=             "<td>";
+    $table_form .=                 "<input type=\"text\" name=\"tel_num0\" maxlength=\"3\" value=\"%s\" style=\"width:25px;\" />";
+    $table_form .=                 "<input type=\"text\" name=\"tel_num1\" maxlength=\"4\" value=\"%s\" style=\"width:55px;\" />";
+    $table_form .=                 "<input type=\"text\" name=\"tel_num2\" maxlength=\"4\" value=\"%s\" style=\"width:55px;\" />";
+    $table_form .=             "</td>";
+    $table_form .=             "<th>팩스번호</th>";
+    $table_form .=             "<td>";
+    $table_form .=                 "<input type=\"text\" name=\"fax_num0\" maxlength=\"3\" value=\"%s\" style=\"width:25px;\" />";
+    $table_form .=                 "<input type=\"text\" name=\"fax_num1\" maxlength=\"4\" value=\"%s\" style=\"width:55px;\" />";
+    $table_form .=                 "<input type=\"text\" name=\"fax_num2\" maxlength=\"4\" value=\"%s\" style=\"width:55px;\" />";
+    $table_form .=             "</td>";
+    $table_form .=             "<th></th>";
+    $table_form .=             "<td></td>";
+    $table_form .=         "</tr>";
+    $table_form .=         "<tr>";
+    $table_form .=             "<th style=\"vertical-align:top;\">주소</th>";
+    $table_form .=             "<td colspan=\"5\">";
+    $table_form .=                 "<div class=\"postNum\">";
+    $table_form .=                     "<input type=\"text\" id=\"licenseeregi%s_zipcode\" name=\"zipcode\" value=\"%s\" readonly=\"readonly\" \">";
+    $table_form .=                     "<button type=\"button\" onclick=\"showPostcodePop('licenseeregi%s_');\">우편번호 찾기</button>";
+    $table_form .=                 "</div>";
+    $table_form .=                 "<div class=\"rowWrap\">";
+    $table_form .=                     "<input type=\"text\" id=\"licenseeregi%s_addr\" name=\"addr\" value=\"%s\" readonly=\"readonly\" />";
+    $table_form .=                     "<input type=\"text\" name=\"addr_detail\" value=\"%s\" />";
+    $table_form .=                 "</div>";
+    $table_form .=             "</td>";
+    $table_form .=         "</tr>";
+
+    $i = 0;
+    while ($admin_licensee_info && !$admin_licensee_info->EOF) {
+        $fields = $admin_licensee_info->fields;
+
+        $crn = explode('-', $fields["crn"]);
+        $tel_num = explode('-', $fields["tel_num"]);
+        $fax_num = explode('-', $fields["fax_num"]);
+        
+        $html .=             "<tbody class=\"admin_licenseeregi_info\">";
+        $html .= sprintf($table_form, $fields["corp_name"]
+                                    , $fields["admin_licenseeregi_seqno"]
+                                    , $fields["repre_name"]
+                                    , $crn[0]
+                                    , $crn[1]
+                                    , $crn[2]
+                                    , $fields["bc"]
+                                    , $fields["tob"]
+                                    , $tel_num[0]
+                                    , $tel_num[1]
+                                    , $tel_num[2]
+                                    , $fax_num[0]
+                                    , $fax_num[1]
+                                    , $fax_num[2]
+                                    , $i
+                                    , $fields["zipcode"]
+                                    , $i
+                                    , $i++
+                                    , $fields["addr"]
+                                    , $fields["addr_detail"]);
+
+        $admin_licensee_info->MoveNext();
+
+        if ($admin_licensee_info->EOF) {
+            $html .=         "</tbody>";
+            break;
+        } else {
+            $html .=             "<tr>";
+            $html .=                 "<td colspan=\"8\"><hr/></td>";
+            $html .=             "</tr>";
+            $html .=         "</tbody>";
+        }
+    }
+
+    $html .=            "</table>";
+    $html .=        "</div>";
+    // 관리사업자 등록증 내용 추가 필요
+
+    return $html;
+}
+
+/**
+ * @brief 직원 입력 회원 담당자 정보
+ */
+function getEmplInputMngInfoHtml($param) {
+    $empl_input_mng_info = $param["empl_input_mng"];
+
+    $html  = "<div class=\"member_layout\">";
+    $html .=     "<div class=\"member_top\">";
+    $html .=         "<p>회원 담당자 정보</p>";
+    $html .=         "<button type=\"button\" class=\"btn_add_charge\" style=\"float:right; border:none;\" onclick=\"showEmplMemberMngAddPop();\">담당자 정보 추가 등록 +</button>";
+    $html .=     "</div>";
+    $html .=     "<div class=\"container_table\">";
+    $html .=         "<table class=\"member_4_table\">";
+
+    $tr_form  =             "<tr>";
+    $tr_form .=                 "<th>성명</th>";
+    $tr_form .=                 "<td>";
+    $tr_form .=                     "<input type=\"text\" name=\"name\" value=\"%s\" />";
+    $tr_form .=                     "<input type=\"hidden\" name=\"seqno\" value=\"%s\" />";
+    $tr_form .=                 "</td>";
+    $tr_form .=                 "<th>회사직통번호</th>";
+    $tr_form .=                 "<td>";
+    $tr_form .=                     "<input type=\"text\" name=\"tel_num0\" value=\"%s\" style=\"width:24px\" />";
+    $tr_form .=                     "<input type=\"text\" name=\"tel_num1\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                     "<input type=\"text\" name=\"tel_num2\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                 "</td>";
+    $tr_form .=                 "<th style=\"width:50px;\">내선</th>";
+    $tr_form .=                 "<td><input type=\"text\" name=\"exten\" value=\"%s\" /></td>";
+    $tr_form .=                 "<th>휴대폰 번호</th>";
+    $tr_form .=                 "<td>";
+    $tr_form .=                     "<input type=\"text\" name=\"cell_num0\" value=\"%s\" style=\"width:24px\" />";
+    $tr_form .=                     "<input type=\"text\" name=\"cell_num1\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                     "<input type=\"text\" name=\"cell_num2\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                 "</td>";
+    $tr_form .=             "</tr>";
+
+    $tr_form .=             "<tr>";
+    $tr_form .=                 "<th>직무</th>";
+    $tr_form .=                 "<td><input type=\"text\" name=\"job\" value=\"%s\" /></td>";
+    $tr_form .=                 "<th>부서</th>";
+    $tr_form .=                 "<td colspan=\"3\"><input type=\"text\" name=\"depar\" value=\"%s\" style=\"width:297px;\" /></td>";
+    $tr_form .=                 "<th>이메일</th>";
+    $tr_form .=                 "<td><input type=\"text\" name=\"mail\" value=\"%s\" /></td>";
+    $tr_form .=             "</tr>";
+
+    $tr_form .=             "<tr>";
+    $tr_form .=                 "<th>사용 프로그램</th>";
+    $tr_form .=                 "<td><input type=\"text\" name=\"pro\" value=\"%s\" /></td>";
+    $tr_form .=             "</tr>";
+    
+    while ($empl_input_mng_info && !$empl_input_mng_info->EOF) {
+        $fields = $empl_input_mng_info->fields;
+
+        $tel_num  = explode('-', $fields["cpn_tel_num"]);
+        $cell_num = explode('-', $fields["cell_num"]);
+
+        $html .=         "<tbody class=\"empl_input_mng_info\">";
+        $html .= sprintf($tr_form, $fields["name"]
+                                , $fields["empl_input_member_mng_seqno"]
+                                , $tel_num[0]
+                                , $tel_num[1]
+                                , $tel_num[2]
+                                , $fields["exten"]
+                                , $cell_num[0]
+                                , $cell_num[1]
+                                , $cell_num[2]
+                                , $fields["job"]
+                                , $fields["depar"]
+                                , $fields["mail"]
+                                , $fields["pro"]);
+
+        $empl_input_mng_info->MoveNext();
+
+        if ($empl_input_mng_info->EOF) {
+            $html .=         "</tbody>";
+            break;
+        } else {
+            $html .=             "<tr>";
+            $html .=                 "<td colspan=\"8\"><hr/></td>";
+            $html .=             "</tr>";
+            $html .=         "</tbody>";
+        }
+    }
+
+
+    $html .=     "</table>";
+    $html .=     "</div>";
+    $html .=     "</div>";
+
+    return $html;
+}
+
+/**
+ * @brief 회원이 등록한 담당자정보
+ */
+function getMemberGroupInfoHtml($param) {
+    $group_info = $param["group_info"];
+
+    $html  = "<div class=\"member_layout\">";
+    $html .=     "<div class=\"member_top\">";
+    $html .=         "<p>회원 등록 주문 담당자 정보</p>";
+    $html .=     "</div>";
+    $html .=     "<table class=\"member_3_table\">";
+    $html .=         "<tbody>";
+
+    $tr_form .=             "<tr>";
+    $tr_form .=                 "<th>성명</th>";
+    $tr_form .=                 "<td><input type=\"text\" readonly=\"readonly\" value=\"%s\" /></td>";
+    $tr_form .=                 "<th>전화번호</th>";
+    $tr_form .=                 "<td>";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:24px\" />";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                 "</td>";
+    $tr_form .=                 "<th style=\"width:50px;\">내선</th>";
+    $tr_form .=                 "<td><input type=\"text\" readonly=\"readonly\" value=\"%s\" /></td>";
+    $tr_form .=                 "<th>휴대폰 번호</th>";
+    $tr_form .=                 "<td>";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:24px\" />";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                 "</td>";
+    $tr_form .=             "</tr>";
+
+    $tr_form .=             "<tr>";
+    $tr_form .=                 "<th>직무</th>";
+    $tr_form .=                 "<td><input type=\"text\" readonly=\"readonly\" value=\"%s\" /></td>";
+    $tr_form .=                 "<th>부서</th>";
+    $tr_form .=                 "<td colspan=\"3\"><input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:297px;\" /></td>";
+    $tr_form .=                 "<th>이메일</th>";
+    $tr_form .=                 "<td><input type=\"text\" readonly=\"readonly\" value=\"%s\" /></td>";
+    $tr_form .=             "</tr>";
+
+    $tr_form .=             "<tr>";
+    $tr_form .=                 "<th>사용 프로그램</th>";
+    $tr_form .=                 "<td><input type=\"text\" readonly=\"readonly\" value=\"%s\" /></td>";
+    $tr_form .=             "</tr>";
+    
+    $i = 0;
+    while ($group_info && !$group_info->EOF) {
+        $fields = $group_info->fields;
+
+        $tel_num  = explode('-', $fields["tel_num"]);
+        $cell_num = explode('-', $fields["cell_num"]);
+
+        $html .= sprintf($tr_form, $fields["member_name"]
+                                 , $tel_num[0]
+                                 , $tel_num[1]
+                                 , $tel_num[2]
+                                 , $fields["exten"]
+                                 , $cell_num[0]
+                                 , $cell_num[1]
+                                 , $cell_num[2]
+                                 , $fields["job"]
+                                 , $fields["depar"]
+                                 , $fields["mail"]
+                                 , $fields["pro"]);
+
+        $group_info->MoveNext();
+
+        if ($group_info->EOF) {
+            break;
+        } else {
+            $html .=             "<tr>";
+            $html .=                 "<td colspan=\"8\"><hr/></td>";
+            $html .=             "</tr>";
+        }
+    }
+
+
+    $html .=         "</tbody>";
+    $html .=     "</table>";
+    $html .= "</div>";
+
+    return $html;
+}
+
+/**
+ * @brief 회원이 등록한 회계담당자정보
+ */
+function getMemberAcctingInfoHtml($param) {
+    $accting_info = $param["accting_info"];
+
+    $html  = "<div class=\"member_layout\">";
+    $html .=     "<div class=\"member_top\">";
+    $html .=         "<p>회원 등록 회계 담당자 정보</p>";
+    $html .=     "</div>";
+    $html .=     "<table class=\"member_3_table\">";
+    $html .=         "<tbody>";
+
+    $tr_form .=             "<tr>";
+    $tr_form .=                 "<th>성명</th>";
+    $tr_form .=                 "<td><input type=\"text\" readonly=\"readonly\" value=\"%s\" /></td>";
+    $tr_form .=                 "<th>전화번호</th>";
+    $tr_form .=                 "<td>";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:24px\" />";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                 "</td>";
+    $tr_form .=                 "<th>휴대폰 번호</th>";
+    $tr_form .=                 "<td>";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:24px\" />";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                     "<input type=\"text\" readonly=\"readonly\" value=\"%s\" style=\"width:30px;margin-left:3px;\" />";
+    $tr_form .=                 "</td>";
+    $tr_form .=             "</tr>";
+
+    $tr_form .=             "<tr>";
+    $tr_form .=                 "<th>직급</th>";
+    $tr_form .=                 "<td><input type=\"text\" readonly=\"readonly\" value=\"%s\" /></td>";
+    $tr_form .=                 "<th>이메일</th>";
+    $tr_form .=                 "<td><input type=\"text\" readonly=\"readonly\" value=\"%s\" /></td>";
+    $tr_form .=                 "<th></th>";
+    $tr_form .=                 "<td></td>";
+    $tr_form .=             "</tr>";
+    
+    $i = 0;
+    while ($accting_info && !$accting_info->EOF) {
+        $fields = $accting_info->fields;
+
+        $tel_num  = explode('-', $fields["tel_num"]);
+        $cell_num = explode('-', $fields["cell_num"]);
+
+        $html .= sprintf($tr_form, $fields["name"]
+                                 , $tel_num[0]
+                                 , $tel_num[1]
+                                 , $tel_num[2]
+                                 , $cell_num[0]
+                                 , $cell_num[1]
+                                 , $cell_num[2]
+                                 , $fields["posi"]
+                                 , $fields["mail"]);
+
+        $accting_info->MoveNext();
+
+        if ($accting_info->EOF) {
+            break;
+        } else {
+            $html .=             "<tr>";
+            $html .=                 "<td colspan=\"8\"><hr/></td>";
+            $html .=             "</tr>";
+        }
+    }
+
+
+    $html .=         "</tbody>";
+    $html .=     "</table>";
+    $html .= "</div>";
+
+    return $html;
+}
+
+/**
+ * @brief 회원 예외업체 정보
+ */
+function getPaymentInfo($conn, $dao, $template, $param) {
+    $member_seqno    = $param["member_seqno"];
+    $default_info = $param["default_info"];
+    $cpn_admin_seqno = $default_info["cpn_admin_seqno"];
+
+    // 가상계좌 은행목록
+    $temp = [];
+    $temp["cpn_admin_seqno"] = $cpn_admin_seqno;
+    $bank_name_rs = $dao->selectBankNameList($conn, $temp);
+    // 회원이 갖고있는 가상계좌정보
+    $temp["member_seqno"] = $param["member_seqno"];
+    $virt_ba_info = $dao->selectMemberVirtBaInfo($conn, $temp);
+
+    // 가상계좌(입금)
+    $bank_html = '';
+    while ($bank_name_rs && !$bank_name_rs->EOF) {
+        $fields = $bank_name_rs->fields;
+
+        $attr = '';
+        if ($fields["bank_name"] === $virt_ba_info["bank_name"]) {
+            $attr = "selected=\"selected\"";
+        }
+
+        $bank_html .= option($fields["bank_name"],
+                             $fields["bank_name"],
+                             $attr);
+
+        $bank_name_rs->MoveNext();
+    }
+
+    $template->reg("ba_num"    , $virt_ba_info["ba_num"]);
+    $template->reg("bank_name" , $bank_html);
+    $template->reg("depo_name" , $virt_ba_info["depo_name"]);
+    
+    // 환불계좌
+    $bank_arr = BANK_INFO;
+    $bank_html = '';
+    foreach ($bank_arr as $bank) {
+        $attr = '';
+        if ($bank === $default_info["refund_bank_name"]) {
+            $attr = "selected=\"selected\"";
+        }
+
+        $bank_html .= option($bank, $bank, $attr);
+    }
+
+    $template->reg("refund_ba_num"   , $default_info["refund_ba_num"]);
+    $template->reg("refund_bank_name", $bank_html);
+    $template->reg("refund_name"     , $default_info["refund_name"]);
+    
+    // 신용카드정보
+    $card_arr = CARD_COMPANY;
+    $card_html = '';
+    foreach ($card_arr as $card) {
+        $card_html .= option($card, $card);
+    }
+
+    $template->reg("card_name" , $card_html);
+    $template->reg("card_num"  , "카드번호");
+    $template->reg("card_limit", "카드한도");
+
+    // 현금영수증카드 정보
+    $template->reg("cashreceipt_name"    , $default_info["cashreceipt_name"]);
+    $template->reg("cashreceipt_cell_num", $default_info["cashreceipt_cell_num"]);
+    $template->reg("cashreceipt_card_num", $default_info["cashreceipt_card_num"]);
+
+    // 과세구분
+    $tax_dvs = $default_info["tax_dvs"];
+
+    $normal_tax = '';
+    $simple_tax = '';
+    $corp_tax   = '';
+    $free_tax   = '';
+
+    switch ($tax_dvs) {
+        case "일반과세자":
+            $normal_tax = "selected=\"selected\"";
+            break;
+        case "간이과세자":
+            $simple_tax = "selected=\"selected\"";
+            break;
+        case "법인과세자":
+            $corp_tax   = "selected=\"selected\"";
+            break;
+        case "면세사업자":
+            $free_tax   = "selected=\"selected\"";
+            break;
+    }
+
+    $template->reg("normal_tax", $normal_tax);
+    $template->reg("simple_tax", $simple_tax);
+    $template->reg("corp_tax"  , $corp_tax);
+    $template->reg("free_tax"  , $free_tax);
+}
+
+/**
+ * @brief 회원 예외업체 정보
+ */
+function getExcptMemberInfo($conn, $dao, $param) {
+    $dateUtil = new DateUtil();
+    $default_info = $param["default_info"];
+
+    $excpt_seqno = '';
+
+    $card_pay_y_attr = '';
+    $card_pay_n_attr = '';
+    if ($default_info["card_pay_yn"] === "Y") {
+        $card_pay_y_attr = "selected=\"selected\"";
+    } else {
+        $card_pay_n_attr = "selected=\"selected\"";
+    }
+
+    $card_pay_tax_y_attr = '';
+    $card_pay_tax_n_attr = '';
+    if ($default_info["card_pay_tax_yn"] === "Y") {
+        $card_pay_y_attr = "selected=\"selected\"";
+    } else {
+        $card_pay_n_attr = "selected=\"selected\"";
+    }
+
+    if ($default_info["is_except"] === "N") {
+        $normal_attr = "selected=\"selected\"";
+    } else {
+        $excpt_attr = "selected=\"selected\"";
+    }
+
+    $temp = array();
+    $temp["member_seqno"] = $param["member_seqno"];
+
+    $html  = "<table class=\"member_4_table\">";
+    $html .=    "<tbody>";
+    $html .=        "<tr>";
+    //$html .=            "<th class=\"th_text th_pay_01\">여신업체구분</th>";
+    //$html .=            "<td>";
+    //$html .=                "<select id=\"member_typ\">";
+    //$html .=                    "<option value=\"N\" " . $normal_attr . ">결제선입업체</option>";
+    //$html .=                    "<option value=\"Y\" " . $excpt_attr . ">결제예외업체</option>";
+    //$html .=                "</select>";
+    //$html .=            "</td>";
+
+    if ($default_info["member_typ"] === "예외업체") {
+        $y = intval(date('Y'));
+        $m = intval(date('m'));
+
+        $excpt_info = $dao->selectExcptMemberInfo($conn, $temp);
+        $excpt_seqno = $excpt_info["excpt_member_seqno"];
+
+        $temp["from"] = sprintf("%s-%s-01", $y, $m);
+        $temp["to"]   = sprintf("%s-%s-%s", $y,
+                                            $m,
+                                            $dateUtil->getLastDay($y, $m));
+        $sum_oa           = 0;
+        $loan_limit_price = 0;
+        $rest_loan_price  = 0;
+        $loan_usage       = 0;
+
+        if ($excpt_info) {
+            $stats_info = $dao->selectDaySalesStats($conn, $temp);
+
+            $sum_oa = intval($stats_info["period_end_oa"]) +
+                      intval($stats_info["carryforward_oa"]);
+
+            $loan_limit_price = intval($excpt_info["loan_limit_price"]);
+            $rest_loan_price  = $loan_limit_price - $sum_oa;
+            $loan_usage      = (doubleval($sum_oa) /
+                                doubleval($loan_limit_price)) * 100;
+            $loan_usage      = intval($loan_usage);
+        }
+
+        // 여신 한도소지금액 버튼 클래스
+        $usage_class = "btn_safe";
+        $usage_html  = "안전";
+        if ($loan_usage > 80) {
+            $usage_class = "btn_warn";
+            $usage_html  = "경고";
+        }
+
+        // 여신업체 구분
+        //$excpt_attr  = "selected=\"selected\"";
+        //$normal_attr = "selected=\"selected\"";
+        // 거래조치여부
+        $order_y_attr = '';
+        $order_n_attr = '';
+        if ($excpt_info["action_result"] === "Y") {
+            $order_y_attr = "selected=\"selected\"";
+        } else {
+            $order_n_attr = "selected=\"selected\"";
+        }
+
+        $html .=            "<th>거래조치여부</th>";
+        $html .=            "<td>";
+        $html .=                "<select id=\"action_result\">";
+        $html .=                    "<option value=\"주문가능\" " . $order_y_attr . ">주문가능</option>";
+        $html .=                    "<option value=\"주문불가능\" " . $order_n_attr . ">주문불가능</option>";
+        $html .=                "</select>";
+        $html .=            "</td>";
+        $html .=            "<th>여신 한도소지금액</th>";
+        $html .=            "<td><input type=\"text\" id=\"loan_usage\" value=\"" . $loan_usage . "\" readonly=\"readonly\" style=\"width:100px;\">% <span class=\"" . $usage_class . "\">" . $usage_html . "</span></td>";
+        $html .=        "</tr>";
+        $html .=        "<tr>";
+        $html .=            "<th>입금약속일</th>";
+        $html .=            "<td>";
+        $html .=                "<input type=\"text\" class=\"datepicker_input\" id=\"loan_pay_promi_date\" value=\"" . $excpt_info["loan_pay_promi_date"] . "\" readonly=\"readonly\"/>";
+        $html .=            "</td>";
+        $html .=            "<th>여신한도금액</th>";
+        $html .=            "<td><input type=\"text\" id=\"loan_limit_price\" value=\"" . $loan_limit_price . "\" /></td>";
+        $html .=            "<th>한도잔여금액</th>";
+        $html .=            "<td><input type=\"text\" id=\"rest_loan_price\" value=\"" . $rest_loan_price . "\" readonly=\"readonly\" /></td>";
+        $html .=        "</tr>";
+    }
+    $html .=        "<tr>";
+
+    $html .=            "<th class=\"th_text th_pay_01\">결제방법 종류</th>";
+    $html .=            "<td>";
+    if ($default_info["member_typ"] === "예외업체") {
+        $promi_dvs_arr = LOAN_PAY_PROMI_DVS;
+        $day_arr = DAY;
+
+        $promi_dvs = explode('!', $excpt_info["loan_pay_promi_dvs"]);
+
+        $promi_dvs_day = $promi_dvs[1];
+        $promi_dvs     = $promi_dvs[0];
+
+        $html .=                "<select id=\"loan_pay_promi_dvs\" style=\"width:130px;\">";
+
+        foreach ($promi_dvs_arr as $loan_pay_promi_dvs) {
+            $attr = '';
+            if ($promi_dvs === $loan_pay_promi_dvs) {
+                $attr = "selected=\"selected\"";
+            }
+
+            $html .=  option($loan_pay_promi_dvs,
+                             $loan_pay_promi_dvs,
+                             $attr);
+        }
+
+        $html .=                "</select>";
+        $html .=                "<select id=\"loan_pay_promi_dvs_day\" style=\"width:45px;\" disabled=\"disabled\">";
+
+        foreach ($day_arr as $day) {
+            $attr = '';
+            if ($promi_dvs_day === $day) {
+                $attr = "selected=\"selected\"";
+            }
+
+            $html .=  option($day, $day, $attr);
+        }
+
+        $html .=                "</select>";
+
+    } else {
+        $html .=                "<select>";
+        $html .=                    "<option value=\"선입결제\">선입결제</option>";
+        $html .=                "</select>";
+    }
+    $html .=            "</td>";
+
+    $html .=            "<th class=\"th_text th_pay_02\">카드결제여부</th>";
+    $html .=            "<td>";
+    $html .=                "<select id=\"card_pay_yn\">";
+    $html .=                    "<option value=\"N\" " . $card_pay_n_attr . ">불가능</option>";
+    $html .=                    "<option value=\"Y\" " . $card_pay_y_attr . ">가능</option>";
+    $html .=                "</select>";
+    $html .=            "</td>";
+    $html .=            "<th class=\"th_text th_pay_03\">선입금</th>";
+    $html .=            "<td><input type=\"text\" value=\"" . $default_info["prepay_price"] . "\" readonly=\"readonly\"></td>";
+    $html .=        "</tr>";
+    $html .=        "<tr>";
+    $html .=        "<th class=\"th_text th_pay_02\">카드선입금 결제시 세금계산서</th>";
+    $html .=        "<td>";
+    $html .=            "<select id=\"card_pay_tax_yn\">";
+    $html .=                "<option value=\"Y\" " . $card_pay_n_attr . ">발행</option>";
+    $html .=                "<option value=\"N\" " . $card_pay_y_attr . ">미발행</option>";
+    $html .=            "</select>";
+    $html .=        "</td>";
+    $html .=        "</tr>";
+    $html .=    "</tbody>";
+    $html .= "</table>";
+    $html .= "<input type=\"hidden\" id=\"excpt_member_seqno\" value=\"" . $excpt_seqno . "\" />";
+
+    return $html;
+}
+
+/**
+ * @brief 기타정보
+ */
+function getEtcInfo($conn, $dao, $template, $param) {
+    $default_info = $param["default_info"];
+
+    $member_grade = $default_info["grade"];
+    if($default_info["direct_dlvr_yn"] == "Y") {
+        $member_dlvr_dvs = "직배";
+        $member_dlvr_code = $default_info["dlvr_add_info"];
+    }
+    else {
+        $member_dlvr_dvs  = $default_info["dlvr_add_info"];
+    }
+
+    // 회원등급
+    $grade_arr = GRADE_EN;
+    $grade_html = '';
+    foreach ($grade_arr as $grade => $name) {
+        $attr = '';
+        if ($member_grade == $grade) {
+            $attr = "selected=\"selected\"";
+        }
+
+        $grade_html .= option($name, $grade, $attr);
+    }
+
+    $template->reg("grade_html", $grade_html);
+
+    // 배송구분
+    $dlvr_dvs_arr = DLVR_TYP;
+    $dlvr_dvs_html = '';
+    $direct_code = null;
+    foreach ($dlvr_dvs_arr as $code => $dlvr_dvs) {
+        $attr = '';
+        if ($member_dlvr_dvs === $dlvr_dvs) {
+            $direct_code = $code;
+            $attr = "selected=\"selected\"";
+        }
+
+        $dlvr_dvs_html .= option($dlvr_dvs, $dlvr_dvs, $attr);
+    }
+
+    $template->reg("dlvr_dvs", $dlvr_dvs_html);
+
+    // 배송타입(직배만)
+    $dlvr_code_html = "<option value=\"\">-</option>";
+    if ($member_dlvr_dvs === "직배") {
+        $dlvr_code_arr = DLVR_CODE[$direct_code];
+        $dlvr_code_html = '';
+
+        foreach ($dlvr_code_arr as $code => $dlvr_code) {
+            $attr = '';
+            if ($member_dlvr_code === $dlvr_code) {
+                $attr = "selected=\"selected\"";
+            }
+
+            $dlvr_code_html .= option($dlvr_code, $dlvr_code, $attr);
+        }
+    }
+    $template->reg("dlvr_code", $dlvr_code_html);
+
+    // 가입일
+    $template->reg("first_join_date", $default_info["first_join_date"]);
+    // 최종수정일
+    $template->reg("final_modi_date", $default_info["final_modi_date"]);
+}
+
+/**
+ * @brief 사내담당자정보
+ */
+function getMemberMngInfo($conn, $dao, $template, $param) {
+    $default_info = $param["default_info"];
+
+    $temp = [];
+    $temp["member_seqno"] = $param["member_seqno"];
+    $temp["sell_site"] = $default_info["cpn_admin_seqno"];
+
+    // 회원한테 지정되어있는 담당자 정보
+    $member_mng_info = $dao->selectMemberMngInfo($conn, $param);
+    // 프로그램 정보
+    $pro_rs = $dao->selectProTyp($conn, $param, "pro");
+
+    $depar_rs = $dao->selectGeneInfo($conn, $temp, true);
+
+    // 영업팀 html
+    $business_html = '';
+
+    // 영업부 부서코드
+    $business_high_depar_code = null;
+    $business_depar_code = null;
+    // 관리팀 부서코드
+    $manage_depar_code = null;
+    // 명함 출고실 부서코드
+    $nc_release_depar_code = null;
+    // 전단 출고실 부서코드
+    $bl_release_depar_code = null;
+
+    while ($depar_rs && !$depar_rs->EOF) {
+        $fields = $depar_rs->fields;
+
+        switch ($fields["depar_name"]) {
+            case "영업부":
+                $business_high_depar_code = $fields["depar_code"];
+                break;
+            case "관리팀":
+                $manage_depar_code = $fields["depar_code"];
+                break;
+            case "명함출고팀":
+                $nc_release_depar_code = $fields["depar_code"];
+                break;
+            case "전단출고팀":
+                $bl_release_depar_code = $fields["depar_code"];
+                break;
+        }
+
+        if (!is_null($business_high_depar_code)
+                && $fields["high_depar_code"] === $business_high_depar_code) {
+
+            $attr = '';
+            if ($member_mng_info["depar_code"] === $fields["depar_code"]) {
+                $business_depar_code = $fields["depar_code"];
+                $attr = "selected=\"selected\"";
+            }
+
+            if (empty($business_depar_code)) {
+                $business_depar_code = $fields["depar_code"];
+            }
+
+            $business_html .= option($fields["depar_name"],
+                                     $fields["depar_code"],
+                                     $attr);
+        }
+
+        $depar_rs->MoveNext();
+    }
+
+    $depar_code_arr = [];
+    $depar_code_arr[] = $business_depar_code;
+    $depar_code_arr[] = $manage_depar_code;
+    $depar_code_arr[] = $nc_release_depar_code;
+    $depar_code_arr[] = $bl_release_depar_code;
+
+    unset($temp);
+    $temp["depar_code_arr"] = $depar_code_arr;
+    $empl_rs = $dao->selectEmplInfo($conn, $temp);
+
+    // 담당 CM, $business_depar_code
+    $cm_html = '';
+    // 담당 CA, $manage_depar_code
+    $ca_html = '';
+    // 담당 CRM, CS, $business_depar_code
+    $crm_html = '';
+    $cs_html  = '';
+    // 프로그램, $member_mng
+    $pro_html = '';
+    // 명함출고, $nc_release_depar_code
+    $nc_html = '';
+    // 전단출고, $bl_release_depar_code
+    $bl_html = '';
+
+    while ($empl_rs  && !$empl_rs->EOF) {
+        $fields = $empl_rs->fields;
+
+
+        // 담당 CM, $business_depar_code
+        if ($fields["depar_code"] === $business_depar_code) {
+            if ($fields["job_code"] === "001") {
+                // CM(팀장)
+                $cm_html = option($fields["name"], $fields["empl_seqno"]);
+            } else {
+                // CRM, CS
+                $crm_attr = '';
+                $cs_attr = '';
+                if ($member_mng_info["crm"] === $fields["empl_seqno"]) {
+                    $crm_attr = "selected=\"selected\"";
+                }
+                if ($member_mng_info["cs"] === $fields["empl_seqno"]) {
+                    $cs_attr = "selected=\"selected\"";
+                }
+                $crm_html .= option($fields["name"],
+                                    $fields["empl_seqno"],
+                                    $crm_attr);
+                $cs_html .= option($fields["name"],
+                                   $fields["empl_seqno"],
+                                   $cs_attr);
+            }
+        }
+
+        // 담당 CA, $manage_depar_code
+        if ($fields["depar_code"] === $manage_depar_code) {
+            $attr = '';
+            if ($member_mng_info["ca"] === $fields["empl_seqno"]) {
+                $attr = "selected=\"selected\"";
+            }
+
+            $ca_html .= option($fields["name"],
+                               $fields["empl_seqno"],
+                               $attr);
+        }
+
+        // 명함출고
+        if ($fields["depar_code"] === $nc_release_depar_code) {
+            $attr = '';
+            if (empty($default_info["nc_release_resp"])
+                        && $fields["job_code"] === "001") {
+                $attr = "selected=\"selected\"";
+            } else if (!empty($default_info["nc_release_resp"]) &&
+                    $default_info["nc_release_resp"] === $fields["empl_seqno"]) {
+                $attr = "selected=\"selected\"";
+            }
+
+            $nc_html .= option($fields["name"],
+                               $fields["empl_seqno"],
+                               $attr);
+        }
+
+        // 전단출고
+        if ($fields["depar_code"] === $bl_release_depar_code) {
+            $attr = '';
+            if (empty($default_info["bl_release_resp"])
+                    && $fields["job_code"] === "001") {
+                $attr = "selected=\"selected\"";
+            } else if (!empty($default_info["bl_release_resp"])
+                    && $default_info["bl_release_resp"] === $fields["empl_seqno"]) {
+                $attr = "selected=\"selected\"";
+            }
+
+            $bl_html .= option($fields["name"],
+                               $fields["empl_seqno"],
+                               $attr);
+        }
+
+        $empl_rs->MoveNext();
+    }
+
+    // 프로그램
+    $pro_html = '';
+    while ($pro_rs && !$pro_rs->EOF) {
+        $fields = $pro_rs->fields;
+
+        $attr = '';
+        if ($member_mng_info["pro"] === $fields["pro"]) {
+            $attr = "selected=\"selected\"";
+        }
+
+        $pro_html .= option($fields["pro"],
+                            $fields["pro"],
+                            $attr);
+
+        $pro_rs->MoveNext();
+    }
+
+    $template->reg("member_mng_seqno", $member_mng_info["member_mng_seqno"]);
+    $template->reg("business_depar", $business_html);
+    $template->reg("cm", $cm_html);
+    $template->reg("ca", $ca_html);
+    $template->reg("crm", $crm_html);
+    $template->reg("cs", $cs_html);
+    $template->reg("pro", $pro_html);
+    $template->reg("nc", $nc_html);
+    $template->reg("bl", $bl_html);
+}

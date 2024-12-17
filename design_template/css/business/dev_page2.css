@@ -1,0 +1,56 @@
+/*** 생산 투입한도조회 ***/
+.content4_top {padding-bottom:10px;border-bottom:1px solid #ddd;overflow:auto;}
+.content4_table {width:100%;margin-top:30px;}
+.content4_table thead th {padding:5px 10px;border:1px solid #ddd;}
+.content4_table tbody td {padding:5px 3px;border:1px solid #ddd;text-align:center;}
+
+/*** CRM수정 영업/수금 버튼 ***/
+.crm_btn {text-align:right;margin-bottom:20px;}
+.crm_btn button {padding:10px 50px;color:#fff;background:#417c12;}
+
+/*** CRM정보 / 회원메모,집계 ***/
+.user_container {overflow:auto;margin-top:50px;background:#f7f7f7;border:1px solid #929292;}
+.user_container table th,
+.user_container table td {padding:2px 5px;border:1px solid #ddd;text-align:center;background:#fff;}
+.user_container table th {background:#a9a9a9;}
+.user_left, .user_right {width:480px;float:left;margin:15px}
+.user_left_label {margin-top:30px;}
+.user_left label {padding:10px 12px;text-align:center;background:#fff;border:1px solid #ddd;border-bottom:none;}
+.user_right table {width:100%;}
+.user_btn {clear:both;text-align:center;margin-bottom:20px;}
+.user_btn button {padding:8px;width:100px;color:#fff;background:#417c12;}
+
+/*** CRM 정보 세부내용 탭 ***/
+.userTable {margin:20px 0;width:480px;}
+.userTable input:checked + label {background:#fff;}
+#userTable_weeks, #userTable_month, #userTable_years {display: none;}
+#userTable_weeks:checked ~ #ut_weeks,
+#userTable_month:checked ~ #ut_month,
+#userTable_years:checked ~ #ut_years {display:block;}
+#ut_weeks, #ut_month, #ut_years {display: none;padding:0;border-top: 1px solid #ddd;}
+.userTab_label {display: inline-block;margin:0 -3px -1px 0px;padding:10px 12px;font-weight: 600;text-align: center;color: #bbb;border: 1px solid transparent;}
+.userTab_label:before {font-family: fontawesome;font-weight: normal;margin-right: 10px;}
+.userTab_label:hover {color: #888;cursor: pointer;}
+
+
+/*** 맨마지막 테이블 ***/
+#last_table1, #last_table2 {display: none;}
+#last_table1:checked ~ #table1,
+#last_table2:checked ~ #table2 {display:block;}
+#table1, #table2 {display: none;padding:0;border-top: 1px solid #ddd;}
+.last_label {display: inline-block;margin:0 -3px -1px 0px;padding:10px 12px;font-weight: 600;text-align: center;color: #bbb;border: 1px solid transparent;}
+.last_label:before {font-family: fontawesome;font-weight: normal;margin-right: 10px;}
+.last_label:hover {color: #888;cursor: pointer;}
+
+.last_Table_tab {width:100%;margin:20px 0;border:1px solid #ccc;}
+.last_Table_tab thead th {padding:8px;border-top:3px solid #32404d;border-bottom:2px solid #286091;text-align:center;}
+.last_Table_tab tbody td {padding:8px;text-align:center;}
+
+/*** 맨마지막 하위탭 마지막!***/
+
+.last_p2 {padding:6px;background:#eee;border:1px solid #ddd;text-align:right;margin-top:20px;}
+
+.last_tab_table {width:100%;margin:20px 0;}
+.last_tab_table thead th {padding:5px 3px;border:1px solid #ddd;text-align:center;background:#eee;font-weight:600;}
+.last_tab_table tbody td {padding:5px 3px;border:1px solid #ddd;text-align:center;}
+.fix-Form {margin:0;overflow:auto;clear:both;}

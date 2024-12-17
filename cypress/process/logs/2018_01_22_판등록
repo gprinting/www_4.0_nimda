@@ -1,0 +1,57 @@
+
+18:49:46 insert query -> 
+    INSERT INTO sheet_typset (
+   typset_num, state, beforeside_tmpt, beforeside_spc_tmpt, aftside_tmpt, aftside_spc_tmpt, 
+   honggak_yn, after_list, opt_list, print_amt, print_amt_unit, prdt_page, 
+   prdt_page_dvs, dlvrboard, memo, op_typ, op_typ_detail, empl_seqno, typset_format_seqno, 
+   paper_name, paper_dvs, paper_color, paper_basisweight, print_title, regi_date , cate_sortcode, 
+   oper_sys, save_path, save_yn, specialty_items, typset_way, print_etprs
+   ) VALUE (
+   'NHC180116001-01', '2220', '4', '0', '4', '0', 
+   'Y', '', '', '200', '장', '2', 
+   '낱장', '본판', '', '자동발주', '자동생성', '85', '5', 
+   '휘라레', '솔라화이트', '백색', '216g', '2절_80개[760x545]_홍각8도_요비_휘라레', now(), '003002', 
+   'IBM', '2018/01/16/NHC180116001/NHC180116001-01', 'N', '', 'CYPRESS', '1공장-요비' )
+\n\n\n
+18:51:15 insert query -> 
+    INSERT INTO sheet_typset (
+   typset_num, state, beforeside_tmpt, beforeside_spc_tmpt, aftside_tmpt, aftside_spc_tmpt, 
+   honggak_yn, after_list, opt_list, print_amt, print_amt_unit, prdt_page, 
+   prdt_page_dvs, dlvrboard, memo, op_typ, op_typ_detail, empl_seqno, typset_format_seqno, 
+   paper_name, paper_dvs, paper_color, paper_basisweight, print_title, regi_date , cate_sortcode, 
+   oper_sys, save_path, save_yn, specialty_items, typset_way, print_etprs
+   ) VALUE (
+   'NHC180117004-01', '2220', '4', '0', '4', '0', 
+   'Y', '', '', '200', '장', '2', 
+   '낱장', '본판', '', '자동발주', '자동생성', '85', '5', 
+   '휘라레', '솔라화이트', '백색', '216g', '2절_80개[760x545]_홍각8도_요비_휘라레', now(), '003002', 
+   'IBM', '2018/01/17/NHC180117004/NHC180117004-01', 'N', '', 'CYPRESS', '1공장-요비' )
+\n\n\n
+18:51:22 insert query -> 
+    INSERT INTO sheet_typset (
+   typset_num, state, beforeside_tmpt, beforeside_spc_tmpt, aftside_tmpt, aftside_spc_tmpt, 
+   honggak_yn, after_list, opt_list, print_amt, print_amt_unit, prdt_page, 
+   prdt_page_dvs, dlvrboard, memo, op_typ, op_typ_detail, empl_seqno, typset_format_seqno, 
+   paper_name, paper_dvs, paper_color, paper_basisweight, print_title, regi_date , cate_sortcode, 
+   oper_sys, save_path, save_yn, specialty_items, typset_way, print_etprs
+   ) VALUE (
+   'NHC180117004-02', '2220', '4', '0', '4', '0', 
+   'Y', '', '', '200', '장', '2', 
+   '낱장', '본판', '', '자동발주', '자동생성', '85', '5', 
+   '휘라레', '솔라화이트', '백색', '216g', '2절_80개[760x545]_홍각8도_요비_휘라레', now(), '003002', 
+   'IBM', '2018/01/17/NHC180117004/NHC180117004-02', 'N', '', 'CYPRESS', '1공장-요비' )
+\n\n\n
+18:51:31 insert query -> 
+    INSERT INTO sheet_typset (
+   typset_num, state, beforeside_tmpt, beforeside_spc_tmpt, aftside_tmpt, aftside_spc_tmpt, 
+   honggak_yn, after_list, opt_list, print_amt, print_amt_unit, prdt_page, 
+   prdt_page_dvs, dlvrboard, memo, op_typ, op_typ_detail, empl_seqno, typset_format_seqno, 
+   paper_name, paper_dvs, paper_color, paper_basisweight, print_title, regi_date , cate_sortcode, 
+   oper_sys, save_path, save_yn, specialty_items, typset_way, print_etprs
+   ) VALUE (
+   'NHC180117004-03', '2220', '4', '0', '4', '0', 
+   'Y', '', '', '200', '장', '2', 
+   '낱장', '본판', '', '자동발주', '자동생성', '85', '5', 
+   '휘라레', '솔라화이트', '백색', '216g', '2절_80개[760x545]_홍각8도_요비_휘라레', now(), '003002', 
+   'IBM', '2018/01/17/NHC180117004/NHC180117004-03', 'N', '', 'CYPRESS', '1공장-요비' )
+\n\n\n

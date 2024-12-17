@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/business/common/include.html]
+</head>
+<body>
+
+    <div id="container">
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content" class="">
+            <!-- 본문 컨텐츠  시작-->
+            <div id="content-container" class="content_container">
+                <!--메인상단 왼쪽 레이아웃-->
+                <div id="left_content">
+                    <!--검색 견적 정보-->
+                    <div class="search_box">
+                        <div class="search_heading">
+                            검색 견적정보
+                        </div>
+                        <div class="search_body" id="basic_search" style="overflow:auto;">
+                            <table class="normal_search">
+                                <colgroup>
+                                    <col class="normal_search_col_01">
+                                    <col class="normal_search_col_02">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th class="th_esi_list_left">키워드 검색</th>
+                                        <td colspan="8">
+                                            <select id="search_dvs" class="select_esi_list_01">
+                                                <option value="office_nick">회원 닉네임</option>
+                                                <option value="member_name">회원 이름</option>
+                                                <option value="title">제작물 내용</option>
+                                                <option value="member_tel">회원 전화번호</option>
+                                                <option value="member_cell">회원 핸드폰번호</option>
+                                                <option value="member_addr">회원 주소</option>
+                                                <option value="receiver">받는 사람</option>
+                                                <option value="virt_ba">가상계좌</option>
+                                            </select>
+                                            <input type="text" id="search_keyword" onkeyup="cndSearch.key(event);" class="input_esi_list_01" style="margin-right:6px;" />
+                                            <button class="btn_Turquoise01" onclick="cndSearch.exec();">검색</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th class="th_esi_list_left">판매채널</th>
+                                        <td colspan="4" class="daily_form daily-form">
+                                            <select id="cpn_admin" class="select_esi_list_01" onchange="changeCpnAdmin(this.value);">
+                                                [TPH_Vcpn_admin_html]
+                                            </select>
+                                            <input type="text" class="datepicker_input input_esi_list_02" readonly="readonly" id="basic_from">-
+                                            <input type="text" class="datepicker_input input_esi_list_02" readonly="readonly" id="basic_to" style="margin-right: 6px;">
+                                            <span class="container_btn_align_02">
+                                                <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -1,  0, $(this).text(), true);">어제</button>
+                                                <button type="button" class="btn_gray01" onclick="setDateVal('basic', 't',  0,  0, $(this).text(), false);">오늘</button>
+                                                <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -7,  0, $(this).text(), false);">일주일</button>
+                                                <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'm', -1,  0, $(this).text(), false);">한달</button>
+                                                <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'y', -1, -1, $(this).text(), true);">작년동기</button>
+                                                <button type="button" class="btn_gray01" onclick="">전체</button>
+                                            </span>
+                                            <!--<button type="button" onclick="setDateVal('basic', 'a',  0,  0, $(this).text(), false);">전체</button>-->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_esi_list_left">고객유형 구분</th>
+                                        <td>
+                                            <select id="" class="select_esi_list_01">
+                                                <option value="">전체</option>
+                                                <option value="">잠재고객</option>
+                                                <option value="">기존고객</option>
+                                            </select>
+                                        </td>
+                                        <th class="th_esi_list_right">팀/담당자</th>
+                                        <td>
+                                            <select id="" class="select_esi_list_01">
+                                                <option value="">전체</option>
+                                                <option value="">1팀</option>
+                                                <option value="">2팀</option>
+                                                <option value="">3팀</option>
+                                                <option value="">4팀</option>
+                                                <option value="">상업인쇄</option>
+                                            </select>
+                                            <select id="" class="select_esi_list_01">
+                                                <option value="">류선 과장</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--검색 견적정보 끝-->
+                </div>
+                <!--왼쪽 레이아웃 끝-->
+                <div id="content_tab">
+                    <input id="tab1" type="radio" name="tabs" value="" checked>
+                    <label for="tab1" onclick="changeTab('');" class="content_label">견적현황</label>
+
+                    <input id="tab2" type="radio" name="tabs" value="">
+                    <label for="tab2" onclick="changeTab('');" class="content_label">견적CRM</label>
+
+                    <input id="tab3" type="radio" name="tabs" value="">
+                    <label for="tab3" onclick="changeTab('');" class="content_label">견적통계</label>
+
+                    <button type="button" id="basic_plus" class="btn_plus_esti_list" onclick="" style="display:none;"></button>
+                    <button type="button" id="basic_minus" class="btn_minus_esti_list" onclick=""></button>
+
+                    <section class="section_esti_table">
+                    </section>
+
+                    <!--하단 검색 테이블-->
+                    <div class="div_esti_table_container_01">
+                        <form class="fix_form">
+                        <table class="table_fix">
+                            <colgroup>
+                                <col style="width:50px">
+                                <col style="width:150px">
+                                <col style="width:110px">
+                                <col style="width:60px">
+                                <col style="width:80px">
+                                <col style="width:80px">
+                                <col style="width:80px">
+                                <col style="width:110px">
+                                <col style="width:110px">
+                                <col style="width:110px">
+                                <col style="width:150px">
+                                <col style="width:60px">
+                                <col style="width:60px">
+                                <col style="width:60px">
+                                <col style="width:80px">
+                                <col style="width:110px">
+                                <col style="width:80px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>회원명</th>
+                                    <th>견적번호</th>
+                                    <th>상태</th>
+                                    <th>견적일</th>
+                                    <th>주문예정일</th>
+                                    <th>최근상담일</th>
+                                    <th>견적금액</th>
+                                    <th>주문금액</th>
+                                    <th>상품명</th>
+                                    <th>견적 상세정보</th>
+                                    <th>견적건수</th>
+                                    <th>상담건수</th>
+                                    <th>주문건수</th>
+                                    <th>등급</th>
+                                    <th>전월순매출</th>
+                                    <th>견적자</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="cursor: pointer;">
+                                    <td style="text-align:center;">1</td>
+                                    <td style="text-align:left;">굿애드탑</td>
+                                    <td>GP2017051174894</td>
+                                    <td style="text-align:center;">견적대기</td>
+                                    <td style="text-align:center;">2017-05-01</td>
+                                    <td style="text-align:center;">2017-10-01</td>
+                                    <td style="text-align:center;">2017-07-01</td>
+                                    <td>789,000</td>
+                                    <td>1,849,000</td>
+                                    <td style="text-align:center;">광고홍보물</td>
+                                    <td style="text-align:left;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">4차산업/180아트지/120스노우지/A4/36p/8도/500부</td>
+                                    <td style="text-align:center;">3</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;">1</td>
+                                    <td style="text-align:center;">PLATINUM</td>
+                                    <td>2,838,000</td>
+                                    <td style="text-align:center;">홍승헌</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </form>
+                        <div id="member_stats_page" class="page_bar">
+                        </div>
+                    </div>
+                    <!-- 견적현황 리스트 결과 시작 -->
+                    <div class="div_esti_table_container_02">
+                        <div class="div_accent_wrapper">
+                            <span class="sapn_accent_wrapper">견적건수 : <span class="text_accent_01">20</span>건</span>
+                            <span class="sapn_accent_wrapper">견적금액 : <span class="text_accent_01">7,504,000</span>원</span>
+                            <span class="sapn_accent_wrapper">발주건수 : <span class="text_accent_01">14</span>건</span>
+                            <span class="sapn_accent_wrapper">발주금액 : <span class="text_accent_01">7,504,000</span>원</span>
+                        </div>
+                        <form class="fix_form">
+                        <table class="table_fix">
+                            <colgroup>
+                                <col style="width:50px">
+                                <col style="width:150px">
+                                <col style="width:60px">
+                                <col style="width:80px">
+                                <col style="width:80px">
+                                <col style="width:80px">
+                                <col style="width:110px">
+                                <col style="width:110px">
+                                <col style="width:110px">
+                                <col style="width:250px">
+                                <col style="width:60px">
+                                <col style="width:80px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>견적번호</th>
+                                    <th>상태</th>
+                                    <th>견적일</th>
+                                    <th>주문예정일</th>
+                                    <th>최근상담일</th>
+                                    <th>견적금액</th>
+                                    <th>주문금액</th>
+                                    <th>상품명</th>
+                                    <th>견적 상세정보</th>
+                                    <th>상담건수</th>
+                                    <th>견적자</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="cursor: pointer;">
+                                    <td style="text-align:center;">1</td>
+                                    <td style="text-align:center;">GP2017051174894</td>
+                                    <td style="text-align:center;">견적대기</td>
+                                    <td style="text-align:center;">2017-05-01</td>
+                                    <td style="text-align:center;">2017-10-01</td>
+                                    <td style="text-align:center;">2017-07-01</td>
+                                    <td>789,000</td>
+                                    <td>1,849,000</td>
+                                    <td style="text-align:center;">광고홍보물</td>
+                                    <td style="text-align:left;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">4차산업/180아트지/120스노우지/A4/36p/8도/500부</td>
+                                    <td style="text-align:center;">5</td>
+                                    <td style="text-align:center;">류선</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </form>
+                        <div id="member_stats_page" class="page_bar">
+                        </div>
+                    </div>
+                    <!-- 견적현황 리스트 결과 끝 -->
+                    <!-- 견적세부현황 결과 시작 -->
+                    <div class="div_esti_service_guide_container">
+                        <table class="table_esti_service_guide">
+                            <colgroup>
+                                <col style="width:100px">
+                                <col style="width:100px">
+                                <col style="width:450px">
+                                <col style="width:250px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>구분</th>
+                                    <th>상세내용</th>
+                                    <th>비고</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="10">기본정보</td>
+                                    <td>인쇄물제목</td>
+                                    <td>제품안내설명서</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>상품명</td>
+                                    <td>광고홍보물</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>사이즈</td>
+                                    <td>A4 / 210*297mm</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>제본</td>
+                                    <td>중철제본</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>수량</td>
+                                    <td>500부</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>종이</td>
+                                    <td>표지 180 아트지/내지 120 스노우지</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>인쇄도수</td>
+                                    <td>양면 8도</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>페이지</td>
+                                    <td>36page</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>후공정1</td>
+                                    <td>단면무광코팅</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>후공정2</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>메모</td>
+                                    <td colspan="3" style="text-align:left;">3.0 완성까지 화이팅입니다!</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="div_btn_wrapper">
+                            <span class="span_btn_align_left"><button class="btn_esti" onclick="">견적가격 계산</button></span>
+                            <span class="span_btn_align_left" style="display:none;"><button class="btn_esti" onclick="">견적중</button></span>
+                            <span class="span_btn_align_right"><button class="btn_esti" onclick="" style="margin-right:6px;">첨부파일 내려받기</button><sapn class="">제품안내서견적용파일.jpg</span></span>
+                        </div>
+                    </div>
+                    <!-- 견적세부현황 결과 끝 -->
+                    <!-- 견적가격 계산 결과 시작 -->
+                    <div class="div_esti_service_guide_detail_container">
+                        <!-- 기본정보 테이블 시작 -->
+                        <table class="table_esti_service_guide_detail">
+                            <colgroup>
+                                <col style="width:100px">
+                                <col style="width:100px">
+                                <col style="width:450px">
+                                <col style="width:250px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>구분</th>
+                                    <th>상세내용</th>
+                                    <th>비고</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="6">기본정보</td>
+                                    <td>상품명</td>
+                                    <td>광고홍보물</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>종이</td>
+                                    <td>표지 180 아트지/내지 120 스노우지</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>규격</td>
+                                    <td>A4</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>인쇄도수</td>
+                                    <td>양면 8도</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>페이지</td>
+                                    <td>36page</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>수량</td>
+                                    <td>500부</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- 기본정보 테이블 끝 -->
+                        <!-- 표지 테이블 시작 -->
+                        <table class="table_esti_service_guide_detail">
+                            <colgroup>
+                                <col style="width:100px">
+                                <col style="width:100px">
+                                <col style="width:160px">
+                                <col style="width:140px">
+                                <col style="width:50px">
+                                <col style="width:50px">
+                                <col style="width:50px">
+                                <col style="width:135px">
+                                <col style="width:115px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>구분</th>
+                                    <th>항목</th>
+                                    <th>단가</th>
+                                    <th>도수</th>
+                                    <th>대수</th>
+                                    <th>연수</th>
+                                    <th>금액</th>
+                                    <th>비고</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3">표지</td>
+                                    <td>종이(지대)</td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>출력비</td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>인쇄비</td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- 표지 테이블 끝 -->
+                        <!-- 표지 후가공 테이블 시작 -->
+                        <table class="table_esti_service_guide_detail">
+                            <colgroup>
+                                <col style="width:100px">
+                                <col style="width:100px">
+                                <col style="width:160px">
+                                <col style="width:140px">
+                                <col style="width:50px">
+                                <col style="width:50px">
+                                <col style="width:50px">
+                                <col style="width:135px">
+                                <col style="width:115px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>구분</th>
+                                    <th>항목</th>
+                                    <th>단가</th>
+                                    <th>도수</th>
+                                    <th>대수</th>
+                                    <th>연수</th>
+                                    <th>금액</th>
+                                    <th>비고</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3">표지<br>후가공</td>
+                                    <td>코팅</td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>접지</td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>제본</td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- 표지 후가공 테이블 끝 -->
+                        <!-- 내지 테이블 시작 -->
+                        <table class="table_esti_service_guide_detail">
+                            <colgroup>
+                                <col style="width:100px">
+                                <col style="width:100px">
+                                <col style="width:160px">
+                                <col style="width:140px">
+                                <col style="width:50px">
+                                <col style="width:50px">
+                                <col style="width:50px">
+                                <col style="width:135px">
+                                <col style="width:115px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>구분</th>
+                                    <th>항목</th>
+                                    <th>단가</th>
+                                    <th>도수</th>
+                                    <th>대수</th>
+                                    <th>연수</th>
+                                    <th>금액</th>
+                                    <th>비고</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3">내지</td>
+                                    <td>종이(지대)</td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>출력비</td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>인쇄비</td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- 내지 테이블 끝 -->
+                        <!-- 내지 후가공 테이블 시작 -->
+                        <table class="table_esti_service_guide_detail">
+                            <colgroup>
+                                <col style="width:100px">
+                                <col style="width:100px">
+                                <col style="width:160px">
+                                <col style="width:140px">
+                                <col style="width:50px">
+                                <col style="width:50px">
+                                <col style="width:50px">
+                                <col style="width:135px">
+                                <col style="width:115px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>구분</th>
+                                    <th>항목</th>
+                                    <th>단가</th>
+                                    <th>도수</th>
+                                    <th>대수</th>
+                                    <th>연수</th>
+                                    <th>금액</th>
+                                    <th>비고</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="4">내지<br>후가공</td>
+                                    <td>
+                                        코팅
+                                        <span class="span_small_btn_wrapper">
+                                            <button type="button" id="" class="btn_small_plus_esti_list" onclick="" style="display:none;"></button>
+                                            <button type="button" id="" class="btn_small_minus_esti_list" onclick=""></button>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        접지
+                                        <span class="span_small_btn_wrapper">
+                                            <button type="button" id="" class="btn_small_plus_esti_list" onclick="" style="display:none;"></button>
+                                            <button type="button" id="" class="btn_small_minus_esti_list" onclick=""></button>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        도무송
+                                        <span class="span_small_btn_wrapper">
+                                            <button type="button" id="" class="btn_small_plus_esti_list" onclick="" style="display:none;"></button>
+                                            <button type="button" id="" class="btn_small_minus_esti_list" onclick=""></button>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        목형비
+                                        <span class="span_small_btn_wrapper">
+                                            <button type="button" id="" class="btn_small_plus_esti_list" onclick="" style="display:none;"></button>
+                                            <button type="button" id="" class="btn_small_minus_esti_list" onclick=""></button>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <select id="" class="select_esti_list_detail_01" />
+                                            <option value=""></option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_01" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_02" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_03" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_04" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_05" />
+                                    </td>
+                                    <td>
+                                        <input type="text" value="" id="" class="input_esti_list_detail_06" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- 내지 후가공 테이블 끝 -->
+                        <!-- 최종 금액 시작 -->
+                        <div class="div_esti_list_total_calculation_wrapper">
+                            <table class="table_esti_list_total_calculation">
+                                <colgroup>
+                                    <col style="width:400px">
+                                    <col style="width:400px">
+
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        
+                                        <td>
+                                            정상가
+                                            <input type="text" value="" id="" class="input_esti_list_calculation_01" />
+                                        </td>
+                                        
+                                        <td>
+                                            공급가
+                                            <input type="text" value="" id="" class="input_esti_list_calculation_01" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td style="border-bottom: 1px solid #dfdfdf;">
+                                            - 견적금액
+                                            <select id="" class="select_esti_list_calculation_01">
+                                                <option value="">5</option>
+                                            </select>
+                                            <select id="" class="select_esti_list_calculation_02">
+                                                <option value="">%</option>
+                                            </select>
+                                            <input type="text" value="" id="" class="input_esti_list_calculation_01" />
+                                        </td>
+                                        
+                                        <td>
+                                            부가세
+                                            <input type="text" value="" id="" class="input_esti_list_calculation_01" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            = 최종견적가(VAT별도)
+                                            <input type="text" value="" id="" class="input_esti_list_calculation_01" />
+                                        </td>
+                                        <td>
+                                            = 총계(VAT포함)
+                                            <input type="text" value="" id="" class="input_esti_list_calculation_01" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- 최종 금액 끝 -->
+                        <div class="div_esti_bottom_btn_container">
+                            <input type="text" value="상기 견적을 보내드립니다." id="" class="input_esti_list_calculation_02" style="margin-right:6px;" />
+                            <button onclick="" class="btn_esti_list_send">보내기</button>
+                        </div>
+                    </div>
+                    <!-- 견적가격 계산 결과 끝 -->
+                    <!--하단 검색 테이블 끝-->
+                </div>
+            </div>
+        </section>
+    </div>
+</body>

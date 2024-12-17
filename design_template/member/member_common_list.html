@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+<div id="container">
+    	
+       <!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+
+	   <!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+
+       <!-- CONTENT --> 
+       <section id="page-content">
+
+			<!-- 본문 컨텐츠  시작-->
+			<div class="content_container">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀 시작-->
+					<div class="title">
+						[TPH_I/common/history.html]
+                	</div>
+                    <!--타이틀 끝-->
+                    <!--기본 검색정보 시작-->
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <!-- 탭 박스 1 기본검색 -->
+                            <div class="">
+                                    <ul class="tab_box mt25">
+                                    </ul>
+                                    <div class="tab_box_con">
+                                                <div class="form-group">
+                                                <label class="lable_member_common_left">키워드 검색</label>
+                                                <select id="search_dvs" name="search_dvs" class="order_mng_secect01">
+                                                    <option value="member_name">회원명</option>
+                                                    <option value="id">아이디</option>
+                                                    <option value="business_name">사업자상호명</option>
+                                                    <option value="business_master">대표자명</option>
+                                                    <option value="business_license">사업자등록번호</option>
+                                                    <option value="tel_num">전화번호</option>
+                                                </select>
+                                                <input type="text" class="input_member_common_01" id="keyword">
+                                                    <!-- 검색버튼 -->
+                                                    <div class="div_search_btn_align">
+                                                        <button type="button" class="btn_Turquoise01" onclick="searchMember();">검색</button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="lable_member_common_left">판매채널</label>
+                                                    <select id="sell_site" class="select_member_common_01" onchange="loadDeparInfo();">
+                                                    [TPH_Vsell_site_html]
+                                                    </select>
+                                                    <label class="lable_member_common_right">팀구분</label>
+                                                        <select class="select_member_common_01" id="depar_code">
+                                                        </select>
+                                                    <span class="span_float_right">
+                                                        <label class="lable_member_common_right02">등급 / 구분</label>
+                                                        <select class="select_member_common_01" id="grade">
+                                                        [TPH_Vgrade_html]
+                                                        </select>   
+                                                        <select class="select_member_common_01" id="member_typ">
+                                                            <option value="">구분(전체)</option>
+                                                            <option value="예외업체">예외업체</option>
+                                                            <option value="일반회원">일반회원</option>
+                                                        </select>
+                                                    </span>
+                                                </div>
+                                        <div class="form-group">
+                                            <label class="lable_member_common_left">버전(3.0, 4.0)</label>
+                                            <select id="version" class="select_member_common_01">
+                                                <option value="">전체</option>
+                                                <option value="3.0">3.0</option>
+                                                <option value="Normal">4.0</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--기본검색정보 끝-->
+				
+                
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!-- 검색결과 TABle -->            
+                        <div class="tb_group2 mt25">
+                            <div class="div_table_container">
+                                <table class="table_member_common_list">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:50px;">번호</th>
+                                            <th style="width:50px;">채널</th>
+                                            <th style="width:70px;">회원명</th>
+                                            <th style="width:70px;">전화번호</th>
+                                            <th style="width:70px;">휴대폰번호</th>
+                                            <th style="width:70px;">예외구분</th>
+                                            <th style="width:60px;">등급</th>
+                                            <!--
+                                            <th class="">사내평가</th>						
+                                            -->
+                                            <th style="width:230px;">주소</th>
+                                            <th style="width:80px;">사업자명</th>
+                                            <th style="width:80px;">사업자등록번호</th>
+                                            <th style="width:50px;">배송유형</th>
+                                            <th style="width:140px;">상세보기</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="member_list" style="word-break: break-all;">	
+                                        <tr><td colspan="9">검색 된 내용이 없습니다.</td></tr>
+                                    </tbody>
+                                </table>
+                                <div class="div_page_container">
+                                    <p class="p_show_page">
+                                    Showing 1 to 5 of 30 entries
+                                    <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>20</option>
+                                        <option selected="selected">30</option>
+                                    </select>
+                                    </p>
+                                    <div class="div_page_number" id="member_page">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+			<form name="frm" id="frm">
+				<input type="hidden" id="seqno" name="seqno">
+			</form>
+			</div>
+       </section>
+</div>
+</body>
+</html>

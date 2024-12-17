@@ -1,0 +1,10 @@
+@charset "utf-8";
+/*
+*/
+body {margin:0;padding:0;font-family: Dotum,'돋움',gulim,'굴림','Malgun Gothic','Droid Sans','Helvetica','Apple-Gothic','애플고딕','Tahoma','sans-serif';}
+
+.pagination .fa {display: block;width: 37px;height: 32px;padding: 6px 6px 0 6px;text-align: center;font-size:12px;}
+.pagination .fa:hover {display: block;width: 37px;height: 32px;padding: 6px 6px 0 6px;text-align: center;font-size:12px; color:#fff;}
+
+
+.pagination .fa .page_accent {background: #209e96;color: #fff;}

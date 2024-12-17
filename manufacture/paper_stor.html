@@ -1,0 +1,80 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . '/com/nexmotion/job/nimda/produce/paper_materials_mng/PaperMaterialsMngDAO.inc');
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$dao = new PaperMaterialsMngDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dao; 
+
+$state_arr = $fb->session("state_arr");
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "manufacture"; //생산
+$left = "print_mng"; //레프트 메뉴
+$left_sub = "paper_stor"; //레프트하위 메뉴, script 주소
+
+$state_html  = "\n<option value=\"\">상태(전체)</option>";
+$state_html .= "\n<option value=\"" . $state_arr["종이발주대기"] . "\">종이발주대기</option>";
+$state_html .= "\n<option value=\"" . $state_arr["종이발주취소"] . "\">종이발주취소</option>";
+$state_html .= "\n<option value=\"" . $state_arr["종이발주완료"] . "\">종이입고대기</option>";
+$state_html .= "\n<option value=\"" . $state_arr["종이입고완료"] . "\">종이입고완료</option>";
+
+
+$template->reg("state_html" , $state_html);
+
+//기본검색정보 : 날짜
+$opt = array();
+$opt[0] = "발주일";
+$opt[1] = "입고일";
+
+$optVal = array();
+$optVal[0] = "op_date";
+$optVal[1] = "stor_date";
+
+$param = array();
+$param["value"] = $optVal;
+$param["fields"] = $opt;
+$param["id"] = "date_cnd";
+$param["flag"] = TRUE;
+$param["from_id"] = "from";
+$param["to_id"] = "to";
+
+$template->reg("datepicker_html" , makeDatePickerHtml($param));
+
+//제조사
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,manu_name";
+$param["where"]["pur_prdt"] = "인쇄";
+$rs = $dao->selectData($conn, $param);
+
+$option_html = "<option value=\"%s\">%s</option>";
+$manu_html = "<option value=\"\">인쇄 업체(전체)</option>";
+
+while ($rs && !$rs->EOF) {
+    $manu_html .= sprintf($option_html
+            , $rs->fields["extnl_etprs_seqno"]
+            , $rs->fields["manu_name"]);
+
+    $rs->moveNext();
+}
+
+$template->reg("manu_html" , $manu_html);
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

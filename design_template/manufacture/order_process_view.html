@@ -1,0 +1,109 @@
+<html lang="ko">
+<head>
+<title>[TPH_Vmain_title]</title>
+<meta charset="utf-8">
+[TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+
+  <!-- TOP NAVIGATION -->
+  [TPH_I/common/header.html]
+
+  <!-- LEFT NAVIGATION -->
+  [TPH_Vleft]
+
+  <!-- CONTENT -->
+  <section id="page-content">
+
+  <!-- 히스토리 -->
+  [TPH_I/common/history.html]
+
+  <!-- 본문 컨텐츠  시작-->
+
+  <!-- 탭 박스 1 기본검색 -->
+  <div class="tb_group clear">
+    <ul class="tab_box mt25">
+    </ul>
+    <form>
+    <div class="tab_box_con">
+      <div class="form-group">
+        <label class="control-label fix_width150 tar">프리셋 카테고리</label><label class="fix_width20 fs14 tac">:</label>
+        <select class="fix_width150" id="preset_cate">
+           [TPH_Vcate_html]
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label fix_width150 tar">조판번호</label><label class="fix_width20 fs14 tac">:</label>
+        <input type="text" class="input_co2 fix_width150" id="typset_num">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label fix_width150 tar">날짜</label><label class="fix_width20 fs14 tac">:</label>
+        [TPH_Vdatepicker_html]
+      </div>
+    </div>
+    </form>
+  </div>
+  <!-- 탭 박스 1 기본검색 -->
+
+  <!-- 상세검색버튼 -->
+  <div>
+    <p class="btn-lg red_btn">
+    <a style="cursor: pointer;" onclick="searchProcess();">선택 조건으로 검색</a>
+    </p>
+    <div>
+
+      <!-- 탭 박스 3 TAB -->
+      <div class="tb_group mt25">
+        <div class="tabbable">
+          <div class="tab-content">
+            <div class="table-body">
+              <ul class="table_top">
+                <li class="sel">
+                </li>
+                <li class="sel tar">
+                </li>
+              </ul>
+              <div class="table_basic">
+                <table class="table fix_width100f">
+                <thead>
+                <tr>
+                  <th class="bm2px">번호</th>
+                  <th class="bm2px">조판번호</th>
+                  <th class="bm2px">종이</th>
+                  <th class="bm2px">출력</th>
+                  <th class="bm2px">인쇄</th>
+                  <th class="bm2px">조판후공정</th>
+                  <th class="bm2px">특이사항</th>
+                  <!--th class="bm2px">관리</th-->
+                </tr>
+                </thead>
+                <tbody id="list">
+                    <tr><td colspan="7">검색 된 내용이 없습니다.</td></tr>
+                </tbody>
+                </table>
+                <p class="p_num_b fs12">
+                Showing 1 to 5 of 30 entries
+                <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+                <option>5</option>
+                <option>10</option>
+                <option>20</option>
+                <option selected="selected">30</option>
+                </select>
+                </p>
+                <div class="tac clear" id="page"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 탭 박스 3 TAB -->
+  </section>
+</div>
+</body>
+</html>

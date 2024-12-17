@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+.input_co {background: #fff; border:#ccc 1px solid;vertical-align: middle; padding-left: 5px;margin: 0 2px;height: 30px; color: #515151}
+.input_co2 {background: #fff; border:#dfdfdf 1px solid;vertical-align: middle;padding-left: 5px;height: 26px; color: #515151}
+.input_co4 {background: #fff; border:#ccc 1px solid;vertical-align: middle;padding-left: 5px;margin: 0 2px;height: 25px;}
+.input_co3 {background: #fff; border:#ccc 1px solid;vertical-align: middle;padding-left: 5px;margin: 0 2px;height: 25px; color: #515151;position:relative;top:-2px;}
+.input_co5 {background: #fff; border:#ccc 1px solid;vertical-align: middle;padding-left: 5px;height: 25px; color: #515151;position:relative;top:-1px}
+.box_sm{display: inline-block; padding: 3px;}
+.con_label {font-size:13px;padding-left:5px;}
+.control-label2 {font-size: 14px; font-weight: bold; padding: 10px 0 5px 0;}
+.check_label {font-size:13px;padding-right:8px;padding-bottom:4px;}
+.input_dis {color: #999; background: #fafafa; border:#ccc 1px solid; padding-left: 5px;margin: 2px 2px; height: 25px;}
+.input_h { border:#ccc 1px solid; padding-left: 5px;margin: 0 2px;}
+
+.tt_rd02 {display: inline-block;height: 30px; vertical-align: middle;color: #666; font-size: 14px; padding: 10px; margin: 19px 4px; float: left;}
+.tt_rd03 {display: inline-block;height: 30px; vertical-align: middle;color: #666; font-size: 14px; padding: 10px; margin: 17px 4px; float: left;}
+
+/* 기초관리 CSS Tree menu styles */
+.tree_box {width:300px;max-height:100%;min-height:800px;float:left;border-right:1px solid #ececec;overflow:hidden;}
+.category_box {width:calc(100% - 368px);height:100%;float:left;position:relative;padding-left:25px;overflow:hidden;}
+
+.table_box {width:800px;float:left;overflow:hidden;float:left;}
+.table_box ul {margin:0;padding:0;overflow:hidden;}
+.table_box ul li {margin:0;list-style:none;}
+.table_box ul li.pt15 {padding-top:15px;}
+.table_box .table_box_tit {padding:0 0 15px 0;border-bottom:1px solid #e0e0e0;}
+
+/* 생산 tabel open content */
+.tocont {vertical-align: middle; padding: 2px; text-align: left;}
+.tocont label{display:inline-block;}
+.violet {background-color: slateblue; color: #333;}
+.pink {background-color: palevioletred; color: #333;}
+.line_bt {border-bottom: #666 1px solid; width:180px;margin-bottom:0; vertical-align: bottom;padding-bottom:3px;}
+.tocont_posi {position: absolute;left: 127px; top:35px;}
+
+/* 공정등록수정 */
+.process_view_box {width:580px;height:380px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box2 {width:280px;height:380px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box3 {width:420px;height:325px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box4 {width:595px;height:580px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box5 {width:340px;height:300px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box6 {width:340px;height:250px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box7 {width:340px;height:50px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box8 {width:340px;height:450px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box9 {width:340px;height:200px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box10 {width:350px;height:350px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box11 {width:55px;height:55px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box12 {width:450px;height:55px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box13 {width:200px;height:50px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box14 {width:250px;height:100px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box15 {width:283px;height:55px;padding:10px;border:1px solid #ddd;overflow:auto;}
+.process_view_box16 {width:460px;height:235px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+.process_view_box17 {width:400px;height:313px;padding:10px;border:1px solid #ccc;overflow:hidden;}
+span.opttxt {font-size: 14px;color: #44b525}
+span.address {font-size: 14px;color: #993333}
+
+/* CSS Tree menu styles */
+.tree_box ol.tree {width:350px;font-size:14px;}
+.tree_box ol.tree li {position: relative;margin-bottom:5px;padding-left: 1px;}
+.tree_box ol.tree li.tit {font-size:14px;font-weight:bold;}
+.tree_box ol.tree li.file	{margin-left: -1px !important;padding-top;2px;}
+.tree_box ol.tree li.file a	{background: url(../images/document.png) 0 0 no-repeat;	color: #636363;	padding-left: 21px;padding-right:2px;padding-bottom:2px;text-decoration: none;display:block;float:left;}
+.tree_box ol.tree li.file a.on {color:#ff3600;}
+.tree_box ol.tree li input.bt	{position: absolute;left: 0;margin-left: 0;opacity: 0;z-index: 2;cursor: pointer;	height: 1em;width: 1em;top: 0;}
+.tree_box ol.tree li input.bt + ol	{background: url(../images/toggle-small-expand.png) 40px -2px no-repeat;margin: -0.938em 0 0 -44px; /* 15px */	xdisplay: block;height: 1em;}
+.tree_box ol.tree li input.bt + ol > li { height: 0; overflow: hidden; margin-left: -14px !important; padding-left: 1px; }
+.tree_box ol.tree li .add_input {width:120px;height:12px;border:1px solid #ccc;}
+.tree_box ol.tree li label {background: url(../images/folder-horizontal.png) 15px 2px no-repeat;cursor: pointer;display: block;padding-left: 37px;}
+.tree_box ol.tree li input.bt:checked + ol {background: url(../images/toggle-small.png) 40px 2px no-repeat;margin: -1.25em 0 0 -44px; /* 20px */ padding: 1.563em 0 0 80px;height: auto;}
+.tree_box ol.tree li input.bt:checked + ol > li { height: auto; margin: 0 0 0.3em;}
+.tree_box ol.tree li input.bt:checked + ol > li:last-child { margin: 0 0 0.063em; /* 1px */ }
+
+.tree_box ol.tree li input.bt2 {position:absolute;left:0;top:9px;margin-left:0;opacity:0;z-index:5;cursor: pointer;height:1em;width:1em;}
+.tree_box ol.tree li input.bt2 + ol	{background: url(../images/toggle-small-expand.png) 40px -2px no-repeat;margin: -1.3em 0 0 -43px; /* 15px */	xdisplay: block;height:1em;}
+.tree_box ol.tree li input.bt2 + ol > li { height: 0; overflow: hidden; margin-left: -14px !important; padding-left: 1px; }
+.tree_box ol.tree li input.bt2:checked + ol {background: url(../images/toggle-small.png) 40px -3px no-repeat;margin: -1.25em 0 0 -43px; /* 20px */ padding: 1.563em 0 0 80px;height:auto;}
+.tree_box ol.tree li input.bt2:checked + ol > li {height:auto; margin: 0 0 0.130em;  /* 2px */;padding:0 0 5px 1px;}
+.tree_box ol.tree li input.bt2:checked + ol > li:last-child { margin: 0 0 0.063em; /* 1px */ padding:0 0 5px 1px;}
+
+.reset_btn {width:95%;margin:0 auto;overflow:hidden;}
+.img_view_box {width:300px;height:300px;border:1px solid #ddd;position:relative;top:-32px;left:318px;}
+.title_info {height:19px; background: #ddd; color: #333;padding: 4px 15px;border: #aaa 1px solid;text-align: center;vertical-align: middle;font-weight: bold;font-size: 14px;margin-left: 0;}
+.pro_list_line {margin:15px 0;padding-bottom:5px;border-bottom:1px solid #ddd;}
+
+
+/* 다운로드 박스 */
+.dnup_g {width:990px;margin:0 auto;overflow:hidden;}
+.dnup {width:480px;margin:10px auto;border:1px solid #ccc;text-align:center;padding:20px 0 30px 0;background:#fff;}
+.dnup_d {width:480px;margin-top:10px;border:1px solid #ccc;text-align:center;padding:20px 0 30px 0;background:#fff;}
+.dnup .form-normal {color:#777;font-family:sans-serif;}
+
+/* 주문조회 */
+.order_sch {overflow:hidden;}
+.order_sch li.fd_bg {background:url(../images/folder-horizontal.png) left 2px no-repeat;padding-left:21px;}

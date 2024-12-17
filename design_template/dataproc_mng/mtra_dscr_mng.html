@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<title>전산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+<div id="container">
+	<!-- TOP NAVIGATION --> 
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION --> 
+    [TPH_Vleft]
+    <!-- CONTENT --> 
+	<section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <ul class="nav nav-tabs">
+                           <li class="active"><a href="#tab_list1" onclick="tabCtrl('paper', '1', '3');" data-toggle="tab"> 종이 </a> </li>
+                           <li><a href="#tab_list2" onclick="tabCtrl('after', '1', '3');" data-toggle="tab"> 후공정 </a> </li>
+                           <li><a href="#tab_list3" onclick="tabCtrl('opt', '1', '3');" data-toggle="tab"> 옵션 </a> </li>
+                      	</ul>
+                      	<div class="tab-content">                         
+                     	    <!-- 탭 박스 종이 -->
+	                     	<div class="tab-pane active" id="tab_list1">	
+								<ul class="table_top">	
+									<li class="sel">                                            
+									</li>						      	                  
+									<li class="sel tar">
+										<label for="search_paper" class="con_label">Search(종이명) : <input id="search_paper" onkeydown="enterCheck(event);" type="text" class="search_btn fix_width120"><button onclick="tabCtrl('paper','1','2');" type="button" class="btn btn-sm btn-info fa fa-search"></button></label>
+									</li>
+								</ul>
+								<div class="overflow_auto">   
+									<table class="table_basic_layout">
+										<colgroup>
+											<col style="width:50px">
+											<col style="width:100px">
+											<col style="width:100px">
+											<col style="width:100px">
+											<col style="width:100px">
+											<col style="width:100px">
+											<col style="width:200px">
+											<col style="width:200px">
+											<col style="width:100px">
+											<col style="width:200px">
+											<col style="width:200px">
+											<col style="width:100px">
+										</colgroup>
+										<thead>
+											<tr>
+												<th class="">번호</th>
+												<th class="">대분류</th>
+												<th class="">종이명</th>
+												<th class="">구분</th>
+												<th class="">색상</th>
+												<th class="">평량</th>
+												<th class="">재질설명</th>
+												<th class="">용도</th>
+												<th class="">느낌</th>
+												<th class="">후공정표</th>
+												<th class="">체크포인트</th>
+												<th class="">관리</th>                			    	            		    	              
+											</tr>
+										</thead>
+										<tbody id="paper_list">
+										</tbody>
+									</table>
+									<p class="p_num_b fs12">
+										<button onclick="popPaperDscr('');" class="btn btn_pu fix_width180 fix_height30 bgreen fs12">새로운 설명을 추가합니다.</button>
+										<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value)">
+											<option>5</option>
+											<option>10</option>
+											<option>15</option>
+											<option>20</option>
+											<option>30</option>
+										</select>
+                                        개씩 보기
+									</p>
+									<div class="tac clear" id="paper_page">
+										<ul class="pagination">
+											<li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+											<li class="disabled"><i class="fa fa-angle-left"></i></li>
+											<li><a class="active" href="#">1</a></li>
+											<li class="disabled"><i class="fa fa-angle-right"></i></li>
+											<li class="disabled"><i class="fa fa-angle-double-right"></i></li>
+										</ul>
+									</div>
+									<br />                    			        	              
+								</div>
+    						</div>
+    						<!-- 탭 박스 후공정 -->   
+    						<div class="tab-pane" id="tab_list2">
+								<ul class="table_top">	
+									<li class="sel">                                            
+									</li>						      	                  
+									<li class="sel tar">                    			            
+										<label for="search_after" class="con_label">Search(후공정명) : <input id="search_after" onkeydown="enterCheck(event);" type="text" class="search_btn fix_width120"><button onclick="tabCtrl('after','1','2');" type="button" class="btn btn-sm btn-info fa fa-search"></button></label>
+									</li>
+								</ul>
+								<div class="overflow_auto">                                
+									<table class="table_basic_layout">
+										<thead>
+											<tr>
+												<th class="">번호</th>
+												<th class="">후공정명</th>
+												<th class="">후공정설명</th>
+												<th class="">관리</th>                			    	            
+											</tr>
+										</thead>
+										<tbody id="after_list">
+										</tbody>
+									</table>
+									<p class="p_num_b fs12">
+										<button onclick="popAfterDscr('');" class="btn btn_pu fix_width180 fix_height30 bgreen fs12">새로운 설명을 추가합니다.</button>
+										<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value)">
+											<option>5</option>
+											<option>10</option>
+											<option>15</option>
+											<option>20</option>
+											<option>30</option>
+										</select>
+                                        개씩 보기
+									</p>
+									<div class="tac clear" id="after_page">
+										<ul class="pagination">
+											<li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+											<li class="disabled"><i class="fa fa-angle-left"></i></li>
+											<li><a class="active" href="#">1</a></li>
+											<li class="disabled"><i class="fa fa-angle-right"></i></li>
+											<li class="disabled"><i class="fa fa-angle-double-right"></i></li>
+										</ul>
+									</div>
+									<br />
+								</div>
+    						</div>
+    						<!-- 탭 박스 옵션 -->   
+    						<div class="tab-pane" id="tab_list3">
+								<ul class="table_top">	
+									<li class="sel">                                            
+									</li>						      	                  
+									<li class="sel tar">                    			            
+										<label for="search_opt" class="con_label">Search(옵션명) : <input id="search_opt" onkeydown="enterCheck(event);" type="text" class="search_btn fix_width120"><button onclick="tabCtrl('opt','1','2');" type="button" class="btn btn-sm btn-info fa fa-search"></button></label>
+									</li>
+								</ul>
+								<div class="overflow_auto">                                
+									<table class="table_basic_layout">
+										<thead>
+											<tr>
+												<th class="">번호</th>
+												<th class="">옵션명</th>
+												<th class="">옵션설명</th>
+												<th class="">관리</th>                			    	            
+											</tr>
+										</thead>
+										<tbody id="opt_list">
+										</tbody>
+									</table>
+									<p class="p_num_b fs12">
+										<button onclick="popOptDscr('');" class="btn btn_pu fix_width180 fix_height30 bgreen fs12">새로운 설명을 추가합니다.</button>
+										<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value)">
+											<option>5</option>
+											<option>10</option>
+											<option>15</option>
+											<option>20</option>
+											<option>30</option>
+										</select>
+                                        개씩 보기
+									</p>
+									<div class="tac clear" id="opt_page">
+										<ul class="pagination">
+											<li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+											<li class="disabled"><i class="fa fa-angle-left"></i></li>
+											<li><a class="active" href="#">1</a></li>
+											<li class="disabled"><i class="fa fa-angle-right"></i></li>
+											<li class="disabled"><i class="fa fa-angle-double-right"></i></li>
+										</ul>
+									</div>
+									<br />                    			        
+								</div>
+    					    </div>
+    					</div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+</div>
+</body>
+</html>

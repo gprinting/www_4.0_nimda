@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+<div id="container">
+
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+
+    <!-- CONTENT -->
+    <section id="page-content">
+
+        <!-- 본문 컨텐츠  시작-->
+        <div class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!-- 탭 박스 1 기본검색 -->
+                        <div class="">
+                            <ul class="tab_box mt25">
+                            </ul>
+                            <form>
+                                <div class="tab_box_con">
+                                    <div class="form-group">
+                                        <label class="lable_member_common_left">회원명</label>
+                                        <input type="text" class="input_member_common_01" onkeydown="searchOfficeNick(event, this.value, '');" placeholder="검색창 팝업 사용" id="office_nick" />
+                                        <input type="hidden" id="member_seqno" />
+                                        <!-- 검색버튼 -->
+                                        <div class="div_search_btn_align">
+                                            <button type="button" class="btn_Turquoise01" onclick="searchMember();">검색</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lable_member_common_left">기간</label>
+                                        <select id="sell_site" class="select_member_common_01" onchange="loadDeparInfo();">
+                                            <option value="1">주간별</option>
+                                            <option value="2" selected>월별</option>
+                                            <option value="3">연별</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lable_member_common_left">날짜</label>
+                                        <span class="">
+													<input type="text" placeholder="yyyy-MM-dd" class="input_co2 fix_width83 date" name="date_from" id="date_from">
+													~
+													<input id="date_to" name="date_to" class="input_co2 fix_width83 date" type="text" placeholder="yyyy-MM-dd">
+													<button type="button" class="btn_gray01" onclick="dateSet('1')">어제</button>
+													<button type="button" class="btn_gray01" onclick="dateSet('0')">오늘</button>
+													<button type="button" class="btn_gray01" onclick="dateSet('7')">일주일</button>
+													<button type="button" class="btn_gray01" onclick="dateSet('30')">한달</button>
+													<button type="button" class="btn_gray01" onclick="dateSet('all')">전체</button>
+												</span>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label class="lable_member_common_left">회원명</label>
+                                        <input type="text" class="input_member_common_01" disabled id="office_nick" style="width: 150px;">
+                                        <label class="lable_member_common_right">전화번호</label>
+                                        <input type="text" class="input_member_common_01" disabled id="office_nick" style="width: 150px;">
+                                        <label class="lable_member_common_right">휴대전화</label>
+                                        <input type="text" class="input_member_common_01" disabled id="office_nick" style="width: 150px;">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lable_member_common_left">주소</label>
+                                        <input type="text" class="input_member_common_01" disabled id="office_nick" style="width: 500px;">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="lable_member_common_left">선입금</label>
+                                        <input type="text" class="input_member_common_01" disabled id="office_nick" style="width: 150px;">
+                                        <label class="lable_member_common_right">최근거래일</label>
+                                        <input type="text" class="input_member_common_01" disabled id="office_nick" style="width: 150px;">
+                                        <label class="lable_member_common_right">총 주문액</label>
+                                        <input type="text" class="input_member_common_01" disabled id="office_nick" style="width: 150px;">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+
+
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!-- 검색결과 TABle -->
+                        <div class="tb_group2 mt25">
+                            <div class="div_table_container">
+                                <table class="table_member_common_list">
+                                    <thead>
+                                    <tr>
+                                        <th style="width:50px;">번호</th>
+                                        <th style="width:130px;">회원명</th>
+                                        <th style="width:90px;">전화번호</th>
+                                        <th style="width:90px;">휴대폰번호</th>
+                                        <th style="width:70px;">예외구분</th>
+                                        <th style="width:60px;">등급</th>
+                                        <!--
+                                        <th class="">사내평가</th>
+                                        -->
+                                        <th style="width:80px;">최초가입일</th>
+                                        <th style="width:80px;">최근주문일</th>
+                                        <th style="width:80px;">최근로그인</th>
+                                        <th style="width:140px;">상세보기</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="member_list" style="word-break: break-all;">
+                                    <tr><td colspan="9">검색 된 내용이 없습니다.</td></tr>
+                                    </tbody>
+                                </table>
+                                <div class="div_page_container">
+                                    <p class="p_show_page">
+                                        Showing 1 to 5 of 30 entries
+                                        <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+                                            <option>5</option>
+                                            <option>10</option>
+                                            <option>20</option>
+                                            <option selected="selected">30</option>
+                                        </select>
+                                    </p>
+                                    <div class="div_page_number" id="member_page">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <form name="frm" id="frm">
+                    <input type="hidden" id="seqno" name="seqno">
+                </form>
+            </div>
+    </section>
+</div>
+</body>
+</html>

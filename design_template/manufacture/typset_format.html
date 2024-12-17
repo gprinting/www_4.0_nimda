@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8"> [TPH_I/common/common.html]
+</head>
+
+<body>
+
+<div id="container">
+
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+
+    <!-- CONTENT -->
+    <section id="page-content">
+
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!-- 탭 박스 3 TAB -->
+                        <div class="tabbable">
+
+                            <div class="tree_box" style="width:340px;">
+                                [TPH_Vcate_tree]
+                            </div>
+                            <!-- tree_box -->
+
+                            <div class="category_box">
+                                <form>
+                                    <!-- SUB TAB UI -->
+                                    <ul class="nav nav-tabs">
+                                        <!--li class="active">
+                                        <a href="#tab_bplist1" onclick="tabCtrl('paper');" data-toggle="tab"> 종이 </a>
+                                        </li-->
+                                        <li class="active">
+                                            <a href="#tab_bplist2" onclick="tabCtrl('output');" data-toggle="tab"> 출력 </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab_bplist3" onclick="tabCtrl('print');" data-toggle="tab"> 인쇄 </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab_bplist4" onclick="tabCtrl('after');" data-toggle="tab"> 조판후공정 </a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane" id="tab_bplist1">
+                                            <!-- 종이 TAB -->
+                                            <div class="" style="padding-top:0px;">
+                                                <ul class="table_top">
+                                                    <li class="sel">
+                                                        <label class="con_label" style="cursor:pointer;"> <input type="checkbox" id="paper_produce_yn" class="check_box"> 현재의 단계를 공정에 추가합니다.</label>
+                                                    </li>
+                                                    <li class="sel tar">
+                                                        <label for="paper_search" class="con_label">Search(종이명) : <input id="paper_search" type="text" class="search_btn fix_width180" onkeydown="searchKey(event, this.value, 'paper');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('paper');"></button></label>
+                                                    </li>
+                                                </ul>
+                                                <div class="table_basic">
+                                                    <table class="table_basic_layout">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="">선택</th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('manu_name', this, 'paper');"
+                                                                        class="blue_text01 sorting">제조사 <i class="fa fa-sort"></i></a></th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('B.name', this, 'paper');"
+                                                                        class="blue_text01 sorting">브랜드 <i class="fa fa-sort"></i></a></th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('A.name', this, 'paper');"
+                                                                        class="blue_text01 sorting">종이명 <i class="fa fa-sort"></i></a></th>
+                                                                <th class="">계열</th>
+                                                                <th class="">사이즈</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="paper_list">
+                                                        </tbody>
+                                                    </table>
+                                                    <div>
+                                                        <p class="p_num_b fs12">
+                                                            Showing 1 to 5 of 30 entries
+                                                            <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'paper');">
+                                                                <option>5</option>
+                                                                <option>10</option>
+                                                                <option>20</option>
+                                                                <option selected="selected">30</option>
+                                                            </select>
+                                                        </p>
+                                                        <div class="tac clear" id="paper_page">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="section_bar">
+
+                                            <div class="form-group">
+                                                <label class="control-label fix_width120 tar">종이명</label>
+                                                <input type="text" class="input_co5 fix_width150" id="paper_name" disabled>
+                                                <br />
+
+                                                <label class="control-label fix_width120 tar">수주처</label>
+                                                <input type="text" class="input_co5 fix_width150" id="paper_extnl" disabled>
+                                                <br />
+                                                <label class="control-label fix_width120 tar blue_text01">용도</label>
+                                                <label
+                                                    class="fix_width20 fs14 tac">:</label>
+                                                    <select class="fix_width157" id="paper_purp">
+                                                        <option value="">용도(전체)</option>
+                                                        <option value="일반옵셋">일반옵셋</option>
+                                                    </select>
+                                                    <br />
+                                                    <label class="control-label fix_width120 tar blue_text01">결</label>
+                                                    <label
+                                                        class="fix_width20 fs14 tac">:</label>
+                                                        <select class="fix_width157" id="paper_grain">
+                                                            <option value="">결(전체)</option>
+                                                            <option value="종목">종목</option>
+                                                            <option value="횡목">횡목</option>
+                                                        </select>
+                                                        <br />
+                                                        <label class="control-label fix_width120 tar blue_text01">입고처</label>
+                                                        <label
+                                                            class="fix_width20 fs14 tac">:</label>
+                                                            <select class="fix_width157" id="paper_storplace_dvs" onchange="loadExtnlEtprs(this.value, 'paper_storplace')">
+                                                                <option value="">품목(전체)</option>
+                                                                <option value="출력">출력</option>
+                                                                <option value="인쇄">인쇄</option>
+                                                                <option value="후공정">후공정</option>
+                                                            </select>
+                                                            <select class="fix_width157" id="paper_storplace">
+                                                                <option value="">업체(전체)</option>
+                                                            </select>
+                                                            <input type="hidden" id="paper_seqno">
+                                            </div>
+                                            <hr class="section_bar">
+                                            <p class="btn-lg red_btn clear">
+                                                <a style="cursor: pointer;" onclick="regiData('paper');">저장</a>
+                                            </p>
+
+                                        </div>
+                                        <!-- 종이 TAB -->
+
+                                        <div class="tab-pane active" id="tab_bplist2">
+                                            <!-- 출력 TAB -->
+
+                                            <div class="" style="padding-top:0px;">
+                                                <ul class="table_top">
+                                                    <li class="sel float_left" style="padding-top:5px;">
+                                                        <label class="search_wrapper" style="cursor:pointer;"> <input type="checkbox" id="output_produce_yn" class="checkbox_align"> 현재의 단계를 공정에 추가합니다.</label>
+                                                    </li>
+                                                    <li class="sel tar float_right">
+                                                        <label for="output_search" class="con_label">Search(출력명) : <input id="output_search" type="text" class="search_btn input_search" onkeydown="searchKey(event, this.value, 'output');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('output');"></button></label>
+                                                    </li>
+                                                </ul>
+                                                <div class="overflow_auto clear">
+                                                    <table class="table_basic_layout">
+                                                        <colgroup>
+                                                            <col style="width:40px;">
+                                                            <col style="width:90px;">
+                                                            <col style="width:120px;">
+                                                            <col style="width:80px;">
+                                                            <col style="width:40px;">
+                                                            <col style="width:70px;">
+                                                            <col style="width:90px;">
+                                                        </colgroup>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="">선택</th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('manu_name', this, 'output');"
+                                                                        class="blue_text01 sorting">제조사 <i class="fa fa-sort"></i></a></th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('B.name', this, 'output');"
+                                                                        class="blue_text01 sorting">브랜드 <i class="fa fa-sort"></i></a></th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('A.name', this, 'output');"
+                                                                        class="blue_text01 sorting">출력명 <i class="fa fa-sort"></i></a></th>
+                                                                <th class="">계열</th>
+                                                                <th class="">사이즈</th>
+                                                                <th class="">판</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="output_list">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <p class="p_num_b fs12 float_left">
+                                                        Showing 1 to 5 of 30 entries
+                                                        <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'output');">
+                                                            <option>5</option>
+                                                            <option>10</option>
+                                                            <option>20</option>
+                                                            <option selected="selected">30</option>
+                                                        </select>
+                                                    </p>
+                                                    <div class="tac float_right" id="output_page">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="section_bar">
+                                            <table class="table_search_layout">
+                                                <colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01">출력명</th>
+                                                        <td>
+                                                            <input type="text" class="input_manu_typset_format_01 input_disable" value="" id="output_name" disabled>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01">수주처</th>
+                                                        <td>
+                                                            <input type="text" class="input_manu_typset_format_01 input_disable" value="" id="output_extnl" disabled>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01">판</th>
+                                                        <td>
+                                                            <input type="text" class="input_manu_typset_format_01 input_disable" value="" id="output_board" disabled>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01">사이즈</th>
+                                                        <td>
+                                                            <input type="text" class="input_manu_typset_format_02 input_disable" value="" id="output_wid_size" disabled>*
+                                                            <input type="text" class="input_manu_typset_format_02 input_disable" value="" id="output_vert_size" disabled>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01" style="color:#0096ff;">입고처</th>
+                                                        <td>
+                                                            <select class="select_manu_typset_format_01" id="output_storplace_dvs" onchange="loadExtnlEtprs(this.value, 'output_storplace')">
+                                                                <option value="">품목(전체)</option>
+                                                                <option value="인쇄">인쇄</option>
+                                                                <option value="후공정">후공정</option>
+                                                            </select>
+                                                            <select class="select_manu_typset_format_01" id="output_storplace">
+                                                                <option value="">업체(전체)</option>
+                                                            </select>
+                                                            <input type="hidden" id="output_seqno">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr class="section_bar">
+                                            <div style="text-align:center;">
+                                                <button class="orange" style="width:130px;height:36px;" onclick="regiData('output');">저장</button>
+                                            </div>
+                                        </div>
+                                        <!-- 출력 TAB -->
+
+                                        <div class="tab-pane" id="tab_bplist3">
+                                            <!-- 인쇄 TAB -->
+
+                                            <div class="" style="padding-top:0px;">
+                                                <ul class="table_top">
+                                                    <li class="sel float_left" style="padding-top:5px;">
+                                                        <label class="con_label" style="cursor:pointer;"> <input type="checkbox" id="print_produce_yn" class="checkbox_align"> 현재의 단계를 공정에 추가합니다.</label>
+                                                    </li>
+                                                    <li class="sel tar float_right">
+                                                        <label for="print_search" class="con_label">Search(인쇄명) : <input id="print_search" type="text" class="search_btn input_search" onkeydown="searchKey(event, this.value, 'print');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('print');"></button></label>
+                                                    </li>
+                                                </ul>
+                                                <div class="overflow_auto clear">
+                                                    <table class="table_basic_layout">
+                                                        <colgroup>
+                                                            <col style="width:40px;">
+                                                            <col style="width:90px;">
+                                                            <col style="width:210px;">
+                                                            <col style="width:80px;">
+                                                            <col style="width:40px;">
+                                                            <col style="width:70px;">
+                                                        </colgroup>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="">선택</th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('manu_name', this, 'print');"
+                                                                        class="blue_text01 sorting">제조사 <i class="fa fa-sort"></i></a></th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('B.name', this, 'print');"
+                                                                        class="blue_text01 sorting">브랜드 <i class="fa fa-sort"></i></a></th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('A.name', this, 'print');"
+                                                                        class="blue_text01 sorting">인쇄명 <i class="fa fa-sort"></i></a></th>
+                                                                <th class="">계열</th>
+                                                                <th class="">사이즈</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="print_list">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <p class="p_num_b fs12 float_left">
+                                                        Showing 1 to 5 of 30 entries
+                                                        <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'print');">
+                                                            <option>5</option>
+                                                            <option>10</option>
+                                                            <option>20</option>
+                                                            <option selected="selected">30</option>
+                                                        </select>
+                                                    </p>
+                                                    <div class="tac float_right" id="print_page">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="section_bar">
+                                            <table class="table_search_layout">
+                                                <colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01">인쇄명</th>
+                                                        <td>
+                                                            <input type="text" class="input_manu_typset_format_01 input_disable" value="" id="print_name" disabled>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01">수주처</th>
+                                                        <td>
+                                                            <input type="text" class="input_manu_typset_format_01 input_disable" value="" id="print_extnl" disabled>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01">사이즈</th>
+                                                        <td>
+                                                            <input type="text" class="input_manu_typset_format_02 input_disable" value="" id="print_wid_size" disabled>*
+                                                            <input type="text" class="input_manu_typset_format_02 input_disable" value="" id="print_vert_size" disabled>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01" style="color:#0096ff;">입고처</th>
+                                                        <td>
+                                                            <select class="select_manu_typset_format_01" id="print_storplace_dvs" onchange="loadExtnlEtprs(this.value, 'print_storplace')">
+                                                                <option value="">품목(전체)</option>
+                                                                <option value="후공정">후공정</option>
+                                                            </select>
+                                                            <select class="select_manu_typset_format_01" id="print_storplace">
+                                                                <option value="">업체(전체)</option>
+                                                            </select>
+                                                            <input type="hidden" id="print_seqno">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr class="section_bar">
+                                            <div style="text-align:center;">
+                                                <button class="orange" style="width:130px;height:36px;" onclick="regiData('print');">저장</button>
+                                            </div>
+                                        </div>
+                                        <!-- 인쇄 TAB -->
+
+                                        <div class="tab-pane" id="tab_bplist4">
+                                            <!-- 후공정 TAB -->
+
+                                            <div class="" style="padding-top:0px;">
+                                                <ul class="table_top">
+                                                    <li class="sel float_left" style="padding-top:5px;">
+                                                        <label class="con_label" style="cursor:pointer;"> <input type="checkbox" id="after_produce_yn" class="checkbox_align"> 현재의 단계를 공정에 추가합니다.</label>
+                                                    </li>
+                                                    <li class="sel tar float_right">
+                                                        <label for="after_search" class="con_label">Search(후공정명) : <input id="after_search" type="text" class="search_btn input_search" onkeydown="searchKey(event, this.value, 'after');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('after');"></button></label>
+                                                    </li>
+                                                </ul>
+                                                <div class="overflow_auto clear">
+                                                    <table class="table_basic_layout">
+                                                        <colgroup>
+                                                            <col style="width:40px;">
+                                                            <col style="width:90px;">
+                                                            <col style="width:120px;">
+                                                            <col style="width:80px;">
+                                                            <col style="width:70px;">
+                                                            <col style="width:70px;">
+                                                            <col style="width:60px;">
+                                                        </colgroup>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="">선택</th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('manu_name', this, 'after');"
+                                                                        class="blue_text01 sorting">제조사 <i class="fa fa-sort"></i></a></th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('B.name', this, 'after');"
+                                                                        class="blue_text01 sorting">브랜드 <i class="fa fa-sort"></i></a></th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('A.name', this, 'after');"
+                                                                        class="blue_text01 sorting">후공정명 <i class="fa fa-sort"></i></a></th>
+                                                                <th class="">Depth1</th>
+                                                                <th class="">Depth2</th>
+                                                                <th class="">Depth3</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="after_list">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div>
+                                                    <p class="p_num_b fs12 float_left">
+                                                        <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'after');">
+                                                            <option>5</option>
+                                                            <option>10</option>
+                                                            <option>20</option>
+                                                            <option selected="selected">30</option>
+                                                        </select>
+                                                        로 보기
+                                                    </p>
+                                                    <div class="tac float_right" id="after_page">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="section_bar">
+
+
+                                            <table class="table_search_layout">
+                                                <colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01">후공정명</th>
+                                                        <td>
+                                                            <input type="text" class="input_manu_typset_format_01 input_disable" value="" id="after_name" disabled>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01">수주처</th>
+                                                        <td>
+                                                            <input type="text" class="input_manu_typset_format_01 input_disable" value="" id="after_extnl" disabled>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th class="th_text th_manu_typset_format_01">Depth</th>
+                                                        <td>
+                                                            <input type="text" class="input_manu_typset_format_03 input_disable" value="" id="after_depth1" disabled>
+                                                            <input type="text" class="input_manu_typset_format_03 input_disable" value="" id="after_depth2" disabled>
+                                                            <input type="text" class="input_manu_typset_format_03 input_disable" value="" id="after_depth3" disabled>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <hr class="section_bar">
+                                            <div style="text-align:center;">
+                                                <button class="orange" style="width:130px;height:36px;" onclick="regiData('after');">추가 <i class="fa fa-chevron-circle-down"></i></button>
+                                            </div>
+                       
+                                            <!--
+                                            <label class="control-label fix_width120 tar blue_text01">입고처</label>
+                                            <select class="fix_width120" id="after_storplace_dvs">
+                                            <option value="">품목(전체)</option>
+                                            </select>
+                                            <select class="fix_width150" id="after_storplace">
+                                            <option value="">업체(전체)</option>
+                                            </select>-->
+                                            <div class="">
+                                                <div class="table_basic">
+                                                    <table class="table_basic_layout">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="">번호</th>
+                                                                <th class="">수주처</th>
+                                                                <th class="">후공정명</th>
+                                                                <th class="">Depth1</th>
+                                                                <th class="">Depth2</th>
+                                                                <th class="">Depth3</th>
+                                                                <th class="">관리</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="after_regi_list">
+                                                            <tr>
+                                                                <td colspan="7">내용이 없습니다.</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- 후공정 TAB -->
+
+                                        <div class="tab-pane" id="tab_bplist5">
+                                            <!-- 옵션 TAB -->
+
+                                            <div class="" style="padding-top:0px;">
+                                                <ul class="table_top">
+                                                    <li class="sel">
+                                                        <label class="con_label" style="cursor:pointer;"> <input type="checkbox" id="opt_produce_yn" class="check_box"> 현재의 단계를 공정에 추가합니다.</label>
+                                                    </li>
+                                                    <li class="sel tar">
+                                                        <label for="opt_search" class="con_label">Search(옵션명) : <input id="opt_search" type="text" class="search_btn fix_width180" onkeydown="searchKey(event, this.value, 'opt');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('opt');"></button></label>
+                                                    </li>
+                                                </ul>
+
+                                                <div class="table_basic">
+                                                    <table class="table_basic_layout">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="">선택</th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('name', this, 'opt');"
+                                                                        class="blue_text01 sorting">옵션명 <i class="fa fa-sort"></i></a></th>
+                                                                <th class="">Depth1</th>
+                                                                <th class="">Depth2</th>
+                                                                <th class="">Depth3</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="opt_list">
+                                                        </tbody>
+                                                    </table>
+                                                    <p class="p_num_b fs12">
+                                                        Showing 1 to 5 of 30 entries
+                                                        <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'paper');">
+                                                            <option>5</option>
+                                                            <option>10</option>
+                                                            <option>20</option>
+                                                            <option selected="selected">30</option>
+                                                        </select>
+                                                    </p>
+                                                    <div class="tac clear" id="opt_page">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="section_bar">
+
+                                            <div class="form-group">
+                                                <label class="control-label fix_width120 tar">옵션명</label>
+                                                <input type="text" class="input_co5 fix_width150" value="" id="opt_name" disabled>
+                                                <br />
+
+                                                <label class="control-label fix_width120 tar">Depth</label>
+                                                <input type="text" class="input_co5 fix_width75" value="" id="opt_depth1" disabled>
+                                                <input type="text" class="input_co5 fix_width75" value="" id="opt_depth2" disabled>
+                                                <input type="text" class="input_co5 fix_width75" value="" id="opt_depth3" disabled>
+                                                <br />
+                                                <input type="hidden" id="opt_seqno">
+                                            </div>
+
+                                            <p class="btn-lg red_btn clear">
+                                                <a style="cursor: pointer;" onclick="regiData('opt');">
+                                                추가 <i class="fa fa-chevron-circle-down"></i>
+                                                </a>
+                                            </p>
+
+                                            <div class="">
+
+                                                <div class="table_basic">
+                                                    <table class="table_basic_layout">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="">번호</th>
+                                                                <th class="">옵션명</th>
+                                                                <th class="">Depth1</th>
+                                                                <th class="">Depth2</th>
+                                                                <th class="">Depth3</th>
+                                                                <th class="">관리</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="opt_regi_list">
+                                                            <tr>
+                                                                <td colspan="6">내용이 없습니다.</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- 옵션 TAB -->
+
+                                        <div class="tab-pane" id="tab_bplist6">
+                                            <!-- 입출고 TAB -->
+                                            <div class="form-group">
+                                                <label class=""><input type="checkbox" class="check_box"> 현재의 단계를 공정에 추가합니다.</label>
+                                            </div>
+
+                                        </div>
+                                        <!-- 입출고 TAB -->
+
+                                        <div class="tab-pane" id="tab_bplist7">
+                                            <!-- 배송 TAB -->
+                                            <div class="form-group">
+                                                <label class="" style="margin-left: 15px;" style="cursor:pointer;"> <input type="checkbox" class="check_box"> 현재의 단계를 공정에 추가합니다.</label>
+                                            </div>
+
+                                        </div>
+                                        <!-- 배송 TAB -->
+
+
+                                    </div>
+                                    <!-- TAB UI -->
+
+                                </form>
+                            </div>
+
+                        </div>
+                        <!-- 탭 박스 3 TAB -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+
+</html>

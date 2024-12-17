@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8"> [TPH_I/common/common.html]
+</head>
+
+<body>
+
+    <div id="container">
+
+        <!-- TOP NAVIGATION -->
+        [TPH_I/common/header.html]
+
+        <!-- LEFT NAVIGATION -->
+        [TPH_Vleft]
+
+        <!-- CONTENT -->
+        <section id="page-content" class="">
+            <!-- 본문 컨텐츠  시작-->
+            <div id="content-container" class="content_container">
+                <!--메인상단 왼쪽 레이아웃-->
+                <div id="left_content" class="left_content">
+                    <!--타이틀 시작-->
+                    <div class="title">
+                        [TPH_I/common/history.html]
+                    </div>
+                    <!--타이틀 끝-->
+                    <!--기본 검색정보 시작-->
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <table class="table_search_layout">
+                                <tr>
+                                    <th class="th_text th_manu_paper_op_mng_01">
+                                        조건 검색
+                                    </th>
+                                    <td colspan="3">
+                                        <select class="select_manu_paper_op_mng_01" id="cnd_val" onchange="changeSearchCnd(this.value);">
+                                            <option value="op_num">발주번호</option>
+                                            <option value="extnl_brand_seqno">종이제조사</option>
+                                            <option value="storplace">입고처</option>
+                                        </select>
+                                        <input type="text" class="input_manu_paper_op_mng_01" id="search_val">
+                                        <button type="button" class="btn_float_right btn_Turquoise01" onclick="searchOpList(30, 1);">검색</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_manu_paper_op_mng_01">
+                                        날짜
+                                    </th>
+                                    <td colspan="3">
+                                        <input type="text" class="datepicker_input input_manu_paper_stor_02" readonly="readonly" id="basic_from">-
+                                        <input type="text" class="datepicker_input input_manu_paper_stor_02" readonly="readonly" id="basic_to">
+                                        <span class="container_btn_align_02">
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -1,  0, $(this).text(), true);">어제</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 't',  0,  0, $(this).text(), false);">오늘</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -7,  0, $(this).text(), false);">일주일</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'm', -1,  0, $(this).text(), false);">한달</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'y', -1, -1, $(this).text(), true);">작년동기</button>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_manu_paper_op_mng_02">
+                                        상태
+                                    </th>
+                                    <td>
+                                        <select class="select_manu_paper_stor_02" id="op_state">
+                                            [TPH_Vstate_html]
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </section>
+                    <!--기본검색정보 끝-->
+                    <!--검색정보 테이블 시작-->
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <ul class="nav nav-tabs">
+                                <li class="li1 active"><a href="#" data-toggle="tab" onclick="tabView('list');"> 종이발주 리스트 </a> </li>
+                                <li class="li2"><a href="#" data-toggle="tab" onclick="tabView('add');"> 종이발주서 등록/수정</a> </li>
+                            </ul>
+                            <div id="paper_op_list">
+                                <table class="table_basic_layout">
+                                    <thead>
+                                        <tr>
+                                            <th class=""><input type="checkbox" id="allCheck" onclick="allCheck();"></th>
+                                            <th class="">발주번호</th>
+                                            <th class="">종이명</th>
+                                            <th class="">입고사이즈</th>
+                                            <th class="">결</th>
+                                            <th class="">수량</th>
+                                            <th class="">종이제조사</th>
+                                            <th class="">발주자</th>
+                                            <th class="">발주일</th>
+                                            <th class="">발주처</th>
+                                            <th class="">상태</th>
+                                            <th class="">메모</th>
+                                            <th class="">관리</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="list">
+                                        <tr>
+                                            <td colspan="13">검색 된 내용이 없습니다.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="p_num_b fs12">
+                                    <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'nomal');">
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>20</option>
+                                        <option selected="selected">30</option>
+                                    </select>
+                                    개씩 보기
+                                </p>
+                                <div class="tac clear" id="page">
+                                </div>
+                                <div class="clear" style="text-align:center;">
+                                    <button class="orange" style="width:130px;height:36px;" onclick="paperOp();">발주</button>
+                                </div>
+                            </div>
+                            <input type="hidden" class="input_manu_paper_op_detail_01 input_disable" id="paper_op_seqno" value="" disabled>
+                            <input type="hidden" class="input_manu_paper_op_detail_01 input_disable" id="paper_brand_seqno" value="" disabled>
+                            <div id="paper_op_add" style="display:none;">
+                                <ul class="ofh" style="width:100%;">
+                                    <li class="fix_width440 fl" style="width:50%;">
+                                        <table class="table_search_layout">
+                                            <tr>
+                                                <th class="th_text th_manu_paper_op_detail_01">종이명</th>
+                                                <td>
+                                                    <input type="text" class="input_manu_paper_op_detail_01 input_disable" id="paper_name" value="" disabled>
+                                                    <input type="text" class="input_manu_paper_op_detail_01" id="paper_dvs" disabled>
+                                                    <input type="text" class="input_manu_paper_op_detail_01" id="paper_color" disabled>
+                                                    <input type="text" class="input_manu_paper_op_detail_01" id="paper_basisweight" disabled>
+                                                </td>
+                                            </tr>
+                                            <!--tr>
+                                                <th class="th_text th_manu_paper_op_detail_01">종이제조사</th>
+                                                <td>
+                                                    <input type="text" class="input_manu_paper_op_detail_01 input_disable" id="paper_manu_name" value="" disabled>
+                                                    <input type="hidden" class="input_manu_paper_op_detail_01 input_disable" id="paper_brand_seqno" value="" disabled>
+                                                    <input type="hidden" class="input_manu_paper_op_detail_01 input_disable" id="paper_op_seqno" value="" disabled>
+                                                </td>
+                                            </tr-->
+                                            <tr>
+                                                <th class="th_text th_manu_paper_op_detail_01">발주사이즈</th>
+                                                <td>
+                                                    <input type="text" class="input_manu_paper_op_detail_01 input_disable" id="paper_affil" value="" disabled>
+                                                    <input type="text" style="margin-left:2px;" class="input_manu_paper_op_detail_01 input_disable" id="paper_op_wid_size" value="" disabled> *
+                                                    <input type="text" class="input_manu_paper_op_detail_01 input_disable" id="paper_op_vert_size" value="" disabled>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_text th_manu_paper_op_detail_01">조판번호</th>
+                                                <td>
+                                                    <input type="text" class="input_manu_paper_op_detail_01" id="typset_num" value="">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_text th_manu_paper_op_detail_01">발주처</th>
+                                                <td>
+                                                    <select class="select_manu_paper_op_detail_01" id="brand_seqno">
+                                                        [TPH_Vpaper_manu_html]
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_text th_manu_paper_op_detail_01">입고사이즈</th>
+                                                <td>
+                                                    <select class="select_manu_paper_op_detail_01" onchange="changeSubpaper(this.value);" id="paper_subpaper">
+                                                        <option value="">발주사이즈 동일</option>
+                                                        <option value="1">전절</option>
+                                                        <option value="2">2절</option>
+                                                        <option value="4">4절</option>
+                                                        <option value="8">8절</option>
+                                                        <option value="16">16절</option>
+                                                        <option value="32">32절</option>
+                                                        <option value="별">별절</option>
+                                                    </select>
+                                                    <input type="text" class="input_manu_paper_op_detail_01" id="paper_stor_wid_size" onkeyup="onlyNumber2(event)" value=""> *
+                                                    <input type="text" class="input_manu_paper_op_detail_01" onkeyup="onlyNumber2(event)" id="paper_stor_vert_size" value="">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_text th_manu_paper_op_detail_01">결</th>
+                                                <td>
+                                                    <label class="check_box_wrapper_paper_op"><input type="radio" class="checkbox_align" name="paper_grain" value="종목" checked="checked">종목</label>
+                                                    <label class="check_box_wrapper_paper_op"><input type="radio" class="checkbox_align" name="paper_grain" value="횡목">횡목</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_text th_manu_paper_op_detail_01">수량</th>
+                                                <td>
+                                                    <input type="text" class="input_manu_paper_op_detail_01" id="paper_amt" value="">
+                                                    <select class="select_manu_paper_op_detail_01" id="paper_amt_unit">
+                                                        <option value="장">장</option>
+                                                        <option value="R">R</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_text th_manu_paper_op_detail_01">발주메모</th>
+                                                <td>
+                                                    <textarea class="bs_noti2" id="paper_memo"></textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </li>
+                                    <li class="fl" style="width:47%; padding-left:3%;">
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="stab_tit_1">
+                                                <p class="tar" style="text-align:left;">
+                                                    <!--select class="select_manu_paper_op_detail_01" onchange="changeManuListCall();" id="paper_extnl_etprs_seqno">
+                                                        [TPH_Vpaper_manu_html]
+                                                    </select-->
+                                                    <select class="select_manu_paper_op_detail_01" id="name" onchange="selectPaperName(); return false;">
+                                                        [TPH_Vpaper_opt]
+                                                    </select>
+                                                    </br>
+                                                    <div style="height:5px;">
+                                                    </div>
+                                                    <!--select class="select_manu_paper_op_detail_01 input_disable" id="dvs" onchange="selectPaperDvs(); return false;" disabled>
+                                                        <option value="">구분(전체)</option>
+                                                    </select>
+                                                    <select class="select_manu_paper_op_detail_01 input_disable" id="color" onchange="selectPaperColor(); return false;" disabled>
+                                                        <option value="">색상(전체)</option>
+                                                    </select>
+                                                    <select class="select_manu_paper_op_detail_01 input_disable" id="basisweight" onchange="cndSearch.info(''); return false;" disabled>
+                                                        <option value="">평량(전체)</option>
+                                                    </select-->
+                                                </p>
+
+                                                <div class="overflow_auto" style="height:325px; margin-top:20px;">
+                                                    <table class="table_basic_layout" style="width:100%; margin:0px;">
+                                                        <colgroup>
+                                                            <col style="width:50px;" />
+                                                            <col style="width:120px;" />
+                                                            <col style="width:100px;" />
+                                                            <col style="width:150px;" />
+                                                            <col style="width:60px;" />
+                                                            <col style="width:100px;" />
+                                                        </colgroup>
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="">선택</th>
+                                                                <th class=""><a style="cursor: pointer;" onclick="sortList('paper_name', this, 'paper');"
+                                                                        class="blue_text01 sorting">종이명 <i class="fa fa-sort"></i></a></th>
+                                                                <th class="">계열</th>
+                                                                <th class="">사이즈</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="paper_info_list">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div style="text-align:right; margin-top:14px;">
+                                                    <button type="button" class="btn_indigo h_26" style="width:100px;" onclick="getPaper();">적용</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div style="text-align:center; margin-top:20px;">
+                                    <button class="orange" style="width:130px;height:36px;" onclick="regiPaperOp();">발주서 등록/수정</button>
+                                    <button class="bred" style="width:130px;height:36px;display:none;" id="cancel_modify" onclick="cancelPaperOp();">변경 취소</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--검색정보 테이블 끝-->
+                </div>
+                <!--메인상단 왼쪽 레이아웃 끝-->
+            </div>
+            <!-- 본문 컨텐츠 끝 -->
+        </section>
+    </div>
+</body>
+
+</html>

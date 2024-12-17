@@ -1,0 +1,72 @@
+                <!--신규회원정보-->
+                <section id="content6" class="content">
+                  <div class="content4_top">
+                    <div style="float:left">
+                    <span class="span_new_member_text_01">회원명 검색</span>
+                    <input type="text" id="new_member_name" class="input_new_member_info_01">
+                  </div>
+                    <div style="float:right">
+                      <span class="span_new_member_text_02">가입일 검색</span>
+                      <input type="text" class="input_new_member_info_02 datepicker_input" id="new_member_from">-
+                      <input type="text" class="input_new_member_info_02 datepicker_input" id="new_member_to" style="margin-right:6px;">
+                      <button class="btn_Turquoise01" onclick="loadNewMember.exec('new_member');">검색</button>
+                    </div>
+                  </div>
+                  <div class="overflow_auto">
+                    <table class="table_basic_layout">
+                      <colgroup>
+                        <col width="50px">
+                        <col width="80px">
+                        <col width="120px">
+                        <col width="80px">
+                        <col width="140px">
+                        <col width="140px">
+                        <col width="80px">
+                        <col width="80px">
+                        <col width="90px">
+                        <col width="80px">
+                      </colgroup>
+                      <thead>
+                        <th>No.</th>
+                        <th>채널구분</th>
+                        <th>회원명</th>
+                        <th>회원등급</th>
+                        <th>최근가입일</th>
+                        <th>최초주문일</th>
+                        <th>팀 구분</th>
+                        <th>배송방법</th>
+                        <th>접수담당자</th>
+                        <th>정보수정</th>
+                      </thead>
+                      <tbody id="new_member_list">
+                      <!--
+                        <tr>
+                          <td>80</td>
+                          <td>GP</td>
+                          <td>뉴페이스</td>
+                          <td>일반회원</td>
+                          <td>2017-05-28</td>
+                          <td>2017-05-30</td>
+                          <td>2팀</td>
+                          <td>서울배송10</td>
+                          <td>박경미</td>
+                          <td><button>수정</button></td>
+                        </tr>
+                      -->
+                      </tbody>
+                    </table>
+                  </div>
+                  <div id="new_member_page" class="page_bar"></div>
+                </section>
+                <!--신규회원정보 끝-->
+<script>
+/**
+ * @brief 회원상세보기 팝업 출력
+ *
+ * @param seqno = 회원 일련번호
+ */
+var showMemberDetail = function(seqno) {
+    var url = "/member/popup/pop_member_detail.html?seqno=" + seqno;
+    window.open(url, "_blank");
+};
+</script>

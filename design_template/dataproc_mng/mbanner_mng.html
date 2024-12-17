@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>전산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+    <div id="container">
+    <!-- TOP NAVIGATION --> 
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION --> 
+    [TPH_Vleft]
+    <!-- CONTENT --> 
+    <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!-- 배너 기본설정 시작 -->
+                        <table class="table_search_layout">
+                            <tr>
+                                <th class="th_text th_data_mbanner_mng_01">게시물수</th>
+                                <td>
+                                    <select id="mb_count" name="mb_count" onchange="objCountView(this.value);" class="select_data_mbanner_mng_01">
+                                        [TPH_Vmb_count_html]
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_data_mbanner_mng_01">슬라이드 타이머</th>
+                                <td>
+                                    <label class="check_box_wrapper_mbanner_mng_01"><input type="radio" name="slide_timer" value="5" class="checkbox_align" [TPH_Vslide_timer1]>5초</label>
+                                    <label class="check_box_wrapper_mbanner_mng_01"><input type="radio" name="slide_timer" value="10" class="checkbox_align" [TPH_Vslide_timer2]>10초</label>
+                                    <label class="check_box_wrapper_mbanner_mng_01"><input type="radio" name="slide_timer" value="15" class="checkbox_align" [TPH_Vslide_timer3]>15초</label>
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- 배너 기본설정 종료 -->
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <div id="banner_contents">
+                            [TPH_Vbanner_contents]
+                        </div>
+                        <!-- 상세검색버튼 --> 
+                        <div class="btn_wrapper center">
+                            <input type="hidden" id="set_seqno" value="[TPH_Vset_seqno]">
+                            <button class="btn btn_blue btn_large co_blue fs12" onclick="apply();">적용</button>&nbsp;
+                            <button class="btn btn_red btn_large co_blue fs12" onclick="init();">초기화</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+</div>
+</body>
+</html>

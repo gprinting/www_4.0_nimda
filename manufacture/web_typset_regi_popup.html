@@ -1,0 +1,230 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/manufacture/typset_mng/TypsetListDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$dao = new TypsetListDAO();
+
+$order_common_seqno = $fb->form("seqno");
+$state_arr = $fb->session("state_arr");
+
+$state = $state_arr["조판중"];
+
+$param = array();
+$param["table"] = "order_common";
+$param["col"]["order_state"] = $state;
+$param["prk"] = "order_common_seqno";
+$param["prkVal"] = $order_common_seqno;
+
+$dao->updateData($conn, $param);
+
+$param = array();
+$param["table"] = "order_detail_brochure";
+$param["col"]["state"] = $state;
+$param["prk"] = "order_common_seqno";
+$param["prkVal"] = $order_common_seqno;
+
+$dao->updateData($conn, $param);
+
+$param = array();
+$param["table"] = "order_detail_brochure";
+$param["col"] = "order_detail_dvs_num";
+$param["where"]["order_common_seqno"] = $order_common_seqno;
+
+$sel_rs = $dao->selectData($conn, $param);
+
+while ($sel_rs && !$sel_rs->EOF) {
+
+    $param = array();
+    $param["table"] = "page_order_detail_brochure";
+    $param["col"]["state"] = $state;
+    $param["prk"] = "order_detail_dvs_num";
+    $param["prkVal"] = $sel_rs->fields["order_detail_dvs_num"];
+
+    $dao->updateData($conn, $param);
+
+    $sel_rs->moveNext();
+}
+
+$param = array();
+$param["table"] = "order_common";
+$param["col"] = "dlvr_produce_dvs";
+$param["where"]["order_common_seqno"] = $order_common_seqno;
+
+$dlvr_produce_dvs = $dao->selectData($conn, $param)->fields["dlvr_produce_dvs"];
+
+$param = array();
+$param["order_common_seqno"] = $order_common_seqno;
+$param["dlvr_produce_dvs"] = $dlvr_produce_dvs;
+
+$rs = $dao->selectOrderDetailBrochureList($conn, $param);
+
+$list = makeOrderDetailBrochureListHtml($rs, $param);
+
+$template->reg("list" , $list); 
+
+$param = array();
+$param["table"] = "order_common";
+$param["col"] = "order_num, title, member_seqno, order_regi_date, cate_sortcode, cust_memo, amt, amt_unit_dvs";
+$param["where"]["order_common_seqno"] = $order_common_seqno;
+
+$sel_rs = $dao->selectData($conn, $param);
+
+$title = $sel_rs->fields["title"];
+$order_num = $sel_rs->fields["order_num"];
+$member_seqno = $sel_rs->fields["member_seqno"];
+$order_regi_date = $sel_rs->fields["order_regi_date"];
+$cate_sortcode = $sel_rs->fields["cate_sortcode"];
+$cust_memo = $sel_rs->fields["cust_memo"];
+
+$order_info = $order_num . "-" . $title;
+$template->reg("order_info" , $order_info); 
+
+$template->reg("order_regi_date" , $order_regi_date); 
+$template->reg("cust_memo" , $cust_memo); 
+
+$amt_info = $sel_rs->fields["amt"] . $sel_rs->fields["amt_unit_dvs"];
+$template->reg("amt_info" , $amt_info); 
+
+$param = array();
+$param["table"] = "cate";
+$param["col"] = "cate_name";
+$param["where"]["sortcode"] = $cate_sortcode;
+
+$cate_name = $dao->selectData($conn, $param)->fields["cate_name"];
+
+$template->reg("cate_name" , $cate_name); 
+
+$param = array();
+$param["table"] = "member";
+$param["col"] = "member_name, tel_num, cell_num";
+$param["where"]["member_seqno"] = $member_seqno;
+
+$rs = $dao->selectData($conn, $param);
+$member_name = $rs->fields["member_name"];
+$tel_num = $rs->fields["tel_num"];
+$cell_num = $rs->fields["cell_num"];
+
+$tel_info = $tel_num . " / " . $cell_num;
+
+if (!$tel_num) {
+    $tel_info = $cell_num;
+}
+
+$template->reg("member_name" , $member_name); 
+$template->reg("tel_info" , $tel_info); 
+
+$param = array();
+$param["table"] = "order_opt_history";
+$param["col"] = "opt_name";
+$param["where"]["order_common_seqno"] = $order_common_seqno;
+
+$opt_rs = $dao->selectData($conn, $param);
+
+$opt_info = "";
+while ($opt_rs && !$opt_rs->EOF) {
+
+    $opt_info .= $opt_rs->fields["opt_name"] . ", ";
+    $opt_rs->moveNext();
+}
+
+$template->reg("opt_info" , $opt_info); 
+
+$option_html = "<option value=\"%s\">%s</option>";
+
+//인쇄소
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,manu_name";
+$param["where"]["pur_prdt"] = "인쇄";
+
+$rs = $dao->selectData($conn, $param);
+while ($rs && !$rs->EOF) {
+
+    $print_manu_html .= sprintf($option_html
+            , $rs->fields["extnl_etprs_seqno"]
+            , $rs->fields["manu_name"]);
+
+    $rs->moveNext();
+}
+
+$template->reg("print_manu_html" , $print_manu_html);
+
+//제조사 종이
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,manu_name";
+$param["where"]["pur_prdt"] = "종이";
+
+$rs = $dao->selectData($conn, $param);
+$paper_manu_html = "<option value=\"\">종이제조사(전체)</option>";
+while ($rs && !$rs->EOF) {
+
+    $paper_manu_html .= sprintf($option_html
+            , $rs->fields["extnl_etprs_seqno"]
+            , $rs->fields["manu_name"]);
+
+    $rs->moveNext();
+}
+
+$template->reg("paper_manu_html" , $paper_manu_html);
+
+//기본검색정보 : 종이종류
+$paper_rs = $dao->selectPaperName($conn);
+$paper_opt = "<option value=\"\">종이명(전체)</option>";
+while ($paper_rs && !$paper_rs->EOF) {
+    $paper_opt .= "<option value=\"". $paper_rs->fields["name"] ."\">" . $paper_rs->fields["name"] . "</option>";
+    $paper_rs->moveNext();
+}
+$template->reg("paper_opt", $paper_opt);
+
+//제조사 인쇄
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,manu_name";
+$param["where"]["pur_prdt"] = "인쇄";
+
+$rs = $dao->selectData($conn, $param);
+$print_manu_html = "<option value=\"\">인쇄소(전체)</option>";
+while ($rs && !$rs->EOF) {
+
+    $print_manu_html .= sprintf($option_html
+            , $rs->fields["extnl_etprs_seqno"]
+            , $rs->fields["manu_name"]);
+
+    $rs->moveNext();
+}
+
+$template->reg("print_manu_html2" , $print_manu_html);
+
+//제조사 후공정
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,manu_name";
+$param["where"]["pur_prdt"] = "후공정";
+
+$rs = $dao->selectData($conn, $param);
+$after_manu_html = "<option value=\"\">후공정업체(전체)</option>";
+while ($rs && !$rs->EOF) {
+
+    $after_manu_html .= sprintf($option_html
+            , $rs->fields["extnl_etprs_seqno"]
+            , $rs->fields["manu_name"]);
+
+    $rs->moveNext();
+}
+
+$template->reg("after_manu_html" , $after_manu_html);
+$template->reg("order_common_seqno" , $order_common_seqno);
+
+$template->reg("design_dir" , "/design_template"); 
+$template->htmlPrint($_SERVER["PHP_SELF"]); 
+$conn->close();
+?>

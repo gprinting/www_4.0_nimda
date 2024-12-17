@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <script src="[TPH_Vdesign_dir]/js/common/common_modi_popup.js"></script>
+</head>
+<body>
+
+<div id="container">
+       <!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+       <!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+       <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <tr>
+                                <th class="th_text th_basic_prdt_price_01">카테고리</th>
+                                <td>
+                                    <select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="select_basic_prdt_price_01">
+                                        [TPH_Vcate_html]
+                                    </select>
+                                    <select id="cate_mid" onchange="cateSelect.exec('mid', this.value);" class="select_basic_prdt_price_01">
+                                        <option value="">중분류(전체)</option>
+                                    </select>
+                                    <select id="cate_bot" tmpt_dvs="" onchange="initDetailInfo(this.value);" class="select_basic_prdt_price_01">
+                                        <option value="">소분류(전체)</option>
+                                    </select>
+                                    <button type="button" class="btn_float_right btn_Turquoise01" onclick="cndSearch.exec(false);">검색</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_basic_prdt_price_01">가격계산방식</th>
+                                <td>
+                                    <label class="check_box_wrapper_prdt_price">
+                                        <input type="radio" checked="checked" name="mono_yn" value="0" class="checkbox_align" onclick="activePrintPurp(this.value);"> 확정형 계산방식
+                                    </label>
+                                    <label class="check_box_wrapper_prdt_price">
+                                        <input type="radio" name="mono_yn" value="1" class="checkbox_align" onclick="activePrintPurp(this.value);"> 계산형 계산방식
+                                    </label>
+                                </td>
+                            </tr>
+                            <!--
+                            <tr>
+                                <th class="th_text th_basic_prdt_price_01">업체구분</th>
+                                <td>
+                                    <label class="check_box_wrapper_prdt_price">
+                                        <input type="radio" checked="checked" name="etprs_dvs" value="new" class="checkbox_align"> 신규업체
+                                    </label>
+                                    <label class="check_box_wrapper_prdt_price">
+                                        <input type="radio" name="etprs_dvs" value="exist" class="checkbox_align"> 기존업체
+                                    </label>
+                                </td>
+                            </tr>
+                            -->
+                            <tr>
+                                <th class="th_text th_basic_prdt_price_01">부가세</th>
+                                <td>
+                                    <label class="check_box_wrapper_prdt_price">
+                                        <input type="radio" checked="checked" name="tax_yn" value="Y" class="checkbox_align"> 포함가격
+                                    </label>
+                                    <label class="check_box_wrapper_prdt_price">
+                                        <input type="radio" name="tax_yn" value="N" class="checkbox_align"> 미포함가격
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <tr>
+                                <th class="th_text th_basic_prdt_price_01">종이</th>
+                                <td>
+                                    <select id="paper_name" onchange="paperSelect.exec('NAME', this.value);" class="select_basic_prdt_price_02">
+                                        <option value="">종이명(전체)</option>
+                                    </select>
+                                    <select id="paper_dvs" onchange="paperSelect.exec('DVS', this.value);" class="select_basic_prdt_price_02">
+                                        <option value="">구분(전체)</option>
+                                    </select>
+                                    <select id="paper_color" onchange="paperSelect.exec('COLOR', this.value);" class="select_basic_prdt_price_02">
+                                        <option value="">색상(전체)</option>
+                                    </select>
+                                    <select id="paper_basisweight" class="select_basic_prdt_price_02">
+                                        <option value="">평량(전체)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_basic_prdt_price_01">사이즈</th>
+                                <td>
+                                    <select id="output_size_typ" class="select_basic_prdt_price_02" onchange="loadOutputSize(this.value);">
+                                        <option value="">사이즈유형(전체)</option>
+                                    </select>
+                                    <select id="output_size" class="select_basic_prdt_price_02">
+                                        <option value="">사이즈명(전체)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_basic_prdt_price_01">수량</th>
+                                <td>
+                                    <select id="min_amt" class="select_basic_prdt_price_02">
+                                        <option value="">최소수량</option>
+                                    </select>
+                                    <select id="max_amt" class="select_basic_prdt_price_02">
+                                        <option value="">최대수량</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <tr>
+                                <th class="th_text th_basic_prdt_price_01">사내닉네임</th>
+                                <td>
+                                    <input type="text" class="input_basic_prdt_price_01" onkeydown="searchOfficeNick(event, this.value, '');" placeholder="두 글자 이상 입력" id="office_nick" disabled="disabled" readonly="readonly" style="background:#e1e5ea;" />
+                                    <input type="hidden" id="member_seqno" value='' />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!-- TAB UI -->
+                        <ul class="nav nav-tabs">
+                        <li class="active">
+                                <a href="#tab1" data-toggle="tab"> 전체 검색 테이블 </a> 
+                        </li>
+                        <li>
+                                <a href="#tab2" data-toggle="tab"> 등급할인 검색 테이블 </a> 
+                        </li>
+                        <li>
+                                <a href="#tab3" data-toggle="tab"> 회원특별할인 검색 테이블</a> 
+                        </li>
+                        </ul>
+                        <!-- TAB UI -->
+                        
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1"><!-- TAB 01 -->
+                            
+                                    <div class="">
+                                    <div class="overflow_auto">
+                                        <table class="table_basic_layout" id="prdt_price_list" style="display:none;">
+                                            <tr>
+                                                <td>검색된 내용이 없습니다.</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                        
+                                    <br /><br />
+                                    
+                                    <!-- 엑셀 업/다운로드 -->
+                                    <div class="dnup">
+                                        <input id="prdt_price_excel_path" name="upload_file" class="disableInputField" placeholder="Choose File" disabled="disabled" />
+                                        
+                                        <label class="fileUpload">
+                                            <input id="prdt_price_excel" name="excel_file_img" type="file" accept=".xlsx" class="upload"/>
+                                            <span class="btn_file_search"><i class="fa fa-folder-open"></i> 파일찾기</span>
+                                        </label>
+                                        
+                                        <script type="text/javascript">  
+                                            document.getElementById("prdt_price_excel").onchange = function () {
+                                                document.getElementById("prdt_price_excel_path").value = this.value;
+                                            };
+                                        </script> 
+                                        <label onclick="uploadFile('prdt_price');" class="fileUpload">
+                                            <span class="btn_file_upload"><i class="fa fa-upload"></i> 업로드</span>
+                                        </label>
+                                    
+                                        <hr class="hr_bd">
+                                    
+                                        <button type="button" onclick="downloadFile.exec('prdt_price_list');" style="height:32px;" class="btn btn-warning">
+                                            <span class="btn_download"><i class="fa fa-file-excel-o"></i> 상품 가격 다운로드</span>
+                                        </button>
+
+                                        <iframe id="file_ifr" width="0" height="0" style="display:none;" src=""></iframe>
+                                    </div><!-- 엑셀 업/다운로드 -->
+                                    
+                                    <!-- 일괄수정 팝업창 -->
+                                    <div class="pop_add_box fix_width500" style="display:none;" id="modi_all_price">
+                                        <dl>                            
+                                            <dt class="tit">
+                                                <h4>가격등록 조건입력</h4>
+                                            </dt>                       
+                                            <dt class="cls">
+                                                <button type="button" onclick="hideModiPop();" class="btn btn-sm btn-danger fa fa-times"></button>
+                                            </dt>                     
+                                        </dl>                          
+                                        <div class="pop-base">
+                                            <div class="pop-content">
+                                                <div class="form-group fs12">
+                                                    기존 판매금액의
+                                                    <select class="fix_width120" name="modi_all_price_dvs" disabled="disabled">
+                                                        <option value="R">요율</option>
+                                                        <option value="A">적용금액</option>
+                                                    </select> 
+                                                    <input type="text" id="modi_all_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);" class="input_co3 fix_width75" value=""> % / 원을 적용합니다.
+                                                </div>
+                                                <div class="form-group tar">
+                                                    <label class="btn btn_md fix_width55" onclick="aplyPriceInfo();"> 적용 </label> 
+                                                </div>
+                                            </div>                    
+                                        </div>                                           
+                                    </div><!-- 일괄수정 팝업창 -->
+                                    
+                                    <!-- 개별수정 팝업창 -->
+                                    <div class="popover top" style="display:none;" id="modi_each_price">
+                                        <div class="arrow"></div>
+                                        <div class="editable-input" style="position: relative;">   
+                                            <input type="text" id="modi_each_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);" placeholder="요율,적용금액">
+                                            <span class="editable-clear-x cp"></span>
+                                        </div>
+                                        <button type="button" onclick="aplyPriceInfoEach();" class="btn btn-xs">
+                                            <i class="fa fa-fw fa-check"></i>
+                                        </button>
+                                        <button type="button" onclick="hideModiPop();" class="btn btn-default btn-xs">
+                                            <i class="fa fa-fw fa-times"></i>
+                                        </button>   
+                                    </div><!-- 개별수정 팝업창 -->
+                                    </div>
+                            </div><!-- TAB 01 -->
+                        
+                            <div class="tab-pane" id="tab2"> <!-- TAB 02 -->
+                                    <div class="">
+                                    <div class="overflow_auto">
+                                        <table class="table_basic_layout" id="grade_sale_price_list" style="display:none;">
+                                            <tr>
+                                                <td>검색된 내용이 없습니다.</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                        
+                                    <br /><br />
+                                    
+                                    <!-- 엑셀 업/다운로드 -->
+                                    <div class="dnup">
+                                        <button type="button" onclick="downloadFile.exec('grade_sale_price_list');" style="height:32px;" class="btn btn-warning">
+                                            <span class="btn_download"><i class="fa fa-file-excel-o"></i> 등급할인 가격 다운로드</span>
+                                        </button>
+                                    </div><!-- 엑셀 업/다운로드 -->
+                                    </div>
+                            </div><!-- TAB 02 -->
+
+                            <div class="tab-pane" id="tab3"><!-- TAB 03 -->
+                            
+                                    <div class="">
+                                    <div class="overflow_auto">
+                                        <table class="table_basic_layout" id="member_sale_price_list" style="display:none;">
+                                            <tr>
+                                                <td>검색된 내용이 없습니다.</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                        
+                                    <br /><br />
+                                    
+                                    <!-- 엑셀 업/다운로드 -->
+                                    <div class="dnup">
+                                        <input id="member_sale_price_excel_path" name="upload_file" class="disableInputField" placeholder="Choose File" disabled="disabled" />
+                                        
+                                        <label class="fileUpload">
+                                            <input id="member_sale_price_excel" name="excel_file_img" type="file" accept=".xlsx" class="upload"/>
+                                            <span class="btn_file_search"><i class="fa fa-folder-open"></i> 파일찾기</span>
+                                        </label>
+                                        
+                                        <script type="text/javascript">  
+                                            document.getElementById("member_sale_price_excel").onchange = function () {
+                                                document.getElementById("member_sale_price_excel_path").value = this.value;
+                                            };
+                                        </script> 
+                                        <label onclick="uploadFile('member_sale_price');" class="fileUpload">
+                                            <span class="btn_file_upload"><i class="fa fa-upload"></i> 업로드</span>
+                                        </label>
+                                    
+                                        <hr class="hr_bd">
+                                    
+                                        <button type="button" onclick="downloadFile.exec('member_sale_price_list');" style="height:32px;" class="btn btn-warning">
+                                            <span class="btn_download"><i class="fa fa-file-excel-o"></i> 회원 특별 할인 가격 다운로드</span>
+                                        </button>
+                                    </div><!-- 엑셀 업/다운로드 -->
+                                    
+                                    <!-- 일괄수정 팝업창 -->
+                                    <div class="pop_add_box fix_width500" style="display:none;" id="modi_all_member_sale_price">
+                                        <dl>                            
+                                            <dt class="tit">
+                                                <h4>가격등록 조건입력</h4>
+                                            </dt>                       
+                                            <dt class="cls">
+                                                <button type="button" onclick="hideModiPop();" class="btn btn-sm btn-danger fa fa-times"></button>
+                                            </dt>                     
+                                        </dl>                          
+                                        <div class="pop-base">
+                                            <div class="pop-content">
+                                                <div class="form-group fs12">
+                                                    기존 판매금액의
+                                                    <select class="fix_width120" name="modi_all_member_sale_price_dvs" disabled="disabled">
+                                                        <option value="R">요율</option>
+                                                        <option value="A">적용금액</option>
+                                                    </select> 
+                                                    <input type="text" id="modi_all_member_sale_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);" class="input_co3 fix_width75" value=""> % / 원을 적용합니다.
+                                                </div>
+                                                <div class="form-group tar">
+                                                    <label class="btn btn_md fix_width55" onclick="aplySalePriceInfo();"> 적용 </label> 
+                                                </div>
+                                            </div>                    
+                                        </div>                                           
+                                    </div><!-- 일괄수정 팝업창 -->
+                                    
+                                    <!-- 개별수정 팝업창 -->
+                                    <div class="popover top" style="display:none;" id="modi_each_member_sale_price">
+                                        <div class="arrow"></div>
+                                        <div class="editable-input" style="position: relative;">   
+                                            <input type="text" id="modi_each_member_sale_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);" placeholder="요율,적용금액">
+                                            <span class="editable-clear-x cp"></span>
+                                        </div>
+                                        <button type="button" onclick="aplySalePriceInfoEach();" class="btn btn-primary btn-xs">
+                                            <i class="fa fa-fw fa-check"></i>
+                                        </button>
+                                        <button type="button" onclick="hideModiPop();" class="btn btn-default btn-xs">
+                                            <i class="fa fa-fw fa-times"></i>
+                                        </button>   
+                                    </div><!-- 개별수정 팝업창 -->
+                                    </div>
+                            </div><!-- TAB 03 -->
+                        </div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+
+00:42:04 파라미터 ONS : 1
+\n\n\n
+00:42:04 파라미터 ON1 : 1801080094301
+\n\n\n
+00:42:04 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080094301'
+\n\n\n
+00:42:04
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108BL009430101' \n\n\n
+00:42:04
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+00:42:04
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '1538' 
+   LIMIT 1\n\n\n
+00:42:04
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1538' \n\n\n
+00:42:04state : 2130\n\n\n
+00:42:04to_state : '2130'\n\n\n
+00:42:04
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180108BL009430101' \n\n\n
+00:42:04
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108BL009430101'\n\n\n
+00:42:04
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108BL009430101', 2120, '2130') \n\n\n
+00:42:04
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108BL0094301%' \n\n\n
+00:42:04
+    UPDATE order_detail 
+   SET state = '2130' 
+   WHERE order_detail_dvs_num = 'SGPT180108BL0094301' \n\n\n
+00:42:04
+    UPDATE order_common 
+   SET order_state = '2130' 
+   WHERE order_num = 'GPT180108BL00943' \n\n\n
+00:42:16 파라미터 ONS : 1
+\n\n\n
+00:42:16 파라미터 ON1 : 1801020000801
+\n\n\n
+00:42:16 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801020000801'
+\n\n\n
+00:42:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180102BL000080101' \n\n\n
+00:42:16
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+00:42:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '13527' 
+   LIMIT 1\n\n\n
+00:42:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '13527' \n\n\n
+00:42:16state : 2130\n\n\n
+00:42:16to_state : '2130'\n\n\n
+00:42:16
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180102BL000080101' \n\n\n
+00:42:17
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180102BL000080101'\n\n\n
+00:42:17
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180102BL000080101', 2120, '2130') \n\n\n
+00:42:17
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180102BL0000801%' \n\n\n
+00:42:17
+    UPDATE order_detail 
+   SET state = '2130' 
+   WHERE order_detail_dvs_num = 'SGPT180102BL0000801' \n\n\n
+00:42:17
+    UPDATE order_common 
+   SET order_state = '2130' 
+   WHERE order_num = 'GPT180102BL00008' \n\n\n

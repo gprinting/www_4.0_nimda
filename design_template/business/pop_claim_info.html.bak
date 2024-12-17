@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <script src="[TPH_Vdesign_dir]/js/uploader/plupload.full.min.js"></script>
+</head>
+<body>
+
+<input type="hidden" name="dvs" id="dvs" value="[TPH_Vdvs]">
+<input type="hidden" name="extnl_etprs_seqno" id="" value="[TPH_Vextnl_etprs_seqno]">
+<input type="hidden" name="agree_yn" id="agree_yn" value="[TPH_Vagree_yn]">
+<input type="hidden" name="order_yn" id="order_yn" value="[TPH_Vorder_yn]">
+
+<div class="pop_add_box">
+    <div class="form-group">
+        <br />
+        <label class="control-label fix_width120 tar">클레임상세사항</label>
+        <br />
+    </div>  
+    <div class="pop-base">
+        <div class="pop-content">
+            [TPH_Vorder_info_html]														 	
+        </div> <!-- pop-content -->
+    </div>
+    <!-- pop-base -->
+    
+    <div class="tb_group clear" style="padding:10px;">
+        <form>
+            <div class="form-group">
+                <div class="table-body">
+                    <div class="table_basic">
+                        <table class="table fix_width100f">
+                            <thead>
+						        <tr>
+						            <!--
+						            <th class="bm2px">#</th>
+						            <th class="bm2px">목표</th>
+						            <th class="bm2px">실적</th>
+						            <th class="bm2px">차이</th>
+						            <th class="bm2px">달성율</th>
+						            <th class="bm2px">MBO성과</th>								                    
+						            -->
+						        </tr>
+                            </thead>
+                            <tbody>
+                                <tr>                  
+								    <td class="cellbg_td">클레임제목</td>
+								    <td colspan="3">[TPH_Vclaim_title]</td>			
+						        </tr>
+						        <tr>                  
+								    <td class="cellbg_td">발생비용</td>
+								    <td>[TPH_Voccur_price]</td>
+								    <td class="cellbg_td">클레임 견본</td>
+								    <td>[TPH_Vsample_origin_file_name]</td>					
+						        </tr>
+						        <tr>                  
+								    <td class="cellbg_td">고객내용</td>
+								    <td colspan="3">[TPH_Vcust_cont]</td>
+						        </tr>
+							</tbody>
+	                    </table>
+	                </div>
+	            </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="form-group">
+        <br />
+        <label class="control-label fix_width120 tar">클레임처리내역</label>
+        <br />
+    </div>
+     
+    <div class="tb_group clear" style="padding:10px;">
+        <ul class="tab_box mt05">
+            <li class="fl"><a class="box"> 클레임 처리정보 </a> </li>
+        </ul>
+        <form>
+            <div class="tab_box_con">
+                <div class="form-group">
+			        <label class="control-label fix_width120 tar">담당자</label><label class="fix_width20 fs14 tac">:</label>
+                    <label class="control-label cp">[TPH_Vempl_name]</label>
+			        <br />
+                </div>
+                
+                <div class="form-group">
+			        <label class="control-label fix_width120 tar">클레임분류</label><label class="fix_width20 fs14 tac">:</label>
+                    <select class="fix_width180" id="claim_dvs" disabled>
+       			        <option value="">클레임 분류(전체)</option>
+                        [TPH_Vclaim_dvs_html]
+					</select>
+					<input type="text" class="input_co2 fix_width344" value="[TPH_Vdvs_detail]" id="dvs_detail">
+			        <br />
+                </div>
+                
+                <div class="form-group">                    
+			        <label class="control-label fix_width120 tar">처리내용</label><label class="fix_width20 fs14 tac">:</label>
+			        <textarea class="bs_noti4" id="mng_cont">[TPH_Vmng_cont]</textarea>
+			        <p style="position:relative;top:-35px;left:700px;">
+                        <label class="btn btn_md fix_width120" onclick="procOrderClaim.save('[TPH_Vorder_claim_seqno]'); return false;"> 저장하기 </label>
+                    </p>
+                </div>         
+            </div>
+        </form>
+    </div>
+    
+    <div class="tb_group clear" style="padding:10px;">
+        <ul class="tab_box mt05">
+            <li class="fl"><a class="box"> 클레임 합의정보 </a> </li>
+        </ul>
+        <form>
+            <div class="tab_box_con">
+                <div class="form-group">
+			        <label class="control-label fix_width120 tar">발생비용</label><label class="fix_width20 fs14 tac">:</label>
+			        <input type="text" class="input_co2 fix_width170" id="occur_price" value="[TPH_Voccur_price]" onkeyup="onlyNumberPrice(event);">
+			        <br />
+                </div>
+                
+                <div class="form-group">
+			        <label class="control-label fix_width120 tar">환불금액 선입금</label><label class="fix_width20 fs14 tac">:</label>
+			        <input type="text" class="input_co2 fix_width170" id="refund_prepay" value="[TPH_Vrefund_prepay]" onkeyup="onlyNumberPrice(event);">
+			        <label class="fix_width10"></label>
+			        <label class="control-label cp">또는 현금</label><label class="fix_width20 fs14 tac">:</label>
+			        <input type="text" class="input_co2 fix_width170" id="refund_money" value="[TPH_Vrefund_money]" onkeyup="onlyNumberPrice(event);">
+			        <br />
+                </div>
+                
+                <div class="form-group">
+			        <label class="control-label fix_width120 tar">고객부담</label><label class="fix_width20 fs14 tac">:</label>
+			        <input type="text" class="input_co2 fix_width170" id="cust_burden_price" value="[TPH_Vcust_burden_price]" onkeyup="onlyNumberPrice(event);">
+			        <br />
+                </div>
+                
+                <div class="form-group">
+			        <label class="control-label fix_width120 tar">클레임처</label><label class="fix_width20 fs14 tac">:</label>
+			        <select class="fix_width180" id="extnl_etprs">
+                        [TPH_Vextnl_etprs_html]
+                    </select>
+                    <label class="fix_width40"></label>
+                    <label class="control-label cp">금액</label><label class="fix_width20 fs14 tac">:</label>
+			        <input type="text" class="input_co2 fix_width170" id="outsource_burden_price" value="[TPH_Voutsource_burden_price]" onkeyup="onlyNumberPrice(event);">
+			        <p style="position:relative;top:-35px;left:700px;" id="agree_btn">
+                        <label class="btn btn_md fix_width120" onclick="procOrderClaim.agree('[TPH_Vorder_claim_seqno]'); return false;"> 합의하기 </label>
+                    </p>
+                </div>         
+            </div>
+        </form>
+    </div>
+    
+    <div class="tb_group clear" style="padding:10px;">
+        <ul class="tab_box mt05">
+            <li class="fl"><a class="box"> 클레임 재주문 </a> </li>
+        </ul>
+        <form>
+            <div class="tab_box_con">
+                <div class="form-group">
+			        <label class="control-label fix_width120 tar">재인쇄 파일첨부</label><label class="fix_width20 fs14 tac">:</label>
+			        <!-- 파일 업로드 / 스크립이 하단에 있어야 작동함 -->                    
+                    <label class="fileUpload">
+                    <button class="btn btn-sm btn-info fa fa-folder-open" id="work_file" name="work_file">찾아보기</button>
+                    </label>
+                    <button type="button" class="btn btn-sm btn-info fa fa-folder-open" id="work_file_upload" name="work_file_upload" onclick="uploadFile();">업로드</button>
+                    <label class="control-label fix_width40 tar">건수</label><label class="fix_width20 fs14 tac">:</label>
+                    <input type="text" class="input_co2 fix_width40" id="count" value="[TPH_Vcount]" onkeyup="onlyNumberPrice(event);">
+                    <br />
+                    <div style="position:relative;top:0px;left:143px;"id="work_file_list"></div>
+                    <input type="hidden" id="work_file_seqno" name="work_file_seqno" />
+                    
+                    <span class="fs13" style="position:relative;top:0px;left:143px;color:red;">* 후공정 작업파일과 인쇄물 작업파일을 같이 압축해서 올려 주십시오.</span>
+                    <br />
+                    <span class="fs13" style="position:relative;top:0px;left:143px;color:red;">* 후공정 작업파일은 한 파일로 작업하여 올려 주십시오.</span>
+                    <p style="position:relative;top:-35px;left:700px;" id="order_btn">
+                        <label class="btn btn_md fix_width120" onclick="procOrderClaim.order('[TPH_Vorder_common_seqno]'); return false;"> 주문하기 </label>
+                    </p>
+                </div>                
+            </div>
+        </form>
+    </div>
+     
+     <div class="pop-base clear">     
+     	<p class="tac mt5">
+          <label class="btn btn_md fix_width120" onclick="closePop('[TPH_Vorder_claim_seqno]'); return false;" style="cursor:pointer;"> 닫기</label>
+      </p>
+      <br /><br />    	    
+          
+    </div>
+</div>    
+</body>
+</html>

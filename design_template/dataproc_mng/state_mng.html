@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>전산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+<div id="container">
+    <!-- TOP NAVIGATION --> 
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION --> 
+    [TPH_Vleft]
+    <!-- CONTENT --> 
+    <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!-- 탭 박스 종이 -->
+	                 	<div id="tab_list1">
+                             <div class="overflow_auto">
+                                <table class="table_basic_layout">
+                                    <thead>
+                                        <tr>
+                                            <th class="" width="100px;">구분</th>
+                                            <th class="" width="100px;">상태코드</th>
+                                            <th class="" width="150px;">ERP상태명</th>
+                                            <th class="" width="120px;">ERP취소가능여부</th>
+                                            <th class="" width="150px;">FRONT상태명</th>         
+                                            <th class="" width="140px;">FRONT취소가능여부</th>         
+                                            <th class="" width="140px;">수동접수취소가능여부</th>         
+                                            <th class="" width="200px;">설명</th>         
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        [TPH_Vlist]
+                                    </tbody>
+                                </table>
+                             </div>
+    					</div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+</div>
+</body>
+</html>

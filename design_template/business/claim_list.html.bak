@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <script src="[TPH_Vdesign_dir]/js/uploader/plupload.full.min.js"></script>
+</head>
+<body>
+
+<div id="container">
+    	
+       <!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+
+	   <!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+
+       <!-- CONTENT --> 
+        <section id="page-content">            
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            
+            <!-- 본문 컨텐츠  시작-->
+            
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group clear">
+    			<ul class="tab_box mt25">
+    			</ul>
+			    <form>
+			        <div class="tab_box_con">
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+        			        <select id="sell_site" class="fix_width180" onchange="loadDeparInfo();">
+        		              [TPH_Vsell_site_html]
+        		            </select>
+					    </div>
+					    
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">팀구분</label><label class="fix_width20 fs14 tac">:</label>
+                            <select id="depar_code" class="fix_width180">
+        		            </select>
+					    </div>
+					
+    					<div class="form-group">
+        			        <label class="control-label fix_width79 tar">회원명</label><label class="fix_width20 fs14 tac">:</label>        			        
+                            <input type="text" id="office_nick" onkeydown="searchOfficeNick(event, this.value, '');" class="input_co2 fix_width173" value="" placeholder="검색창 팝업 사용"> 
+                            <input type="hidden" id="member_seqno">
+    					</div>
+					
+    					<div class="form-group">
+    						<label class="control-label fix_width79 tar">일자별</label><label class="fix_width20 fs14 tac">:</label>
+                            [TPH_Vdatepicker_html]
+					    </div>
+					    
+    					<div class="form-group">
+						    <label class="control-label fix_width79 tar">클레임상태</label><label class="fix_width20 fs14 tac">:</label>
+                            <select class="fix_width150" disabled>
+                              <option value="">클레임</option>
+                            </select>
+                            <select id="status" class="fix_width150">
+                              <option value="">상태(전체)</option>
+                              <option value="요청">요청</option>
+                              <option value="처리중">처리중</option>
+                              <option value="합의">합의</option>
+                              <option value="완료">완료</option>
+                            </select>
+					    </div>
+
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">클레임</label><label class="fix_width20 fs14 tac">:</label>
+        			        <select class="fix_width180" id="dvs">
+        					    <option value="">클레임 분류(전체)</option>
+        					    <option value="인쇄잡티">인쇄잡티</option>
+        					    <option value="환불">환불</option>
+        					    <option value="파손">파손</option>
+        					    <option value="반품">반품</option>
+        		            </select>
+					    </div>
+			        </div>
+			    </form>
+            </div> <!-- 탭 박스 1 기본검색 -->
+           
+             <!-- 상세검색버튼 --> 
+            <div>
+                <p class="btn-lg red_btn">
+                    <a style="cursor: pointer;" onclick="searchClaim();">선택 조건으로 검색</a>					
+                </p>
+            <div>
+            
+            <!-- 클레임 리스트 TAB -->
+            <div class="tb_group mt25">
+                <div class="tabbable">                  	
+                    <div class="tab-content">                     	
+                 	    <div class="tab-pane active" id="tab_list1">
+                            <div class="table-body">
+                                <div class="table_basic">
+				                    <ul class="table_top">
+				                    	<li class="sel">
+				                    	</li>
+				                    	<li class="sel tar">
+				                    	</li>
+				                    </ul>
+				                    <table class="table fix_width100f">
+                                        <thead>
+							                <tr>								                    
+							                    <th class="bm2px">클레임요청일</th>								                    
+							                    <th class="bm2px">회원명</th>
+							                    <th class="bm2px">주문번호</th>
+							                    <th class="bm2px">클레임 제목</th>
+							                    <th class="bm2px">클레임 유형</th>
+							                    <th class="bm2px">상태</th>
+							                    <th class="bm2px">관리</th>
+							                </tr>
+                                        </thead>
+                                        <tbody id="list">
+                                        </tbody>
+				                   	</table>
+				                   	<p class="p_num_b fs12">					                   	    
+				                   	    Showing 1 to 5 of 30 entries
+				                        <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+				                   	        <option>5</option>
+				                   	        <option>10</option>
+				                   	        <option>20</option>
+				                            <option selected="selected">30</option>
+				                   	    </select>
+				                   	</p>
+				                   	<div class="tac clear" id="page">
+							        </div>					                   		
+                                </div>
+                            </div>
+                        </div>
+                    </div>                     	 
+                </div>                    
+            </div> <!-- 클레임 리스트 TAB -->
+<form name="frm" id="frm">
+    <input type="hidden" id="seqno" name="seqno">
+</form>
+			<!-- 클레임 상세 TAB -->
+			<div id="claim_cont">
+	     	</div><!-- 클레임 상세 TAB -->				
+        </section>
+</div>
+</body>
+</html>

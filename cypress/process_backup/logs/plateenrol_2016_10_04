@@ -1,0 +1,286 @@
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0000101' LIMIT 1
+-----------------------------------
+-----------------------------------
+28
+-----------------------------------
+-----------------------------------
+2016-10-04 09:19:48SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '28' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-10-04 -> Array
+-----------------------------------
+-----------------------------------
+2016-10-04 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '200', '장', NULL, '자동발주', '자동생성', '2016-10-04 09:19:48', 'test', '2410', '기본재단', '-', '-', '34', 'NGC161004001', 'Y')
+-----------------------------------
+-----------------------------------
+2016-10-04 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-10-04 09:19:48', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC161004001', 'Y')
+-----------------------------------
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0000201' LIMIT 1
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-10-04 09:26:35SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-10-04 -> Array
+-----------------------------------
+-----------------------------------
+2016-10-04 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '200', '장', NULL, '자동발주', '자동생성', '2016-10-04 09:26:35', 'test', '2410', '기본재단', '-', '-', '34', 'NGC161004002', 'Y')
+-----------------------------------
+-----------------------------------
+2016-10-04 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-10-04 09:26:35', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC161004002', 'Y')
+-----------------------------------
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0000301' LIMIT 1
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-10-04 10:26:49SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-10-04 -> Array
+-----------------------------------
+-----------------------------------
+2016-10-04 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '200', '장', NULL, '자동발주', '자동생성', '2016-10-04 10:26:49', 'test', '2410', '기본재단', '-', '-', '34', 'NGC161004003', 'Y')
+-----------------------------------
+-----------------------------------
+2016-10-04 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-10-04 10:26:49', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC161004003', 'Y')
+-----------------------------------
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0000501' LIMIT 1
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-10-04 11:20:02SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-10-04 -> Array
+-----------------------------------
+-----------------------------------
+2016-10-04 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '200', '장', NULL, '자동발주', '자동생성', '2016-10-04 11:20:02', 'test', '2410', '기본재단', '-', '-', '34', 'NGC161004004', 'Y')
+-----------------------------------
+-----------------------------------
+2016-10-04 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-10-04 11:20:02', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC161004004', 'Y')
+-----------------------------------
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0000601' LIMIT 1
+-----------------------------------
+-----------------------------------
+33
+-----------------------------------
+-----------------------------------
+2016-10-04 11:54:00SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '33' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-10-04 -> Array
+-----------------------------------
+-----------------------------------
+2016-10-04 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-10-04 11:54:00', 'test', '2410', '기본코팅', '-', '-', '33', 'NHC161004004', 'Y')
+-----------------------------------
+14:07:32->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000130101' AND state = '2220'
+14:07:32->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000100101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0001301' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 14:07:32SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '33' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+14:13:10-----------------> 판등록 시작14:14:15 ---> 판등록 시작
+
+14:14:58 ---> 판등록 시작
+14:14:58 ---> 12
+
+14:15:43 ---> 판등록 시작
+14:15:43[PEN] ---> 12
+
+14:15:47 ---> 판등록 시작
+14:15:47[PEN] ---> 12
+
+14:16:59 ---> 판등록 시작
+14:16:59[PEN] ---> SUCCESS
+
+14:17:00 ---> 판등록 시작
+14:17:00->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000110101' AND state = '2220'
+14:17:00[PENO] ---> SUCCESS
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0001101' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 14:17:00SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+
+14:17:44 ---> 판등록 시작
+14:17:44[PEN] ---> 13
+
+14:18:03 ---> 판등록 시작
+14:18:03[PEN] ---> 13
+
+14:22:19 ---> 판등록 시작
+14:22:19[PEN] ---> 13
+
+14:22:25 ---> 판등록 시작
+14:22:25[PEN] ---> 13
+
+14:22:43 ---> 판등록 시작
+14:22:43[PEN] ---> 13
+
+14:24:28 ---> 판등록 시작
+14:24:28[PEN] ---> 13
+
+14:25:51 ---> 판등록 시작
+14:25:51[PEN] ---> 13
+
+14:26:01 ---> 판등록 시작
+14:26:01[PEN] ---> 13
+
+14:26:37 ---> 판등록 시작
+14:26:37[PEN1] ---> 13
+
+14:28:40 ---> 판등록 시작
+14:28:40[PEN1] ---> 13
+14:28:40[PEN2] ---> 시작 
+
+14:30:27 ---> 판등록 시작
+14:30:27[PEN1] ---> 13
+14:30:27[PEN2] ---> 시작 
+
+14:32:17 ---> 판등록 시작
+14:32:17[PEN1] ---> 13
+14:32:17[PEN2] ---> 시작 
+14:32:17->13
+
+14:32:49 ---> 판등록 시작
+14:32:49[PEN1] ---> 13
+14:32:49[PEN2] ---> 시작 
+14:32:49->13
+
+14:36:11 ---> 판등록 시작
+14:36:11[PEN1] ---> 13
+
+14:41:16 ---> 판등록 시작
+14:41:16[PEN1] ---> SUCCESS
+
+14:41:16 ---> 판등록 시작
+14:41:16->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000140101' AND state = '2220'
+14:41:16[PENO] ---> SUCCESS
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0001401' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 14:41:16SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+
+14:41:43 ---> 판등록 시작
+14:41:43[PEN1] ---> 14
+
+18:03:38 ---> 판등록 시작
+18:03:38[PEN1] ---> SUCCESS
+
+18:03:38 ---> 판등록 시작
+18:03:38->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000030101' AND state = '2220'
+18:03:38[PENO] ---> SUCCESS
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0000301' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 18:03:38SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '31' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+
+18:04:05 ---> 판등록 시작
+18:04:05[PEN1] ---> SUCCESS
+
+18:04:05 ---> 판등록 시작
+18:04:05->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000040101' AND state = '2220'
+18:04:05[PENO] ---> SUCCESS
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0000401' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 18:04:05SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '33' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+
+18:39:55 ---> 판등록 시작
+18:39:55[PEN1] ---> 1
+
+18:47:28 ---> 판등록 시작
+18:47:28[PEN1] ---> SUCCESS
+
+18:47:28 ---> 판등록 시작
+18:47:28->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000050101' AND state = '2220'
+18:47:28->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000070101' AND state = '2220'
+18:47:28[PENO] ---> SUCCESS
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0000501' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 18:47:28SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+
+18:48:10 ---> 판등록 시작
+18:48:10[PEN1] ---> SUCCESS
+
+18:48:10 ---> 판등록 시작
+18:48:10->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000080101' AND state = '2220'
+18:48:10[PENO] ---> SUCCESS
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0000801' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 18:48:10SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '31' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+
+19:04:22 ---> 판등록 시작
+19:04:22[PEN1] ---> SUCCESS
+
+19:04:22 ---> 판등록 시작
+19:04:22->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000110101' AND state = '2220'
+19:04:22[PENO] ---> SUCCESS
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0001101' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 19:04:22SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '31' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+21:16:16->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000020101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0000201' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 21:16:16SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '34' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+21:37:17->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000030101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0000301' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 21:37:17SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '28' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+21:53:36->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000100101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0001001' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 21:53:36SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+21:59:14->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000100101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0001001' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 21:59:14SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+22:04:32->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161004NC000110101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161004NC0001101' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-04 22:04:32SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '24' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------

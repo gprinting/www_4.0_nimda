@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content">            
+
+            <!-- 본문 컨텐츠  시작-->
+            <div id="content-container" class="content_container calcul_common cashbook_list">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀-->
+					<div class="title">
+						[TPH_I/common/history.html]
+					</div>
+					<!--기본 검색정보 시작-->
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <!-- TAB UI START -->
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab_list1" onclick="changeSearchType('acc');" data-toggle="tab"> 계정/날짜별 </a>
+                                </li>
+                                <li>
+                                    <a href="#tab_list2" onclick="changeSearchType('path');" data-toggle="tab"> 입출금경로별 </a>
+                                </li>
+                            </ul>
+                            <!-- TAB UI END -->
+                            
+                            <!-- 검색 영역 START -->
+                            <div class="tab-content">                		  
+                                <!-- 탭 박스 계정/날짜별 검색 -->
+                                <div class="tab-pane active" id="tab_list1">	                  		
+                                    <form id="acc_form">
+                                        <table class="table_search_layout">
+                                            <colgroup>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th class="th_text calcul_mng_th_left">판매채널</th>
+                                                    <td colspan="3">
+                                                        <select id="search_sell_site" name="search_sell_site" class="fix_width180">
+                                                            <option value="">전체</option>
+                                                            [TPH_Vsell_site]
+                                                        </select>
+                                                        <button type="button" class="btn_float_right btn_Turquoise01" onclick="searchListType(1);">검색</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_text calcul_mng_th_left">계정</th>
+                                                    <td>
+                                                        <select id="search_acc_subject" name="search_acc_subject" onchange="loadAccDetail('#search_acc_subject','2');" class="fix_width85">
+                                                            <option value="">전체</option>
+                                                            [TPH_Vacc_html]
+                                                        </select>
+                                                        <select id="search_acc_subject_detail" name="search_acc_subject_detail" class="fix_width85">
+                                                            <option value="">전체</option>
+                                                        </select>
+                                                    </td>
+                                                    <th class="th_text calcul_mng_th_left">적요</th>
+                                                    <td>
+                                                        <input type="text" class="input_co2 fix_width400" id="sumup" name="sumup">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_text calcul_mng_th_left">등록일자별</th>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <span class="">
+                                                                <input type="text" placeholder="yyyy-MM-dd" class="input_co2 fix_width83 date" name="acc_date_from" id="acc_date_from">
+                                                                ~
+                                                                <input id="acc_date_to" name="acc_date_to" class="input_co2 fix_width83 date" type="text" placeholder="yyyy-MM-dd">
+                                                                <button type="button" class="btn_gray01" onclick="evidDateSet('1')">어제</button>
+                                                                <button type="button" class="btn_gray01" onclick="evidDateSet('0')">오늘</button>
+                                                                <button type="button" class="btn_gray01" onclick="evidDateSet('7')">일주일</button>
+                                                                <button type="button" class="btn_gray01" onclick="evidDateSet('30')">한달</button>
+                                                                <button type="button" class="btn_gray01" onclick="evidDateSet('all')">전체</button>
+                                                            </span>
+                                                        </div>
+                                                    </td colspan="3">
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                   </form>				
+                               </div>
+                               
+                               
+                               <!-- 탭 박스 입출금경로별 검색 -->   
+                               <div class="tab-pane" id="tab_list2">
+                               <form id="path_form">
+                                <table class="table_search_layout">
+                                    <colgroup>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th class="th_text calcul_mng_th_left">판매채널</th>
+                                            <td colspan="3">
+                                                <select id="path_sell_site" name="path_sell_site" class="fix_width180">
+                                                    <option value="">전체</option>
+                                                    [TPH_Vsell_site]
+                                                </select>
+                                                <button type="button" class="btn_float_right btn_Turquoise01" onclick="searchListType(1);">검색</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text calcul_mng_th_left">입출금경로</th>
+                                            <td>
+                                                <select id="depo_path" name="depo_path" onchange="loadPathDetail();" class="fix_width85">
+                                                    <option value="">전체</option>
+                                                    [TPH_Vpath_html]
+                                                </select>
+                                                <select id="depo_path_detail" name="depo_path_detail" class="fix_width85">
+                                                    <option value="">전체</option>
+                                                </select>
+                                            </td>
+                                            <th class="th_text calcul_mng_th_left">적요</th>
+                                            <td>
+                                                <input type="text" class="input_co2 fix_width400" name="sumup">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text calcul_mng_th_left">등록일자별</th>
+                                            <td>
+                                                <div class="form-group">
+                                                    <span class="">
+                                                        <input type="text" placeholder="yyyy-MM-dd" class="input_co2 fix_width83 date" name="path_date_from" id="path_date_from">
+                                                        ~
+                                                        <input id="path_date_to" name="path_date_to" class="input_co2 fix_width83 date" type="text" placeholder="yyyy-MM-dd">
+                                                        <button type="button" class="btn_gray01" onclick="evidDateSet('1')">어제</button>
+                                                        <button type="button" class="btn_gray01" onclick="evidDateSet('0')">오늘</button>
+                                                        <button type="button" class="btn_gray01" onclick="evidDateSet('7')">일주일</button>
+                                                        <button type="button" class="btn_gray01" onclick="evidDateSet('30')">한달</button>
+                                                        <button type="button" class="btn_gray01" onclick="evidDateSet('all')">전체</button>
+                                                    </span>
+                                                </div>
+                                            </td colspan="3">
+                                        </tr>
+                                    </tbody>
+                                </table>
+                               </form>
+                               </div>
+                           </div>
+                            <!-- TAB CONTENT END -->
+                        </div>
+                    </section>
+
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <div class="table-body" style="padding: 0;">
+                                <div id="acc_price">
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <th style="background: #eee;">수입합계</th>
+                                            <td id="income_sum" class="tar">0원</td>
+                                            <th style="background: #eee;">지출합계</th>
+                                            <td id="expen_sum" class="tar">0원</td>
+                                            <th style="background: #eee;">잔액</th>
+                                            <td id="acc_sum" class="tar">0원</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="path_price" style="display:none;">
+                                    <!--
+                                    <label class="fix_width20"></label>
+                                    <label class="fix_width63">이체수입</label>
+                                    <label class="fix_width20 fs14 tac">:</label>
+                                    <label class="fix_width140" id="trsf_income_sum">0원</label>
+                                    <label class="fix_width20"></label>
+                                    <label class="fix_width63">이체지출</label>
+                                    <label class="fix_width20 fs14 tac">:</label>
+                                    <label class="fix_width140" id="trsf_expen_sum">0원</label>
+                                    <label class="fix_width63">잔액</label>
+                                    <label class="fix_width20 fs14 tac">:</label>
+                                    <label class="fix_width140" id="path_sum">0원</label>
+                                    -->
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <th style="background: #eee;">이체수입</th>
+                                            <td id="trsf_income_sum" class="tar">0원</td>
+                                            <th style="background: #eee;">이체지출</th>
+                                            <td id="trsf_expen_sum" class="tar">0원</td>
+                                            <th style="background: #eee;">잔액</th>
+                                            <td id="path_sum" class="tar">0원</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="table_basic">
+                                <table class="table_basic_layout">
+                                  <thead id="acc_tr">
+                                        <tr>
+                                            <th class="bm2px fix_width120">증빙날짜</th>
+                                            <th class="bm2px fix_width120">계정상세</th>
+                                            <th class="bm2px fix_width120">수입</th>
+                                            <th class="bm2px fix_width120">지출</th>
+                                            <th class="bm2px">적요</th>
+                                        </tr>
+                                </thead>
+                                <thead style="display:none;" id="path_tr">
+                                        <tr>
+                                              <th class="bm2px fix_width85">증빙날짜</th>
+                                              <th class="bm2px fix_width85">등록날짜</th>
+                                              <th class="bm2px">적요</th>
+                                              <th class="bm2px">입출금경로</th>
+                                              <th class="bm2px">입출금경로상세</th>
+                                              <th class="bm2px">이체수입</th>
+                                              <th class="bm2px">이체지출</th>
+                                        </tr>
+                                </thead>
+                                    <tbody id="acc_list">
+                                        <td colspan="8">검색된 내용이 없습니다.</td>
+                                    </tbody>
+                                    <tbody style="display:none;" id="path_list">
+                                        <td colspan="8">검색된 내용이 없습니다.</td>
+                                    </tbody>
+                                </table>
+                                
+                                <p class="p_num_b fs12">
+                                    Showing 1 to 5 of 30 entries
+                                    <select name="list_set" onchange="showPageSetting(this.value); return false;" class="fix_width55">
+                                         <option>5</option>
+                                         <option>10</option>
+                                         <option>20</option>
+                                         <option>30</option>
+                                    </select>
+                                </p>
+                                <div class="tac clear" id="cashbook_page">
+                                    <ul class="pagination">
+                                        <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                        <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                        <li><a class="active" href="#">1</a></li>
+                                        <li><a href="#" class="fa fa-angle-right"></a></li>
+                                        <li><a href="#" class="fa fa-angle-double-right"></a></li>
+                                    </ul>
+                                </div>			
+                            </div>
+                        </div>
+                    </section>
+
+				</div>
+			</div>
+        </section>
+</div>
+</body>
+</html>

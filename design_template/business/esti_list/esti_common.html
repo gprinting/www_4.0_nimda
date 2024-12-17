@@ -1,0 +1,134 @@
+                <!--견적 현황, 세부현황--> 
+                <div id="esti_common">
+                    <!--메인상단 왼쪽 레이아웃-->
+                    <!--검색 견적 정보-->
+                    <div class="title">
+                        검색 견적정보
+                    </div>
+                    <section class="content_section" id="basic_search">
+                            <div class="content_wrapper">
+                            <table class="table_search_layout">
+                                <colgroup>
+                                    <col style="">
+                                    <col style="">
+                                    <col style="">
+                                    <col style="">
+                                    <col style="">
+                                    <col style="">
+                                    <col style="">
+                                    <col style="width:50px;">
+                                    <col style="">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th class="th_esi_list_left">요청일</th>
+                                        <td colspan="6" class="daily_form daily-form">
+                                            <input type="text" class="datepicker_input input_esi_list_02" id="basic_from">-
+                                            <input type="text" class="datepicker_input input_esi_list_02" id="basic_to" style="margin-right: 6px;">
+                                            <span class="">
+                                                <button type="button" class="btn_gray01" onclick="dateSet('basic', 0);">오늘</button>
+                                                <button type="button" class="btn_gray01" onclick="dateSet('basic', 7);">금주</button>
+                                                <button type="button" class="btn_gray01" onclick="dateSet('basic', 14, 7, 'lw');">전주</button>
+                                                <button type="button" class="btn_gray01" onclick="dateSet('basic', 0, 0, 'cm');">당월</button>
+                                                <button type="button" class="btn_gray01" onclick="dateSet('basic', 0, 0, 'lm');">전월</button>
+                                            </span>
+                                        </td>
+
+                                        <th class="th_esi_list_left" style="padding-left:20px;">진행상태</th>
+                                        <td>
+                                            <select id="member_typ" class="select_esi_list_01">
+                                                <option value="">전체</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_esi_list_left">검색</th>
+                                        <td colspan="8">
+                                            <select id="search_dvs" class="select_esi_list_01">
+                                                <option value="office_nick">회원명</option>
+                                                <option value="title">견적명</option>
+                                                <option value="member_tel">회원 전화번호</option>
+                                                <option value="member_cell">회원 핸드폰번호</option>
+                                            </select>
+                                            <input type="text" id="search_keyword" class="input_esi_list_01" style="margin-right:6px;">
+                                            <button class="btn_float_right btn_Turquoise01" onclick="cndSearch.exec();">검색</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <!--검색 견적정보 끝-->
+                    <!--왼쪽 레이아웃 끝-->
+                    <section class="content_section">
+                        <div id="content_tab" class="content_wrapper">
+                            <div class="content_tab">
+                                <!--하단 검색 테이블-->
+                                <div class="div_esti_table_container_01" id="eslist_search" style="overflow-y:auto;">
+                                    <table class="order_list" id="esti_list_table">
+                                        <colgroup>
+                                            <col style="width:90px">
+                                            <col style="width:90px">
+                                            <col style="width:90px">
+                                            <col style="width:90px">
+                                            <col style="width:90px">
+                                            <col style="width:90px">
+                                            <col>
+                                            <col style="width:60px">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>회원명</th>
+                                                <th>상태</th>
+                                                <th>요청일</th>
+                                                <th>견적일</th>
+                                                <th>견적금액</th>
+                                                <th>주문금액</th>
+                                                <th>견적정보</th>
+                                                <th>견적자</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="esti_list_table_tbody">
+                                        </tbody>
+                                    </table>
+                                    <div id="esti_list_table_page" class="page_bar">
+                                    </div>
+                                </div>
+                                <!-- 견적현황 리스트 결과 끝 -->
+                                <!-- 견적세부현황 결과 시작 -->
+                                <div class="div_esti_service_guide_container">
+                                    <table class="table_esti_service_guide_detail order_list">
+                                        <colgroup>
+                                            <col style="width:100px">
+                                            <col style="width:100px">
+                                            <col style="width:px">
+                                            <col style="width:200px">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>구분</th>
+                                                <th>상세내용</th>
+                                                <th>비고</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table_esti_service_detail">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="div_btn_wrapper">
+                                    <span id="esti_calc" class="span_btn_align_left"><button type="button" class="btn_esti" cs="" onclick="calcEsti();">견적계산</button></span>
+                                    <span id="esti_cancel" class="span_btn_align_left" style="display:none;"><button class="btn_esti" onclick="cancelEsti();">견적취소</button></span>
+                                    <span style="padding: 6px 0 0 10px;display:inline-block;" id="esti_mng_name"></span>
+
+
+                                    <span style="padding: 6px 0 0 10px;display:inline-block; float:right;" id="esti_file_name"></span>
+                                    <span class="span_btn_align_right"><button type="button" class="btn_esti" onclick="estiFileDown();" seqno="" id="esti_file_down" style="margin-right:6px;">첨부파일 내려받기</button></span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <iframe id="file_ifr" name="file_ifr" width=0 height=0 style="display:none;"></iframe>
+                </div>
+                <!-- 견적세부현황 결과 끝 --> 
+

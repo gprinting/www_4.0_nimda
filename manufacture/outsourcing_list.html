@@ -1,0 +1,92 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/manufacture/cooperator_mng/CooperatorListDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$dao = new CooperatorListDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dao; 
+
+//상단 메뉴
+const TOP_MENU_ARR = array(
+        "manufacture" => "생산");
+
+//사이드 메뉴
+const LEFT_MENU_ARR =  array(
+        //생산
+        "manufacture" => array(
+            //중메뉴
+            "sub" => array(
+				"outsourcing_mng"          => "생산관리"),
+            //생산관리
+            "outsourcing_mng" => array(
+                "outsourcing_list" => "생산관리 리스트")));
+
+const LEFT_MENU_CLASS_ARR = array(
+        //생산
+		"outsourcing_mng"      => "fa fa-building-o"     //생산관리
+);
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "manufacture"; //생산
+$left = "outsourcing_mng"; //레프트 메뉴
+$left_sub = "outsourcing_list"; //레프트하위 메뉴, script 주소
+
+$opt = array();
+$opt[0] = "입금완료일자";
+
+$optVal = array();
+$optVal[0] = "depo_finish_date";
+
+$param = array();
+$param["value"] = $optVal;
+$param["fields"] = $opt;
+$param["id"] = "search_cnd2";
+$param["flag"] = TRUE;
+$param["from_id"] = "from";
+$param["to_id"] = "to";
+
+$pur_prdt = $fb->session("pur_prdt");
+
+$template->reg("cate_html" , "<option value=\"" . $pur_prdt . "\">" . $pur_prdt . "</option>");
+
+$extnl_etprs_seqno = $fb->session("extnl_etprs_seqno");
+$manu_name = $fb->session("manu_name");
+$template->reg("manu_html" , "<option value=\"" . $extnl_etprs_seqno . "\">" . $manu_name . "</option>");
+
+$opt = array();
+$opt[0] = " 접수완료일";
+
+$optVal = array();
+$optVal[0] = "receipt_finish_date";
+
+$param = array();
+$param["value"] = $optVal;
+$param["fields"] = $opt;
+$param["id"] = "date_cnd";
+$param["flag"] = TRUE;
+$param["from_id"] = "from";
+$param["to_id"] = "to";
+
+//날짜 검색
+$template->reg("datepicker_html" , makeDatePickerHtml($param));
+
+$param = array();
+$param["cpn_admin_seqno"] = $fb->session("sell_site");
+$rs = $dao->selectReciptDepar($conn, $param);
+
+//개발 공통 footer
+include_once(INC_PATH . '/common/outsourcing_dev_foot.inc');
+
+$conn->close();
+?>

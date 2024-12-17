@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>전산관리</title>
+    <meta charset="utf-8"> [TPH_I/common/common.html]
+</head>
+<body>
+<div id="container">
+<!-- TOP NAVIGATION -->
+[TPH_I/common/header.html]
+<!-- LEFT NAVIGATION -->
+[TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <tr>
+                                <th class="th_text th_data_template_mng_01">카테고리</th>
+                                <td>
+                                    <select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="fix_width120">
+                                        [TPH_Vcate_html]
+                                    </select>
+                                    <select id="cate_mid" onchange="cateSelect.exec('mid', this.value);" class="fix_width120">
+                                        <option value="">중분류</option>
+                                    </select>
+                                    <select id="cate_bot" onchange="loadTemplateInfo(this.value);" class="fix_width120">
+                                        <option value="">소분류</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!-- 탭 박스 3 TAB -->
+                        <ul class="pro_list_line">
+                            <li class="fwb7">* [<span id="selected_cate" class="red_text01 fs14"></span>]에 등록된 템플릿 파일입니다.</li>
+                        </ul>
+                        <table class="table_basic_layout">
+                            <thead>
+                                <tr>
+                                    <th class="">고유번호</th>
+                                    <th class="">사이즈</th>
+                                    <th class="">재단사이즈(mm)</th>
+                                    <th class="">작업사이즈(mm)</th>
+                                    <th class="">AI파일</th>
+                                    <th class="">EPS파일</th>
+                                    <th class="">CDR파일</th>
+                                    <th class="">SIT파일</th>
+                                    <th class="">수정</th>
+                                </tr>
+                            </thead>
+                            <tbody id="template_list">
+                                <tr>
+                                    <td colspan="9" style="text-align:center">카테고리를 선택해주세요.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button type="button" onclick="showTemplatePop(null);" class="btn btn-warning">
+                            템플릿 추가
+                        </button>
+                        <!-- 탭 박스 3 TAB -->
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+    <iframe id="file_ifr" width="0" height="0" style="display:none;" src=""></iframe>
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+
+$template = new Template();
+
+//design_dir 경로
+$template->reg("design_dir" , "/design_template");
+$template->htmlPrint($_SERVER["PHP_SELF"]);
+?>

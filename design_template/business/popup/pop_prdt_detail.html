@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>품목별 현황정보</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+      table, td, tr, th {border:1px solid #8a8a8a;border-collapse: collapse;}
+      td, tr, th {padding:8px 8px;}
+      * {font-size:12px;text-align:center;}
+      th {background:#ddd;}
+      .itemDtail_select {padding:0}
+      .itemDtail_select select{background:#ddd;border:none;font-weight:700;padding:8px 10px}
+    </style>
+</head>
+<body>
+  <table style="margin:50px;width: 1789px;">
+      <thead>
+          <tr>
+              <th colspan="4">회원명 : [TPH_Vmember_name] ([TPH_Vmember_nick])</th>
+              <th>상품검색</th>
+              <th colspan="19" class="itemDtail_select" style="text-align:left;">
+                <select id="cate_top" onchange="">
+                    [TPH_Vcate_top]
+                </select>
+                <select id="cate_mid" onchange="">
+                    [TPH_Vcate_mid]
+                </select>
+                <select id="cate_bot" onchange="">
+                    [TPH_Vcate_bot]
+                </select>
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <th colspan="4"style="background:#fff">기간</th>
+              <td colspan="4">[TPH_Vcur_date]</td>
+              <td colspan="4">[TPH_Vlast_year_date]</td>
+              <td colspan="4">[TPH_Vm1_date]</td>
+              <td colspan="4">[TPH_Vm2_date]</td>
+              <td colspan="4">[TPH_Vm3_date]</td>
+          </tr>
+          <tr>
+              <th colspan="4" style="background:#fff">상품내용</th>
+              <td>건수</td>
+              <td style="font-size:11px;">건수증감</td>
+              <td style="width:120px;">금액</td>
+              <td>금액증감</td>
+              <td>건수</td>
+              <td>건수증감</td>
+              <td style="width:120px;">금액</td>
+              <td>금액증감</td>
+              <td>건수</td>
+              <td>건수증감</td>
+              <td style="width:120px;">금액</td>
+              <td>금액증감</td>
+              <td>건수</td>
+              <td>건수증감</td>
+              <td style="width:120px;">금액</td>
+              <td>금액증감</td>
+              <td>건수</td>
+              <td>건수증감</td>
+              <td style="width:120px;">금액</td>
+              <td>금액증감</td>
+          </tr>
+        </tbody>
+
+        <tbody id="detail_list">
+            [TPH_Vprdt_detail_html]
+        </tbody>
+  </table>
+
+
+  <table style="margin:50px;width: 1789px;">
+    <thead>
+      <tr>
+          <th colspan="6">회원명 : [TPH_Vmember_name] ([TPH_Vmember_nick])</th>
+          <th colspan="4"></th>
+          <th colspan="4"></th>
+          <th colspan="4"></th>
+          <th colspan="4"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td colspan="2">기간</td>
+          <td colspan="4">[TPH_Vcur_date]</td>
+          <td colspan="4">[TPH_Vlast_year_date]</td>
+          <td colspan="4">[TPH_Vm1_date]</td>
+          <td colspan="4">[TPH_Vm2_date]</td>
+          <td colspan="4">[TPH_Vm3_date]</td>
+      </tr>
+      <tr>
+          <td colspan="2" style="background:#f5f5f5">옵션 상세내용</td>
+          <td>건수</td>
+          <td style="font-size:11px;">건수증감</td>
+          <td style="width:120px;">금액</td>
+          <td>금액증감</td>
+          <td>건수</td>
+          <td>건수증감</td>
+          <td style="width:120px;">금액</td>
+          <td>금액증감</td>
+          <td>건수</td>
+          <td>건수증감</td>
+          <td style="width:120px;">금액</td>
+          <td>금액증감</td>
+          <td>건수</td>
+          <td>건수증감</td>
+          <td style="width:120px;">금액</td>
+          <td>금액증감</td>
+          <td>건수</td>
+          <td>건수증감</td>
+          <td style="width:120px;">금액</td>
+          <td>금액증감</td>
+      </tr>
+    </tbody>
+    <tbody id="after_list">
+      <tr>
+          <td rowspan="3" style="background:#f5f5f5">명함</td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">당일판</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">당일판</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <table style="margin:50px;width: 1789px;">
+    <thead>
+      <tr>
+          <th colspan="7">2016.11월</th>
+          <th colspan="4"></th>
+          <th colspan="4"></th>
+          <th colspan="4"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td rowspan="13" style="background:#f5f5f5">후공정</td>
+          <td rowspan="13" style="background:#f5f5f5">명함</td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">후공정 상세내용</td>
+          <td>건수</td>
+          <td style="font-size:11px;">전월동기대비</td>
+          <td style="width:120px;">금액</td>
+          <td>전월동기대비</td>
+          <td>건수</td>
+          <td>전월동기대비</td>
+          <td style="width:120px;">금액</td>
+          <td>전월동기대비</td>
+          <td>건수</td>
+          <td>전월동기대비</td>
+          <td style="width:120px;">금액</td>
+          <td>전월동기대비</td>
+          <td>건수</td>
+          <td>전월동기대비</td>
+          <td style="width:120px;">금액</td>
+          <td>전월동기대비</td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">귀도리</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">동판,목형관리</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">정매생산요청</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">색견본참고</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">시안요청</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">포장방법</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">감리요청</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">교정디지털출력</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">베다인쇄</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">빠른생산요청</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="background:#f5f5f5">총합계</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

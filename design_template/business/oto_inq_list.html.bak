@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+        [TPH_I/common/header.html]
+
+		<!-- LEFT NAVIGATION --> 
+		[TPH_Vleft]
+
+        <!-- CONTENT --> 
+        <section id="page-content">
+
+            <!-- 본문 컨텐츠  시작-->
+			<div id="content-container" class="content_container">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀 시작-->
+					<div class="title">
+						[TPH_I/common/history.html]
+                	</div>
+					<!--타이틀 끝-->
+					<!--기본 검색정보 시작-->
+					<section class="content_section">
+						<div class="content_wrapper">
+							<table class="table_search_layout">
+								<colgroup>
+									<col class="">
+									<col class="">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th class="th_text th_inq_list_left_01">회원명</th>
+										<td colspan="5">
+											<input type="text" class="input_inq_list_01" onkeydown="searchOfficeNick(event, this.value, '');" placeholder="검색창 팝업 사용" id="office_nick">
+											<input type="hidden" id="member_seqno">
+											<button type="button" class="float_right btn_Turquoise01" onclick="searchInquire();">검색</button>
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text th_inq_list_left_01">일자별 검색</th>
+										<td colspan="5">
+											[TPH_Vdate_inq_html]
+										</td>
+									</tr>
+									<tr>
+									<th class="th_text th_inq_list_left_01">판매채널</th>
+										<td>
+											<select id="sell_site" class="select_inq_list_01" onchange="loadDeparInfo();">
+											[TPH_Vsell_site_html]	
+											</select>
+										</td>
+										<th class="th_text th_inq_list_left_02">팀구분</th>
+										<td class="daily_form daily-form">
+											<select class="select_inq_list_01" id="depar_code">
+											</select>
+										</td>
+										<th class="th_text th_inq_list_left_03">상태</th>
+										<td>
+											<select class="select_inq_list_01" disabled="disabled">
+												<option value="">답변</option>
+											</select>
+											<select class="select_inq_list_01" id="status">
+												<option value="">전체</option>
+												<option value="N">대기</option>
+												<option value="Y">완료</option>
+											</select>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--기본검색정보 끝-->
+					<!--검색정보 테이블 시작-->
+					<section class="content_section">
+						<div class="content_wrapper">
+							<table class="table_basic_layout">
+								<thead>
+									<tr>
+										<th class="bm2px">번호</th>
+										<th class="bm2px">문의일</th>
+										<th class="bm2px">회원명</th>
+										<th class="bm2px">문의유형</th>
+										<th class="bm2px">문의제목</th>
+										<th class="bm2px">답변일</th>
+										<th class="bm2px">답변자</th>
+										<th class="bm2px">상태</th>
+										<th class="bm2px">관리</th>
+									</tr>
+								</thead>
+								<tbody id="list">	
+								</tbody>
+							</table>
+							<p class="p_num_b fs12">
+								Showing 1 to 5 of 30 entries
+								<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+									<option>5</option>
+									<option>10</option>
+									<option>20</option>
+									<option selected="selected">30</option>
+								</select>
+							</p>
+							<div class="tac clear" id="page">
+							</div>
+							<form name="frm" id="frm">            
+								<input type="hidden" id="seqno" name="seqno"/>
+							</form>
+
+							<!-- 문의내용 VIEW TAB -->
+							<div class="tb_group" id="oto_cont">
+							</div>
+
+						</div>
+					</section>
+					<!--검색정보 테이블 끝-->
+				</div>
+				<!--메인상단 왼쪽 레이아웃 끝-->
+			</div>
+			<!-- 본문 컨텐츠 끝 -->
+
+       </section>
+</div> 
+</body>
+</html>

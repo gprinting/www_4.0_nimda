@@ -1,0 +1,72 @@
+                <div id="esti_calc">
+                    <section class="content_section">
+                        <div class="content_wrapper order_list">
+                            <!-- 견적가격 계산 결과 시작 -->
+                            <div class="div_esti_service_guide_detail_container">
+                                <div id="esti_detail">
+                                </div>
+
+                                <!-- 최종 금액 시작 -->
+                                <div class="div_esti_list_total_calculation_wrapper">
+                                    <table class="table_esti_list_total_calculation">
+                                        <colgroup>
+                                            <col style="width:460px">
+                                            <col style="width:400px">
+
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                
+                                                <td>
+                                                    정상가
+                                                    <input type="text" value="0" id="esti_origin_price" class="input_esti_list_calculation_01" disabled="disabled" />
+                                                </td>
+                                                
+                                                <td>
+                                                    공급가
+                                                    <input type="text" value="0" id="supply_price" class="input_esti_list_calculation_01" disabled="disabled" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <td style="border-bottom: 1px solid #dfdfdf;">
+                                                    - 견적금액DC
+                                                    <input type="text" value="0" id="esti_sale_rate" onblur="calcEstiPrice();" class="select_esti_list_calculation_01" />
+                                                    <select id="" class="select_esti_list_calculation_02">
+                                                        <option value="">%</option>
+                                                    </select>
+                                                    <input type="text" value="0" id="esti_sale_price" class="input_esti_list_calculation_01" disabled="disabled" />
+                                                </td>
+                                                
+                                                <td>
+                                                    부가세
+                                                    <input type="text" value="0" id="esti_tax" class="input_esti_list_calculation_01" disabled="disabled" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    = 최종견적가(VAT별도)
+                                                    <input type="text" value="0" id="esti_sum" class="input_esti_list_calculation_01" disabled="disabled" />
+                                                </td>
+                                                <td>
+                                                    = 총계(VAT포함)
+                                                    <input type="text" value="0" id="order_price" class="input_esti_list_calculation_01" disabled="disabled" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- 최종 금액 끝 -->
+
+                                <div class="div_esti_bottom_btn_container">
+                                    <input type="text" id="memo" placeholder="전달사항을 적어주세요." />
+                                    <button onclick="updateEstiPrice();" class="btn_esti_list_send">완료</button>
+                                </div>
+                            </div>
+                            <!-- 견적가격 계산 결과 끝 -->
+                        </div>
+                    </section>
+                    <!--하단 검색 테이블 끝-->
+                </div>
+

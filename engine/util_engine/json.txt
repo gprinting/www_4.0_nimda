@@ -1,0 +1,121 @@
+-----<hr>
+(mysqli): SELECT        A.sortcode       ,A.cate_name   FROM cate A  WHERE A.cate_name = '비디오, 카세트'    AND A.cate_level = '3'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_paper A  WHERE A.name  = '아트지'    AND A.color = '백색'    AND A.basisweight   = '90g'    AND A.cate_sortcode = '004003008'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_stan A       ,prdt_stan B  WHERE A.prdt_stan_seqno = B.prdt_stan_seqno    AND A.cate_sortcode = '004003008'    AND B.name like ('77*45%')  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_print A       ,prdt_print B  WHERE A.prdt_print_seqno = B.prdt_print_seqno    AND A.cate_sortcode = '004003008'    AND B.name = '단면칼라4도'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.amt   FROM ply_price A  WHERE A.cate_sortcode = '004003008'    AND A.cate_paper_mpcode = '236'    AND A.cate_stan_mpcode = '382'    AND A.cate_beforeside_print_mpcode = '111'  
+   
+-----<hr>
+sc : 004003008 pid : S30S1XXXXSZ14S1 qty : 1000 pri : 29000
+sc : 004003008 pid : S30S1XXXXSZ14S1 qty : 2000 pri : 53000
+sc : 004003008 pid : S30S1XXXXSZ14S1 qty : 3000 pri : 80000
+sc : 004003008 pid : S30S1XXXXSZ14S1 qty : 4000 pri : 105000
+sc : 004003008 pid : S30S1XXXXSZ14S1 qty : 5000 pri : 125000
+sc : 004003008 pid : S30S1XXXXSZ14S1 qty : 6000 pri : 135000
+sc : 004003008 pid : S30S1XXXXSZ14S1 qty : 7000 pri : 155000
+sc : 004003008 pid : S30S1XXXXSZ14S1 qty : 8000 pri : 175000
+sc : 004003008 pid : S30S1XXXXSZ14S1 qty : 9000 pri : 195000
+sc : 004003008 pid : S30S1XXXXSZ14S1 qty : 10000 pri : 205000
+-----<hr>
+(mysqli): SELECT        A.sortcode       ,A.cate_name   FROM cate A  WHERE A.cate_name = '비디오, 카세트'    AND A.cate_level = '3'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_paper A  WHERE A.name  = '아트지'    AND A.color = '백색'    AND A.basisweight   = '90g'    AND A.cate_sortcode = '004003008'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_stan A       ,prdt_stan B  WHERE A.prdt_stan_seqno = B.prdt_stan_seqno    AND A.cate_sortcode = '004003008'    AND B.name like ('148*19%')  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_print A       ,prdt_print B  WHERE A.prdt_print_seqno = B.prdt_print_seqno    AND A.cate_sortcode = '004003008'    AND B.name = '단면칼라4도'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.amt   FROM ply_price A  WHERE A.cate_sortcode = '004003008'    AND A.cate_paper_mpcode = '236'    AND A.cate_stan_mpcode = '383'    AND A.cate_beforeside_print_mpcode = '111'  
+   
+-----<hr>
+sc : 004003008 pid : S30S1XXXXSZ24S1 qty : 1000 pri : 30000
+sc : 004003008 pid : S30S1XXXXSZ24S1 qty : 2000 pri : 55000
+sc : 004003008 pid : S30S1XXXXSZ24S1 qty : 3000 pri : 81000
+sc : 004003008 pid : S30S1XXXXSZ24S1 qty : 4000 pri : 106000
+sc : 004003008 pid : S30S1XXXXSZ24S1 qty : 5000 pri : 126000
+sc : 004003008 pid : S30S1XXXXSZ24S1 qty : 6000 pri : 135000
+sc : 004003008 pid : S30S1XXXXSZ24S1 qty : 7000 pri : 155000
+sc : 004003008 pid : S30S1XXXXSZ24S1 qty : 8000 pri : 175000
+sc : 004003008 pid : S30S1XXXXSZ24S1 qty : 9000 pri : 195000
+sc : 004003008 pid : S30S1XXXXSZ24S1 qty : 10000 pri : 205000
+-----<hr>
+(mysqli): SELECT        A.sortcode       ,A.cate_name   FROM cate A  WHERE A.cate_name = '비디오, 카세트'    AND A.cate_level = '3'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_paper A  WHERE A.name  = '아트지'    AND A.color = '백색'    AND A.basisweight   = '90g'    AND A.cate_sortcode = '004003008'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_stan A       ,prdt_stan B  WHERE A.prdt_stan_seqno = B.prdt_stan_seqno    AND A.cate_sortcode = '004003008'    AND B.name like ('88*40%')  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_print A       ,prdt_print B  WHERE A.prdt_print_seqno = B.prdt_print_seqno    AND A.cate_sortcode = '004003008'    AND B.name = '단면칼라4도'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.amt   FROM ply_price A  WHERE A.cate_sortcode = '004003008'    AND A.cate_paper_mpcode = '236'    AND A.cate_stan_mpcode = '384'    AND A.cate_beforeside_print_mpcode = '111'  
+   
+-----<hr>
+sc : 004003008 pid : S30S1XXXXSZ34S1 qty : 1000 pri : 30000
+sc : 004003008 pid : S30S1XXXXSZ34S1 qty : 2000 pri : 57000
+sc : 004003008 pid : S30S1XXXXSZ34S1 qty : 3000 pri : 86000
+sc : 004003008 pid : S30S1XXXXSZ34S1 qty : 4000 pri : 114000
+sc : 004003008 pid : S30S1XXXXSZ34S1 qty : 5000 pri : 128000
+sc : 004003008 pid : S30S1XXXXSZ34S1 qty : 6000 pri : 138000
+sc : 004003008 pid : S30S1XXXXSZ34S1 qty : 7000 pri : 155000
+sc : 004003008 pid : S30S1XXXXSZ34S1 qty : 8000 pri : 178000
+sc : 004003008 pid : S30S1XXXXSZ34S1 qty : 9000 pri : 199000
+sc : 004003008 pid : S30S1XXXXSZ34S1 qty : 10000 pri : 210000
+-----<hr>
+(mysqli): SELECT        A.sortcode       ,A.cate_name   FROM cate A  WHERE A.cate_name = '비디오, 카세트'    AND A.cate_level = '3'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_paper A  WHERE A.name  = '아트지'    AND A.color = '백색'    AND A.basisweight   = '90g'    AND A.cate_sortcode = '004003008'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_stan A       ,prdt_stan B  WHERE A.prdt_stan_seqno = B.prdt_stan_seqno    AND A.cate_sortcode = '004003008'    AND B.name like ('117*117%')  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.mpcode   FROM cate_print A       ,prdt_print B  WHERE A.prdt_print_seqno = B.prdt_print_seqno    AND A.cate_sortcode = '004003008'    AND B.name = '단면칼라4도'  
+   
+-----<hr>
+-----<hr>
+(mysqli): SELECT        A.amt   FROM ply_price A  WHERE A.cate_sortcode = '004003008'    AND A.cate_paper_mpcode = '236'    AND A.cate_stan_mpcode = '385'    AND A.cate_beforeside_print_mpcode = '111'  
+   
+-----<hr>
+sc : 004003008 pid : S30S1XXXXSZ44S1 qty : 1000 pri : 42000
+sc : 004003008 pid : S30S1XXXXSZ44S1 qty : 2000 pri : 80000
+sc : 004003008 pid : S30S1XXXXSZ44S1 qty : 3000 pri : 119000
+sc : 004003008 pid : S30S1XXXXSZ44S1 qty : 4000 pri : 159000
+sc : 004003008 pid : S30S1XXXXSZ44S1 qty : 5000 pri : 186000
+sc : 004003008 pid : S30S1XXXXSZ44S1 qty : 6000 pri : 212000
+sc : 004003008 pid : S30S1XXXXSZ44S1 qty : 7000 pri : 246000
+sc : 004003008 pid : S30S1XXXXSZ44S1 qty : 8000 pri : 278000
+sc : 004003008 pid : S30S1XXXXSZ44S1 qty : 9000 pri : 310000
+sc : 004003008 pid : S30S1XXXXSZ44S1 qty : 10000 pri : 330000
+!!!!!!!!!!!!!!!!{"004003008|236|382|111":{"1000":"29000","2000":"53000","3000":"80000","4000":"105000","5000":"125000","6000":"135000","7000":"155000","8000":"175000","9000":"195000","10000":"205000"},"004003008|236|383|111":{"1000":"30000","2000":"55000","3000":"81000","4000":"106000","5000":"126000","6000":"135000","7000":"155000","8000":"175000","9000":"195000","10000":"205000"},"004003008|236|384|111":{"1000":"30000","2000":"57000","3000":"86000","4000":"114000","5000":"128000","6000":"138000","7000":"155000","8000":"178000","9000":"199000","10000":"210000"},"004003008|236|385|111":{"1000":"42000","2000":"80000","3000":"119000","4000":"159000","5000":"186000","6000":"212000","7000":"246000","8000":"278000","9000":"310000","10000":"330000"}}@@@@@@@@@@@@@@@@

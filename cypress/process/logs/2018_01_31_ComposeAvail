@@ -1,0 +1,41 @@
+
+18:57:52 파라미터 ONS : 5
+\n\n\n
+18:57:52 파라미터 ON1 : 1801080226101
+\n\n\n
+18:57:52 파라미터 ON2 : 1801080226102
+\n\n\n
+18:57:52 파라미터 ON3 : 1801080226103
+\n\n\n
+18:57:52 파라미터 ON4 : 1801080226104
+\n\n\n
+18:57:52 파라미터 ON5 : 1801080226105
+\n\n\n
+18:57:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801080226101' \n\n\n
+18:57:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801080226102' \n\n\n
+18:57:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801080226103' \n\n\n
+18:57:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801080226104' \n\n\n
+18:57:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801080226105' \n\n\n
+18:59:08 파라미터 ONS : 1
+\n\n\n
+18:59:08 파라미터 ON1 : 1801080226106
+\n\n\n
+18:59:08
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801080226106' \n\n\n

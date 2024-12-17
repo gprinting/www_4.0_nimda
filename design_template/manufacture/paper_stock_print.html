@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>[TPH_Vmain_title]</title>
+<meta charset="utf-8">
+[TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+
+  <!-- TOP NAVIGATION -->
+  [TPH_I/common/header.html]
+
+  <!-- LEFT NAVIGATION -->
+  [TPH_Vleft]
+
+  <!-- CONTENT -->
+  <section id="page-content">
+
+  <!-- 히스토리 -->
+  [TPH_I/common/history.html]
+
+  <!-- 본문 컨텐츠  시작-->
+
+  <!-- 탭 박스 1 기본검색 -->
+  <div class="tb_group clear">
+    <ul class="tab_box mt25">
+    </ul>
+    <div class="tab_box_con">
+
+      <div class="form-group">
+        <label class="control-label fix_width150 tar">날짜</label><label class="fix_width20 fs14 tac">:</label>
+        <!--input type="text" id="date" class="input_co2 fix_width143 date" placeholder="yyyy-MM-dd"-->
+        <select>
+            <option></option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label fix_width150 tar">종이</label><label class="fix_width20 fs14 tac">:</label>
+        <select class="fix_width150" id="paper_manu" onchange="selectPaperManu('paper_'); return false;">
+        [TPH_VmanuList]
+        </select>
+        <select class="fix_width110" id="paper_name" onchange="selectPaperName('paper_'); return false;" disabled>
+        [TPH_Vpaper_opt]
+        </select>
+        <select class="fix_width110" id="paper_dvs" onchange="selectPaperDvs('paper_'); return false;" disabled>
+        <option value="">구분(전체)</option>
+        </select>
+        <select class="fix_width110" id="paper_color" onchange="selectPaperColor('paper_'); return false;" disabled>
+        <option value="">색상(전체)</option>
+        </select>
+        <select class="fix_width110" id="paper_basisweight" disabled>
+        <option value="">평량(전체)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <!-- 탭 박스 1 기본검색 -->
+
+  <!-- 상세검색버튼 -->
+  <div>
+    <p class="btn-lg red_btn">
+    <a style="cursor: pointer;" onclick="searchStockList(30,1);">선택 조건으로 검색</a>
+    </p>
+
+    <!-- 탭 박스 3 TAB -->
+    <div class="tb_group mt25">
+      <div class="tabbable">
+        <div class="tab-content">
+          <div class="table-body">
+            <div class="table_basic">
+              <ul class="table_top">
+                <li class="sel">
+                </li>
+                <li class="sel tar">
+                </li>
+              </ul>
+              <table class="table fix_width100f">
+              <thead>
+              <tr>
+                <th class="bm2px">날짜</th>
+                <th class="bm2px">종이제조사</th>
+                <th class="bm2px">종이</th>
+                <th class="bm2px">입고량</th>
+                <th class="bm2px">사용량</th>
+                <th class="bm2px">재고량</th>
+                <th class="bm2px">내용</th>
+                <th class="bm2px">관리</th>
+              </tr>
+              </thead>
+              <tbody id="list">
+                <tr><td colspan="7">검색 된 내용이 없습니다.</td></tr>
+              </tbody>
+              </table>
+              <p class="p_num_b fs12">
+                <button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showStockMng(); return false;">재고관리</button>
+                <label class="fix_width20">&nbsp;</label>
+                Showing 1 to 5 of 30 entries
+                <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+                <option>5</option>
+                <option>10</option>
+                <option>20</option>
+                <option selected="selected">30</option>
+                </select>
+              </p>
+              <div class="tac clear" id="page">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="tab-content" id="detail" style="display:none;">
+      <div class="table-body">
+        <div style="float:left; width: 49%; margin-right:2%;" id="day_chart"></div>
+        <div style="float:left; width: 49%;" id="month_chart"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</div>
+</body>
+</html>

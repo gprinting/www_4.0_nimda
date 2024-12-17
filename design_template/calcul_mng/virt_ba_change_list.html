@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+
+<body>
+
+<div id="container">
+
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content">
+
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container calcul_common">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--기본 검색정보 시작-->
+
+                <!-- 탭 박스 1 기본검색 -->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <form id="ba_form" name="ba_form" onsubmit="return false;">
+                            <table class="table_search_layout">
+                                <tbody>
+                                <tr>
+                                    <th class="th_text calcul_mng_th_left">판매채널</th>
+                                    <td>
+                                        <select id="sell_site" name="sell_site" class="fix_width180">
+                                            <option value="">전체</option>
+                                            [TPH_Vsell_site]
+                                        </select>
+                                        <button type="button" class="btn_float_right btn_Turquoise01"
+                                                onclick="loadVirtBaList(1);">검색</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text calcul_mng_th_left">상태</th>
+                                    <td>
+                                        <select id="state" name="state" class="fix_width150">
+                                            <option value="">전체</option>
+                                            <option value="진행중">신청중</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_basic_layout">
+                            <thead>
+                            <tr>
+                                <th class="bm2px">No</th>
+                                <th class="bm2px">회원사</th>
+                                <th class="bm2px">예금주</th>
+                                <th class="bm2px">기존은행</th>
+                                <th class="bm2px">변경은행</th>
+                                <th class="bm2px">상태</th>
+                                <th class="bm2px">관리</th>
+                            </tr>
+                            </thead>
+                            <tbody id="ba_list">
+                            <tr>
+                                <td colspan='5'>검색된 내용이 없습니다.
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p class="p_num_b fs12">
+                            Showing 1 to 5 of 30 entries
+                            <select name="list_set" onchange="showPageSetting(this.value); return false;"
+                                    class="fix_width55">
+                                <option>5</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                            </select>
+                        </p>
+                        <div class="tac clear" id="ba_page">
+                            <ul class="pagination">
+                                <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                <li><a class="active" href="#">1</a></li>
+                                <li><a href="#" class="fa fa-angle-right"></a></li>
+                                <li><a href="#" class="fa fa-angle-double-right"></a></li>
+                            </ul>
+                        </div>
+
+                        <!--검색팝업-->
+                        <div id="ba_popup" style="display:none;">
+                            <form id="edit_form">
+                                <dl>
+                                    <dt class="tit">
+                                        <h4>검색창 팝업</h4>
+                                    </dt>
+                                    <dt class="cls">
+                                        <button type="button" onclick="hideRegiPopup();"
+                                                class="btn btn-sm btn-danger fa fa-times"></button>
+                                    </dt>
+                                </dl>
+                                <div class="pop-base">
+                                    <div class="pop-content">
+                                        <div class="form-group">
+                                            <label class="control-label fix_width79 tar">기존계좌</label><label
+                                                class="fix_width20 fs14 tac">:</label>
+                                            <input type="text" id="before_bank_name" name="before_bank_name"
+                                                   class="input_co2 fix_width50" style="width: 100px;" readonly>
+                                            <input type="text" id="before_bank_account" name="before_bank_account"
+                                                   class="input_co2 fix_width140" style="width: 200px;" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label fix_width79 tar">변경계좌</label><label
+                                                    class="fix_width20 fs14 tac">:</label>
+                                            <input type="text" id="after_bank_name" name="after_bank_name"
+                                                   class="input_co2 fix_width50" style="width: 100px;" readonly>
+                                            <input type="text" id="after_bank_account" name="after_bank_account"
+                                                   class="input_co2 fix_width140" style="width: 200px;" readonly>
+                                            <input type="hidden" id="virt_ba_change_history_seqno" name="virt_ba_change_history_seqno">
+                                            <input type="hidden" id="member_seqno" name="member_seqno">
+                                            <input type="hidden" id="depo_name" name="depo_name">
+                                            <button type="button"
+                                                    class="btn btn-sm btn-success" onclick="getVirtNum()">발급</button>
+                                        </div>
+                                        <div class="clear mt15 tac">
+                                            <!--<button type="button" onclick="saveVirtBa();" class="btn btn-sm btn-success">저장</button>-->
+
+                                            <label onclick="saveVirtBa();" class="btn btn_md fix_width80">저장</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+
+</html>

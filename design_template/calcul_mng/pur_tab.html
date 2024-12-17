@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content">            
+
+            <!-- 본문 컨텐츠  시작-->
+            <div id="content-container" class="content_container calcul_common">
+                <!--메인상단 왼쪽 레이아웃-->
+                <div id="left_content" class="left_content">
+                    <!--타이틀-->
+                    <div class="title">
+                        [TPH_I/common/history.html]
+                    </div>
+                    <!--기본 검색정보 시작-->
+    
+                    <!-- 탭 박스 1 기본검색 -->
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <table class="table_search_layout">
+								<tbody>
+									<tr>
+										<th class="th_text calcul_mng_th_left">판매채널</th>
+										<td>
+											<select id="sell_site" class="fix_width180">
+                                                <option value="">전체</option>
+                                                [TPH_Vsell_site]
+                                            </select>
+											<button type="button" class="btn_float_right btn_Turquoise01" onclick="loadPurTabList.exec()">검색</button>
+										</td>
+									</tr>
+                                    <tr>
+										<th class="th_text calcul_mng_th_left">기간</th>
+										<td>
+											<select id="start_year" class="fix_width180">
+                                                [TPH_Vyear]
+                                            </select>
+                                            <select id="start_mon" class="fix_width100">
+                                                [TPH_Vmon]
+                                            </select> ~
+                                            <select id="end_year" class="fix_width180">
+                                                [TPH_Vyear]
+                                            </select>
+                                            <select id="end_mon" class="fix_width100">
+                                                [TPH_Vmon]
+                                            </select>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+                        </div>
+                    </section>
+
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <li class="" style="margin-bottom: 10px;">
+                                <a class="box" style="font-size:14px; font-weight: bold;"> 등록/수정 </a>
+                            </li>
+                            <form name="purForm" id="purForm">
+                                <table class="table_search_layout">
+                                    <tbody>
+                                        <tr>
+                                            <th class="th_text calcul_mng_th_left">매입</th>
+                                            <td colspan="3">
+                                                <select id="cpn_admin_seqno" name="cpn_admin_seqno" class="fix_width180">
+                                                    [TPH_Vsell_site]
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text calcul_mng_th_left">작성년월</th>
+                                            <td>
+                                                <input type="text" id="write_date" name="write_date" class="input_co2 fix_width180 date" placeholder="yyyy-MM-dd">
+                                            </td>
+                                            <th class="th_text calcul_mng_th_left">품목</th>
+                                            <td>
+                                                <input type="text" id="item" name="item" class="input_co2 fix_width180">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text calcul_mng_th_left">공급가액</th>
+                                            <td>
+                                                <input type="text" id="supply_price" name="supply_price" onkeyup="removeChar(event)" maxlength="18" class="input_co2 fix_width180" onblur="calculate_tax();">
+                                            </td>
+                                            <th class="th_text calcul_mng_th_left">세액</th>
+                                            <td>
+                                                <input type="text" id="vat" name="vat" onkeyup="removeChar(event)" maxlength="18" class="input_co2 fix_width180">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text calcul_mng_th_left">매입처</th>
+                                            <td>
+                                                <input type="text" onkeydown="searchEtprsName(event, this.value, '');" class="input_co2 fix_width180" placeholder="검색창 팝업 사용" name="manu_name" id="manu_name">
+                                                <input type="hidden" name="pur_tab_seqno" id="pur_tab_seqno" value="">
+                                                <input type="hidden" name="extnl_etprs_seqno" id="extnl_etprs_seqno" value="">
+                                            </td>
+                                            <th class="th_text calcul_mng_th_left">사업자번호</th>
+                                            <td>
+                                                <input type="text" class="input_co2 fix_width180" name="crn" id="crn" disabled>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text calcul_mng_th_left">대표자</th>
+                                            <td>
+                                                <input type="text" id="repre_name" name="repre_name" class="input_co2 fix_width180" disabled>
+                                            </td>
+                                            <th class="th_text calcul_mng_th_left">주소</th>
+                                            <td>
+                                                <input type="text" id="addr" name="addr" class="input_co2 fix_width180" disabled>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text calcul_mng_th_left">업태</th>
+                                            <td>
+                                                <input type="text" class="input_co2 fix_width180" name="bc" id="bc" disabled>
+                                            </td>
+                                            <th class="th_text calcul_mng_th_left">종목</th>
+                                            <td>
+                                                <input type="text" class="input_co2 fix_width180" name="tob" id="tob" disabled>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="btn_wrapper">
+                                    <button id="save_btn" class="btn btn_orange fix_width120 fix_height30 co_blue fs12" onclick="savePurTab();">신규등록</button>
+                                    <button style="display:none;" id="del_btn" class="btn btn_red fix_width120 fix_height30 co_blue fs12" onclick="delPurTab();">삭제</button>
+                                    <button style="display:none;" id="edit_btn" class="btn btn_blue fix_width120 fix_height30 co_blue fs12" onclick="resetPurTab();">수정취소</button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <div class="table-body" style="padding: 0;">
+                                <ul class="table_top">
+                                      <li class="sel mt15">
+                                        <table class="table fix_width100f">
+                                            <tr>
+                                                <th style="background: #eee;">업체수</th>
+                                                <td id="etprs_cnt" style="width: 120px;" class="tar">0건</td>
+                                                <th style="background: #eee;">공급가액 합계</th>
+                                                <td id="supply_total" style="width: 120px;" class="tar">0원</td>
+                                                <th style="background: #eee;">세액합계</th>
+                                                <td id="vat_total" style="width: 120px;" class="tar">0원</td>
+                                                <th style="background: #eee;">매입합계</th>
+                                                <td id="sales_total" style="width: 120px;" class="tar">0원</td>
+                                            </tr>
+                                        </table>
+                                    </li>
+                                    <li class="sel tar mt15">
+                                        <label for="search" class="con_label">Search(매입처) : <input id="search" onkeydown="enterCheck(event)" type="text" class="search_btn fix_width180"><button type="button" onclick="loadPurTabList.exec()" class="btn btn-sm btn-info fa fa-search"></button></label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>            
+                                <div class="table_basic">
+                                    <table class="table_basic_layout">
+                                        <thead>
+                                            <tr>
+                                                  <th class="bm2px">거래월</th>
+                                                  <th class="bm2px">매입처</th>
+                                                  <th class="bm2px">사업자번호</th>
+                                                  <th class="bm2px">품목</th> 	     
+                                                  <th class="bm2px">공급가액</th>
+                                                  <th class="bm2px">세액</th>
+                                                  <th class="bm2px">합계</th>
+                                                  <th class="bm2px">보기</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="pur_list">
+                                        </tbody>
+                                    </table>
+                                    
+                                    <p class="p_num_b fs12">
+                                        Showing 1 to 5 of 30 entries
+                                        <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value)">
+                                             <option selected="selected">30</option>
+                                             <option>50</option>
+                                             <option>100</option>
+                                             <option>200</option>
+                                        </select>
+                                    </p>
+                                    <div class="tac clear" id="page">
+                                    </div>			              
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

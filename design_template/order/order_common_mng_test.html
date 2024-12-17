@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/common/common_paging.js"></script>
+    <style>
+        .hover_td {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            z-index: 1;
+        }
+        .hover_td:hover {
+            overflow: visible;
+            white-space: unset;
+            background: white;
+            font-weight: bold;
+        }
+        .hover_td:hover span {
+            z-index: 999;
+            position: relative;
+            background-color: white;
+            display: inline-block;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="container">
+
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container order_common_mng_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--기본 검색정보 시작-->
+                <form method="get" id="search_input" name="search_input" onSubmit="search();">
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <table class="table_search_layout">
+                                <colgroup>
+                                    <col>
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                <tr>
+                                    <th class="th_text order_mng_th_left">키워드 검색</th>
+                                    <td colspan="8">
+                                        <select id="search_dvs" name="search_dvs" class="order_mng_secect01">
+                                            <option value="order_num">주문번호</option>
+                                            <option value="order_mng">접수자</option>
+                                            <option value="typset_num">판번호</option>
+                                        </select>
+                                        <input type="text" id="search_keyword" name="search_keyword" onkeyup="submit_search_bykeyword();"
+                                               class="order_mng_input01" value="[TPH_Vsearch_keyword]"/>
+                                        <!--button type="button" class="btn_float_right btn_Turquoise01"
+                                                onclick="cndSearch.exec(30, 1);">검색</button-->
+                                        <button type="button" class="btn_float_right btn_Turquoise01"
+                                                onclick="submit_search();">
+                                            검색
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text order_mng_th_left">회원명</th>
+                                    <td colspan="8">
+                                        <input type="text" id="member_name" name="member_name" onkeyup="submit_search_bykeyword();"
+                                               class="order_mng_input01" value="[TPH_Vmember_name]" style="width: 200px;"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text order_mng_th_left">인쇄제목</th>
+                                    <td colspan="8">
+                                        <input type="text" id="title" name="title" onkeyup="submit_search_bykeyword();"
+                                               class="order_mng_input01" value="[TPH_Vval_title]" style="width: 200px;"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text order_mng_th_left">기간 검색</th>
+                                    <td colspan="4" class="daily_form daily-form">
+                                        <select id="date_kind" name="date_kind" class="select_order_common_01">
+                                            <option value="depo">입금일</option>
+                                        </select>
+                                        <input type="text" class="datepicker_input input_settle_mng_02"
+                                               readonly="readonly" id="basic_from" name="basic_from"> -
+                                        <input type="text" class="datepicker_input input_settle_mng_02"
+                                               readonly="readonly" id="basic_to" name="basic_to" value="[TPH_Vbasic_to]">
+                                        <span class="btn_float_right">
+                                                <button type="button" class="btn_gray01"
+                                                        onclick="setDateVal('basic', 'd', -1,  0, $(this).text(), true);">어제</button>
+                                                <button type="button" class="btn_gray01"
+                                                        onclick="setDateVal('basic', 't',  0,  0, $(this).text(), false);">오늘</button>
+                                                <button type="button" class="btn_gray01"
+                                                        onclick="setDateVal('basic', 'd', -7,  0, $(this).text(), false);">일주일</button>
+                                                <button type="button" class="btn_gray01"
+                                                        onclick="setDateVal('basic', 'm', -1,  0, $(this).text(), false);">한달</button>
+                                                <button type="button" class="btn_gray01"
+                                                        onclick="setDateVal('basic', 'y', -1, -1, $(this).text(), true);">작년동기</button>
+                                            </span>
+                                        <!--<button type="button" onclick="setDateVal('basic', 'a',  0,  0, $(this).text(), false);">전체</button>-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text">상품 검색</th>
+                                    <td colspan="3">
+                                        <select id="cate_top" name="cate_top" onchange="cateSelect.exec('top', this.value);"
+                                                class="select_order_common_01">
+                                            [TPH_Vcate_html]
+                                        </select>
+                                        <select id="cate_mid" name="cate_mid" onchange="cateSelect.exec('mid', this.value);"
+                                                class="select_order_common_01">
+                                            <option value="">전체</option>
+                                        </select>
+                                        <select id="cate_bot" name="cate_bot" class="select_order_common_01">
+                                            <option value="">전체</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text">후가공 검색</th>
+                                    <td colspan="3">
+                                        <select id="after" name="after" onchange="afterSelect.exec(this.value);"
+                                                class="select_order_common_01">
+                                            [TPH_Vaft_html]
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_inq_list_left_01">결제방법</th>
+                                    <td colspan="3">
+                                        <select id="pay_way" name="pay_way" class="select_order_common_01">
+                                            <option value="전체">전체</option>
+                                            <option value="선입금">선입금</option>
+                                            <option value="카드">카드</option>
+                                            <option value="계좌이체">계좌이체</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_inq_list_left_01">주문상태</th>
+                                    <td colspan="3">
+                                        <select id="order_state" name="order_state" class="select_order_common_01">
+                                            [TPH_Vstatus_html]
+                                        </select>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div style="margin-top:10px;">
+                                <button type="button" class="btn_Turquoise01"
+                                        onclick="search_category('003');">
+                                    명함
+                                </button>
+                                <button type="button" class="btn_Turquoise01"
+                                        onclick="search_category('004');">
+                                    스티커
+                                </button>
+                                <button type="button" class="btn_Turquoise01"
+                                        onclick="search_category('005');">
+                                    전단
+                                </button>
+                                <button type="button" class="btn_Turquoise01"
+                                        onclick="search_category('006');">
+                                    봉투
+                                </button>
+                                <button type="button" class="btn_Turquoise01"
+                                        onclick="search_category('005','005001','005001001');">
+                                    합판전단
+                                </button>
+                                <button type="button" class="btn_Turquoise01"
+                                        onclick="search_category('005','005002','005002001');">
+                                    독판전단
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                    <input type="hidden" id="cpn_admin" value="" />
+                    <input type="hidden" id="val_basic_to" value="[TPH_Vbasic_to]" />
+                    <input type="hidden" id="val_basic_from" value="[TPH_Vbasic_from]" />
+                    <input type="hidden" id="val_cate_top" value="[TPH_Vcate_top]" />
+                    <input type="hidden" id="val_cate_mid" value="[TPH_Vcate_mid]" />
+                    <input type="hidden" id="val_cate_bot" value="[TPH_Vcate_bot]" />
+                    <input type="hidden" id="val_order_num" value="[TPH_Vorder_num]" />
+                    <input type="hidden" id="val_openseqno" name="val_openseqno" value="[TPH_Vopenseqno]" />
+                    <input type="hidden" id="val_search_dvs" name="val_search_dvs" value="[TPH_Vsearch_dvs]" />
+                    <input type="hidden" id="val_date_kind" name="val_date_kind" value="[TPH_Vdate_kind]" />
+                    <input type="hidden" id="val_member_name" name="val_member_name" value="[TPH_Vmember_name]" />
+                    <input type="hidden" id="val_title" name="val_title" value="[TPH_Vval_title]" />
+                    <input type="hidden" id="val_after" name="val_after" value="[TPH_Vafter]" />
+                    <input type="hidden" id="val_order_state" name="val_order_state" value="[TPH_Vorder_state]" />
+                    <input type="hidden" id="val_page" name="val_page" value="[TPH_Vpage]" />
+                    <input type="hidden" id="val_list_size" name="val_list_size" value="[TPH_Vlist_size]" />
+                    <input type="hidden" id="val_member_seqno" name="val_member_seqno" value="[TPH_Vmember_seqno]" />
+                    <input type="hidden" id="val_bun_dlvr_order_num" name="val_bun_dlvr_order_num" value="[TPH_Vbun_dlvr_order_num]" />
+                    <input type="hidden" id="val_is_quick" name="val_is_quick" value="[TPH_Vval_is_quick]" />
+                </form>
+
+                <!--고정상단 아래 탭테이블-->
+                <section class="content_section">
+                    <div class="content_wrapper">* 체크변경 :
+                        <select id="change_order_state" class="select_order_common_01">
+                            [TPH_Vchange_status_html]
+                        </select>
+                        <button type="button" class="btn_Turquoise01"
+                                onclick="change_state();">
+                            변경
+                        </button>
+                        <button type="button" class="btn_Turquoise01" style="width:100px;margin-left:30px;"
+                                onclick="allocate_accept('alloc');">
+                            담당자 배정
+                        </button>
+                    </div>
+                    <div id="content_tab" class="content_wrapper">
+                        <div class="content_tab">
+                            <input id="tab1" type="radio" name="tabs" value="" checked>
+                            <section id="table1" style="border-top : 0px;">
+                                <div class="overflow_auto">
+                                    <table class="table_basic_layout">
+                                        <colgroup>
+                                            <col width="20px;">
+                                            <col width="100px;">
+                                            <col width="75px;">
+                                            <col width="40px;">
+                                            <col width="80px;">
+                                            <col width="80px;">
+                                            <col width="210px;">
+                                            <col width="50px;">
+                                            <col width="120px;">
+                                            <col width="50px;">
+                                            <col width="30px;">
+                                            <col width="40px;">
+                                            <col width="60px;">
+                                            <col width="40px;">
+                                            <col width="60px;">
+                                        </colgroup>
+                                        <thead>
+                                        <th><input type="checkbox" id="check_all" /></th>
+                                        <th>미리보기</th>
+                                        <th>주문번호/주문일</th>
+                                        <th>접수자</th>
+                                        <th>회원명</th>
+                                        <th>인쇄제목</th>
+                                        <th>주문상세</th>
+                                        <th>사이즈</th>
+                                        <th>후가공</th>
+                                        <th>주문상태</th>
+                                        <th>건수</th>
+                                        <th>수량</th>
+                                        <th>주문금액</th>
+                                        <th>고객메모</th>
+                                        <th>배송</th>
+                                        </thead>
+                                        <tbody id="order_list">
+                                        <tr>
+                                            [TPH_Vorder_list_html]
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <p class="p_num_b fs12">
+                                    <button type="button" class="btn_Turquoise01" style="width:100px;"
+                                            onclick="allocate_accept('alloc');">
+                                        담당자 배정
+                                    </button>
+                                    <button type="button" class="btn_Turquoise01" style="width:100px;"
+                                            onclick="allocate_accept('clear');">
+                                        배정 초기화
+                                    </button>
+                                    <br><br>
+                                    <label class="fix_width20"></label>
+                                    <select name="list_set" class="fix_width55"
+                                            onchange="showPageSetting(this.value)">
+                                        [TPH_I/common/list_count.html]
+                                    </select>
+                                    개씩 보기
+                                </p>
+                            </section>
+                            <div class="tac clear">
+                                <ul id="paging" class="pagination">
+                                    [TPH_Vpage_html]
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                <!--고정상단 아래 탭테이블 끝-->
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+
+</html>

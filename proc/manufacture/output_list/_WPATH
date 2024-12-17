@@ -1,0 +1,5756 @@
+
+13:54:29
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST007740101' \n\n\n
+13:54:29
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '26682' 
+   LIMIT 1\n\n\n
+13:54:29
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '26682' \n\n\n
+13:54:29state : 3120\n\n\n
+13:54:29to_state : '3120'\n\n\n
+13:54:29
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST007740101' \n\n\n
+13:54:29
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0077401%' \n\n\n
+13:54:29
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0077401' \n\n\n
+13:54:29
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST00774' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST006720101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '911' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '911' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST006720101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0067201%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0067201' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST00672' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST009300101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '1283' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1283' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST009300101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0093001%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0093001' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST00930' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST013190101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '1778' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1778' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST013190101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0131901%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0131901' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST01319' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST026870101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '3747' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3747' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST026870101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0268701%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0268701' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST02687' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST029460101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4158' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4158' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST029460101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0294601%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST029460102' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4159' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4159' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST029460102' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0294601%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170727ST004440101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4942' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4942' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170727ST004440101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170727ST0044401%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170727ST0044401' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170727ST00444' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170727ST009300101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5603' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5603' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170727ST009300101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170727ST0093001%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170727ST0093001' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170727ST00930' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170727ST019860101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '7089' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '7089' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170727ST019860101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170727ST0198601%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170727ST0198601' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170727ST01986' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170727ST021150101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '7360' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '7360' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170727ST021150101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170727ST0211501%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170727ST021150102' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '7361' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '7361' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170727ST021150102' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170727ST0211501%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170727ST0211501' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170727ST02115' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170727ST023250101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '7660' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '7660' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170727ST023250101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170727ST0232501%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170727ST0232501' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170727ST02325' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170728ST002460101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '8133' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '8133' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170728ST002460101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170728ST0024601%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170728ST0024601' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170728ST00246' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170728ST004690101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '8484' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '8484' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170728ST004690101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170728ST0046901%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170728ST0046901' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170728ST00469' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170728ST007460101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '8896' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '8896' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170728ST007460101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170728ST0074601%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170728ST0074601' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170728ST00746' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170728ST011280101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '9424' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '9424' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170728ST011280101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170728ST0112801%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170728ST0112801' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170728ST01128' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170728ST017530101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '10339' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '10339' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170728ST017530101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170728ST0175301%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170728ST020000101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '10747' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '10747' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170728ST020000101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170728ST0200001%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170728ST0200001' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170728ST02000' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST002750101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '26020' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '26020' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST002750101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0027501%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0027501' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST00275' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST013800101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '27550' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '27550' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST013800101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0138001%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0138001' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST01380' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST015910101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '27844' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '27844' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST015910101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0159101%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0159101' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST01591' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST020350101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '28489' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '28489' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST020350101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0203501%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0203501' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02035' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST021750101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '28715' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '28715' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST021750101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0217501%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0217501' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02175' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST023340101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '29031' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '29031' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST023340101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0233401%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0233401' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02334' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST025180101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '29273' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '29273' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST025180101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0251801%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0251801' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02518' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST025910101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '29378' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '29378' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST025910101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0259101%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0259101' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02591' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST026670101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '29473' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '29473' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST026670101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0266701%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0266701' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02667' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST026880101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '29517' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '29517' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST026880101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0268801%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST026880102' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '29518' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '29518' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST026880102' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0268801%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0268801' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02688' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST027620101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '29624' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '29624' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST027620101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0276201%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0276201' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02762' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST028270101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '29711' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '29711' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST028270101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0282701%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0282701' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02827' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST001850101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '30784' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '30784' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST001850101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0018501%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0018501' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST00185' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST001900101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '30791' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '30791' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST001900101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0019001%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0019001' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST00190' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST004490101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '31137' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '31137' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST004490101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0044901%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0044901' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST00449' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST005170101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '31219' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '31219' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST005170101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0051701%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST005170102' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '31220' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '31220' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST005170102' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0051701%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST005170103' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '31221' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '31221' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST005170103' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0051701%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0051701' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST00517' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST005650101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '31347' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '31347' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST005650101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0056501%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0056501' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST00565' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST006890101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '31536' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '31536' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST006890101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0068901%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST006890102' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '31537' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '31537' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST006890102' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0068901%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0068901' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST00689' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST008690101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '31816' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '31816' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST008690101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0086901%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0086901' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST00869' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST009000101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '31852' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '31852' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST009000101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0090001%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0090001' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST00900' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST018340101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '33258' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '33258' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST018340101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0183401%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0183401' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST01834' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST023720101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '34070' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '34070' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST023720101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0237201%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST023720102' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '34071' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '34071' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST023720102' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0237201%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0237201' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02372' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST024360101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '34173' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '34173' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST024360101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0243601%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0243601' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02436' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST028560101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '34847' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '34847' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST028560101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0285601%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0285601' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02856' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST028660101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '34859' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '34859' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST028660101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0286601%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0286601' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02866' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST029620101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '35008' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '35008' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST029620101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0296201%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST029620102' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '35009' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '35009' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST029620102' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0296201%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0296201' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02962' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST029670101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '35014' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '35014' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST029670101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0296701%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0296701' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02967' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST030680101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '35162' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '35162' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST030680101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0306801%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0306801' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST03068' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST004130101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '35910' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '35910' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST004130101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0041301%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0041301' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST00413' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST004950101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36017' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36017' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST004950101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0049501%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0049501' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST00495' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST008160101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36478' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36478' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST008160101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0081601%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST008160102' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36479' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36479' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST008160102' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0081601%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST008160103' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36480' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36480' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST008160103' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0081601%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST008160104' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36481' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36481' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST008160104' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0081601%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0081601' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST00816' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST009150101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36653' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36653' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST009150101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0091501%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST009150102' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36654' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36654' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST009150102' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0091501%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST009150103' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36655' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36655' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST009150103' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0091501%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST009150104' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36656' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36656' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST009150104' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0091501%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0091501' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST00915' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST009820101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36762' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36762' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST009820101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0098201%' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST009820102' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36763' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36763' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST009820102' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0098201%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0098201' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST00982' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST013150101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '37197' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '37197' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST013150101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0131501%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0131501' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST01315' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST013470101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '37249' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '37249' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST013470101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0134701%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0134701' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST01347' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST015530101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '37515' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '37515' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST015530101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0155301%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0155301' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST01553' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST015640101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '37531' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '37531' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST015640101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0156401%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0156401' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST01564' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST016930101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '37705' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '37705' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST016930101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0169301%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0169301' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST01693' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST022110101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '38478' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '38478' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST022110101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0221101%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0221101' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST02211' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST025260101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '38896' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '38896' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST025260101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0252601%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0252601' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST02526' \n\n\n
+18:21:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST030060101' \n\n\n
+18:21:57
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '39549' 
+   LIMIT 1\n\n\n
+18:21:57
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '39549' \n\n\n
+18:21:57state : 3120\n\n\n
+18:21:57to_state : '3120'\n\n\n
+18:21:57
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST030060101' \n\n\n
+18:21:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0300601%' \n\n\n
+18:21:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0300601' \n\n\n
+18:21:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST03006' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST005510101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '745' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '745' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST005510101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0055101%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0055101' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST00551' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST008800101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '1206' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1206' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST008800101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0088001%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0088001' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST00880' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST011130101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '1511' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1511' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST011130101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0111301%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0111301' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST01113' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST015540101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '2119' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '2119' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST015540101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0155401%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0155401' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST01554' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST020960101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '2910' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '2910' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST020960101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0209601%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0209601' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST02096' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST023550101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '3282' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3282' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST023550101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0235501%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0235501' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST02355' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST025250101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '3529' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3529' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST025250101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0252501%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0252501' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST02525' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170726ST028030101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '3947' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3947' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170726ST028030101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170726ST0280301%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170726ST0280301' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170726ST02803' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170727ST003910101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4848' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4848' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170727ST003910101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170727ST0039101%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170727ST0039101' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170727ST00391' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170727ST009560101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5643' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5643' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170727ST009560101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170727ST0095601%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170727ST0095601' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170727ST00956' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170727ST010130101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5715' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5715' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170727ST010130101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170727ST0101301%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170727ST0101301' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170727ST01013' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170727ST019050101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '6942' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '6942' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170727ST019050101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170727ST0190501%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170727ST0190501' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170727ST01905' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170727ST021090101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '7352' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '7352' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170727ST021090101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170727ST0210901%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170727ST0210901' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170727ST02109' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170728ST002010101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '8058' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '8058' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170728ST002010101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170728ST0020101%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170728ST0020101' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170728ST00201' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170728ST010220101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '9267' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '9267' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170728ST010220101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170728ST0102201%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170728ST0102201' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170728ST01022' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170728ST017610101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '10351' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '10351' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170728ST017610101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170728ST0176101%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170728ST0176101' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170728ST01761' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST004800101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '26307' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '26307' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST004800101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0048001%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0048001' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST00480' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST009050101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '26862' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '26862' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST009050101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0090501%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0090501' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST00905' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST014180101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '27601' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '27601' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST014180101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0141801%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0141801' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST01418' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST014940101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '27706' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '27706' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST014940101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0149401%' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST014940102' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '27707' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '27707' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST014940102' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0149401%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0149401' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST01494' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST017270101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '28035' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '28035' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST017270101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0172701%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0172701' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST01727' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST018330101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '28175' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '28175' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST018330101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0183301%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0183301' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST01833' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST019520101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '28369' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '28369' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST019520101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0195201%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0195201' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST01952' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST022020101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '28752' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '28752' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST022020101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0220201%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0220201' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02202' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST022550101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '28826' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '28826' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST022550101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0225501%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0225501' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02255' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST023180101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '28976' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '28976' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST023180101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0231801%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0231801' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02318' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST023970101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '29118' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '29118' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST023970101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0239701%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0239701' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02397' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST025340101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '29296' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '29296' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST025340101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0253401%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0253401' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST02534' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170720ST033370101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '30432' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '30432' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170720ST033370101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170720ST0333701%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170720ST0333701' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170720ST03337' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST000770101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '30653' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '30653' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST000770101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0007701%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0007701' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST00077' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST003720101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '31041' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '31041' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST003720101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0037201%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0037201' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST00372' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST004180101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '31100' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '31100' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST004180101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0041801%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0041801' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST00418' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST014600101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '32711' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '32711' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST014600101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0146001%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0146001' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST01460' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST016320101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '32962' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '32962' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST016320101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0163201%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0163201' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST01632' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST023680101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '34066' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '34066' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST023680101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0236801%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0236801' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02368' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST023890101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '34098' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '34098' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST023890101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0238901%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0238901' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02389' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST024230101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '34153' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '34153' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST024230101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0242301%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0242301' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02423' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST024900101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '34254' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '34254' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST024900101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0249001%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0249001' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02490' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST025620101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '34346' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '34346' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST025620101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0256201%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0256201' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02562' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST029050101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '34928' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '34928' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST029050101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0290501%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0290501' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST02905' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170721ST030460101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '35125' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '35125' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170721ST030460101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170721ST0304601%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170721ST0304601' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170721ST03046' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST002750101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '35711' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '35711' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST002750101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0027501%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0027501' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST00275' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST009900101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36771' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36771' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST009900101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0099001%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0099001' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST00990' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST010140101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '36796' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '36796' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST010140101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0101401%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0101401' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST01014' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST014320101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '37358' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '37358' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST014320101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0143201%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0143201' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST01432' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST018250101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '37960' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '37960' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST018250101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0182501%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0182501' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST01825' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST023320101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '38659' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '38659' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST023320101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0233201%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0233201' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST02332' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST030640101' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '39629' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '39629' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST030640101' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0306401%' \n\n\n
+18:22:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT170724ST030640102' \n\n\n
+18:22:16
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '39630' 
+   LIMIT 1\n\n\n
+18:22:16
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '39630' \n\n\n
+18:22:16state : 3120\n\n\n
+18:22:16to_state : '3120'\n\n\n
+18:22:16
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT170724ST030640102' \n\n\n
+18:22:16
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT170724ST0306401%' \n\n\n
+18:22:16
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT170724ST0306401' \n\n\n
+18:22:16
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT170724ST03064' \n\n\n
+10:05:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004140101' \n\n\n
+10:05:52
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '650' 
+   LIMIT 1\n\n\n
+10:05:52
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '650' \n\n\n
+10:05:52state : 3120\n\n\n
+10:05:52to_state : '3120'\n\n\n
+10:05:52
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004140101' \n\n\n
+10:05:52
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004140101'\n\n\n
+10:05:52
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004140101', 2220, '3120') \n\n\n
+10:05:52
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0041401%' \n\n\n
+10:05:52
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0041401' \n\n\n
+10:05:52
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00414' \n\n\n
+10:05:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004150101' \n\n\n
+10:05:52
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '651' 
+   LIMIT 1\n\n\n
+10:05:52
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '651' \n\n\n
+10:05:52state : 3120\n\n\n
+10:05:52to_state : '3120'\n\n\n
+10:05:52
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004150101' \n\n\n
+10:05:52
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004150101'\n\n\n
+10:05:52
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004150101', 2220, '3120') \n\n\n
+10:05:52
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0041501%' \n\n\n
+10:05:52
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0041501' \n\n\n
+10:05:52
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00415' \n\n\n
+10:05:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004220101' \n\n\n
+10:05:52
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '664' 
+   LIMIT 1\n\n\n
+10:05:52
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '664' \n\n\n
+10:05:52state : 3120\n\n\n
+10:05:52to_state : '3120'\n\n\n
+10:05:52
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004220101' \n\n\n
+10:05:52
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004220101'\n\n\n
+10:05:52
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004220101', 2220, '3120') \n\n\n
+10:05:52
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0042201%' \n\n\n
+10:05:52
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0042201' \n\n\n
+10:05:52
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00422' \n\n\n
+10:05:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004400101' \n\n\n
+10:05:52
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '685' 
+   LIMIT 1\n\n\n
+10:05:52
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '685' \n\n\n
+10:05:52state : 3120\n\n\n
+10:05:52to_state : '3120'\n\n\n
+10:05:52
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004400101' \n\n\n
+10:05:52
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004400101'\n\n\n
+10:05:52
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004400101', 2220, '3120') \n\n\n
+10:05:52
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0044001%' \n\n\n
+10:05:52
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0044001' \n\n\n
+10:05:52
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00440' \n\n\n
+10:05:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004450101' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '694' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '694' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004450101' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004450101'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004450101', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0044501%' \n\n\n
+10:05:53
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0044501' \n\n\n
+10:05:53
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00445' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004470101' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '697' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '697' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004470101' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004470101'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004470101', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0044701%' \n\n\n
+10:05:53
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0044701' \n\n\n
+10:05:53
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00447' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004640101' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '715' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '715' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004640101' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004640101'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004640101', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0046401%' \n\n\n
+10:05:53
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0046401' \n\n\n
+10:05:53
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00464' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004700101' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '723' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '723' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004700101' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004700101'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004700101', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0047001%' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004700102' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '724' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '724' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004700102' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004700102'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004700102', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0047001%' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004700103' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '725' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '725' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004700103' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004700103'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004700103', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0047001%' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004700104' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '726' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '726' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004700104' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004700104'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004700104', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0047001%' \n\n\n
+10:05:53
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0047001' \n\n\n
+10:05:53
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00470' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004740101' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '743' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '743' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004740101' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004740101'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004740101', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0047401%' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004740102' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '744' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '744' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004740102' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004740102'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004740102', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0047401%' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004740103' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '745' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '745' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004740103' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004740103'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004740103', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0047401%' \n\n\n
+10:05:53
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0047401' \n\n\n
+10:05:53
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00474' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC004980101' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '783' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '783' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC004980101' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC004980101'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC004980101', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0049801%' \n\n\n
+10:05:53
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0049801' \n\n\n
+10:05:53
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00498' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC005020101' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '788' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '788' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC005020101' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC005020101'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC005020101', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0050201%' \n\n\n
+10:05:53
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0050201' \n\n\n
+10:05:53
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00502' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC005250101' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '823' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '823' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC005250101' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC005250101'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC005250101', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0052501%' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC005250102' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '824' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '824' \n\n\n
+10:05:53state : 3120\n\n\n
+10:05:53to_state : '3120'\n\n\n
+10:05:53
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC005250102' \n\n\n
+10:05:53
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC005250102'\n\n\n
+10:05:53
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC005250102', 2220, '3120') \n\n\n
+10:05:53
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0052501%' \n\n\n
+10:05:53
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0052501' \n\n\n
+10:05:53
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00525' \n\n\n
+10:05:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC005440101' \n\n\n
+10:05:53
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '863' 
+   LIMIT 1\n\n\n
+10:05:53
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '863' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC005440101' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC005440101'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC005440101', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0054401%' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC005440102' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '864' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '864' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC005440102' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC005440102'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC005440102', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0054401%' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC006590101' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '1085' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1085' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC006590101' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC006590101'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC006590101', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0065901%' \n\n\n
+10:05:54
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0065901' \n\n\n
+10:05:54
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00659' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC006800101' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '1114' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1114' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC006800101' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC006800101'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC006800101', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0068001%' \n\n\n
+10:05:54
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0068001' \n\n\n
+10:05:54
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00680' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC007420101' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '1212' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1212' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC007420101' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC007420101'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC007420101', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0074201%' \n\n\n
+10:05:54
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0074201' \n\n\n
+10:05:54
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00742' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC009930101' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '1614' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1614' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC009930101' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC009930101'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC009930101', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0099301%' \n\n\n
+10:05:54
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0099301' \n\n\n
+10:05:54
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC00993' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC015450101' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '2510' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '2510' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC015450101' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC015450101'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC015450101', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0154501%' \n\n\n
+10:05:54
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0154501' \n\n\n
+10:05:54
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC01545' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC018190101' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '3008' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3008' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC018190101' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC018190101'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC018190101', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0181901%' \n\n\n
+10:05:54
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0181901' \n\n\n
+10:05:54
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC01819' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC020150101' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '3265' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3265' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC020150101' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC020150101'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC020150101', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0201501%' \n\n\n
+10:05:54
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0201501' \n\n\n
+10:05:54
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC02015' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC022150101' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '3570' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3570' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC022150101' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC022150101'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC022150101', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0221501%' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC022150102' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '3571' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3571' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC022150102' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC022150102'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC022150102', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0221501%' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC022150103' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '3572' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3572' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC022150103' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC022150103'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC022150103', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0221501%' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC022150104' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '3573' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3573' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC022150104' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC022150104'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC022150104', 2220, '3120') \n\n\n
+10:05:54
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0221501%' \n\n\n
+10:05:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC025480101' \n\n\n
+10:05:54
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4135' 
+   LIMIT 1\n\n\n
+10:05:54
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4135' \n\n\n
+10:05:54state : 3120\n\n\n
+10:05:54to_state : '3120'\n\n\n
+10:05:54
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC025480101' \n\n\n
+10:05:54
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC025480101'\n\n\n
+10:05:54
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC025480101', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0254801%' \n\n\n
+10:05:55
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0254801' \n\n\n
+10:05:55
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC02548' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC027010101' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4365' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4365' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC027010101' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC027010101'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC027010101', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0270101%' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC027010102' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4366' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4366' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC027010102' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC027010102'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC027010102', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0270101%' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC027010103' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4367' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4367' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC027010103' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC027010103'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC027010103', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0270101%' \n\n\n
+10:05:55
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0270101' \n\n\n
+10:05:55
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC02701' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC028480101' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4606' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4606' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC028480101' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC028480101'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC028480101', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0284801%' \n\n\n
+10:05:55
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0284801' \n\n\n
+10:05:55
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC02848' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC028590101' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4626' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4626' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC028590101' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC028590101'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC028590101', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0285901%' \n\n\n
+10:05:55
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0285901' \n\n\n
+10:05:55
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC02859' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC029840101' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4833' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4833' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC029840101' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC029840101'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC029840101', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0298401%' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC029840102' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4834' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4834' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC029840102' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC029840102'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC029840102', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0298401%' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC029840103' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '4835' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '4835' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC029840103' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC029840103'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC029840103', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0298401%' \n\n\n
+10:05:55
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0298401' \n\n\n
+10:05:55
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC02984' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC030570101' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5050' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5050' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC030570101' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC030570101'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC030570101', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0305701%' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC030570102' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5051' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5051' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC030570102' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC030570102'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC030570102', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0305701%' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC030570103' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5052' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5052' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC030570103' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC030570103'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC030570103', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0305701%' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC030570104' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5053' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5053' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC030570104' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC030570104'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC030570104', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0305701%' \n\n\n
+10:05:55
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0305701' \n\n\n
+10:05:55
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC03057' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC030970101' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5108' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5108' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC030970101' \n\n\n
+10:05:55
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC030970101'\n\n\n
+10:05:55
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC030970101', 2220, '3120') \n\n\n
+10:05:55
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0309701%' \n\n\n
+10:05:55
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0309701' \n\n\n
+10:05:55
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC03097' \n\n\n
+10:05:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC035070101' \n\n\n
+10:05:55
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5808' 
+   LIMIT 1\n\n\n
+10:05:55
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5808' \n\n\n
+10:05:55state : 3120\n\n\n
+10:05:55to_state : '3120'\n\n\n
+10:05:55
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC035070101' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC035070101'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC035070101', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0350701%' \n\n\n
+10:05:56
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0350701' \n\n\n
+10:05:56
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC03507' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC035190101' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5824' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5824' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC035190101' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC035190101'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC035190101', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0351901%' \n\n\n
+10:05:56
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0351901' \n\n\n
+10:05:56
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC03519' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC035290101' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5838' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5838' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC035290101' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC035290101'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC035290101', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0352901%' \n\n\n
+10:05:56
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0352901' \n\n\n
+10:05:56
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC03529' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC035530101' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '5862' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5862' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC035530101' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC035530101'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC035530101', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0355301%' \n\n\n
+10:05:56
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0355301' \n\n\n
+10:05:56
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC03553' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC036470101' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '6025' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '6025' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC036470101' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC036470101'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC036470101', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0364701%' \n\n\n
+10:05:56
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0364701' \n\n\n
+10:05:56
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC03647' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC039370101' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '6558' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '6558' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC039370101' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC039370101'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC039370101', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0393701%' \n\n\n
+10:05:56
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0393701' \n\n\n
+10:05:56
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC03937' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC040110101' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '6679' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '6679' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC040110101' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC040110101'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC040110101', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0401101%' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC040110102' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '6680' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '6680' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC040110102' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC040110102'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC040110102', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0401101%' \n\n\n
+10:05:56
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0401101' \n\n\n
+10:05:56
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC04011' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC040160101' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '6688' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '6688' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC040160101' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC040160101'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC040160101', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0401601%' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC040160102' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '6689' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '6689' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC040160102' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC040160102'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC040160102', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0401601%' \n\n\n
+10:05:56
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0401601' \n\n\n
+10:05:56
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC04016' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC041320101' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '6849' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '6849' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC041320101' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC041320101'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC041320101', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0413201%' \n\n\n
+10:05:56
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0413201' \n\n\n
+10:05:56
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC04132' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC042250101' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '7004' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '7004' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC042250101' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC042250101'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC042250101', 2220, '3120') \n\n\n
+10:05:56
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0422501%' \n\n\n
+10:05:56
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0422501' \n\n\n
+10:05:56
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC04225' \n\n\n
+10:05:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC042420101' \n\n\n
+10:05:56
+    UPDATE amt_order_detail_sheet 
+   SET state = '3120' 
+   WHERE order_detail_count_file_seqno = '7043' 
+   LIMIT 1\n\n\n
+10:05:56
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '7043' \n\n\n
+10:05:56state : 3120\n\n\n
+10:05:56to_state : '3120'\n\n\n
+10:05:56
+    UPDATE order_detail_count_file 
+   SET state = '3120' 
+   WHERE order_detail_file_num = 'SGPT180108NC042420101' \n\n\n
+10:05:56
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC042420101'\n\n\n
+10:05:56
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC042420101', 2220, '3120') \n\n\n
+10:05:57
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0424201%' \n\n\n
+10:05:57
+    UPDATE order_detail 
+   SET state = '3120' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0424201' \n\n\n
+10:05:57
+    UPDATE order_common 
+   SET order_state = '3120' 
+   WHERE order_num = 'GPT180108NC04242' \n\n\n

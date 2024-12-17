@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>전산관리</title>
+    <meta charset="utf-8"> [TPH_I/common/common.html]
+</head>
+<body>
+<div id="container">
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <tr>
+                                <th class="th_text th_data_prdt_info_01">카테고리</th>
+                                <td>
+                                    <select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="select_data_prdt_info_01">
+                                        [TPH_Vcate_html]
+                                    </select>
+                                    <select id="cate_mid" onchange="cateSelect.exec('mid', this.value);" class="select_data_prdt_info_01">
+                                        <option value="">중분류</option>
+                                    </select>
+                                    <select id="cate_bot" onchange="loadPrdtInfo(this.value);" class="select_data_prdt_info_01">
+                                        <option value="">소분류</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- 탭 박스 3 TAB -->
+                        <div id="prdt_info">
+                        </div>
+                    </div>
+                </section>
+                <!--하단 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+</div>
+</body>
+</html>

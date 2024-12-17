@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <script src="[TPH_Vdesign_dir]/js/uploader/plupload.full.min.js"></script>
+</head>
+<body>
+ 
+<div id="loading_img" style="display:none">
+  <img src='[TPH_Vdesign_dir]/images/loading.gif' style="position:absolute;z-index:9999999;top:30%; left:30%;" alt="로딩" />
+</div> 
+<div id="black_mask" style="display:none;position:absolute;left:0;top:0;z-index:9998;background-color:#000;opacity:0.3;"></div>
+
+<!-- 견적 등록창 --> 
+<div class="pop_add_box">
+    <div class="pop-base">
+        <div class="pop-content">
+            <div class="form-group">
+                <label class="control-label fix_width75 tar">문의제목</label><label class="fix_width20 fs14 tac">:</label>
+                <label class="control-label cp">[TPH_Vsubject]</label>
+                <br /><br />
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label fix_width75 tar">회원명</label><label class="fix_width20 fs14 tac">:</label>
+                <label class="control-label cp">[TPH_Voffice_nick]([TPH_Vmember_name])</label>
+                <br />
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label fix_width75 tar">수량</label><label class="fix_width20 fs14 tac">:</label>
+                <label class="control-label cp">[TPH_Vamt]매 [TPH_Vcount]건</label>
+                <label class="fix_width40"></label>
+                <label class="control-label fix_width75 tar">첨부파일</label><label class="fix_width20 fs14 tac">:</label>
+                [TPH_Vfile_html]
+                <br />
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label fix_width75 tar">문의내용</label><label class="fix_width20 fs14 tac">:</label>
+                <textarea class="bs_noti3" disabled>[TPH_Vinq_cont]</textarea>
+                <br />
+            </div>
+        </div> <!-- pop-content -->
+    </div>
+     <!-- pop-base -->
+     
+    <div class="tb_group clear" style="padding:10px;">
+        <ul class="tab_box mt05">
+            <li class="fl"><a class="box"> 종이정보 </a> </li>
+        </ul>
+        <form>
+            <div class="tab_box_con">
+                [TPH_Vpaper]
+                <!--<div class="form-group">
+			        <label class="control-label fix_width79 tar">주문종이</label><label class="fix_width20 fs14 tac">:</label>
+			        <label class="control-label cp">몽블랑 미색 250</label>
+			        <br />
+                </div>-->
+                <div id="paper_ctrl"> 
+                <div class="form-group" id="paper_group1">
+			        <label class="control-label fix_width79 tar">종이</label><label class="fix_width20 fs14 tac">:</label>
+        		    <select class="fix_width100" id="paper_name1" onchange="selectOptionVal.exec('paper', 'DVS', '1')">
+                        [TPH_Vpaper_option_html]
+        		    </select>
+        		    <select class="fix_width100" id="paper_dvs1" onchange="selectOptionVal.exec('paper', 'COLOR', '1')">
+						<option value="">구분(전체)</option>
+        		    </select>
+        		    <select class="fix_width100" id="paper_color1" onchange="selectOptionVal.exec('paper', 'BASISWEIGHT', '1')">
+						<option value="">색상(전체)</option>
+        		    </select>
+        		    <select class="fix_width100" id="paper_basisweight1">
+						<option value="">평량(전체)</option>
+        		    </select>
+        		    <label class="fix_width10"></label>
+        		    *
+        		    <label class="fix_width10"></label>
+        		    <input type="text" class="input_co2 fix_width55" id="paper_amt1" value="1">
+        		    <select class="fix_width55" id="paper_unit1">
+						<option value="R">R</option>
+						<option value="장">장</option>
+        		    </select>
+        		    <label class="fix_width10"></label>
+        		    <input type="text" class="input_dis fix_width100" id="paper_price1" disabled="disabled">
+					<button type="button" class="btn btn-sm btn-success" onclick="selectOptionVal.price('paper', '1')">계산</button>
+					<button type="button" class="btn btn-sm btn-info paper_plus paper_plus1" onclick="addInfoGroup.exec('paper_ctrl', 'paper', 1);"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-sm btn-warning paper_minus" style="display:none;" onclick="delInfoGroup('paper_group1');"><i class="fa fa-minus"></i></button>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="tb_group clear" style="padding:10px;">
+        <ul class="tab_box mt05">
+            <li class="fl"><a class="box"> 출력정보 </a> </li>
+        </ul>
+        <form>
+            <div class="tab_box_con">
+                [TPH_Vsize]
+                <!--<div class="form-group">
+			        <label class="control-label fix_width79 tar">주문사이즈</label><label class="fix_width20 fs14 tac">:</label>
+			        <label class="control-label cp">210 * 297</label>
+			        <br />
+                </div>
+                -->
+                <div id="output_ctrl">
+                <div class="form-group" id="output_group1">
+			        <label class="control-label fix_width79 tar">출력</label><label class="fix_width20 fs14 tac">:</label>
+        		    <select class="fix_width130" id="output_name1" onchange="selectOptionVal.exec('output', 'BOARD', '1')">
+                        [TPH_Voutput_option_html]
+        		    </select>
+        		    <select class="fix_width150" id="output_board1" onchange="selectOptionVal.exec('output', 'SIZE', '1')">
+						<option value="">출력판(전체)</option>
+        		    </select>
+        		    <select class="fix_width120" id="output_size1">
+						<option value="">사이즈(전체)</option>
+        		    </select>
+        		    <label class="fix_width10"></label>
+        		    *
+        		    <label class="fix_width10"></label>
+        		    <input type="text" class="input_co2 fix_width55" value="1" id="output_amt1">
+        		    <select class="fix_width55" id="output_unit1">
+						<option value="판">판</option>
+        		    </select>
+        		    <label class="fix_width10"></label>
+        		    <input type="text" class="input_dis fix_width100" id="output_price1" disabled="disabled">
+					<button type="button" class="btn btn-sm btn-success" onclick="selectOptionVal.price('output', '1')">계산</button>
+					<button type="button" class="btn btn-sm btn-info output_plus output_plus1" onclick="addInfoGroup.exec('output_ctrl', 'output', 1);"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-sm btn-warning output_minus" style="display:none;" onclick="delInfoGroup('output_group1');"><i class="fa fa-minus"></i></button>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="tb_group clear" style="padding:10px;">
+        <ul class="tab_box mt05">
+            <li class="fl"><a class="box"> 인쇄정보 </a> </li>
+        </ul>
+        <form>
+            <div class="tab_box_con">
+                [TPH_Vprint_tmpt] 
+                <!--<div class="form-group">
+			        <label class="control-label fix_width79 tar">주문도수</label><label class="fix_width20 fs14 tac">:</label>
+			        <label class="control-label cp">양면8도</label>
+			        <br />
+                </div>-->
+                <div id="print_ctrl"> 
+                <div class="form-group" id="print_group1">
+			        <label class="control-label fix_width79 tar">인쇄</label><label class="fix_width20 fs14 tac">:</label>
+        		    <select class="fix_width150" id="cate_sortcode1" onchange="selectOptionVal.exec('print', 'NAME', '1')">
+                        [TPH_Vprint_option_html]
+        		    </select>
+        		    <select class="fix_width125" id="print_name1" onchange="selectOptionVal.exec('print', 'PURP', '1')">
+						<option value="">인쇄명(전체)</option>
+        		    </select>
+        		    <select class="fix_width125" id="print_purp1">
+						<option value="">용도구분(전체)</option>
+        		    </select>        		    
+        		    <label class="fix_width10"></label>
+        		    *
+        		    <label class="fix_width10"></label>
+        		    <input type="text" class="input_co2 fix_width55" value="1" id="print_amt1">
+        		    <select class="fix_width55" id="print_unit1">
+						<option value="R">R</option>
+						<option value="장">장</option>
+        		    </select>
+        		    <label class="fix_width10"></label>
+        		    <input type="text" class="input_dis fix_width100" id="print_price1" disabled="disabled">
+					<button type="button" class="btn btn-sm btn-success" onclick="selectOptionVal.price('print', '1')">계산</button>
+					<button type="button" class="btn btn-sm btn-info print_plus print_plus1" onclick="addInfoGroup.exec('print_ctrl', 'print', 1);"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-sm btn-warning print_minus" style="display:none;" onclick="delInfoGroup('print_group1');"><i class="fa fa-minus"></i></button>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="tb_group clear" style="padding:10px;">
+        <ul class="tab_box mt05">
+            <li class="fl"><a class="box"> 후공정정보 </a> </li>
+        </ul>
+        <form>
+            <div class="tab_box_con">
+                [TPH_Vafter]
+                <!--
+                <div class="form-group">
+			        <label class="control-label fix_width79 tar">주문후공정</label><label class="fix_width20 fs14 tac">:</label>
+			        <label class="control-label cp">양면8도</label>
+			        <br />
+                </div>-->
+                <div id="after_ctrl"> 
+                <div class="form-group" id="after_group1">
+			        <label class="control-label fix_width79 tar">후공정</label><label class="fix_width20 fs14 tac">:</label>
+        		    <select class="fix_width100" id="after_name1" onchange="selectOptionVal.exec('after', 'DEPTH1', '1')">
+                        [TPH_Vafter_option_html]
+        		    </select>
+        		    <select class="fix_width100" id="after_depth_one1" onchange="selectOptionVal.exec('after', 'DEPTH2', '1')">
+						<option value="">Depth1(전체)</option>
+        		    </select>
+        		    <select class="fix_width100" id="after_depth_two1" onchange="selectOptionVal.exec('after', 'DEPTH3', '1')">
+						<option value="">Depth2(전체)</option>
+        		    </select>
+        		    <select class="fix_width100" id="after_depth_thr1">
+						<option value="">Depth3(전체)</option>
+        		    </select>
+        		    <label class="fix_width10"></label>
+        		    *
+        		    <label class="fix_width10"></label>
+        		    <input type="text" class="input_co2 fix_width55" value="1" id="after_amt1">
+        		    <select class="fix_width55" id="after_unit1">
+						<option value="R">R</option>
+						<option value="장">장</option>
+        		    </select>        		          		    
+        		    <label class="fix_width10"></label>
+        		    <input type="text" class="input_dis fix_width100" id="after_price1" disabled="disabled">
+					<button type="button" class="btn btn-sm btn-success" onclick="selectOptionVal.price('after', '1')">계산</button>
+					<button type="button" class="btn btn-sm btn-info after_plus after_plus1" onclick="addInfoGroup.exec('after_ctrl', 'after', 1);"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-sm btn-warning after_minus" style="display:none;" onclick="delInfoGroup('after_group1');"><i class="fa fa-minus"></i></button>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="tb_group clear" style="padding:10px;">
+        <ul class="tab_box mt05">
+            <li class="fl"><a class="box"> 기타 </a> </li>
+        </ul>
+        <form>
+            <div class="tab_box_con" id="etc_ctrl">
+                <div class="form-group" id="etc_group1">
+			        <label class="control-label fix_width79 tar">기타</label><label class="fix_width20 fs14 tac">:</label>
+			        <input type="text" class="input_co2 fix_width550" id="etc_cont1">
+			        <label class="fix_width37"></label>
+        		    <input type="text" class="input_co2 fix_width100" id="etc_price1" onkeyup="getEtcPrice(event, this);" >
+					<button type="button" class="btn btn-sm btn-info etc_plus etc_plus1" onclick="addInfoGroup.exec('etc_ctrl', 'etc', 1);"><i class="fa fa-plus"></i></button>
+					<button type="button" class="btn btn-sm btn-warning etc_minus" style="display:none;" onclick="delInfoGroup('etc_group1');"><i class="fa fa-minus"></i></button>			        
+                </div>          
+            </div>
+        </form>
+    </div>
+    
+    <div class="pop-base clear" style="padding:10px;">        
+			  											 	 	  
+        <div class="pop-content ofa ">
+
+            <ul class="form-group">
+                <li class="fix_width620 fl">                            	  	  
+                    <label class="control-label fix_width79 tar">전달메모</label><label class="fix_width20 fs14 tac">:</label>
+                    <textarea class="bs_noti2" id="memo" style="width: 480px; height: 115px;">[TPH_Vmemo]</textarea>
+                </li>                                                          
+                 	  
+                <li  class="fix_width270 fl">
+                    <label class="control-label fix_width79 tar">공급가액</label><label class="fix_width20 fs14 tac">:</label>
+                    <input type="text" class="input_dis fix_width79" id="supply_price" value="[TPH_Vsupply_price]" disabled="disabled">
+					<button type="button" class="btn btn-sm btn-success" onclick="getSupply()">계산</button>
+                    <br />
+                    <label class="control-label fix_width79 tar">부가가치세</label><label class="fix_width20 fs14 tac">:</label>
+                    <input type="text" class="input_dis fix_width79" id="vat" value="[TPH_Vvat]" disabled="disabled">
+                    <br />
+                    <label class="control-label fix_width79 tar">DC</label><label class="fix_width20 fs14 tac">:</label>
+                    <input type="text" class="input_co2 fix_width79" id="sale_price" onkeyup="getEstimated(event, this);" value="[TPH_Vsale_price]">
+                    <br />
+                    <label class="control-label fix_width79 tar">견적가액</label><label class="fix_width20 fs14 tac">:</label>
+                    <input type="text" class="input_dis fix_width79" id="esti_price" value="[TPH_Vesti_price]" disabled="disabled">     
+                    <br />                               
+                </li>                                          
+            </ul>  
+            <br /><br /><br />
+            <ul class="form-group">
+                <br /><br /><br /><br /><br />
+                <label class="control-label fix_width79 tar">답변내용</label><label class="fix_width20 fs14 tac">:</label>
+                <textarea class="bs_noti3" id="answ_cont">[TPH_Vansw_cont]</textarea>
+                <br /><br />
+                <label class="control-label fix_width79 tar">견적파일첨부</label>
+               
+
+                <label class="fix_width20 fs14 tac">:</label>	
+                <label class="fileUpload">
+                <button class="btn btn-sm btn-info fa fa-folder-open" id="work_file" name="work_file">찾아보기</button>
+                </label>
+                <!--
+                <button class="btn btn-sm btn-info fa fa-folder-open" id="work_file_upload" name="work_file_upload" onclick="uploadFile();">업로드</button>
+                -->
+                [TPH_Vadmin_file_html]
+                <div id="work_file_list"></div>
+                <input type="hidden" id="work_file_seqno" name="work_file_seqno" />
+                <label></label>
+    			<label class="control-label fix_width79 tar">예상주문일</label><label class="fix_width20 fs14 tac">:</label>
+				<input type="text" class="input_co2" style="margin: 0px;" id="expec_order_date" placeholder="yyyy-MM-dd" value="[TPH_Vexpec_order_date]" readonly>
+			</ul>  
+        </div> <!-- pop-content -->                   
+     </div> 
+         
+     <div class="pop-base clear">     
+     	<p class="tac mt5">
+          <label class="btn btn_md fix_width120" onclick="regiEsti('[TPH_Vesti_seqno]');" style="cursor: pointer;"> 등록한 조건으로 견적</label>          
+      </p>
+      <br /><br />    	    
+          
+    </div>
+        
+</div>  
+<!-- 출력공정 등록창 --> 
+</body>
+</html>

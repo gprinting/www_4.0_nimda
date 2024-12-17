@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>배송친구관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <!--script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"></script-->
+    <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
+    <script>
+    //우편번호 팝업
+    var getPostcode = function(el) {
+        new daum.Postcode({
+            oncomplete: function(data) {
+               var fullAddr = ''; // 최종 주소 변수
+               var extraAddr = ''; // 조합형 주소 변수
+
+               // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+               if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                   fullAddr = data.roadAddress;
+
+               } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                   fullAddr = data.jibunAddress;
+               }
+
+               // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+               if (data.userSelectedType === 'R'){
+                   //법정동명이 있을 경우 추가한다.
+                   if(data.bname !== ''){
+                       extraAddr += data.bname;
+                   }
+                   // 건물명이 있을 경우 추가한다.
+                   if(data.buildingName !== ''){
+                       extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                   }
+                   // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                   fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+               }
+
+               // 우편번호와 주소 정보를 해당 필드에 넣는다.
+             //  $("#" + el + "zipcode").val(data.zonecode); //5자리 새우편번호 사용
+               $("#" + el + "addr").val(fullAddr);
+
+               // 커서를 상세주소 필드로 이동한다.
+             //  $("#" + el + "addr_detail").focus();
+            }
+        }).open({
+            popupName: 'postcodePopup'
+        });
+    }
+    </script>
+
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+       <section id="page-content">
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+
+            <!-- 본문 컨텐츠  시작-->
+            
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group">
+					   <ul class="tab_box mt25">
+					   </ul>
+					   <form>
+					   <div class="tab_box_con">
+								<div class="form-group">
+				                 <label class="control-label tar">주소</label><label class="fix_width20 fs14 tac">:</label>
+                                 <input type="text" class="input_co2" style="width:calc(100% - 181px);" id="search_addr">
+                                 <label class="btn btn_md fix_width102" onclick="getPostcode('search_');"><i class="fa fa-search"></i>주소검색</label>
+								</div>  								
+						</div>		
+					   </form>
+            
+            </div> 
+            <div>
+			    <p class="btn-lg red_btn">
+                    <a style="cursor: pointer;" onclick="searchDlvrFriend('All');">선택 조건으로 검색</a>
+                </p>				  
+            </div>             
+            
+            <!-- 배송친구 리스트 -->
+            <div class="tb_group">
+				<ul class="tab_box mt25">
+				    <li><a class="box">배송친구 리스트</a></li>
+				</ul>
+				<form>
+				 	<div class="table-body" style="padding-top:0;">
+				 	<div class="form-group">
+				      <label class="control-label tar" style="padding: 10px 15px;">배송친구</label><label class="fix_width20 fs14 tac">:</label>
+				      <label class="form-radio form-normal"><input type="radio" checked="checked" name="dlvr_type" onchange="searchDlvrFriend('Aprvl'); return false;" value="All" class="radio_box"> 전체</label>
+				      <label class="fix_width10"></label>   
+				      <label class="form-radio"><input type="radio" onchange="searchDlvrFriend('Aprvl'); return false;" name="dlvr_type" value="Main" class="radio_box"> Main</label>
+				      <label class="fix_width10"></label>   
+				      <label class="form-radio"><input type="radio" onchange="searchDlvrFriend('Aprvl'); return false;" name="dlvr_type" value="Sub" class="radio_box"> Sub</label>
+				 	</div>
+
+                         <div class="table_basic">
+				             <table class="fix_width100f">
+                                 <thead>
+                                   <tr>
+                                       <th class="bm2px">신청날짜</th>
+                                       <th class="bm2px">구분</th>
+                                       <th class="bm2px">회원명</th>
+                                       <th class="bm2px">주소</th>
+                                       <th class="bm2px">전화번호</th>
+                                       <th class="bm2px">상세보기</th>	
+                                   </tr>
+                                 </thead>
+                                 <tbody id="friend_list">	
+                                     <tr>
+                                         <td colspan='6'>검색된 내용이 없습니다.</td>
+                                     </tr>
+				               	</tbody>
+				             </table>
+                         </div>
+				 	</div>
+				</form>
+            </div>
+            
+            <!-- 탭 박스 2 기본검색 -->
+            <div class="tb_group">
+				<ul class="tab_box mt25">
+				    <li>
+				    	    <a class="box">배송친구 신청 리스트 - Main</a>
+				    </li>
+				</ul>
+				<div class="table-body">
+                    <div class="table_basic">
+				        <table class="fix_width100f">
+                            <thead>
+				          		<tr>
+				          		    <th class="bm2px">신청날짜</th>
+				          		    <th class="bm2px">회원명</th>
+				          		    <th class="bm2px">주소</th>
+				          		    <th class="bm2px">전화번호</th>
+				          		    <th class="bm2px">상세보기</th>	
+				          		    <th class="bm2px">관리</th>	
+				          		</tr>
+                            </thead>
+                            <tbody id="main_req_list">	
+                                <tr>
+                                    <td colspan='6'>검색된 내용이 없습니다.</td>
+                                </tr>
+				            </tbody>
+				        </table>
+                     </div>
+				</div>		
+
+                           <!-- 배송친구 Main 팝업창 -->
+                                   <div id="main_pop" style="display:none;">
+														 	<dl>
+														 	    <dt class="tit">
+														 	    	  <h4>배송친구 승인 - Main</h4>
+														 	    </dt>
+														 	    <dt class="cls">
+														 	    	  <button type="button" onclick="hideRegiPopup();" class="btn btn-sm btn-danger fa fa-times"></button>
+														 	      </dt>
+														 	</dl>  
+														 	<div class="pop-base">
+														 	  	  <div class="pop-content">
+														 	  	  	 		<div class="form-group">
+														 	  	  	 		    <label class="control-label fix_width75 tar">신청날짜</label><label class="fix_width10 fs14 tac">:</label>
+														 	  	  	 		    <input type="text" id="main_regi_date" class="input_co2 fix_width120" readonly>														 	  	  	 		    
+														 	  	  	 		    <label class="control-label fix_width75 tar">회원명</label><label class="fix_width10 fs14 tac">:</label>
+														 	  	  	 		    <input type="text" id="main_name" class="input_co2 fix_width120" readonly>					 	  	  	 		    
+														 	  	  	 		    <br />
+														 	  	  	 		    <label class="control-label fix_width75 tar">주소</label><label class="fix_width10 fs14 tac">:</label>
+														 	  	  	 		    <input type="text" class="input_co2 fix_width350" id="main_addr" readonly>					 	  	  	 		    
+														 	  	  	 		    <br />
+														 	  	  	 		    <label class="control-label fix_width75 tar">전화번호</label><label class="fix_width10 fs14 tac">:</label>
+														 	  	  	 		    <input type="text" class="input_co2 fix_width120" id="main_tel" readonly>
+														 	  	  	 		    <br />
+														 	  	  	 		    <hr class="hr_bd2">								 	  	  	 		    													 	  	  	 		    
+														 	  	  	 		    <div class="table-body">
+														 	  	  	 		      	<span class="fs14 fwb">* 메인업체 리스트</span>														 	  	  	 		      	
+														 	  	  	 		        <div class="table_scroll fix_height250 mt15">
+
+														 	  	  	 		            <table class="table fix_width100f">
+														 	  	  	 		                <thead>
+														 	  	  	 		                    <tr>
+														 	  	  	 		                        <th class="bm2px"><a style="cursor:pointer;" onclick="sortList('member_name', 'main', this);"  class="blue_text01 sorting">회원명 <i class="fa fa-sort"></i></a></th>
+														 	  	  	 		                        <th class="bm2px"><a style="cursor:pointer;" onclick="sortList('addr', 'main', this);" class="blue_text01 sorting">주소 <i class="fa fa-sort"></i></a></th>
+														 	  	  	 		                        <th class="bm2px">전화번호</th>
+														 	  	  	 		                    </tr>
+														 	  	  	 		                </thead>
+														 	  	  	 		                <tbody id="main_list">	
+														 	  	  	 		                </tbody>
+														 	  	  	 		            </table>
+														 	  	  	 		        </div>
+														 	  	  	 		    </div>		
+														 	  	  	 		    <hr class="hr_bd2">								 	  	  	 		    													 	  	  	 		    
+														 	  	  	 		    <p class="tac mt15">
+                                              	<button type="button" onclick="mainReqAprvl();" class="btn btn-sm btn-success">승인</button>
+                                                <label class="fix_width5"> </label>
+                                                <button type="button" onclick="mainReqReject();" class="btn btn-sm btn-danger">거절</button>
+                                                <label class="fix_width5"> </label>
+                                                <button type="button" onclick="hideRegiPopup();" class="btn btn-sm btn-primary">확인</button>
+                                              </p>
+														 	  	  	 		</div>		
+														 	  	  </div>
+														 	</div>
+														 	 
+                                   </div>  
+                           <!-- 배송친구 Main 팝업창 -->
+            </div>
+            
+            <!-- 탭 박스 3 기본검색 -->
+            <div class="tb_group">
+                <ul class="tab_box mt25">
+                    <li>
+                        <a class="box">배송친구 신청 리스트 - Sub</a>
+                    </li>
+                </ul>
+                <div class="table-body">
+                    <div class="table_basic">
+                        <table class="fix_width100f">
+                            <thead>
+                                <tr>
+                                    <th class="bm2px" rowspan="2">신청날짜</th>
+                                    <th class="bm2px" colspan="3">Sub</th>
+                                    <th class="bm2px" colspan="3">Main</th>					                      					    
+                                    <th class="bm2px" rowspan="2">상세보기</th>	
+                                    <th class="bm2px" rowspan="2">관리</th>	
+                                </tr>
+                                <tr>
+                                    <th class="bm2px">회원명</th>
+                                    <th class="bm2px">주소</th>
+                                    <th class="bm2px">전화번호</th>
+                                    <th class="bm2px">회원명</th>
+                                    <th class="bm2px">주소</th>
+                                    <th class="bm2px">전화번호</th>
+                                </tr>
+                                </thead>
+                                <tbody id="sub_req_list">	
+                                    <tr>
+                                        <td colspan='9'>검색된 내용이 없습니다.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>								
+                    </div>		
+
+            <!-- 배송친구 Sub 팝업창 -->
+            <div style="display:none;" id="sub_pop">
+														 	<dl>
+														 	    <dt class="tit">
+														 	    	  <h4>배송친구 승인 - Sub</h4>
+														 	    </dt>
+														 	    <dt class="cls">
+														 	    	  <button onclick="hideRegiPopup();" type="button" class="btn btn-sm btn-danger fa fa-times"></button>
+														 	      </dt>
+														 	</dl>  
+														 	<div class="pop-base">
+														 	  	  <div class="pop-content">
+														 	  	  	 		<div class="form-group">
+														 	  	  	 			<div class="tab_box_con">	
+														 	  	  	 				<fieldset>
+														 	  	  	 		    <label class="control-label tar">회원명</label><label class="fix_width20 fs14 tac">:</label>
+															                 <input type="text" id="search_nick" onkeydown="loadMainNick('enter', event);" maxlength="50" class="input_co2 fix_width200">
+														 	  	  	 		    <label onclick="loadMainNick('click', event);" class="btn btn_md fix_width63"><i class="fa fa-search"></i> 검색</label>
+														 	  	  	 		    </fieldset>								
+														 	  	  	 		    <div class="table-body">
+														 	  	  	 		        <div class="table_scroll fix_height250">
+														 	  	  	 		            <table class="table fix_width100f">
+														 	  	  	 		                <thead>
+														 	  	  	 		                    <tr>
+														 	  	  	 		                        <th class="bm2px"></th>
+														 	  	  	 		                        <th class="bm2px"><a style="cursor:pointer;" onclick="sortList('member_name', 'sub', this)" class="blue_text01 sorting">회원명 <i class="fa fa-sort"></i></a></th>
+														 	  	  	 		                        <th class="bm2px"><a style="cursor:pointer;" onclick="sortList('addr', 'sub', this)"  class="blue_text01 sorting">주소 <i class="fa fa-sort"></i></a></th>
+														 	  	  	 		                        <th class="bm2px">연락처</th>
+														 	  	  	 		                    </tr>
+														 	  	  	 		                </thead>
+														 	  	  	 		                <tbody id="sub_main_list">                                  </tbody>
+														 	  	  	 		            </table>
+														 	  	  	 		        </div>
+														 	  	  	 		    </div>
+														 	  	  	 		    			
+														 	  	  	 		    <hr class="hr_bd2">															 	  	  	 		    													 	  	  	 		    
+														 	  	  	 		    <p class="tac mt15">														 	  	  	 		        													 														 	  	  	 		        													 
+                                              	<button type="button" onclick="subReqAprvl();" class="btn btn-sm btn-success">승인</button>
+                                                <label class="fix_width5"> </label>
+                                                <button type="button" onclick="subReqReject();" class="btn btn-sm btn-danger">거절</button>
+                                                <label class="fix_width5"> </label>
+                                                <button type="button" onclick="hideRegiPopup();" class="btn btn-sm btn-primary">확인</button>
+                                              </p>												 	  	  	 		    			
+														 	  	  	 		</div>												 	
+														 	  	  </div>
+														 	</div>
+														 	 
+                                   </div>  
+                           <!-- 배송친구 Sub 팝업창 -->   
+            </div>  
+            <form name="frm" id="frm">
+                <input type="hidden" id="seqno" name="seqno">
+            </form>
+       </section>
+</div>
+</body>
+</html>

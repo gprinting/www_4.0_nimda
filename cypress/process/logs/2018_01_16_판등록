@@ -1,0 +1,5 @@
+
+14:24:12 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108ST0424701%' ORDER BY seq ASC
+\n\n\n
+14:24:12 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108ST0424701%' ORDER BY seq ASC
+\n\n\n

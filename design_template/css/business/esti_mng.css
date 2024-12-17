@@ -1,0 +1,85 @@
+body {background:#e7ebee;}
+
+/*견적관리*/
+#content-container #for_top .search_box .search_body table td>select {padding:2px;margin-left:10px;width:112px;}
+#content-container #for_top .search_box .search_body .text_area {background: #fff;color: #555;border: 1px solid #ccc;height:20px;width:438px;}
+#content-container .search_box .search_body th {padding:16px 0;}
+#content-container .search_box .search_body .daily_form>button {font-size:12px;}
+#content-container .search_box .search_body .search_btn>button {cursor:pointer;}
+
+/*견적관리 탭*/
+#quoteTab1:checked ~ #quo_content1,
+#quoteTab2:checked ~ #quo_content2,
+#quoteTab3:checked ~ #quo_content3,
+#quoteTab4:checked ~ #quo_content4 {display: block;}
+#content_tab {margin:40px 20px 20px 20px;clear:both;}
+#content_tab #quoteTab1, #content_tab #quoteTab2, #content_tab #quoteTab3 {display:none;}
+#content_tab .content_label {display: inline-block;padding: 15px 25px;font-weight: 600;text-align: center;color: #bbb;font-size:12px;}
+#content_tab #quo_content1,
+#content_tab #quo_content2,
+#content_tab #quo_content3 {display: none;padding: 20px 0 0;border-top: 1px solid #ddd;}
+#content_tab input:checked + label {color: #555;border: 1px solid #ddd;border-top: 2px solid orange;border-bottom: 1px solid #fff}
+
+/*견적관리 - 탭 상단*/
+#content_tab .tab_top {margin-bottom: 20px;}
+#content_tab .tab_top>button {background: #203647;color: #fff;height: 30px;}
+
+/*공통 테이블*/
+#content_tab .for_form {margin:0;overflow:auto;}
+#content_tab .for_form .for_table thead th {padding: 8px;border-top:3px solid #32404d;border-bottom: 2px solid #286091;background:#eee;}
+#content_tab .for_form .for_table tbody td {padding:11px 0px;border-bottom:1px solid #ccc;text-align:center;#}
+#content_tab .for_tableBottom {margin-top:20px;display:inline-block;}
+#content_tab .for_tableBottom>select {color:#555;border:1px solid #ccc;padding:6px 5px;}
+
+/*견적관리 - 숨겨진 테이블*/
+#content_tab .for_form .for_table .hide_row{display:none;}
+#content_tab .for_form .for_table .toggle_row {background:#f9f9f7;}
+#content_tab .for_form .for_table .toggle_row .information {margin-bottom:30px;width:100%;}
+#content_tab .for_form .for_table .toggle_row .information td {background:#fff;padding:8px;border:1px solid #ccc;}
+#content_tab .for_form .for_table .toggle_row .information th {background:#e4e4e4;;padding:8px;border:1px solid #ccc;}
+#content_tab .for_form .for_table .toggle_row>.toggle_td {padding:20px;}
+
+/*견적관리 - 숨겨진 테이블 하단 반반치킨*/
+#content_tab .for_form .for_table .toggle_row .sum {clear:both}
+#content_tab .for_form .for_table .toggle_row .sum .left_sum {width:50%;float:left;}
+#content_tab .for_form .for_table .toggle_row .sum .right_sum {width:50%;float:left;}
+#content_tab .for_form .for_table .toggle_row .sum .right_sum .right_panel,
+#content_tab .for_form .for_table .toggle_row .sum .left_sum .left_panel {background-color:#fff;border:1px solid #ccc;padding:20px;text-align:right;}
+#content_tab .for_form .for_table .toggle_row .sum ul {padding:0;}
+#content_tab .for_form .for_table .toggle_row .sum li {margin:15px 12px;font-size:12px;}
+#content_tab .for_form .for_table .toggle_row .sum input,
+#content_tab .for_form .for_table .toggle_row .sum select {background:#fff;border:1px solid #ccc;color:#555;height:24px;padding:0 13px;}
+#content_tab .for_form .for_table .toggle_row .downLoad button {float:right;margin:0px 0px 30px 0px;padding:10px 50px;background:#1e926b;color:#fff;}
+#content_tab .for_form .for_table .toggle_row .send input {width:70%;padding:6px 10px;margin-top:20px;border:1px solid #ccc}
+#content_tab .for_form .for_table .toggle_row .send button {padding:6px 30px;margin-left:10px;background:#286090;color:#fff;}
+
+/*견적 CRM 상담기록*/
+#content_tab .CRM_form {width:1050px;}
+#content_tab #quo_content2 .page-esi>h2 {font-size:15px;border-left:3px solid #000000;margin-top:60px;padding-left:10px;}
+#content_tab #quo_content2 .page-esi .esti {width:100%;margin-top:30px;}
+#content_tab #quo_content2 .page-esi .esti thead tr th {padding:5px 6px;border:1px solid #949494;}
+#content_tab #quo_content2 .page-esi .esti tbody tr td {padding:5px 6px;border:1px solid #949494;text-align:center;}
+#content_tab #quo_content2 .page-esi .esti2 {width:100%;margin-top:30px;}
+#content_tab #quo_content2 .page-esi .esti2 tr td {text-align:center;border:1px solid #949494;padding:5px 6px}
+#content_tab #quo_content2 .page-esi .esti2 tr td select {margin-left:10px;}
+
+/*견적 CRM 상담기록 하단 버튼*/
+.esti_button {margin:10px 30px 30px 30px;}
+.esti_button .esti-ul {height:35px;margin-bottom:30px;}
+.esti_button .esti-ul li {float:left;margin-right:22px;}
+.esti_button .esti-ul li select {color:#555;border:1px solid #ccc;padding:6px 5px;margin-left:5px;}
+.esti_button button {background:#203647;padding:10px 30px;color:#fff}
+.esti_button .esti_btnLeft {float:left;margin-bottom:50px;}
+.esti_button .esti_btnRight {float:right;}
+.page-esi .esti_alarm {text-align:center;margin-top:30px;}
+.page-esi .esti_alarm button {background:#ff0000;color:#fff;padding:10px 30px;}
+
+/*상담예정일 알람 설정*/
+#content_tab #quo_content2 .page-esi2 {padding:14px 0 36px 0;;border-top:1px solid #ddd;margin:20px 0;border-bottom:1px solid #ddd;}
+#content_tab #quo_content2 .page-esi2 table {width:100%;margin:30px 0 0 10px;}
+#content_tab #quo_content2 .page-esi2>h2 {font-size:15px;border-left:3px solid #000000;margin-top:20px;padding-left:10px;}
+#content_tab #quo_content2 .page-esi2 select {padding:5px 15px;}
+
+/*견적통계*/
+.tt thead tr th {padding:6px 5px;border:1px solid #949494;text-align:center;}
+.tt tbody tr td {padding:6px 5px;border:1px solid #949494;text-align:center;}

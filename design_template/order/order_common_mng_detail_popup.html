@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<title>영업</title>
+	<meta charset="utf-8">
+
+    <!-- 기본 css -->       
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font-awesome.min.css">
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/guide.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/common.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/tab.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/basic_manager.css" type="text/css"  />
+	<link rel="stylesheet" href="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.css">
+
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/lib/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/jquery.scrollUp.js"></script>   
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/toggle.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-tab.js"></script>
+	<script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+
+    <!-- 공통 -->
+    <script src="[TPH_Vdesign_dir]/js/common/common.js"></script>
+    <!-- 생산공통 -->
+    <script src="[TPH_Vdesign_dir]/js/common/business_common.js"></script>
+    <!-- 페이지별 js -->
+    <script src="[TPH_Vdesign_dir]/js/business/order_common_mng_detail_popup.js"></script>
+  
+     <script>
+		$(function () {
+			$.scrollUp({
+		        scrollName: 'scrollUp', // Element ID
+		        scrollDistance: 300, // Distance from top/bottom before showing element (px)
+		        scrollFrom: 'top', // 'top' or 'bottom'
+		        scrollSpeed: 300, // Speed back to top (ms)
+		        easingType: 'linear', // top easing (see http://easings.net/)
+		        animation: 'fade', // Fade, slide, none
+		        animationInSpeed: 200, // Animation in speed (ms)
+		        animationOutSpeed: 200, // Animation out speed (ms)
+		        scrollText: '<img src="[TPH_Vdesign_dir]/images/top.png">', // Text for element, can contain HTML
+		        scrollTitle: false, // Set a custom <a> title if required. Defaults to scrollText
+		        scrollImg: false, // Set true to use image
+		        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+		        zIndex: 2147483647 // Z-Index for the overlay
+			});
+		});
+     </script>
+ </head>
+<body>
+    <div id="loading_img" style="display:none">
+      <img src='[TPH_Vdesign_dir]/images/loading.gif' style="position:absolute;z-index:9999999;top:30%; left:30%;" alt="로딩" />
+    </div> 
+    <div id="black_mask" style="display:none;position:absolute;left:0;top:0;z-index:9998;background-color:#000;opacity:0.3;"></div>
+    <div id="pop_mask" style="display:none;position:absolute;left:0;top:0;z-index:99998;background-color:#000;opacity:0.3;"></div>
+    <div id="pop_pop_mask" style="display:none;position:absolute;left:0;top:0;z-index:999998;background-color:#000;opacity:0.3;"></div>
+<!--mousedown="startDrag(event, this)"-->
+    <div id="pop_popup" style="display:none;position:absolute;z-index:99999;" class="pop_add_box"></div>
+    <div id="regi_popup" style="display:none;position:absolute;z-index:9999;" class="pop_add_box"></div>
+	<div class="tab_box_con">
+		<div class="tab-pane active">
+			<div class="tree_box">
+				<span class="opttxt">● 옵션정보</span><br />
+                <div class="process_view_box15">
+                  [TPH_Vopt_info]
+                </div>
+                <br />
+				<span class="address">● 배송정보</span><br />
+                <div class="process_view_box15">
+                  [TPH_Vdlvr_info]
+                </div>
+                <br /><br />
+                [TPH_Vtree_html]
+			</div>
+
+			<div class="category_box" >
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#typset" data-toggle="tab" onclick="tabCtrl('typset');"> 조판 </a> </li>
+					<li><a href="#output" data-toggle="tab" onclick="tabCtrl('output');"> 출력 </a> </li>
+					<li><a href="#print" data-toggle="tab" onclick="tabCtrl('print');"> 인쇄 </a> </li>
+					<li><a href="#after" data-toggle="tab" onclick="tabCtrl('after');"> 후공정 </a> </li>
+                    <!--
+					<li><a href="#stor" data-toggle="tab" onclick="tabCtrl('stor');"> 입출고 </a> </li>
+                    -->
+				</ul>
+				<div class="tab-content">
+
+                    <input type="hidden" id="flattyp_yn" name="flattyp_yn" value="[TPH_Vflattyp_yn]">
+					<!-- 탭 박스 조판 -->
+					<div class="tab-pane active" id="typset">
+					</div> <!-- 탭 박스 조판 -->
+
+					<!-- 탭 박스 출력 -->
+					<div class="tab-pane" id="output">
+					</div> <!-- 탭 박스 출력 -->
+
+					<!-- 탭 박스 인쇄 -->
+					<div class="tab-pane" id="print">
+					</div> <!-- 탭 박스 인쇄 -->
+
+					<!-- 탭 박스 후공정 -->
+					<div class="tab-pane" id="after">
+						<div class="table-body">
+							<table class="table fix_width100f">
+								<thead>
+								<tr>
+									<th class="bm2px">No</th>
+									<th class="bm2px">소분류</th>
+									<th class="bm2px">후공정명</th>
+									<th class="bm2px">Depth1</th>
+									<th class="bm2px">Depth2</th>
+									<th class="bm2px">Depth3</th>
+									<th class="bm2px">수량</th>
+									<th class="bm2px">단위</th>
+									<th class="bm2px">발주자</th>
+									<th class="bm2px">수주처</th>
+									<th class="bm2px">상세보기</th>
+								</tr>
+								</thead>
+								<tbody id="after_list">
+								<tr>
+								  <td colspan="12">검색된 내용이 없습니다.</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+                      <div id="after_info">
+                      </div>
+					</div> <!-- 탭 박스 후공정 -->
+
+					<!-- 탭 박스 입출고 -->
+					<div class="tab-pane" id="stor">
+
+						<div class="pop-content ofa fix_height590">
+							<ul class="form-group">
+								<li class="fix_width440 fl">
+									<label class="control-label fix_width79 tar">입고자</label><label class="fix_width20 fs14 tac">:</label>
+									<label class="control-label fix_width40 tar">김발주</label>
+									<label class="fix_width30"></label>
+									<label class="control-label fix_width79 tar">입고일자</label><label class="fix_width20 fs14 tac">:</label>
+									<label class="control-label fix_width120 tar">2015.10.22 15:00</label>
+									<br />
+
+									<label class="control-label fix_width79 tar">출고자</label><label class="fix_width20 fs14 tac">:</label>
+									<label class="control-label fix_width40 tar">김발주</label>
+									<label class="fix_width30"></label>
+									<label class="control-label fix_width79 tar">출고일자</label><label class="fix_width20 fs14 tac">:</label>
+									<label class="control-label fix_width120 tar">2015.10.22 15:23</label>
+								</li>
+							</ul>
+						</div>
+					</div> <!-- 탭 박스 입출고 -->
+				</div>
+			</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,570 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<title>[TPH_Vmain_title]</title>
+	<meta charset="utf-8"> [TPH_I/common/common.html]
+</head>
+
+<body>
+
+	<div id="container">
+
+		<!-- TOP NAVIGATION -->
+		[TPH_I/common/header.html]
+
+		<!-- LEFT NAVIGATION -->
+		[TPH_Vleft]
+
+		<!-- CONTENT -->
+		<section id="page-content" class="">
+			<!-- 본문 컨텐츠  시작-->
+			<div id="content-container" class="content_container prdt_single_regi">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀 시작-->
+					<div class="title">
+						[TPH_I/common/history.html]
+					</div>
+					<!--타이틀 끝-->
+
+					<!--기본 검색정보 시작-->
+					<section class="content_section" id="basic_search">
+						<div class="content_wrapper">
+							<table class="table_search_layout" style="table-layout: fixed;">
+								<tbody>
+									<tr>
+										<th class="th_text th_data_prdt_info_01">카테고리</th>
+										<td>
+											<select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="select_data_prdt_info_01">
+												[TPH_Vcate_html]
+											</select>
+											<select id="cate_mid" onchange="cateSelect.exec('mid', this.value);" class="select_data_prdt_info_01">
+												<option value="">중분류</option>
+											</select>
+											<select id="cate_bot" onchange="loadPrdtInfo(this.value);" class="select_data_prdt_info_01">
+												<option value="">소분류</option>
+											</select>
+										</td>
+									</tr>	
+									<tr>
+										<th class="th_text th_left">상품명</th>
+										<td>
+											<input type="text" class="prdt_name_input">
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text th_left">공급가</th>
+										<td>
+											<input type="text" class="prdt_single_regi_input"> 원
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text th_left">매입원가</th>
+										<td>
+											<input type="text" class="prdt_single_regi_input"> 원
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text th_left">판매가</th>
+										<td>
+											<input type="text" class="prdt_single_regi_input"> 원
+										</td>
+									</tr>						
+									<tr>
+										<th class="th_text th_data_prdt_info_01">품절 여부</th>
+										<td>
+											<label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="gen_y" name="gen_y" value="Y"> 일반상품으로 표시</label>
+											<label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="prjt_y" name="prjt_y" value="Y"> 기획상품으로 표시</label>
+											<label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="new_y" name="new_y" value="Y"> 신상품으로 표시</label>
+											<label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="recomm_y" name="recomm_y" value="Y"> 추천상품으로 표시</label>
+					
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text th_data_prdt_info_01"></th>
+										<td>
+											<label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="soldout_y" name="soldout_y" value="Y"> 품절상품으로 표시</label>
+											<label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="popular_y" name="popular_y" value="Y"> 인기상품으로 표시</label>
+											<label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="event_y" name="event_y" value="Y"> 이벤트상품으로 표시</label>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<hr class="section_bar">
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text th_data_prdt_info_01">구분</th>
+										<td>
+											<label class="check_box_wrapper_prdt_info_01"><input type="radio" name="bun_yn" value="Y" class="checkbox_align">묶음가능</label>
+											<label class="check_box_wrapper_prdt_info_01"><input type="radio" name="bun_yn" value="N" class="checkbox_align" checked="checked">묶음불가능</label>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<hr class="section_bar">
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text th_left">상품 이미지</th>
+										<td>
+											<div class="pop-base fl fix_width1150" style="padding-top:20px;">
+												<div class="pop-content fix_height415">
+													<ul class="form-group">
+														<li class="fix_width400 fl">
+															<img id="main_photo" class="process_view_box10" src="/attach/gp/cate_photo_file/2022/04/04//1649065140997b888386.jpg">
+														</li>
+														<li class="fix_width120 fl">
+															<img class="process_view_box11" onclick="changePhoto('/attach/gp/cate_photo_file/2022/04/04//1649065140997b888386.jpg')" src="/attach/gp/cate_photo_file/2022/04/04//1649065140997b888386.jpg">
+															<br>
+															<img class="process_view_box11" onclick="changePhoto('/attach/gp/cate_photo_file/2022/04/04//16490651408528cf5bdd.jpg')" src="/attach/gp/cate_photo_file/2022/04/04//16490651408528cf5bdd.jpg">
+															<br>
+															<img class="process_view_box11" onclick="changePhoto('/attach/gp/cate_photo_file/2022/04/04//1649065140a04917c15f.jpg')" src="/attach/gp/cate_photo_file/2022/04/04//1649065140a04917c15f.jpg">
+															<br>
+															<img class="process_view_box11" onclick="changePhoto('/attach/gp/cate_photo_file/2022/04/04//1649065140e506a96c82.jpg')" src="/attach/gp/cate_photo_file/2022/04/04//1649065140e506a96c82.jpg">
+														</li>
+														<li class="fl">
+															<div class="file_div_wrapper">
+																<label class="th_text th_data_prdt_info_02">이미지</label>
+																<!-- 파일 업로드 / 스크립이 하단에 있어야 작동함 -->
+																<input id="upload_file1" class="input_data_prdt_info_01" placeholder="" readonly="readonly">
+																<input type="hidden" id="upload_file_check1" name="upload_file_check1">
+					
+																<label class="fileUpload">
+																	<input id="upload_btn1" name="upload_btn1" type="file" class="upload">
+																	<span class="btn btn-sm btn-info fa">찾아보기</span>
+																</label>
+																<p class="fs13" style="color:red;">* 사이즈 : 1000 x 1000 / 사용가능 확장자 : jpg, gif, png</p>
+																<script type="text/javascript">
+																	document.getElementById("upload_btn1").onchange = function () {
+																		document.getElementById("upload_file1").value = this.value;
+																		document.getElementById("upload_file_check1").value = this.value;
+																	};
+																</script>
+																<div id="file_area1">
+																	<label class="fix_width105"> </label>
+																	<label id="file_name1" class="control-label cp blue_text01"><a href="/common/cate_photo_file_down.php?seqno=351">cmp-pr-cb-1.jpg</a></label>
+																	<button onclick="delPhotoFile('351',1)" type="button" id="del_btn1" class="btn btn-sm bred fa">이미지삭제</button>                        
+																</div>
+															</div>
+															<br>
+															<div class="file_div_wrapper">
+																<label class="th_text th_data_prdt_info_02">이미지</label>
+																<!-- 파일 업로드 / 스크립이 하단에 있어야 작동함 -->
+																<input id="upload_file2" class="input_data_prdt_info_01" placeholder="" readonly="readonly">
+																<input type="hidden" id="upload_file_check2" name="upload_file_check2">
+					
+																<label class="fileUpload">
+																	<input id="upload_btn2" name="upload_btn2" type="file" class="upload">
+																	<span class="btn btn-sm btn-info fa">찾아보기</span>
+																</label>
+																<p class="fs13" style="color:red;">* 사이즈 : 1000 x 1000 / 사용가능 확장자 : jpg, gif, png</p>
+																<script type="text/javascript">
+																	document.getElementById("upload_btn2").onchange = function () {
+																		document.getElementById("upload_file2").value = this.value;
+																		document.getElementById("upload_file_check2").value = this.value;
+																	};
+																</script>
+																<div id="file_area2">
+																	<label class="fix_width105"> </label>
+																	<label id="file_name2" class="control-label cp blue_text01"><a href="/common/cate_photo_file_down.php?seqno=352">cmp-pr-cb-2.jpg</a></label>
+																	<button onclick="delPhotoFile('352',2)" type="button" id="del_btn2" class="btn btn-sm bred fa">이미지삭제</button>                        
+																</div>
+															</div>
+															<br>
+															<div class="file_div_wrapper">
+																<label class="th_text th_data_prdt_info_02">이미지</label>
+																<!-- 파일 업로드 / 스크립이 하단에 있어야 작동함 -->
+																<input id="upload_file3" class="input_data_prdt_info_01" placeholder="" readonly="readonly">
+																<input type="hidden" id="upload_file_check3" name="upload_file_check3">
+																<label class="fileUpload">
+																	<input id="upload_btn3" name="upload_btn3" type="file" class="upload">
+																	<span class="btn btn-sm btn-info fa">찾아보기</span>
+																	
+																</label>
+																<p class="fs13" style="color:red;">* 사이즈 : 1000 x 1000 / 사용가능 확장자 : jpg, gif, png</p>
+																<script type="text/javascript">
+																	document.getElementById("upload_btn3").onchange = function () {
+																		document.getElementById("upload_file3").value = this.value;
+																		document.getElementById("upload_file_check3").value = this.value;
+																	};
+																</script>
+																<div id="file_area3">
+																	<label class="fix_width105"> </label>
+																	<label class="control-label cp blue_text01" id="file_name3"><a href="/common/cate_photo_file_down.php?seqno=353">cmp-pr-cb-3.jpg</a></label>
+																	<button onclick="delPhotoFile('353',3)" type="button" class="btn btn-sm bred fa" id="del_btn3">이미지삭제</button>                        
+																</div>
+															</div>
+															<br>
+															<div class="file_div_wrapper">
+																<label class="th_text th_data_prdt_info_02">이미지</label>
+																<!-- 파일 업로드 / 스크립이 하단에 있어야 작동함 -->
+																<input id="upload_file4" class="input_data_prdt_info_01" placeholder="" readonly="readonly">
+																<input type="hidden" id="upload_file_check4" name="upload_file_check4">
+					
+																<label class="fileUpload">
+																	<input id="upload_btn4" name="upload_btn4" type="file" class="upload">
+																	<span class="btn btn-sm btn-info fa">찾아보기</span>
+																</label>
+																<p class="fs13" style="color:red;">* 사이즈 : 1000 x 1000 / 사용가능 확장자 : jpg, gif, png</p>
+																<script type="text/javascript">
+																	document.getElementById("upload_btn4").onchange = function () {
+																		document.getElementById("upload_file4").value = this.value;
+																		document.getElementById("upload_file_check4").value = this.value;
+																	};
+																</script>
+																<div id="file_area4">
+																	<label class="fix_width105"> </label>
+																	<label class="control-label cp blue_text01" id="file_name4"><a href="/common/cate_photo_file_down.php?seqno=354">cmp-pr-cb-4.jpg</a></label>
+																	<button onclick="delPhotoFile('354',4)" type="button" class="btn btn-sm bred fa" id="del_btn4">이미지삭제</button>                        
+																</div>
+															</div>
+															<br><br>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text th_left">상품 상세 이미지</th>
+										<td>
+											<div class="pop-base fl fix_width1150" style="padding-top:20px;">
+												<div class="pop-content fix_height415">
+													<ul class="form-group">
+														<li class="fix_width400 fl">
+															<div class="process_view_box19" id="preview_photo">
+															</div>
+														</li>
+														<li class="fl" style="padding-left: 120px;">
+															<div class="file_div_wrapper">
+																<label class="th_text th_data_paper_info_01">이미지</label>
+																<!-- 파일 업로드 / 스크립이 하단에 있어야 작동함 -->
+																<input id="upload_file1" class="input_data_paper_info_01" placeholder="" disabled="disabled" />
+
+																<label class="fileUpload">
+																	<input id="upload_btn1" name="preview_file" type="file" class="upload" />
+																	<span class="btn btn-sm btn-info fa">찾아보기</span>
+																	<span id="file_btn"></span>
+																</label>
+																<p class="fs13" style="color:red;">* 사이즈 : 1000 x 783 / 사용가능 확장자 : jpg, gif, png</p>
+																<script type="text/javascript">
+																	document.getElementById("upload_btn1").onchange = function () {
+																	document.getElementById("upload_file1").value = this.value;
+																			};
+																</script>
+																<div id="file_area1">
+																	<label class="fix_width105"> </label>
+																	<label class="control-label cp blue_text01" id="file_name"></label>
+																</div>
+															</div>
+															<br /><br />
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- 탭 박스 3 TAB -->
+							<div id="prdt_info">
+							</div>
+
+						</div>
+					</section>
+					<!--기본검색정보 끝-->
+
+					<!--할인설정 시작-->
+					<section class="content_section">
+						<div class="content_wrapper">
+							<p style="font-size:14px; font-weight: bold; margin-bottom: 25px;"> 할인설정 </p>
+							<table class="table_search_layout">
+								<colgroup>
+									<col width="130px">
+									<col width="auto">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th class="th_text th_left">할인금액</th>
+										<td>
+											<input type="text" class="prdt_sale_input">
+											<select class="basic_mng_secect" style="width: 40px;">
+												<option value="">원</option>
+												<option value="">%</option>
+											</select>
+											<!-- <button type="button" class="btn_float_right btn_Turquoise01" onclick="cndSearch.exec();">검색</button> -->
+										</td>
+									</tr>
+									<!-- <tr>
+										<th class="th_text th_left">할인범위</th>
+										<td>
+											<div class="tab_button">
+												<button type="button" value="" class="btn_sales_info btn_active">전체할인</button>
+												<button type="button" value="" class="btn_sales_info">PC할인</button>
+												<button type="button" value="" class="btn_sales_info">모바일할인</button>
+											</div>
+										</td>
+									</tr> -->
+									<tr>
+										<th class="th_text th_left">기간설정</th>
+										<td>
+											<div class="switch_toggle">
+												<input type="checkbox" id="switch_date">
+												<label for="switch_date"></label>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text th_left">할인기간</th>
+										<td>
+											<input type="text" class="datepicker_input" readonly="readonly" placeholder="시작일" id="basic_from"> -
+                                        	<input type="text" class="datepicker_input" readonly="readonly" placeholder="종료일" id="basic_to">
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--할인설정 끝-->
+
+					<!--옵션설정 시작-->
+					<section class="content_section">
+						<div class="content_wrapper">
+							<p style="font-size:14px; font-weight: bold; margin-bottom: 25px;"> 옵션설정 </p>
+
+							<!-- TAB UI -->
+							<ul class="nav nav-tabs mt25" style="margin-top: 25px;">
+								<li class="active">
+									<a href="#tab_option1" data-toggle="tab"> 조합형 </a>
+								</li>
+								<li>
+									<a href="#tab_option2" data-toggle="tab"> 단독형 </a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+
+								<div class="tab-pane active" id="tab_option1">
+									<!-- TAB 조합형 -->
+									<table class="table_search_layout">
+										<colgroup>
+											<col width="130px">
+											<col width="auto">
+										</colgroup>
+										<tbody>
+											<tr>
+												<th class="th_text th_left">옵션갯수</th>
+												<td>
+													<select class="basic_mng_secect">
+														<option value="">1</option>
+														<option value="">2</option>
+														<option value="">3</option>
+														<option value="">4</option>
+														<option value="">5</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<th class="th_text th_left">정렬순서</th>
+												<td>
+													<select class="basic_mng_secect">
+														<option value="">등록순</option>
+														<option value="">이름순</option>
+														<option value="">금액순</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<th class="th_text th_left">옵션정보</th>
+												<td>
+													<table class="table_basic_layout">
+														<colgroup>
+															<col width="auto">
+															<col width="auto">
+															<col width="auto">
+															<col width="auto">
+															<col width="auto">
+															<col width="130px">
+														</colgroup>
+														<thead>
+															<tr>
+																<th class="">구분</th>
+																<th class="">이름</th>
+																<th class="">금액(판매가 + 옵션가)</th>
+																<th class="">재고</th>
+																<th class="">사용여부</th>
+																<th class="">관리</th>
+															</tr>
+														</thead>
+														<tbody>
+															<td>
+																<input type="text" />
+															</td>
+															<td>
+																<input type="text" />
+															</td>
+															<td>
+																<input type="text" />
+															</td>
+															<td>
+																<input type="text" />
+															</td>
+															<td>
+																<div class="switch_toggle">
+																	<input type="checkbox" id="switch_use01">
+																	<label for="switch_use01"></label>
+																</div>
+															</td>
+															<td>
+																<button type="button" id="basic_plus" class="btn_plus" onclick="toggleOption('basic', 'plus');"></button>
+                   												<button type="button" id="basic_minus" class="btn_minus" onclick="toggleOption('basic', 'minus');" style="display:none;"></button>
+															</td>
+														</tbody>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="tab-pane" id="tab_option2">
+									<!-- TAB 단독형 -->
+									<table class="table_search_layout">
+										<tbody>
+											<tr>
+												<th class="th_text th_left">정렬순서</th>
+												<td>
+													<select class="basic_mng_secect">
+														<option value="">등록순</option>
+														<option value="">이름순</option>
+														<option value="">금액순</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<th class="th_text th_left">옵션정보</th>
+												<td>
+													<table class="table_basic_layout">
+														<colgroup>
+															<col width="auto">
+															<col width="auto">
+															<col width="auto">
+															<col width="auto">
+															<col width="130px">
+														</colgroup>
+														<thead>
+															<tr>
+																<th class="">이름</th>
+																<th class="">금액(판매가 + 옵션가)</th>
+																<th class="">재고</th>
+																<th class="">사용여부</th>
+																<th class="">관리</th>
+															</tr>
+														</thead>
+														<tbody>
+															<td>
+																<input type="text" />
+															</td>
+															<td>
+																<input type="text" />
+															</td>
+															<td>
+																<input type="text" />
+															</td>
+															<td>
+																<div class="switch_toggle">
+																	<input type="checkbox" id="switch_use02">
+																	<label for="switch_use02"></label>
+																</div>
+															</td>
+															<td>
+																<button type="button" id="basic_plus" class="btn_plus" onclick="toggleOption('basic', 'plus');"></button>
+                    											<button type="button" id="basic_minus" class="btn_minus" onclick="toggleOption('basic', 'minus');" style="display:none;"></button>
+															</td>
+														</tbody>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+							<!--tab-content -->
+
+						</div>
+					</section>
+					<!--옵션설정 끝-->
+
+					<!--추가옵션설정 시작-->
+					<section class="content_section">
+						<div class="content_wrapper">
+							<p style="font-size:14px; font-weight: bold;"> 추가옵션설정 </p>
+
+							<table class="table_search_layout">
+								<tbody>
+									<tr>
+										<th class="th_text th_left">추가옵션정보</th>
+										<td>
+											<table class="table_basic_layout">
+												<colgroup>
+													<col width="auto">
+													<col width="auto">
+													<col width="auto">
+													<col width="130px">
+												</colgroup>
+												<thead>
+													<tr>
+														<th class="">이름</th>
+														<th class="">금액(상품가 + 옵션가)</th>
+														<th class="">사용여부</th>
+														<th class="">관리</th>
+													</tr>
+												</thead>
+												<tbody>
+													<td>
+														<input type="text" />
+													</td>
+													<td>
+														<input type="text" />
+													</td>
+													<td>
+														<div class="switch_toggle">
+															<input type="checkbox" id="switch_use03">
+															<label for="switch_use03"></label>
+														</div>
+													</td>
+													<td>
+														<button type="button" id="basic_plus" class="btn_plus" onclick="toggleOption('basic', 'plus');"></button>
+                    									<button type="button" id="basic_minus" class="btn_minus" onclick="toggleOption('basic', 'minus');" style="display:none;"></button>
+													</td>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+					<!--추가옵션설정 끝-->
+
+					<!-- 등록버튼 -->
+					<p class="btn-lg red_btn" style="padding-bottom: 20px;">
+						<a style="cursor: pointer;" onclick="">등록</a>
+					</p>
+				</div>
+				<!--메인상단 왼쪽 레이아웃 끝-->
+			</div>
+			<!-- 본문 컨텐츠 끝 -->
+		</section>
+
+
+	</div>
+
+
+
+</body>
+
+</html>

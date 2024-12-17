@@ -1,0 +1,101 @@
+
+	/*** 공통 불투명배경 ***/
+	.reveal-modal-bg {position: fixed;height: 100%;width: 100%;background: #000;background: rgba(0,0,0,.8);z-index: 100;display: none;top: 0;left: 0;}
+
+	/*** 공통 팝업바디 ***/
+	.reveal-modal {visibility: hidden;top: 100px;left: 36%;margin-left: -300px;background: #fff /* url(modal-gloss.png) */ no-repeat -200px -80px;position: absolute;z-index: 101;font-size:14px;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;
+		-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		}
+
+	/*** 공통 취소버튼***/
+	.reveal-modal .close-reveal-modal {font-size:33px;line-height: .7;position: absolute;top:7px;right: 14px;cursor: pointer; color: #252525;}
+
+	/*** 공통 바디 ***/
+	.Modal-header {padding:16px;border-bottom:2px solid #436292;background:#436292;color:#fff;font-weight: 600;}
+	.Modal-header-2 {padding:15px 0px;border-bottom:2px solid #436292;}
+	.Modal-header-2 span:first-child {padding:16px;background:#436292;color:#fff;font-weight: 600;}
+	.Modal-header-2 span>strong {padding-left:20px;}
+
+
+	/*** 생산투입한도설정 ***/
+	.Modal-body .textTable {border-collapse:collapse;width:100%;border:1px solid #ddd;margin-top:30px;}
+	.Modal-body .textTable thead th {border-top:3px solid #32404d;border-bottom:2px solid #286091;background:#eee;}
+	.Modal-body .textTable tbody td {text-align:center;border-bottom:1px solid #ddd;}
+	.Modal-body .textTable_btn {float:left;margin:10px 0;}
+	.Modal-body .textTable_btn button{background:#3871ca;}
+
+	.th_order_pop_limit_01 {width:124px;}
+	.th_order_pop_limit_02 {width:66px; padding-left:40px;}
+	.th_order_pop_limit_03 {width:126px; padding-left:40px;}
+	.input_order_pop_limit_01 {width:190px;}
+	.select_order_pop_limit_01 {width:202px;}
+	.btn_red {height: 26px;color: #fff;background: #ff5858;border-radius: 5px; font-size: 13px; font-weight: 600; padding:0 20px;}
+	.btn_blue {height: 26px;color: #fff;background: #3871ca;border-radius: 5px; font-size: 13px; font-weight: 600; padding:0 20px;}
+
+
+	/*** 조정 정보 ***/
+	.tbl_cash_left td {margin:10px 0;}
+	.tbl_cash input {padding:5px 3px;margin:6px 0;border:1px solid #ddd;}
+	.tbl_cash select {padding:5px 3px;width:130px;border:1px solid #ddd;}
+	.tbl_cash_left {width:440px;float:left;}
+	.tbl_cash_right {width:500px;float:left;}
+	.tbl_cash_right {margin-top:34px;margin-bottom:10px;margin-left: 20px;}
+	.tbl_cash_btn {text-align:center;padding-bottom:40px;border-bottom:2px solid #ddd;}
+	.tbl_cash_btn button {background:#ff5858;color:#fff;}
+	.tbl_cash_p {padding:6px;background:#eee;border:1px solid #ddd;text-align:right;}
+	.tbl_Table_cash {width:100%;border-collapse: collapse;margin-top:10px;}
+	.tbl_Table_cash thead th {background:#eee;font-weight:600;}
+	.tbl_Table_cash thead th,
+	.tbl_Table_cash tbody td {padding:5px 3px;border:1px solid #ddd;text-align:center;}
+
+	.th_order_pop_sales_01 {width:64px;}
+	.th_order_pop_sales_02 {width:60px; padding-left:28px;}
+	.th_order_pop_sales_03 {width:86px;}
+	.th_order_pop_sales_04 {width:56px; padding-left:40px;}
+	.input_order_pop_sales_01 {width:356px;}
+	.input_order_pop_sales_02 {width:356px;}
+	.input_order_pop_sales_03 {width:150px;}
+	.select_order_pop_sales_01 {width:70px;}
+	.select_order_pop_sales_02 {width:130px;}
+	.select_order_pop_sales_03 {width:162px;}
+    	
+	/*** 입금관리 ***/
+	.Modal-body .payment_btn {text-align:right;padding-bottom:20px;border-bottom:1px solid #ddd;}
+	.Modal-body .payment_btn button {background:#3871ca;}
+	.Modal-body .payment_btn button:last-child {background:#ff5858;}
+	.Modal-body .payment_Modal {margin-bottom:60px;}
+	.Modal-body .payment_Modal tbody th {width:100px;text-align:right;padding-right:10px;line-height:25px;font-weight:500;}
+	.Modal-body .payment_Modal tbody td>input {width:141px;padding:5px 3px;margin:10px 0;}
+	.Modal-body .payment_Modal tbody td>select {width:146px;padding:5px 3px;margin:10px 0;}
+	.Modal-body .payment_Modal tbody td>button {background:#3871ca;}
+	.Modal-body .fix_table {overflow:auto;}
+	.Modal-body .Table_payment {width:1500px;border-collapse: collapse;}
+	.Modal-body .Table_payment thead th,
+	.Modal-body .Table_payment tbody td {padding:5px 3px;border:1px solid #ddd;text-align:center;}
+	.Modal-body .Table_payment thead th {background:#eee;font-weight:600;}
+	
+	/*** 매출액관리 ***/
+	.Modal-body .sales_btn {text-align:right;padding-bottom:20px;border-bottom:1px solid #ddd;}
+	.Modal-body .sales_btn button {background:#3871ca;}
+	.Modal-body .sales_btn button:last-child {background:#ff5858;}
+	.Modal-body .sales_text dl {overflow:hidden;margin-bottom:10px;}
+	.Modal-body .sales_text tr th {width:230px;text-align:right;padding-right:10px;font-weight:500;}
+	.Modal-body .sales_text tr th:first-child {width:150px;}
+	.Modal-body .sales_text tr td>input {width:260px;padding:5px 3px;margin:10px 0px;}
+	.Modal-body .sales_text tr td>select {width:269px;padding:5px 3px;}
+	.sales_button {text-align:center;margin:20px;}
+	.sales_button button {background:#ff5858;}
+	.sales_table {padding-top:20px;border-top:1px solid #ddd;}
+	.table_Sales {border:1px solid #ddd;border-collapse:collapse;margin-top:20px;width:100%;}
+	.table_Sales th {background:#eee;text-align:center;}
+	.table_Sales th, .table_Sales td {padding:5px 3px;border:1px solid #ddd;}
+	
+	/*** CRM 정보 메모 ***/
+	.Modal_memo_btn {margin-top:20px;text-align:center;}
+	.Modal_memo_btn button {background:#417c12;}
+	.Modal_memo_btn button:last-child {background:#ff3535;}
+	.Modal_memo_table {width:96%;}
+	.Modal_memo_table tbody th {width:45px;text-align:right;padding-right:10px;}
+	.Modal_memo_table tbody td>textarea {resize:none;width:100%;padding:8px;margin-top:10px;}

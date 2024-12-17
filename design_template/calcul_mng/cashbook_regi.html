@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content">            
+
+            <!-- 본문 컨텐츠  시작-->
+            <div id="content-container" class="content_container calcul_common cashbook_regi">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀-->
+					<div class="title">
+						[TPH_I/common/history.html]
+					</div>
+					<!--기본 검색정보 시작-->
+
+						<section class="content_section">
+							<div class="content_wrapper">
+								<form id="search_form" name="search_form">
+								<!-- 검색 영역 START -->
+								<table class="table_search_layout">
+									<colgroup>
+										<col>
+										<col>
+										<col>
+										<col>
+									</colgroup>
+									<tbody>
+										<tr>
+											<th class="th_text calcul_mng_th_left">판매채널</th>
+											<td>
+												<select id="search_sell_site" name="search_sell_site" class="fix_width180">
+													<option value="">전체</option>
+													[TPH_Vsell_site]
+												</select>
+											</td>
+											<th class="th_text calcul_mng_th_left">수입지출</th>
+											<td colspan="3">
+												<label class="form-radio form-normal"><input type="radio" value="" name="search_dvs" class="radio_box" checked="checked">전체</label>
+												<label class="form-radio form-normal"><input type="radio" value="income" name="search_dvs" class="radio_box">수입</label>
+												<label class="form-radio form-normal"><input type="radio" value="expen" name="search_dvs" class="radio_box">지출</label>
+												<label class="form-radio form-normal"><input type="radio" value="trsf_income" name="search_dvs" class="radio_box">이체수입</label>
+												<label class="form-radio form-normal"><input type="radio" value="trsf_expen" name="search_dvs" class="radio_box">이체지출</label>
+												<button type="button" class="btn_float_right btn_Turquoise01" onclick="loadCashbookList(1);">검색</button>
+											</td>
+										</tr>
+										<tr>
+											<th class="th_text calcul_mng_th_left">계정</th>
+											<td>
+												<select id="search_acc_subject" name="search_acc_subject" onchange="loadAccDetail('#search_acc_subject','2', 'N');" class="fix_width85">
+												<option value="">전체</option>
+												[TPH_Vacc_html]
+												</select>
+												<select id="search_acc_subject_detail" name="search_acc_subject_detail" class="fix_width85">
+													<option value="">전체</option>
+												</select>
+											</td>
+											<th class="th_text calcul_mng_th_left">입출금경로</th>
+											<td colspan="3">
+												<select id="search_depo_path" name="search_path" onchange="loadPathDetail2('N');" class="fix_width100">
+												<option value="">전체</option>
+													[TPH_Vpath_html]
+												</select>
+												<select id="search_depo_path_detail" name="search_path_detail" class="fix_width200">
+
+                                                </select>
+											</td>
+										</tr>
+										<tr>
+											<th class="th_text calcul_mng_th_left">적요</th>
+											<td colspan="5">
+												<input type="text" class="input_co2 fix_width400" name="search_sumup">
+											</td>
+										</tr>
+										<tr>
+											<th class="th_text calcul_mng_th_left">증빙일자별</th>
+											<td colspan="5">
+												<span class="">
+													<input type="text" placeholder="yyyy-MM-dd" class="input_co2 fix_width83 date" name="date_from" id="date_from">
+													~
+													<input id="date_to" name="date_to" class="input_co2 fix_width83 date" type="text" placeholder="yyyy-MM-dd">
+													<button type="button" class="btn_gray01" onclick="dateSet('date','1')">어제</button>
+													<button type="button" class="btn_gray01" onclick="dateSet('date','0')">오늘</button>
+													<button type="button" class="btn_gray01" onclick="dateSet('date','7')">일주일</button>
+													<button type="button" class="btn_gray01" onclick="dateSet('date','30')">한달</button>
+													<button type="button" class="btn_gray01" onclick="dateSet('date','all')">전체</button>
+												</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								</form>
+								<!-- TAB CONTENT END -->
+							</div>
+						</section>
+
+						<section class="content_section">
+							<div class="content_wrapper">
+								<li class="" style="margin-bottom: 10px;"><a class="box" style="font-size:14px; font-weight: bold;"> 등록/수정 </a> </li>
+								<form id="regi_form" name="regi_form" onsubmit="return false;">
+									<div class="">
+										<table class="table_search_layout">
+											<colgroup>
+												<col>
+												<col>
+												<col>
+												<col>
+												<col>
+												<col>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th class="th_text calcul_mng_th_left">판매채널</th>
+													<td>
+														<select id="sell_site" name="sell_site" class="fix_width180">
+															[TPH_Vsell_site]
+														</select>
+													</td>
+													<th class="th_text calcul_mng_th_left">등록일자</th>
+													<td>
+														<input placeholder="yyyy-MM-dd" class="input_co2 fix_width150 date" id="evid_date" name="evid_date" readonly>
+													</td>
+													<th class="th_text calcul_mng_th_left" style="display:none;">등록일</th>
+													<td style="display:none;">
+														<input placeholder="yyyy-MM-dd" class="input_co2 fix_width150 date" id="regi_date" name="regi_date" disabled>
+													</td>
+												</tr>
+												<tr>
+													<th class="th_text calcul_mng_th_left">수입지출</th>
+													<td>
+											 			<label class="form-radio form-normal"><input type="radio" value="income" name="dvs" class="radio_box" checked="checked">수입</label>
+														<label class="form-radio form-normal"><input type="radio" value="expen"  name="dvs" class="radio_box">지출</label>
+														<label class="form-radio form-normal"><input type="radio" value="trsf_income" name="dvs" class="radio_box">이체수입</label>
+														<label class="form-radio form-normal"><input type="radio" value="trsf_expen" name="dvs" class="radio_box">이체지출</label>
+													</td>
+													<th class="th_text calcul_mng_th_left">계정</th>
+													<td colspan="3">
+														<select id="acc_subject" name="acc_subject" onchange="loadAccDetail('#acc_subject','1', 'N');" class="fix_width85">
+															<option value="">선택</option>
+															[TPH_Vacc_html]
+														</select>
+														<select id="acc_subject_detail" name="acc_subject_detail" class="fix_width85">
+															<option value="">선택</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<th class="th_text calcul_mng_th_left">금액</th>
+													<td>
+														<!--input type="text" id="price" name="price" class="input_co2 fix_width173" onkeydown='return checkNumber(event)' onkeyup='removeChar(event)' maxlength="21" style='ime-mode:disabled;'-->
+														<input type="text" id="price" name="price" class="input_co2 fix_width173" onkeyup='removeChar(event)'>
+													</td>
+													<th class="th_text calcul_mng_th_left">입출금경로</th>
+													<td colspan="3">
+														<select id="depo_path" name="path" onchange="loadPathDetail('N');" class="fix_width85">
+															<option value="">선택</option>
+															[TPH_Vpath_html]
+														</select>
+														<select id="depo_path_detail" name="path_detail" class="fix_width300">
+															<option value="">선택</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<th class="th_text calcul_mng_th_left">적요명</th>
+													<td colspan="5">
+														<input type="text" class="input_co2 fix_width400" id="sumup" name="sumup">
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="btn_wrapper">
+											<button id="save_btn" class="btn btn_orange fix_width120 fix_height30 co_blue fs12" onclick="saveCashbook();">신규등록</button>
+											<button style="display:none;" id="del_btn" class="btn btn_red fix_width120 fix_height30 co_blue fs12" onclick="delCashbook();">삭제</button>
+											<button style="display:none;" id="edit_btn" class="btn btn_blue fix_width120 fix_height30 co_blue fs12" onclick="resetRegiForm();">닫기</button>
+										</div>
+										<!-- 카드 end-->
+									</div>
+								</form>
+							</div>
+						</section>
+
+						<section class="content_section">
+							<div class="content_wrapper">
+                                <div style="text-align: right;">
+                                    <button type="button" class="btn_yellow h_26" onclick="downloadFileCashbook()">엑셀다운</button>
+                                    <iframe id="file_ifr" src="" width=0 height=0 style="display:none;"></iframe>
+                                </div>
+								<div class="table-body" style="padding: 0;">
+									<table class="table fix_width100f">
+										<tr>
+											<th style="background: #eee;">수입합계</th>
+											<td id="income_sum" class="tar">0원</td>
+											<th style="background: #eee;">지출합계</th>
+											<td id="expen_sum" class="tar">0원</td>
+											<th style="background: #eee;">이체수입</th>
+											<td id="trsf_income_sum" class="tar">0원</td>
+											<th style="background: #eee;">이체지출</th>
+											<td id="trsf_expen_sum" class="tar">0원</td>
+										</tr>
+									</table>
+								</div>
+								<div class="table_basic">
+									<table class="table_basic_layout" style="table-layout: auto;">
+									  	<thead>
+											<tr>
+												<th class="bm2px">증빙일자</th>
+												<th class="bm2px">계정상세</th>
+												<th class="bm2px">수입</th>
+												<th class="bm2px">지출</th>
+												<th class="bm2px">이체수입</th>
+												<th class="bm2px">이체지출</th>
+												<th class="bm2px">적요</th>
+												<th class="bm2px">입출금경로</th>
+												<th class="bm2px">보기</th>
+											</tr>
+										</thead>
+										<tbody id="cashbook_list">
+											<td colspan="12">검색된 내용이 없습니다.</td>
+										</tbody>
+									</table>
+									
+									<p class="p_num_b fs12">
+										Showing 1 to 5 of 30 entries
+										<select name="list_set" onchange="showPageSetting(this.value); return false;" class="fix_width55">
+											 <option>5</option>
+											 <option>10</option>
+											 <option>20</option>
+											 <option>30</option>
+										</select>
+									</p>
+									<div class="tac clear" id="cashbook_page">
+										<ul class="pagination">
+											<li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+											<li class="disabled"><i class="fa fa-angle-left"></i></li>
+											<li><a class="active" href="#">1</a></li>
+											<li><a href="#" class="fa fa-angle-right"></a></li>
+											<li><a href="#" class="fa fa-angle-double-right"></a></li>
+										</ul>
+									</div>			              
+								</div>
+							</div>
+						</section>
+
+				</div>
+			</div>
+        </section>
+</div>
+</body>
+</html>

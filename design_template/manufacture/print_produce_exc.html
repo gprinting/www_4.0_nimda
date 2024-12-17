@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>[TPH_Vmain_title]</title>
+<meta charset="utf-8">
+[TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+
+  <!-- TOP NAVIGATION -->
+  [TPH_I/common/header.html]
+
+  <!-- LEFT NAVIGATION -->
+  [TPH_Vleft]
+
+  <!-- CONTENT -->
+  <section id="page-content">
+    <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <colgroup>
+                                <col class="">
+                                <col class="">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th class="th_text th_manu_print_produce_exc_01">인쇄업체 구분</th>
+                                    <td>
+                                        <select class="select_manu_print_produce_exc_01" id="extnl_etprs_seqno">
+                                            [TPH_Vmanu_html]
+                                        </select>
+                                    </td>
+                                    <th class="th_text th_manu_print_produce_exc_02">날짜</th>
+                                    <td>
+                                        <input type="text" id="date" class="datepicker_input input_manu_print_produce_exc_01">
+                                        <button type="button" class="btn_float_right btn_Turquoise01" onclick="printExcsearch();">검색</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!-- 탭 TAB -->
+                        <table class="table_basic_layout">
+                            <thead>
+                            <tr>
+                            <th rowspan="2">인쇄업체</th>
+                            <!--th colspan="2">당일판</th-->
+                            <th colspan="2">서울판</th>
+                            <th colspan="2">지방판</th>
+                            <th colspan="2">합계</th>
+                            </tr>
+                            <tr>
+                            <!--th width="10%">지시</th>
+                            <th width="10%"> 이행</th-->
+                            <th width="12%">지시</th>
+                            <th width="12%"> 이행</th>
+                            <th width="12%">지시</th>
+                            <th width="12%"> 이행</th>
+                            <th width="12%">지시</th>
+                            <th width="12%"> 이행</th>
+                            </tr>
+                            </thead>
+                            <tbody id="list">
+                            </tbody>
+                        </table>
+                        <!-- 탭 박스 3 TAB -->
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+  </section>
+</div>
+</body>
+</html>

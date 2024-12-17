@@ -1,0 +1,14 @@
+<div class="form-group">
+  <label class="control-label fix_width150 tar">조건검색</label><label class="fix_width20 fs14 tac">:</label>
+  <select class="fix_width150" id="cnd_val" onchange="changeSearchCnd(this.value);">
+  <option value="member_name">회원명</option>
+  <option value="title">인쇄물제목</option>
+  <option value="order_num">주문번호</option>
+  <option value="office_nick">사내닉네임</option>
+  </select>
+  <input type="text" class="input_co2" style="width:297px;" id="search_val" onkeyup="this.value == searchCnd(event, this);">
+  <input type="hidden" id="search_cnd" value="member_name">
+  <input type="hidden" id="search_txt">
+</div>
+
+

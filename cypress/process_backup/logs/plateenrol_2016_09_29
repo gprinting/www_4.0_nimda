@@ -1,0 +1,201 @@
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, ordererstate, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('NULL', '1', 'F', 'NULL', 'NULL', 'NULL', '자동발주', '자동생성', '2016-09-29 15:42:16', 'test', '2410', 'F', 'F', 'F', 'F', 'F', 'NC160929009', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('NULL', '1', 'F', 'NULL', 'NULL', 'NULL', '자동발주', '자동생성', '2016-09-29 15:43:38', 'test', '2410', 'F', 'F', 'F', 'F', 'F', 'NC160929009', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('NULL', '1', 'F', 'NULL', 'NULL', 'NULL', '자동발주', '자동생성', '2016-09-29 15:46:14', 'test', '2410', 'F', 'F', 'F', 'F', 'F', 'NC160929009', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+FAILED
+-----------------------------------
+-----------------------------------
+INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('NULL', '1', 'F', 'NULL', 'NULL', 'NULL', '자동발주', '자동생성', '2016-09-29 15:46:40', 'test', '2410', 'F', 'F', 'F', 'F', 'F', 'NC160929009', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-29 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-29 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', 'F', NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-29 15:53:18', 'test', '2410', 'F', 'F', 'F', 'F', NULL, 'NC160929009', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-29 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-29 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', 'F', NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-29 15:54:28', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NC160929009', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-29 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-29 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-29 15:56:13', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NC160929009', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-29 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-29 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-29 16:05:36', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NC160929010', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-29 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-29 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-29 16:19:59', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NC160929011', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-29 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-29 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-29 16:21:39', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NC160929011', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-29 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-29 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-29 16:24:47', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NC160929011', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-29 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-29 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-29 17:03:09', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NC160929012', 'Y')
+-----------------------------------
+-----------------------------------
+2016-09-29 18:11:19->SGPT160929NC000140101
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-29 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-29 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-29 18:11:19', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NC160929014', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-29 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-29 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-29 18:11:51', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NC160929014', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-29 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-29 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-29 19:02:27', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NC160929015', 'Y')
+-----------------------------------

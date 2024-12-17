@@ -1,0 +1,591 @@
+
+09:38:49 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0139001%' ORDER BY seq ASC
+\n\n\n
+09:39:36 insert query -> 
+    INSERT INTO sheet_typset (
+   typset_num, state, beforeside_tmpt, beforeside_spc_tmpt, aftside_tmpt, aftside_spc_tmpt, 
+   honggak_yn, after_list, opt_list, print_amt, print_amt_unit, prdt_page, 
+   prdt_page_dvs, dlvrboard, memo, op_typ, op_typ_detail, empl_seqno, typset_format_seqno, 
+   paper_name, paper_dvs, paper_color, paper_basisweight, print_title, regi_date , cate_sortcode, 
+   oper_sys, save_path, save_yn, specialty_items, typset_way, print_etprs
+   ) VALUE (
+   'NHC180117002-01', '2220', '4', '0', '4', '0', 
+   'Y', '', '', '200', '장', '2', 
+   '낱장', '본판', '', '자동발주', '자동생성', '85', '8', 
+   '반누보', '네츄럴', '미색', '210g', '2절_80개[760x545]_홍각8도_요비_반누브', now(), '003002', 
+   'IBM', '2018/01/17/NHC180117002/NHC180117002-01', 'N', '', 'CYPRESS', '1공장-요비' )
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0074601%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC007460101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0074601%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC007460101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0074601%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC007460101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0084101%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC008410101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:17ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:17 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0131801%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC013180101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0090401%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC009040101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0090401%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC009040101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0048501%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004850101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0069501%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC006950101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0069501%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC006950101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0082201%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC008220101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0082201%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC008220101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0098201%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC009820101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0098201%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC009820101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0098201%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC009820102' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0098201%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC009820102' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0127101%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC012710101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0127101%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC012710101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0163901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC016390101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0163901%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC016390101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0192401%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC019240101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0192401%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC019240101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0220301%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC022030101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0220301%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC022030101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0283001%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC028300101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0283001%' ORDER BY seq ASC
+\n\n\n
+10:25:18ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC028300101' LIMIT 1
+\n\n\n
+10:25:18 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0283001%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC028300102' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0283001%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC028300102' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0283001%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC028300103' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0283001%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC028300103' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0291801%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC029180101' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0291801%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC029180101' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0304301%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC030430101' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0304301%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC030430101' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0340301%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC034030101' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0340301%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC034030101' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0367901%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC036790101' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0367901%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC036790101' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0093801%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC009380101' LIMIT 1
+\n\n\n
+10:25:19 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0202901%' ORDER BY seq ASC
+\n\n\n
+10:25:19ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC020290101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:25:36 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0044901%' ORDER BY seq ASC
+\n\n\n
+10:25:36ORDER DETAIL FILE UPDATE -> UPDATE order_detail_count_file SET state = '2120' WHERE order_detail_file_num = 'SGPT180108NC004490101' LIMIT 1
+\n\n\n
+10:26:05 insert query -> 
+    INSERT INTO sheet_typset (
+   typset_num, state, beforeside_tmpt, beforeside_spc_tmpt, aftside_tmpt, aftside_spc_tmpt, 
+   honggak_yn, after_list, opt_list, print_amt, print_amt_unit, prdt_page, 
+   prdt_page_dvs, dlvrboard, memo, op_typ, op_typ_detail, empl_seqno, typset_format_seqno, 
+   paper_name, paper_dvs, paper_color, paper_basisweight, print_title, regi_date , cate_sortcode, 
+   oper_sys, save_path, save_yn, specialty_items, typset_way, print_etprs
+   ) VALUE (
+   'NHC180117003-01', '2220', '4', '0', '4', '0', 
+   'Y', '', '', '200', '장', '2', 
+   '낱장', '본판', '', '자동발주', '자동생성', '85', '5', 
+   '휘라레', '솔라화이트', '백색', '216g', '2절_80개[760x545]_홍각8도_요비_휘라레', now(), '003002', 
+   'IBM', '2018/01/17/NHC180117003/NHC180117003-01', 'N', '', 'CYPRESS', '1공장-요비' )
+\n\n\n

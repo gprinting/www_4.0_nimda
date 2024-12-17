@@ -1,0 +1,103 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8"> [TPH_I/common/common.html]
+</head>
+
+<body>
+    <div id="container">
+        <!-- TOP NAVIGATION -->
+        [TPH_I/common/header.html]
+        <!-- LEFT NAVIGATION -->
+        [TPH_Vleft]
+        <!-- CONTENT -->
+        <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <input type="hidden" id="file_seq">
+                        <table class="table_search_layout">
+                            <tr>
+                                <th class="th_text th_basic_typset_mng_01">조판명</th>
+                                <td>
+                                    <input type="text" id="typset_name" name="typset_name" class="select_basic_typset_mng_01">
+                                </td>
+                                <th class="th_text th_basic_typset_mng_02">계열</th>
+                                <td>
+                                    <label class="check_box_wrapper_typset_mng_01"><input type="checkbox" id="affil_fs" name="affil_fs" value="46" class="checkbox_align">46계열</label>
+                                    <label class="check_box_wrapper_typset_mng_01"><input type="checkbox" id="affil_guk" name="affil_guk" value="국" class="checkbox_align">국계열</label>
+                                    <label class="check_box_wrapper_typset_mng_02"><input type="checkbox" id="affil_spc" name="affil_spc" value="별" class="checkbox_align">별규격계열</label>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn_float_right btn_Turquoise01" onclick="selectSearch('1'); return false;">검색</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!-- TAB UI -->
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tab1" data-toggle="tab"> 조판 품목 리스트 </a>
+                            </li>
+                        </ul>
+                        <!-- TAB UI -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                <!-- TAB 01 -->
+                                <table class="table_basic_layout">
+                                    <thead>
+                                        <tr>
+                                            <th class=""><input type="checkbox" class="checkbox_align" id="all_check" onclick="allCheck()"></th>
+                                            <th class="">프리셋카테고리</th>
+                                            <th class="">조판명</th>
+                                            <th class="">계열</th>
+                                            <th class="">절수</th>
+                                            <th class="">조판사이즈</th>
+                                            <th class="">설명</th>
+                                            <th class="">공정여부</th>
+                                            <th class="">관리</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="typset_list">
+                                    </tbody>
+                                </table>
+                                <p class="p_num_b fs12">
+                                    <!--button onclick="popAddTypset();" class="btn btn_pu fix_width120 fix_height30 bgreen fs12"> 조판품목추가</button-->
+                                    <button onclick="delTypset();" class="btn btn_pu fix_width120 fix_height30 bred fs12"> 선택삭제</button>
+                                    <label class="fix_width20">&nbsp;</label>
+                                    <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value)">
+                                        [TPH_I/common/list_count.html]
+                                    </select>
+                                    개씩 보기
+                                </p>
+                                <div class="tac clear" id="typset_page">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+    </div>
+</body>
+</html>

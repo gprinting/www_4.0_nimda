@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>장바구니 현황</title>
+    <style>
+    * {font-size:12px;}
+    table, div {border-collapse:collapse;}
+    a , a:hover , a:before {text-decoration:none;}
+    button {border:none;cursor:pointer;}
+    li, ul {list-style:none;}
+    table>thead>tr>th {white-space:nowrap;}
+    table, caption, tbody, tfoot, thead, tr, td, p {
+        margin:0;
+        padding:0;
+        border:0;
+        list-style:none;
+    }
+
+    .table_basic {table-layout: fixed; width:100%; margin:20px 0;}
+    .table_basic th {background:#efefef; height:20px; padding:5px; border:1px solid #ccc;text-align:center;font-weight: normal;}
+    .table_basic td {border:1px solid #ccc; height:20px; padding:5px; text-align:center; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+
+    .table_basic_layout {table-layout: fixed; width:100%; margin:20px 0;}
+    .table_basic_layout th {background:#dddddd; height:20px; padding:5px; border:1px solid #bababa;text-align:center;font-weight: normal;}
+    .table_basic_layout td {border:1px solid #dfdfdf; height:20px; padding:5px; text-align:center; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+
+    </style>
+</head>
+<body>
+    <div class="cart_container">
+        <table class="table_basic">
+            <colgroup>
+                <col style="width:150px;">
+                <col style="width:290px;">
+                <col style="width:150px;">
+                <col style="width:290px;">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>회원명</th>
+                    <td>[TPH_Vmember_name]</td>
+                    <th>연락처</th>
+                    <td>[TPH_Vcell_num]</td>
+                </tr>
+                [TPH_Vtop_tr_html]
+            </tbody>
+        </table>
+
+        <table class="table_basic_layout">
+            <colgroup>
+                <col style="width:50px;">
+                <col style="width:100px;">
+                <col style="width:380px;">
+                <col style="width:100px;">
+                <col style="width:50px;">
+                <col style="width:100px;">
+                <col style="width:100px;">
+            </colgroup>
+            <thead>
+                <tr>
+                    [TPH_Vbot_thead_html]
+                </tr>
+                [TPH_Vlist_html]
+            </thead>
+        </table>
+    </div>
+</body>
+</html>

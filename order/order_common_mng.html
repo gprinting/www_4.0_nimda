@@ -1,0 +1,226 @@
+<?
+date_default_timezone_set('Asia/Seoul');
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/common_define/order_status.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/ErpCommonUtil.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/order_mng/OrderCommonMngDAO.inc");
+include_once(INC_PATH . '/com/nexmotion/common/util/nimda/pageLib.inc');
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$dao = new OrderCommonMngDAO();
+$util = new ErpCommonUtil();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$commonDAO = $dao;
+
+$selected_ordernum = $fb->form("selected_ordernum");
+$from_date = $fb->form("basic_from");
+$to_date = $fb->form("basic_to");
+$cpn_admin = $fb->form("cpn_admin") == "" ? 1 : $fb->form("cpn_admin");
+$date_kind = $fb->form("date_kind");
+$cate_top = $fb->form("cate_top");
+$cate_mid = $fb->form("cate_mid");
+$cate_bot = $fb->form("cate_bot");
+$val_page = $fb->form("val_page");
+$val_paper = $fb->form("val_paper");
+$val_list_size = $fb->form("val_list_size");
+$val_search_dvs = $fb->form("search_dvs");
+$val_member_name = $fb->form("member_name");
+$val_title = $fb->form("title");
+$val_after = $fb->form("after");
+$val_search_keyword = $fb->form("search_keyword");
+$val_order_state = $fb->form("order_state");
+$val_dlvr_way = $fb->form("dlvr_way");
+$val_openseqno = $fb->form("val_openseqno");
+$bun_dlvr_order_num = $fb->form("val_bun_dlvr_order_num");
+$is_quick = $fb->form("val_is_quick");
+$is_quick_today = $fb->form("val_is_quick_today");
+$is_quick_tomorrow = $fb->form("val_is_quick_tomorrow");
+$member_seqno = $fb->form("val_member_seqno");
+$is_auto = $fb->form("val_is_auto");
+$val_version = $fb->form("version");
+
+if($bun_dlvr_order_num != '') {
+    $val_search_dvs = 'bun_dlvr_order_num';
+}
+$sortcode = "";
+if($cate_top != "")
+    $sortcode = $fb->form("cate_top");
+
+if($cate_mid != "")
+    $sortcode = $fb->form("cate_mid");
+
+if($cate_bot != "")
+    $sortcode = $fb->form("cate_bot");
+
+if($val_page != "")
+    $page = $fb->form("val_page");
+
+if($val_list_size != "")
+    $list_size = $fb->form("val_list_size");
+
+
+// 카테고리 대분류 검색
+$cate_html = $commonDAO->selectCateList($conn);
+$template->reg("cate_html" , $cate_html);
+
+$aft_html = "<option value=\"\">전체</option>";
+$aft_html .= "<option value=\"Y\">후가공 있음</option>";
+$aft_html .= "<option value=\"N\">후가공 없음</option>";
+$aft_html .= "<option value=\"\">---------</option>";
+
+// 후가공 검색
+$aft_html .= $commonDAO->selectAftList($conn);
+$aft_html .= "<option value=\"\">---------</option>";
+// 옵션 검색
+$aft_html .= $commonDAO->selectOptList($conn);
+
+
+$template->reg("aft_html" , $aft_html);
+
+
+$delivery_html = "<option value=\"\">전체</option>";
+$delivery_html .= "<option value=\"01\">택배</option>";
+$delivery_html .= "<option value=\"02\">직배</option>";
+$delivery_html .= "<option value=\"04\">퀵</option>";
+$delivery_html .= "<option value=\"06\">인현동방문</option>";
+$delivery_html .= "<option value=\"07\">성수동방문</option>";
+
+$template->reg("delivery_html" , $delivery_html);
+
+// 판매채널 검색
+$cpn_admin_html = $commonDAO->selectSellSite($conn);
+$template->reg("cpn_admin_html", $cpn_admin_html);
+
+$param["cpn_admin_seqno"] = $cpn_admin;
+
+// 상태 세팅
+$option_html = "<option value=\"%s\">%s</option>";
+$status_html = sprintf($option_html, "", "전체");
+$change_status_html = sprintf($option_html, "", "진행상태 변경");
+
+$temp = array();
+$temp["col"]   = "state_code, erp_state_name as order_state";
+$temp["table"] = "state_admin";
+
+$rs = $dao->selectData($conn, $temp);
+
+while ($rs && !$rs->EOF) {
+    $status_html .= sprintf($option_html, $rs->fields["state_code"], $rs->fields["order_state"]);
+    $change_status_html .= sprintf($option_html, $rs->fields["state_code"], $rs->fields["order_state"]);
+    $rs->MoveNext();
+}
+$template->reg("status_html" , $status_html);
+$template->reg("change_status_html" , $change_status_html);
+
+
+$list_size = $list_size == "" ? 30 : $list_size;
+$page = $page == "" ? 1 : $page;
+
+
+$param = array();
+$param["sell_site"] = $cpn_admin;
+$param["date_kind"] = $date_kind;
+$param["limit_block"] = $list_size * ($page - 1);
+$param["list_size"] = $list_size;
+
+$today = date("Y-m-d");
+$three_day_ago = date("Y-m-d");
+$param["start_date"] = $from_date != "" ? $from_date : $three_day_ago;
+$param["end_date"] = $to_date != "" ? $to_date : $today;
+$param["sortcode"] = $sortcode;
+$param["keyword"] = $val_search_keyword;
+$param["search_dvs"] = $val_search_dvs;
+$param["title"] = $val_title;
+$param["member_name"] = $val_member_name;
+$param["val_paper"] = $val_paper;
+$param["bun_dlvr_order_num"] = $bun_dlvr_order_num;
+$param["member_seqno"] = $member_seqno;
+$param["order_state"] = $val_order_state;
+$param["dlvr_way"] = $val_dlvr_way;
+$param["after"] = $val_after;
+$param["selected_seqno"] = $val_openseqno;
+$param["is_auto"] = $is_auto;
+$param["is_quick"] = $is_quick;
+$param["is_quick_tomorrow"] = $is_quick_tomorrow;
+$param["is_quick_today"] = $is_quick_today;
+$param["version"] = $val_version;
+$param['empl_id'] = $fb->getSession()["id"];
+
+$order_list = $dao->selectOrderListHtml($conn, $param);
+$template->reg("order_list_html" , $order_list);
+
+if($val_search_keyword == "bun_dlvr_order_num")
+    $val_search_keyword = "";
+$template->reg("basic_to" , $to_date);
+$template->reg("basic_from" , $from_date);
+$template->reg("selected_ordernum" , $selected_ordernum);
+$template->reg("openseqno" , $val_openseqno);
+$template->reg("cpn_admin" , $cpn_admin);
+$template->reg("date_kind" , $date_kind);
+$template->reg("cate_top" , $cate_top);
+$template->reg("cate_mid" , $cate_mid);
+$template->reg("cate_bot" , $cate_bot);
+$template->reg("val_paper" , $val_paper);
+$template->reg("search_dvs" , $val_search_dvs);
+$template->reg("member_name" , $val_member_name);
+$template->reg("val_title" , $val_title);
+$template->reg("after" , $val_after);
+$template->reg("search_keyword" , $val_search_keyword);
+$template->reg("order_state" , $val_order_state);
+$template->reg("dlvr_way" , $val_dlvr_way);
+$template->reg("page" , $page);
+$template->reg("list_size" , $list_size);
+$template->reg("bun_dlvr_order_num" , $bun_dlvr_order_num);
+$template->reg("member_seqno" , $member_seqno);
+$template->reg("is_auto" , $is_auto);
+$template->reg("version" , $val_version);
+
+// 총 건수, 총 주문금액 계산
+/*
+unset($param);
+$param["sell_site"] = $fb->session("sell_site");
+$param["from"]      = $today;
+
+$param["page"]      = $page;
+$param["list_size"] = $list_size;
+*/
+
+$param["dvs"] = "COUNT";
+$count_rs = $dao->selectOrderListHtml($conn, $param);
+
+$param["dvs"] = "TOTAL";
+$total_rs = $dao->selectOrderListCond($conn, $param);
+
+$t_sum = $total_rs->fields["basic_sum"] +
+         $total_rs->fields["after_sum"] +
+         $total_rs->fields["opt_sum"];
+$t_sum = number_format($t_sum);
+
+$cnt = $count_rs->fields["cnt"];
+$total = number_format($count_rs->fields["cnt"]);
+$template->reg("total" , $total);
+
+$scrnum = 5;
+$paging = mkDotAjaxFncPage($cnt, $page, $scrnum, $list_size, "submit_search", $list_size);
+
+$template->reg("page_html" , $paging);
+//
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "order"; //기초관리
+$left = "order_mng"; //레프트 메뉴
+$left_sub = "order_common_mng"; //레프트하위 메뉴, script 주소
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->Close();
+?>

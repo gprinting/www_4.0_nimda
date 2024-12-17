@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <!--script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"></script-->
+    <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
+    <script>
+    //우편번호 팝업
+    var getPostcode = function(el) {
+        new daum.Postcode({
+            oncomplete: function(data) {
+               var fullAddr = ''; // 최종 주소 변수
+               var extraAddr = ''; // 조합형 주소 변수
+
+               // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+               if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                   fullAddr = data.roadAddress;
+
+               } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                   fullAddr = data.jibunAddress;
+               }
+
+               // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+               if (data.userSelectedType === 'R'){
+                   //법정동명이 있을 경우 추가한다.
+                   if(data.bname !== ''){
+                       extraAddr += data.bname;
+                   }
+                   // 건물명이 있을 경우 추가한다.
+                   if(data.buildingName !== ''){
+                       extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                   }
+                   // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                   fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+               }
+
+               // 우편번호와 주소 정보를 해당 필드에 넣는다.
+               $("#" + el + "zipcode").val(data.zonecode); //5자리 새우편번호 사용
+               $("#" + el + "addr").val(fullAddr);
+
+               // 커서를 상세주소 필드로 이동한다.
+               $("#" + el + "addr_detail").focus();
+            }
+        }).open({
+            popupName: 'postcodePopup'
+        });
+    }
+    </script>
+</head>
+<body>
+
+<div id="container">
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <tr>
+                                <th class="th_text th_basic_pur_etprs_01">매입품 및 생산품</th>
+                                <td colspan="3">
+                                    <select name="tob" id="tob" onchange="loadExtnlEtprs(this.value, 'pur_manu')" class="fix_width180">
+                                        <option value="">필수 선택</option>
+                                        <option value="종이">종이</option>
+                                        <option value="출력">출력</option>
+                                        <option value="인쇄">인쇄</option>
+                                        <option value="후공정">후공정</option>
+                                        <option value="">-----------------------------</option>
+                                        <option value="카드명함">카드명함</option>
+                                        <option value="자석">자석</option>
+                                        <option value="메뉴판">메뉴판</option>
+                                        <option value="마스터">마스터</option>
+                                        <option value="그린백">그린백</option>
+                                        <option value="">-----------------------------</option>
+                                        <option value="기타">기타</option>
+                                    </select>
+                                    <button type="button" class="btn_float_right btn_Turquoise01" onclick="searchEtprsList(); return false;">검색</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <hr class="section_bar">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_basic_pur_etprs_01">업체명</th>
+                                <td>
+                                    <select id="pur_manu" name="pur_manu" onchange="loadExtnlBrand(this.value)" class="fix_width180">
+                                        <option value="">업체(전체)</option>
+                                    </select>
+                                </td>
+                                <th class="th_text th_basic_pur_etprs_02">브랜드명</th>
+                                <td style="padding-right:230px;">
+                                    <select id="pur_brand" name="pur_brand" class="fix_width180">
+                                        <option value="">브랜드(전체)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_basic_layout">
+                            <thead>
+                                <tr>
+                                    <th>업체(제조사)명</th>
+                                    <!--<th>대표 전화번호</th>-->
+                                    <th>사업자 번호</th>
+                                    <th>대표자 이름</th>
+                                    <th>업종</th>
+                                    <th>등록일</th>
+                                    <!--<th>팩스번호</th>
+                                    <th>주소</th>-->
+                                    <th>관리</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pur_list">
+                                <tr>
+                                    <td colspan='6'>검색된 내용이 없습니다.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="min-height: 30px;">
+                            <p class="p_num_b fs12">
+                                <button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="regiPopEtprs();">매입업체등록</button>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+</div>
+</body>
+
+</html>

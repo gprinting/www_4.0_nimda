@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<title>[TPH_Vmain_title]</title>
+	<meta charset="utf-8">
+	[TPH_I/common/common.html]
+</head>
+
+<body>
+
+	<div id="container">
+
+		<!-- TOP NAVIGATION -->
+		[TPH_I/common/header.html]
+
+		<!-- LEFT NAVIGATION -->
+		[TPH_Vleft]
+
+		<!-- CONTENT -->
+		<section id="page-content">
+
+			<!-- 본문 컨텐츠  시작-->
+			<div id="content-container" class="content_container manufacture_common">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀-->
+					<div class="title">
+						[TPH_I/common/history.html]
+					</div>
+					<!--기본 검색정보 시작-->
+					<section class="content_section">
+						<div class="content_wrapper">
+							<table class="table_search_layout">
+								<tbody>
+									<tr>
+										<th class="th_text calcul_mng_th_left">카테고리</th>
+										<td>
+                                            <select id="category" class="select_data_prdt_info_01">
+                                                <option value="">전체</option>
+                                                <option value="namecard">명함류</option>
+                                                <option value="leaflet">전단류</option>
+                                                <option value="outsource">외주품목</option>
+                                            </select>
+											<button type="button" class="btn_float_right btn_Turquoise01"
+												onclick="searchProcess();">검색</button>
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text calcul_mng_th_left">회원명</th>
+										<td>
+											<input type="text" id="member_name"
+												onkeydown="enterCheck(event);"
+												class="fix_width173" value="" placeholder="검색창 팝업 사용">
+										</td>
+									</tr>
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">제작물내용</th>
+                                        <td>
+                                            <input type="text" id="title"
+                                                   onkeydown="enterCheck(event);"
+                                                   class="fix_width173" value="">
+                                        </td>
+                                    </tr>
+									<!--tr>
+										<th class="th_text calcul_mng_th_left">특기사항별 구분</th>
+										<td>
+											<select class="fix_width150" id="detail_info">
+												[TPH_Vdetail_info]
+											</select>
+										</td>
+									</tr-->
+									<tr>
+										<th class="th_text calcul_mng_th_left">후공정 구분</th>
+										<td>
+											<input type='radio' name='after_yn' value='' checked='checked'>전체&nbsp
+											<input type='radio' name='after_yn' value='Y'>후가공 있음&nbsp
+											<input type='radio' name='after_yn' value='N'>후가공 없음
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text calcul_mng_th_left">마감 구분</th>
+										<td>
+											<input type='radio' name='theday_yn' value='' checked='checked'>전체&nbsp
+											<input type='radio' name='theday_yn' value='Y'>당일판&nbsp
+											<input type='radio' name='theday_yn' value='N'>당일판 아님
+										</td>
+									</tr>
+									<tr>
+										<th class="th_text calcul_mng_th_left">배송 구분</th>
+										<td>
+											[TPH_Vdelivery_way]
+											<select class="fix_width150" id="dlvr_way_detail">
+                                                <option value=''>전체</option>
+                                                <option value='A01'>A01</option>
+                                                <option value='A02'>A02</option>
+                                                <option value='A03'>A03</option>
+                                                <option value='A04'>A04</option>
+                                                <option value='A05'>A05</option>
+                                                <option value='A06'>A06</option>
+                                                <option value='A07'>A07</option>
+                                                <option value='A08'>A08</option>
+                                                <option value='A09'>A09</option>
+                                                <option value='A10'>A10</option>
+                                                <option value='A11'>A11</option>
+                                                <option value='A12'>A12</option>
+                                                <option value='B01'>B1</option>
+                                                <option value='B02'>B2</option>
+                                                <option value='B03'>B3</option>
+                                                <option value='B04'>B4</option>
+                                                <option value='B05'>B5</option>
+                                                <option value='B06'>B6</option>
+                                                <option value='B07'>B7</option>
+                                                <option value='B08'>B8</option>
+                                                <option value='B09'>B9</option>
+                                                <option value='B10'>B10</option>
+                                                <option value='B11'>B11</option>
+                                                <option value='B12'>B12</option>
+											</select>
+										</td>
+									</tr>
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">상태</th>
+                                        <td>
+                                            <select class="fix_width150" id="state">
+                                                <option value=''>전체</option>
+                                                <option value='3220'>입고완료</option>
+                                                <option value='3320'>출고완료</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+									<tr>
+										<th class="th_text calcul_mng_th_left">날짜</th>
+										<td>
+											[TPH_Vdatepicker_html]
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<form name="frm" id="frm">
+												<input type="hidden" id="seqno" name="seqno">
+											</form>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+
+					<section class="content_section">
+						<div class="content_wrapper">
+							<div class="">
+								<ul class="table_top">
+									<li class="sel">
+									</li>
+                                    <li class="sel tar">
+                                        <button type="button" class="btn_yellow h_26" onclick="printArea('print_list1');">인쇄</button>
+                                        <!--button-- type="button" id="btn_complete" class="btn_yellow h_26" onclick="downExcelProduceOrdListByPrinter();">엑셀다운</button-->
+                                        <!--label class="btn btn_md fix_width180" style="margin-left: 3px;" onclick="alert('준비중입니다.'); return false;">바코드 처리 페이지 이동</label-->
+                                    </li>
+								</ul>
+								<div class="table_basic" id="print_list1">
+                                    <h1 id="list1_title" style="font-size: 20px;margin-top:50px;margin-left:50px;"></h1>
+									<table class="table_basic_layout">
+										<thead>
+											<tr>
+												<th class="bm2px" style="width:40px;">No.</th>
+												<!--th class="bm2px" style="width:80px;">주문일</th-->
+                                                <th class="bm2px" style="width:150px;">판번호</th>
+												<th class="bm2px" style="width:100px;">회원명</th>
+												<th class="bm2px" style="width:150px;">인쇄물제목</th>
+												<th class="bm2px" style="width:150px;">상품정보</th>
+												<th class="bm2px" style="width:60px;">매수</th>
+												<th class="bm2px" style="width:40px;">건수</th>
+												<!--th class="bm2px" style="width:80px;">배송</th-->
+												<th class="bm2px" style="width:100px;">사이즈</th>
+                                                <th class="bm2px" style="width:150px;">후가공</th>
+                                                <th class="bm2px" style="width:150px;">배송메모</th>
+												<!--th class="bm2px" style="width:120px;">조판일</th-->
+                                                <th class="bm2px" style="width:120px;">상태</th>
+                                                <th class="bm2px" style="width:120px;">배송</th>
+                                                <th class="bm2px" style="width:120px;">인쇄</th>
+											</tr>
+										</thead>
+										<tbody id="list">
+											<tr>
+												<td colspan="12">검색 된 내용이 없습니다.</td>
+											</tr>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+						</div>
+					</section>
+					
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+
+    <!-- CONTENT -->
+    <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <ul class="nav nav-tabs">
+                            <li class="li1 active"><a href="#" data-toggle="tab" onclick="tabView('1');"> 인쇄기별 </a> </li>
+                            <li class="li2"><a href="#" data-toggle="tab" onclick="tabView('2');"> 용지별 </a> </li>
+                            <li class="li3"><a href="#" data-toggle="tab" onclick="tabView('3');"> 판별(택배) </a> </li>
+                            <li class="li4"><a href="#" data-toggle="tab" onclick="tabView('4');"> 판별(호차별) </a> </li>
+                            <li class="li5"><a href="#" data-toggle="tab" onclick="tabView('5');"> 칼라봉투(대봉투/소봉투) </a> </li>
+                            <li class="li5"><a href="#" data-toggle="tab" onclick="tabView('8');"> 상업인쇄 </a> </li>
+                            <li class="li6"><a href="#" data-toggle="tab" onclick="tabView('6');"> 후가공 </a> </li>
+                            <li class="li7"><a href="#" data-toggle="tab" onclick="tabView('7');"> 마스타 </a> </li>
+                            <li class="li8"><a href="#" data-toggle="tab" onclick="tabView('9');"> 명함/스티커 </a> </li>
+                        </ul>
+                        <div id="paper_op_1">
+                            <section class="content_section">
+                                <div class="content_wrapper">
+                                    <table class="table_search_layout">
+                                        <colgroup>
+                                            <col class="">
+                                            <col class="">
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th class="th_text th_manu_produce_ord_01">인쇄기 구분</th>
+                                            <td>
+                                                <select class="select_manu_produce_ord_01" id="print_etprs1" onchange="change_option('print_etprs1');">
+                                                    <option value="">전체</option>
+                                                    <option value="V3000(B1)">V3000(B1)</option>
+                                                    <option value="우성프린팅(B1)">우성프린팅(B1)</option>
+                                                    <option value="8색기(B2)">8색기(B2)</option>
+                                                    <option value="디지털">디지털</option>
+                                                </select>
+                                            </td>
+                                            <th class="th_text th_manu_produce_ord_02">날짜</th>
+                                            <td>
+                                                <input type="text" id="date1" class="input_manu_produce_ord_01" placeholder="yyyy-MM-dd" onchange="change_date('date1');">
+                                                <button type="button" class="btn_float_right btn_Turquoise01" onclick="getProduceOrdList();">검색</button>
+                                                <iframe id="file_ifr" src="" width=0 height=0 style="display:none;"></iframe>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                            <ul class="" style="margin-top: 20px;">
+                                <li class="sel">
+                                </li>
+                                <li class="sel tar">
+                                    <button type="button" class="btn_yellow h_26" onclick="printArea('print_list1');">인쇄</button>
+                                    <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="downExcelProduceOrdListByPrinter();">엑셀다운</button>
+                                    <!--label class="btn btn_md fix_width180" style="margin-left: 3px;" onclick="alert('준비중입니다.'); return false;">바코드 처리 페이지 이동</label-->
+                                </li>
+                            </ul>
+                            <div id="print_list1">
+                                <h1 id="list1_title" style="font-size: 20px;margin-top:50px;margin-left:50px;"></h1>
+                                <table class="table_basic_layout">
+                                    <thead>
+                                    <tr>
+                                        <th class="" style="width:20px;">NO</th>
+                                        <th class="" style="width:100px;">판번호</th>
+                                        <th class="" style="width:170px;">종이</th>
+                                        <th class="" style="width:100px;">절수</th>
+                                        <th class="" style="width:50px;">도수</th>
+                                        <th class="" style="width:50px;">방식</th>
+                                        <th class="" style="width:70px;">수량</th>
+                                        <th class="" style="width:70px;">판구분</th>
+                                        <th class="" style="width:">후가공</th>
+                                        <th class="" style="width:">비고</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="list">
+                                    <tr>
+                                        <td colspan="10">검색 된 내용이 없습니다.</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tac clear" id="page">
+                            </div>
+                        </div>
+                        <div id="paper_op_2" style="display:none;">
+                            <section class="content_section">
+                                <div class="content_wrapper">
+                                    <table class="table_search_layout">
+                                        <colgroup>
+                                            <col class="">
+                                            <col class="">
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th class="th_text th_manu_produce_ord_01">인쇄기 구분</th>
+                                            <td>
+                                                <select class="select_manu_produce_ord_01" id="print_etprs2">
+                                                    <option value="">전체</option>
+                                                    <option value="V3000(B1)">V3000(B1)</option>
+                                                    <option value="우성프린팅(B1)">우성프린팅(B1)</option>
+                                                    <option value="8색기(B2)">8색기(B2)</option>
+                                                    <option value="디지털">디지털</option>
+                                                </select>
+                                            </td>
+                                            <th class="th_text th_manu_produce_ord_02">날짜</th>
+                                            <td>
+                                                <input type="text" id="date2" class="input_manu_produce_ord_01" placeholder="yyyy-MM-dd">
+                                                <button type="button" class="btn_float_right btn_Turquoise01" onclick="getProduceOrdListByPaper();">검색</button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                            <ul class="" style="margin-top: 20px;">
+                                <li class="sel">
+                                </li>
+                                <li class="sel tar">
+                                    <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="printArea('print_list2');">인쇄</button>
+                                    <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="downExcelProduceOrdListByPrinter();">엑셀다운</button>
+                                    <!--label class="btn btn_md fix_width180" style="margin-left: 3px;" onclick="alert('준비중입니다.'); return false;">바코드 처리 페이지 이동</label-->
+                                </li>
+                            </ul>
+                            <div id="print_list2">
+                                <h1 id="list2_title" style="font-size: 20px;margin-top:50px;margin-left:50px;"></h1>
+                                <table class="table_basic_layout">
+                                    <thead>
+                                    <tr>
+                                        <th class="" style="width:50px;">NO</th>
+                                        <th class="" style="width:300px;">종이</th>
+                                        <th class="" style="width:300px;">사이즈</th>
+                                        <th class="">비고</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="list_paper">
+                                    <tr>
+                                        <td colspan="4">검색 된 내용이 없습니다.</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tac clear" id="page">
+                            </div>
+                        </div>
+                        <div id="paper_op_3" style="display:none;">
+                            <section class="content_section">
+                                <div class="content_wrapper">
+                                    <table class="table_search_layout">
+                                        <colgroup>
+                                            <col class="">
+                                            <col class="">
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th class="th_text th_manu_produce_ord_01">인쇄기 구분</th>
+                                            <td>
+                                                <select class="select_manu_produce_ord_01" id="print_etprs3">
+                                                    <option value="">전체</option>
+                                                    <option value="V3000(B1)">V3000(B1)</option>
+                                                    <option value="우성프린팅(B1)">우성프린팅(B1)</option>
+                                                    <option value="8색기(B2)">8색기(B2)</option>
+                                                    <option value="디지털">디지털</option>
+                                                </select>
+                                            </td>
+                                            <th class="th_text th_manu_produce_ord_02">날짜</th>
+                                            <td>
+                                                <input type="text" id="date3" class="input_manu_produce_ord_01" placeholder="yyyy-MM-dd">
+                                                <button type="button" class="btn_float_right btn_Turquoise01" onclick="getProduceOrdListByTypset();">검색</button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                            <ul class="" style="margin-top: 20px;">
+                                <li class="sel">
+                                </li>
+                                <li class="sel tar">
+                                    <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="printArea('print_list3');">인쇄</button>
+                                    <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="downExcelProduceOrdListByPrinter();">엑셀다운</button>
+                                    <!--label class="btn btn_md fix_width180" style="margin-left: 3px;" onclick="alert('준비중입니다.'); return false;">바코드 처리 페이지 이동</label-->
+                                </li>
+                            </ul>
+                            <div id="print_list3">
+                                <table class="table_basic_layout">
+                                    <thead>
+                                    <tr>
+                                        <th class="" style="width:50px;">NO</th>
+                                        <th class="" style="width:100px;">판번호</th>
+                                        <th class="" style="width:100px;">배송</th>
+                                        <th class="" style="width:100px;">거래처</th>
+                                        <th class="" style="width:100px;">인쇄제목</th>
+                                        <th class="" style="width:100px;">종이</th>
+                                        <th class="" style="width:100px;">사이즈</th>
+                                        <th class="" style="width:100px;">도수</th>
+                                        <th class="" style="">수량</th>
+                                        <th class="" style="">후가공</th>
+                                        <th class="" style="">메모</th>
+                                        <th class="" style="">인쇄</th>
+                                        <th class="" style="">판유형</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="list_typset">
+                                    <tr>
+                                        <td colspan="13">검색 된 내용이 없습니다.</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tac clear" id="page">
+                            </div>
+                        </div>
+                        <div id="paper_op_4" style="display:none;">
+                            <section class="content_section">
+                                <div class="content_wrapper">
+                                    <table class="table_search_layout">
+                                        <colgroup>
+                                            <col class="">
+                                            <col class="">
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th class="th_text th_manu_produce_ord_01">인쇄기 구분</th>
+                                            <td>
+                                                <select class="select_manu_produce_ord_01" id="print_etprs4">
+                                                    <option value="">전체</option>
+                                                    <option value="V3000(B1)">V3000(B1)</option>
+                                                    <option value="우성프린팅(B1)">우성프린팅(B1)</option>
+                                                    <option value="8색기(B2)">8색기(B2)</option>
+                                                    <option value="디지털">디지털</option>
+                                                </select>
+                                            </td>
+                                            <th class="th_text th_manu_produce_ord_02">날짜</th>
+                                            <td>
+                                                <input type="text" id="date4" class="input_manu_produce_ord_01" placeholder="yyyy-MM-dd">
+                                                <button type="button" class="btn_float_right btn_Turquoise01" onclick="getProduceOrdListByTypsetDirect();">검색</button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                            <ul class="" style="margin-top: 20px;">
+                                <li class="sel">
+                                </li>
+                                <li class="sel tar">
+                                    <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="printArea('print_list4');">인쇄</button>
+                                    <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="downExcelProduceOrdListByPrinter();">엑셀다운</button>
+                                    <!--label class="btn btn_md fix_width180" style="margin-left: 3px;" onclick="alert('준비중입니다.'); return false;">바코드 처리 페이지 이동</label-->
+                                </li>
+                            </ul>
+                            <div id="print_list4">
+                                <table class="table_basic_layout">
+                                    <thead>
+                                    <tr>
+                                        <th class="" style="width:50px;">NO</th>
+                                        <th class="" style="width:100px;">판번호</th>
+                                        <th class="" style="width:100px;">배송</th>
+                                        <th class="" style="width:100px;">거래처</th>
+                                        <th class="" style="width:100px;">인쇄제목</th>
+                                        <th class="" style="width:100px;">종이</th>
+                                        <th class="" style="width:100px;">사이즈</th>
+                                        <th class="" style="width:100px;">도수</th>
+                                        <th class="" style="">수량</th>
+                                        <th class="" style="">후가공</th>
+                                        <th class="" style="">메모</th>
+                                        <th class="" style="">인쇄</th>
+                                        <th class="" style="">판유형</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="list_typset_direct">
+                                    <tr>
+                                        <td colspan="13">검색 된 내용이 없습니다.</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tac clear" id="page">
+                            </div>
+                        </div>
+                        <div id="paper_op_5" style="display:none;">
+                            <section class="content_section">
+                                <div class="content_wrapper">
+                                    <table class="table_search_layout">
+                                        <colgroup>
+                                            <col class="">
+                                            <col class="">
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th class="th_text th_manu_produce_ord_01">인쇄기 구분</th>
+                                            <td>
+                                                <select class="select_manu_produce_ord_01" id="print_etprs5">
+                                                    <option value="">전체</option>
+                                                    <option value="V3000(B1)">V3000(B1)</option>
+                                                    <option value="우성프린팅(B1)">우성프린팅(B1)</option>
+                                                    <option value="8색기(B2)">8색기(B2)</option>
+                                                    <option value="디지털">디지털</option>
+                                                </select>
+                                            </td>
+                                            <th class="th_text th_manu_produce_ord_01">후가공</th>
+                                            <td>
+                                                <select class="select_manu_produce_ord_01" id="after5">
+                                                    <option value="">전체</option>
+                                                    <option value="없음">없음</option>
+                                                    <option value="양면테입">양테</option>
+                                                </select>
+                                            </td>
+                                            <th class="th_text th_manu_produce_ord_02">날짜</th>
+                                            <td>
+                                                <input type="text" id="date5" class="input_manu_produce_ord_01" placeholder="yyyy-MM-dd">
+                                                <button type="button" class="btn_float_right btn_Turquoise01" onclick="getProduceOrdListByEnvelope();">검색</button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                            <ul class="" style="margin-top: 20px;">
+                                <li class="sel">
+                                </li>
+                                <li class="sel tar">
+                                    <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="printArea('print_list5');">인쇄</button>
+                                    <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="downExcelProduceOrdListByEnvelope();">엑셀다운</button>
+                                    <!--label class="btn btn_md fix_width180" style="margin-left: 3px;" onclick="alert('준비중입니다.'); return false;">바코드 처리 페이지 이동</label-->
+                                </li>
+                            </ul>
+                            <div id="print_list5">
+                                <table class="table_basic_layout">
+                                    <thead>
+                                    <tr>
+                                        <th class="" style="width:50px;">NO</th>
+                                        <th class="" style="width:100px;">판번호</th>
+                                        <th class="" style="width:100px;">배송</th>
+                                        <th class="" style="width:100px;">거래처</th>
+                                        <th class="" style="width:300px;">인쇄제목</th>
+                                        <th class="" style="width:100px;">제품</th>
+                                        <th class="" style="width:100px;">종이</th>
+                                        <th class="" style="width:100px;">사이즈</th>
+                                        <th class="" style="">수량</th>
+                                        <th class="" style="">건수</th>
+                                        <th class="" style="">양테</th>
+                                        <th class="" style="width:300px;">접수자메모</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="list_envelope">
+                                    <tr>
+                                        <td colspan="11">검색 된 내용이 없습니다.</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tac clear" id="page">
+                            </div>
+                        </div>
+                        <div id="paper_op_6" style="display:none;">
+                            <section class="content_section">
+                                <div class="content_wrapper">
+                                    <table class="table_search_layout">
+                                        <colgroup>
+                                            <col class="">
+                                            <col class="">
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th class="th_text th_manu_produce_ord_01">인쇄기 구분</th>
+                                            <td>
+                                                <select class="select_manu_produce_ord_01" id="print_etprs6">
+                                                    <option value="">전체</option>
+                                                    <option value="V3000(B1)">V3000(B1)</option>
+                                                    <option value="우성프린팅(B1)">우성프린팅(B1)</option>
+                                                    <option value="8색기(B2)">8색기(B2)</option>
+                                                    <option value="디지털">디지털</option>
+                                                </select>
+                                            </td>
+                                            <th class="th_text th_manu_produce_ord_02">날짜</th>
+                                            <td>
+                                                <input type="text" id="date6" class="input_manu_produce_ord_01" placeholder="yyyy-MM-dd">
+                                                <button type="button" class="btn_float_right btn_Turquoise01" onclick="getProduceOrdListByAfter();">검색</button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                            <ul class="" style="margin-top: 20px;">
+                                <li class="sel">
+                                </li>
+                                <li class="sel tar">
+                                    <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="printArea('print_list6');">인쇄</button>
+                                    <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="downExcelProduceOrdListByPrinter();">엑셀다운</button>
+                                    <!--label class="btn btn_md fix_width180" style="margin-left: 3px;" onclick="alert('준비중입니다.'); return false;">바코드 처리 페이지 이동</label-->
+                                </li>
+                            </ul>
+                            <div id="print_list6">
+                                <table class="table_basic_layout">
+                                    <thead>
+                                    <tr>
+                                        <th class="" style="width:50px;">NO</th>
+                                        <th class="" style="width:100px;">판번호</th>
+                                        <th class="" style="width:100px;">거래처</th>
+                                        <th class="" style="width:100px;">인쇄제목</th>
+                                        <th class="" style="width:100px;">종이</th>
+                                        <th class="" style="width:100px;">사이즈</th>
+                                        <th class="" style="width:100px;">도수</th>
+                                        <th class="" style="">수량</th>
+                                        <th class="" style="">후가공</th>
+                                        <th class="" style="">메모</th>
+                                        <th class="" style="">인쇄</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="list_after">
+                                    <tr>
+                                        <td colspan="11">검색 된 내용이 없습니다.</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tac clear" id="page">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="paper_op_7" style="display:none;">
+                        <section class="content_section">
+                            <div class="content_wrapper">
+                                <table class="table_search_layout">
+                                    <colgroup>
+                                        <col class="">
+                                        <col class="">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <th class="th_text th_manu_produce_ord_01">인쇄기 구분</th>
+                                        <td>
+                                            <select class="select_manu_produce_ord_01" id="print_etprs6">
+                                                <option value="">전체</option>
+                                                <option value="V3000(B1)">V3000(B1)</option>
+                                                <option value="우성프린팅(B1)">우성프린팅(B1)</option>
+                                                <option value="8색기(B2)">8색기(B2)</option>
+                                                <option value="디지털">디지털</option>
+                                            </select>
+                                        </td>
+                                        <th class="th_text th_manu_produce_ord_02">날짜</th>
+                                        <td>
+                                            <input type="text" id="date6" class="input_manu_produce_ord_01" placeholder="yyyy-MM-dd">
+                                            <button type="button" class="btn_float_right btn_Turquoise01" onclick="getProduceOrdListByAfter();">검색</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <ul class="" style="margin-top: 20px;">
+                            <li class="sel">
+                            </li>
+                            <li class="sel tar">
+                                <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="openPrint();">인쇄</button>
+                                <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="downExcelProduceOrdListByPrinter();">엑셀다운</button>
+                                <!--label class="btn btn_md fix_width180" style="margin-left: 3px;" onclick="alert('준비중입니다.'); return false;">바코드 처리 페이지 이동</label-->
+                            </li>
+                        </ul>
+                        <table class="table_basic_layout">
+                            <thead>
+                            <tr>
+                                <th class="" style="width:50px;">NO</th>
+                                <th class="" style="width:100px;">판번호</th>
+                                <th class="" style="width:100px;">거래처</th>
+                                <th class="" style="width:100px;">인쇄제목</th>
+                                <th class="" style="width:100px;">종이</th>
+                                <th class="" style="width:100px;">사이즈</th>
+                                <th class="" style="width:100px;">도수</th>
+                                <th class="" style="">수량</th>
+                                <th class="" style="">후가공</th>
+                                <th class="" style="">메모</th>
+                                <th class="" style="">인쇄</th>
+                            </tr>
+                            </thead>
+                            <tbody id="list_after">
+                            <tr>
+                                <td colspan="11">검색 된 내용이 없습니다.</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="tac clear" id="page">
+                        </div>
+                    </div>
+                    <div id="paper_op_8" style="display:none;">
+                        <section class="content_section">
+                            <div class="content_wrapper">
+                                <table class="table_search_layout">
+                                    <colgroup>
+                                        <col class="">
+                                        <col class="">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <th class="th_text th_manu_produce_ord_01">인쇄기 구분</th>
+                                        <td>
+                                            <select class="select_manu_produce_ord_01" id="print_etprs8">
+                                                <option value="">전체</option>
+                                                <option value="V3000(B1)">V3000(B1)</option>
+                                                <option value="우성프린팅(B1)">우성프린팅(B1)</option>
+                                                <option value="8색기(B2)">8색기(B2)</option>
+                                                <option value="디지털">디지털</option>
+                                            </select>
+                                        </td>
+                                        <th class="th_text th_manu_produce_ord_01">후가공</th>
+                                        <td>
+                                            <select class="select_manu_produce_ord_01" id="after8">
+                                                <option value="">전체</option>
+                                                <option value="없음">없음</option>
+                                                <option value="양면테입">양테</option>
+                                            </select>
+                                        </td>
+                                        <th class="th_text th_manu_produce_ord_02">날짜</th>
+                                        <td>
+                                            <input type="text" id="date8" class="input_manu_produce_ord_01" placeholder="yyyy-MM-dd">
+                                            <button type="button" class="btn_float_right btn_Turquoise01" onclick="getProduceOrdListByCommercial();">검색</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <ul class="" style="margin-top: 20px;">
+                            <li class="sel">
+                            </li>
+                            <li class="sel tar">
+                                <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="printArea('print_list8');">인쇄</button>
+                                <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="getProduceOrdListByCommercial();">엑셀다운</button>
+                                <!--label class="btn btn_md fix_width180" style="margin-left: 3px;" onclick="alert('준비중입니다.'); return false;">바코드 처리 페이지 이동</label-->
+                            </li>
+                        </ul>
+                        <div id="print_list8">
+                            <h1 id="list8_title" style="font-size: 20px;margin-top:50px;margin-left:50px;"></h1>
+                            <table class="table_basic_layout">
+                                <thead>
+                                <tr>
+                                    <th class="" style="width:50px;">NO</th>
+                                    <th class="" style="width:100px;">판번호</th>
+                                    <th class="" style="width:100px;">배송</th>
+                                    <th class="" style="width:150px;">거래처</th>
+                                    <th class="" style="width:200px;">인쇄제목</th>
+                                    <th class="" style="width:100px;">제품</th>
+                                    <th class="" style="width:120px;">종이</th>
+                                    <th class="" style="width:80px;">사이즈</th>
+                                    <th class="" style="width:80px;">수량</th>
+                                    <th class="" style="width:250px;">후가공</th>
+                                    <th class="" style="width:250px;">접수자메모</th>
+                                    <th class="" style="width:50px;">인쇄소</th>
+                                </tr>
+                                </thead>
+                                <tbody id="list_commercial">
+                                <tr>
+                                    <td colspan="10">검색 된 내용이 없습니다.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tac clear" id="page">
+                        </div>
+                    </div>
+                    <div id="paper_op_9" style="display:none;">
+                        <section class="content_section">
+                            <div class="content_wrapper">
+                                <table class="table_search_layout">
+                                    <colgroup>
+                                        <col class="">
+                                        <col class="">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <th class="th_text th_manu_produce_ord_01">종류</th>
+                                        <td>
+                                            <select class="select_manu_produce_ord_01" id="print_etprs9">
+                                                <option value="">전체</option>
+                                                <option value="코팅명함">코팅명함</option>
+                                                <option value="무코팅명함">무코팅명함</option>
+                                                <option value="수입지">수입지</option>
+                                                <option value="DTP">DTP</option>
+                                                <option value="스티커">스티커</option>
+                                            </select>
+                                        </td>
+                                        <th class="th_text th_manu_produce_ord_02">날짜</th>
+                                        <td>
+                                            <input type="text" id="date9" class="input_manu_produce_ord_01" placeholder="yyyy-MM-dd">
+                                            <button type="button" class="btn_float_right btn_Turquoise01" onclick="getProduceOrdListByNamecard();">검색</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <ul class="" style="margin-top: 20px;">
+                            <li class="sel">
+                            </li>
+                            <li class="sel tar">
+                                <!--button type="button" id="btn_complete" class="btn_yellow h_26" onclick="printArea('print_list9');">인쇄</button-->
+                                <button type="button" id="btn_complete" class="btn_yellow h_26" onclick="downPdfProduceOrdListByNamecard();">다운로드</button>
+                                <!--button type="button" id="btn_complete" class="btn_yellow h_26" onclick="getProduceOrdListByNamecard();">엑셀다운</button-->
+                                <!--label class="btn btn_md fix_width180" style="margin-left: 3px;" onclick="alert('준비중입니다.'); return false;">바코드 처리 페이지 이동</label-->
+                            </li>
+                        </ul>
+                        <div id="print_list9">
+                            <h1 id="list_title9" style="font-size: 20px;margin-top:50px;margin-left:50px;"></h1>
+                            <table class="table_basic_layout">
+                                <thead>
+                                <tr>
+                                    <th class="" style="width:50px;">NO</th>
+                                    <th class="" style="width:100px;">판번호</th>
+                                    <th class="" style="width:100px;">도수</th>
+                                    <th class="" style="width:150px;">매수</th>
+                                    <th class="" style="width:200px;">메모</th>
+                                </tr>
+                                </thead>
+                                <tbody id="list_namecard">
+                                <tr>
+                                    <td colspan="5">검색 된 내용이 없습니다.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tac clear" id="page">
+                        </div>
+                    </div>
+
+            </div>
+    </section>
+    <!--검색정보 테이블 끝-->
+</div>
+<!--메인상단 왼쪽 레이아웃 끝-->
+</div>
+<!-- 본문 컨텐츠 끝 -->
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/business/common/include.html]
+    <script src="[TPH_Vdesign_dir]/js/uploader/plupload.full.min.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/business/empl_info.js"></script>
+</head>
+<body>
+
+<div id="container">
+    	
+        <!-- TOP NAVIGATION --> 
+        [TPH_I/common/header.html]
+
+        <!-- LEFT NAVIGATION --> 
+        [TPH_Vleft]
+
+        <!-- CONTENT --> 
+        <section id="page-content">            
+            <div id="content-container" class="content_container">
+            <!-- 본문 컨텐츠  시작-->
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div id="basic_search" class="content_wrapper">
+                        <table class="table_search_layout">
+                            <colgroup>
+                                <col class="">
+                                <col class="">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th class="th_text th_claim_list_left">사원번호</th>
+                                    <td>
+                                        <input type="text" id="empl_num" class="" style="margin-right:6px;" />
+                                        <!--<button type="button" class="btn_Turquoise01" onclick="searchEmpl.exec();">조회</button>-->
+                                    </td>
+                                    <th class="th_text" style="width:70px;">이름/직책/직급/부서명</th>
+                                    <td>
+                                        <input type="text" id="empl_name" class="" style="margin-right:6px; width:70px;" />
+                                        <input type="text" id="empl_duty" class="" style="margin-right:6px; width:70px;" />
+                                        <select id="empl_posi">
+                                            [TPH_Vposi_arr_html]
+                                        </select>
+                                        <select id="empl_top_dept" onchange="changeDept(this.value);">
+                                            [TPH_Vtop_dept_html]
+                                        </select>
+                                        <select id="empl_mid_dept">
+                                            <option value=''>전체</option>
+                                            [TPH_Vmid_dept_html]
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_claim_list_left">이메일</th>
+                                    <td>
+                                        <input type="text" id="empl_mail" class="" style="margin-right:6px;" />
+                                    </td>
+                                    <th class="th_text th_claim_list_left">수신여부</th>
+                                    <td>
+                                        Y <input type="radio" name="empl_reci" value="Y"/>
+                                        N <input type="radio" name="empl_reci" value="N"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_claim_list_left">휴대폰</th>
+                                    <td>
+                                        <select id="empl_cell_top">
+                                            <option value="010">010</option>
+                                            <option value="011">011</option>
+                                            <option value="016">016</option>
+                                            <option value="017">017</option>
+                                            <option value="019">019</option>
+                                        </select>
+                                        <input type="text" id="empl_cell_mid" style="width:40px;">
+                                        <input type="text" id="empl_cell_end" style="width:40px;">
+                                    </td>
+                                    <th class="th_text">내선번호</th>
+                                    <td>
+                                        <!--<select id="empl_phone_top">
+                                            <option value="02">02</option>
+                                            <option value="031">031</option>
+                                            <option value="032">032</option>
+                                            <option value="033">033</option>
+                                            <option value="041">041</option>
+                                            <option value="042">042</option>
+                                            <option value="043">043</option>
+                                            <option value="051">051</option>
+                                            <option value="052">052</option>
+                                            <option value="053">053</option>
+                                            <option value="054">054</option>
+                                            <option value="055">055</option>
+                                            <option value="061">061</option>
+                                            <option value="062">062</option>
+                                            <option value="063">063</option>
+                                            <option value="064">064</option>
+                                        </select>
+                                        <input type="text" id="empl_phone_mid" style="width:40px;">
+                                        -->
+                                        <input type="text" id="empl_phone_end" style="width:40px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_claim_list_left">상태</th>
+                                    <td>
+                                        <select id="empl_status">
+                                            <option value="Y">정상</option>
+                                            <option value="N">퇴사</option>
+                                        </select>
+                                    </td>
+                                    <th class="th_text">권한</th>
+                                    <td>
+                                        <select id="empl_auth">
+                                            <option value="">---</option>
+                                            <option value="A">A</option>
+                                            <option value="SA">SA</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div>
+                            <button type="button" class="btn_Turquoise01" onclick="regiEmpl();">등록완료</button>
+                            <button type="button" class="btn_Turquoise01" onclick="goListEmpl();">목록</button>
+                        </div>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>			
+        [TPH_I/common/common_mask.html]
+    </section>
+</div>
+</body>
+</html>

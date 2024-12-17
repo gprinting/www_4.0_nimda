@@ -1,0 +1,1519 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/business/common/include.html]
+</head>
+<body>
+  <div id="container">
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content" style="background:#FFF;">
+      <!-- 히스토리 -->
+      <!-- [TPH_I/common/history.html] -->
+      <!-- 본문 컨텐츠  시작-->
+      <div id="content-container">
+        <!--메인상단 왼쪽 레이아웃-->
+        <div id="for_top">
+          <!--기본검색정보-->
+          <div class="search_box">
+            <div class="search_heading">검색 견적정보</div>
+            <div class="search_body">
+              <table>
+                <colgroup>
+                  <col width="100">
+                  <col width="100">
+                  <col width="100">
+                  <col width="350">
+                  <col width="50">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>판매채널 :</th>
+                    <td colspan="8" class="daily_form daily-form">
+                      <select>
+                          [TPH_Vcpn_admin_html]
+                      </select>
+                      <input type="text" class="datepicker_input" readonly="readonly" id="basic_from"> <span>~</span>
+                      <input type="text" class="datepicker_input" readonly="readonly" id="basic_to">
+                        <button type="button" onclick="setDateVal('basic', 'd', -1);">어제</button>
+                        <button type="button" onclick="setDateVal('basic', 't', 0);">오늘</button>
+                        <button type="button" onclick="setDateVal('basic', 'd', -7);">일주일</button>
+                        <button type="button" onclick="setDateVal('basic', 'm', -1);">한달</button>
+                        <button type="button" onclick="setDateVal('basic', 'y', -1);">작년동기</button>
+                        <button type="button" onclick="setDateVal('basic', 'a', 0);">전체</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th style="vertical-align:-webkit-baseline-middle;padding-top:5px;">팀/담당자 :</th>
+                    <td>
+                      <select id="depar" onchange="changeDepar(this.value, '');">
+                          [TPH_Vdepar_html]
+                      </select>
+                      <select id="empl" style="margin-top:10px;">
+                          [TPH_Vempl_html]
+                      </select>
+                    </td>
+                    <th style="vertical-align:-webkit-baseline-middle;padding-top:5px;">고객유형 구분 :</th>
+                    <td style="vertical-align:-webkit-baseline-middle">
+                      <select id="member_typ" >
+                        <option value="일반회원">일반회원</option>
+                        <option value="예외업체">예외업체</option>
+                      </select>
+                      <select id="member_grade">
+                        [TPH_Vmember_grade_html]
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>키워드 검색 :</th>
+                    <td colspan="4">
+                      <select id="search_dvs" style="width:18%">
+                          <option value="office_nick">회원 닉네임</option>
+                          <option value="member_name">회원 이름</option>
+                          <option value="title">제작물 내용</option>
+                          <option value="member_tel">회원 전화번호</option>
+                          <option value="member_cell">회원 핸드폰번호</option>
+                          <option value="member_addr">회원 주소</option>
+                          <option value="receiver">받는 사람</option>
+                          <option value="virt_ba">가상계좌</option>
+                      </select>
+                     <input type="text" id="search_keyword" class="text_area" />
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+                <div class="search_btn">
+                  <button type="button" onclick="cndSearch.exec();" style="background:#00806f;color:#fff;width:17%;padding:5px;">선택 조건으로 검색</button>
+                </div>
+              </div>
+            </div>
+            <!--기본검색정보 끝-->
+          </div>
+          <!--메인상단 왼쪽 레이아웃 끝-->
+
+          <!--고정상단 아래 탭테이블-->
+          <div id="content_tab">
+            <input id="quoteTab1" type="radio" name="tabs" checked>
+            <label for="quoteTab1" class="content_label">견적현황</label>
+            <input id="quoteTab2" type="radio" name="tabs" value="order_info">
+            <label for="quoteTab2" class="content_label">견적CRM</label>
+            <input id="quoteTab3" type="radio" name="tabs">
+            <label for="quoteTab3" class="content_label">견적통계</label>
+
+            <!--견적현황-->
+            <section id="quo_content1" class="content">
+              <form class="for_form">
+                <table class="for_table" style="width:1600px">
+                  <colgroup>
+                    <col width="10">
+                    <col width="100">
+                    <col width="50">
+                    <col width="50">
+                    <col width="200">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>회원명</th>
+                      <th>견적번호</th>
+                      <th>상품명</th>
+                      <th>견적상세정보</th>
+                      <th>견적금액</th>
+                      <th>주문금액</th>
+                      <th>견적자</th>
+                      <th>상태</th>
+                      <th>견적일</th>
+                      <th>주문예정일</th>
+                      <th>최근상담일</th>
+                      <th>견적건수</th>
+                      <th>상담건수</th>
+                      <th>주문건수</th>
+                    </tr>
+                  </thead>
+                  <tbody id="esti_stats_list">
+                    <tr style="height:170px;"><td colspan='7' rowspan='2' style="text-align:center;">검색결과없음</td></tr>
+                  </tbody>
+                </table>
+              </form>
+              <div class="for_tableBottom">
+                <select>
+                  <option>5개</option>
+                  <option>10개</option>
+                  <option>15개</option>
+                  <option>20개</option>
+                  <option>30개</option>
+                </select>
+              </div>
+
+              <div id="member_stats_page" class="paging-nav">
+                <a href="#">&lt;&lt;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&gt;&gt;</a>
+              </div>
+
+              <div class="tab_top" style="margin-top:20px;">
+                <p style="font-size:14px;font-weight:700;margin-top:40px;">인천페이퍼애드에 대한 세부 상담 내역</p>
+              </div>
+
+              <form class="for_form">
+                <table class="for_table" style="width:100%">
+                  <colgroup>
+                    <col width="10">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="200">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>상담일</th>
+                      <th>견적일</th>
+                      <th>상품명</th>
+                      <th>주문예정일</th>
+                      <th>상담유형</th>
+                      <th>견적사양</th>
+                      <th>상담자</th>
+                      <th>주문금액</th>
+                      <th>상태</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>2017-04-17</td>
+                      <td>2017-03-23</td>
+                      <td>광고홍보물</td>
+                      <td>2017-03-30</td>
+                      <td>후공정상담</td>
+                      <td class="hide_top">전기안전주의사항/A4/8도/150아트지/단면무광코팅/반접지/1,000매</td>
+                      <td>홍승현</td>
+                      <td>230,000</td>
+                      <td>견적완료</td>
+                    </tr>
+                    <tr class="toggle_row hide_row">
+                      <td colspan="15" class="toggle_td">
+                        <!--기본정보-->
+                        <table class="information">
+                          <colgroup>
+                            <col width="85">
+                            <col width="135">
+                            <col width="600">
+                            <col width="200">
+                          </colgroup>
+                          <tbody class="center">
+                            <tr>
+                              <th rowspan="9">기본정보</th>
+                            </tr>
+                            <tr>
+                              <th>구분</th>
+                              <th>상세내용</th>
+                              <th>비고</th>
+                            </tr>
+                            <tr>
+                              <td>상품명</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>종이</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>규격</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>인쇄도수</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>페이지</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>수량</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <!--표지-->
+                        <table class="information">
+                          <colgroup>
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                            <col width="80">
+                            <col width="50">
+                            <col width="50">
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                          </colgroup>
+                          <tbody class="center">
+                            <tr>
+                              <th rowspan="5">표지</th>
+                            </tr>
+                            <tr class="tr_top">
+                              <th>구분</th>
+                              <th>항목</th>
+                              <th>단가</th>
+                              <th>도수</th>
+                              <th>대수</th>
+                              <th>연수</th>
+                              <th>금액</th>
+                              <th>비고</th>
+                            </tr>
+                            <tr>
+                              <td>종이(지대)</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>출력비</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>인쇄비</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <!--표지후가공-->
+                        <table class="information">
+                          <colgroup>
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                            <col width="80">
+                            <col width="50">
+                            <col width="50">
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                          </colgroup>
+                          <tbody class="center">
+                            <tr>
+                              <th rowspan="5">표지후가공</th>
+                            </tr>
+                            <tr class="tr_top">
+                              <th>구분</th>
+                              <th>항목</th>
+                              <th>단가</th>
+                              <th>도수</th>
+                              <th>대수</th>
+                              <th>연수</th>
+                              <th>금액</th>
+                              <th>비고</th>
+                            </tr>
+                            <tr>
+                              <td>코팅</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>접지</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>제본</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <!--내지-->
+                        <table class="information">
+                          <colgroup>
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                            <col width="80">
+                            <col width="50">
+                            <col width="50">
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                          </colgroup>
+                          <tbody class="center">
+                            <tr>
+                              <th rowspan="5">내지</th>
+                            </tr>
+                            <tr class="tr_top">
+                              <th>구분</th>
+                              <th>항목</th>
+                              <th>단가</th>
+                              <th>도수</th>
+                              <th>대수</th>
+                              <th>연수</th>
+                              <th>금액</th>
+                              <th>비고</th>
+                            </tr>
+                            <tr>
+                              <td>종이(지대)</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>출력비</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>인쇄비</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <!--내지후가공-->
+                        <table class="information">
+                          <colgroup>
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                            <col width="80">
+                            <col width="50">
+                            <col width="50">
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                          </colgroup>
+                          <tbody class="center">
+                            <tr>
+                              <th rowspan="8">내지후가공</th>
+                            </tr>
+                            <tr class="tr_top">
+                              <th>구분</th>
+                              <th>항목</th>
+                              <th>단가</th>
+                              <th>도수</th>
+                              <th>대수</th>
+                              <th>연수</th>
+                              <th>금액</th>
+                              <th>비고</th>
+                            </tr>
+                            <tr>
+                              <td>코팅</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>접지</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>도무송</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>목형비</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <div class="downLoad">
+                          <button>첨부파일 내려받기</button>
+                        </div>
+
+                        <div class="sum">
+                          <div class="left_sum">
+                            <div class="left_panel">
+                              <ul>
+                                <li>정상가 : <input type="text" value="400,000"></li>
+                                <li>견적금액DC :
+                                  <select class="search_select">
+                                    <option>30</option>
+                                  </select>
+                                  <select class="search_select">
+                                    <option>%</option>
+                                  </select>
+                                  <input type="text" value="120,000" style="width:100px;">원
+                                </li>
+                                <li>
+                                  <span>= 최종정상가 (VAT별도) :</span>
+                                  <input type="text" value="280,000" style="font-weight:700">
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="right_sum">
+                            <div class="right_panel">
+                              <ul>
+                                <li>공급가 : <input type="text" value="280,000" style="color:red;"></li>
+                                <li>부가세 : <input type="text" value="28,000" style="color:red;"></li>
+                                <li><span>= 총계 (VAT포함) : </span><input type="text" value="308,000" style="color:red;font-weight:700"></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="send" style="clear:both">
+                          <input type="text"><button>보내기</button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>2017-04-17</td>
+                      <td>2017-03-23</td>
+                      <td>광고홍보물</td>
+                      <td>2017-03-30</td>
+                      <td>후공정상담</td>
+                      <td>전기안전주의사항/A4/8도/150아트지/단면무광코팅/반접지/1,000매</td>
+                      <td>홍승현</td>
+                      <td>230,000</td>
+                      <td>견적완료</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+
+              <div class="for_tableBottom">
+                <select>
+                  <option>5개</option>
+                  <option>10개</option>
+                  <option>15개</option>
+                  <option>20개</option>
+                  <option>30개</option>
+                </select>
+              </div>
+
+              <div id="member_stats_page" class="paging-nav">
+                <a href="#">&lt;&lt;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&gt;&gt;</a>
+              </div>
+            </section>
+            <!--견적현황 끝-->
+
+
+            <!--견적 CRM-->
+            <section id="quo_content2" class="content">
+              <div class="tab_top">
+                <span>검색조건 :</span>
+                <select class="tab_btn">
+                  <option>월별</option>
+                </select>
+                <select class="tab_btn">
+                  <option>카테고리별 검색</option>
+                </select>
+                <select class="tab_btn">
+                  <option>주문일</option>
+                </select>
+                <input type="text" class="datepicker_input"> <span>~</span>
+                <input type="text" class="datepicker_input">
+                <button>어제</button>
+                <button>오늘</button>
+                <button>일주일</button>
+                <button>한달</button>
+                <button>작년동기</button>
+                <button>전체</button>
+                <input type="image" src="/design_template/images/business/btn_1.png" alt="search" style="width:22px;vertical-align:middle;margin:5px">
+              </div>
+
+              <form class="for_form">
+                <table class="for_table" style="width:1050px;">
+                  <colgroup>
+                    <col width="10">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>회원명</th>
+                      <th>주문금액</th>
+                      <th>최근견적일</th>
+                      <th>최근주문예정일</th>
+                      <th>최근상담일자</th>
+                      <th>최근상담유형</th>
+                      <th>견적건수</th>
+                      <th>상담건수</th>
+                      <th>주문건수</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>인천페이퍼애드</td>
+                      <td>3,180,500</td>
+                      <td>2017-03-23</td>
+                      <td>2017-03-30</td>
+                      <td>2017-03-23</td>
+                      <td>발주예정일 상담</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+
+              <div class="for_tableBottom">
+                <select>
+                  <option>5개</option>
+                  <option>10개</option>
+                  <option>15개</option>
+                  <option>20개</option>
+                  <option>30개</option>
+                </select>
+              </div>
+
+              <div id="member_stats_page" class="paging-nav">
+                <a href="#">&lt;&lt;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&gt;&gt;</a>
+              </div>
+
+              <div class="tab_top" style="margin-top:20px;">
+                <p style="font-size:14px;font-weight:700;margin-top:40px;">인천페이퍼애드에 대한 세부 상담 내역</p>
+              </div>
+
+              <form class="for_form">
+                <table class="for_table" style="width:100%">
+                  <colgroup>
+                    <col width="10">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                    <col width="200">
+                    <col width="50">
+                    <col width="50">
+                    <col width="50">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>상담일</th>
+                      <th>견적일</th>
+                      <th>상품명</th>
+                      <th>주문예정일</th>
+                      <th>상담유형</th>
+                      <th>견적사양</th>
+                      <th>상담자</th>
+                      <th>주문금액</th>
+                      <th>상태</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>2017-04-17</td>
+                      <td>2017-03-23</td>
+                      <td>광고홍보물</td>
+                      <td>2017-03-30</td>
+                      <td>후공정상담</td>
+                      <td class="hide_top">전기안전주의사항/A4/8도/150아트지/단면무광코팅/반접지/1,000매</td>
+                      <td>홍승현</td>
+                      <td>230,000</td>
+                      <td>견적완료</td>
+                    </tr>
+                    <tr class="toggle_row hide_row">
+                      <td colspan="15" class="toggle_td">
+                        <!--기본정보-->
+                        <table class="information">
+                          <colgroup>
+                            <col width="85">
+                            <col width="135">
+                            <col width="600">
+                            <col width="200">
+                          </colgroup>
+                          <tbody class="center">
+                            <tr>
+                              <th rowspan="9">기본정보</th>
+                            </tr>
+                            <tr>
+                              <th>구분</th>
+                              <th>상세내용</th>
+                              <th>비고</th>
+                            </tr>
+                            <tr>
+                              <td>상품명</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>종이</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>규격</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>인쇄도수</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>페이지</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>수량</td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <!--표지-->
+                        <table class="information">
+                          <colgroup>
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                            <col width="80">
+                            <col width="50">
+                            <col width="50">
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                          </colgroup>
+                          <tbody class="center">
+                            <tr>
+                              <th rowspan="5">표지</th>
+                            </tr>
+                            <tr class="tr_top">
+                              <th>구분</th>
+                              <th>항목</th>
+                              <th>단가</th>
+                              <th>도수</th>
+                              <th>대수</th>
+                              <th>연수</th>
+                              <th>금액</th>
+                              <th>비고</th>
+                            </tr>
+                            <tr>
+                              <td>종이(지대)</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>출력비</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>인쇄비</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <!--표지후가공-->
+                        <table class="information">
+                          <colgroup>
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                            <col width="80">
+                            <col width="50">
+                            <col width="50">
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                          </colgroup>
+                          <tbody class="center">
+                            <tr>
+                              <th rowspan="5">표지후가공</th>
+                            </tr>
+                            <tr class="tr_top">
+                              <th>구분</th>
+                              <th>항목</th>
+                              <th>단가</th>
+                              <th>도수</th>
+                              <th>대수</th>
+                              <th>연수</th>
+                              <th>금액</th>
+                              <th>비고</th>
+                            </tr>
+                            <tr>
+                              <td>코팅</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>접지</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>제본</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <!--내지-->
+                        <table class="information">
+                          <colgroup>
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                            <col width="80">
+                            <col width="50">
+                            <col width="50">
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                          </colgroup>
+                          <tbody class="center">
+                            <tr>
+                              <th rowspan="5">내지</th>
+                            </tr>
+                            <tr class="tr_top">
+                              <th>구분</th>
+                              <th>항목</th>
+                              <th>단가</th>
+                              <th>도수</th>
+                              <th>대수</th>
+                              <th>연수</th>
+                              <th>금액</th>
+                              <th>비고</th>
+                            </tr>
+                            <tr>
+                              <td>종이(지대)</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>출력비</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>인쇄비</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <!--내지후가공-->
+                        <table class="information">
+                          <colgroup>
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                            <col width="80">
+                            <col width="50">
+                            <col width="50">
+                            <col width="50">
+                            <col width="80">
+                            <col width="80">
+                          </colgroup>
+                          <tbody class="center">
+                            <tr>
+                              <th rowspan="8">내지후가공</th>
+                            </tr>
+                            <tr class="tr_top">
+                              <th>구분</th>
+                              <th>항목</th>
+                              <th>단가</th>
+                              <th>도수</th>
+                              <th>대수</th>
+                              <th>연수</th>
+                              <th>금액</th>
+                              <th>비고</th>
+                            </tr>
+                            <tr>
+                              <td>코팅</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>접지</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>도무송</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td>목형비</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                        <div class="downLoad">
+                          <button>첨부파일 내려받기</button>
+                        </div>
+
+                        <div class="sum">
+                          <div class="left_sum">
+                            <div class="left_panel">
+                              <ul>
+                                <li>정상가 : <input type="text" value="400,000"></li>
+                                <li>견적금액DC :
+                                  <select class="search_select">
+                                    <option>30</option>
+                                  </select>
+                                  <select class="search_select">
+                                    <option>%</option>
+                                  </select>
+                                  <input type="text" value="120,000" style="width:100px;">원
+                                </li>
+                                <li>
+                                  <span>= 최종정상가 (VAT별도) :</span>
+                                  <input type="text" value="280,000" style="font-weight:700">
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="right_sum">
+                            <div class="right_panel">
+                              <ul>
+                                <li>공급가 : <input type="text" value="280,000" style="color:red;"></li>
+                                <li>부가세 : <input type="text" value="28,000" style="color:red;"></li>
+                                <li><span>= 총계 (VAT포함) : </span><input type="text" value="308,000" style="color:red;font-weight:700"></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="send" style="clear:both">
+                          <input type="text"><button>보내기</button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>2017-04-17</td>
+                      <td>2017-03-23</td>
+                      <td>광고홍보물</td>
+                      <td>2017-03-30</td>
+                      <td>후공정상담</td>
+                      <td>전기안전주의사항/A4/8도/150아트지/단면무광코팅/반접지/1,000매</td>
+                      <td>홍승현</td>
+                      <td>230,000</td>
+                      <td>견적완료</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+
+              <div class="for_tableBottom">
+                <select>
+                  <option>5개</option>
+                  <option>10개</option>
+                  <option>15개</option>
+                  <option>20개</option>
+                  <option>30개</option>
+                </select>
+              </div>
+
+              <div id="member_stats_page" class="paging-nav">
+                <a href="#">&lt;&lt;</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&gt;&gt;</a>
+              </div>
+
+              <div class="page-esi">
+                <h2>상담기록</h2>
+                <table class="esti">
+                  <thead>
+                    <tr>
+                      <th>GP2017050100012</th>
+                    </tr>
+                    <tr>
+                      <th rowspan="2">소비자견적가</th>
+                      <th rowspan="2">디프린팅견적가</th>
+                      <th>복수업체견적가</th>
+                      <th>복수업체견적가</th>
+                      <th rowspan="2">상담예정일</th>
+                      <th rowspan="2">납기일</th>
+                      <th rowspan="2">회원영업상태</th>
+                      <th rowspan="2">회원영업방식</th>
+                    </tr>
+                    <tr>
+                      <th>
+                        <select>
+                          <option>성진애드컴</option>
+                        </select>
+                      </th>
+                      <th>
+                        <select>
+                          <option>애즈랜드</option>
+                        </select>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>3,000,000</td>
+                      <td>750,000</td>
+                      <td>775,000</td>
+                      <td>760,000</td>
+                      <td>2017-04-17(월)</td>
+                      <td>약 3~4일</td>
+                      <td>
+                        <select>
+                          <option>디자인교정중</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select>
+                          <option>필드영업</option>
+                        </select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table class="esti2">
+                  <tbody>
+                    <td style="background:#eeeeee;font-weight:700;">비 오더유형</td>
+                    <td>유형 1
+                      <select>
+                        <option>기획서 견적 과다</option>
+                      </select>
+                    </td>
+                    <td>유형 2
+                      <select>
+                        <option>소비자 일단 보류</option>
+                      </select>
+                    </td>
+                    <td>유형 3
+                      <select>
+                        <option>서비스 불만족</option>
+                      </select>
+                    </td>
+                  </tbody>
+                </table>
+
+                <div class="esti_btnLeft esti_alarm">
+                  <button>알람(1일전)</button>
+                </div>
+              </div>
+
+              <div class="page-esi2">
+                <h2>상담예정일 알람 설정</h2>
+                <table>
+                  <colgroup>
+                    <col width="70">
+                    <col width="100">
+                    <col width="100">
+                    <col width="100">
+                    <col width="100">
+                    <col width="100">
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th>
+                        <select>
+                          <option>1차</option>
+                        </select>
+                      </th>
+                      <td>
+                        <select>
+                          <option>2017-04-17(월)</option>
+                        </select>
+                      </td>
+                      <th>
+                        <select>
+                          <option>1차</option>
+                        </select>
+                      </th>
+                      <td>
+                        <select>
+                          <option>2017-04-17(월)</option>
+                        </select>
+                      </td>
+                      <th>
+                        <select>
+                          <option>1차</option>
+                        </select>
+                      </th>
+                      <td>
+                        <select>
+                          <option>2017-04-17(월)</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>
+                        <select>
+                          <option>1차</option>
+                        </select>
+                      </th>
+                      <td>
+                        <select>
+                          <option>2017-04-17(월)</option>
+                        </select>
+                      </td>
+                      <th>
+                        <select>
+                          <option>1차</option>
+                        </select>
+                      </th>
+                      <td>
+                        <select>
+                          <option>2017-04-17(월)</option>
+                        </select>
+                      </td>
+                      <th>
+                        <select>
+                          <option>1차</option>
+                        </select>
+                      </th>
+                      <td>
+                        <select>
+                          <option>2017-04-17(월)</option>
+                        </select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <table style="width:100%;">
+                <colgroup>
+                  <col width="100">
+                  <col width="">
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>상담메모 :</th>
+                    <td colspan="15">
+                      <textarea id="Comment-textArea" name="text" rows="6" placeholder="" style="width:100%">방문영업 업체 전화 드렸더니 바쁘다고 나중에 하라고 합니다.</textarea>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="esti_button">
+                <div class="esti_btnRight" style="margin-bottom:50px;">
+                  <button style="background:#1e926b">문자발송</button>
+                  <button>상담 신규 등록</button>
+                  <button>수정</button>
+                </div>
+              </div>
+            </section>
+            <!--견적 CRM 끝-->
+
+            <!--견적 통계-->
+            <section id="quo_content3" class="content">
+              <div class="tab_top">
+                <span>검색조건 :</span>
+                <select class="tab_btn">
+                  <option>월별</option>
+                </select>
+                <select class="tab_btn">
+                  <option>카테고리별 검색</option>
+                </select>
+                <select class="tab_btn">
+                  <option>주문일</option>
+                </select>
+                <input type="text" class="datepicker_input"> <span>~</span>
+                <input type="text" class="datepicker_input">
+                <button>어제</button>
+                <button>오늘</button>
+                <button>일주일</button>
+                <button>한달</button>
+                <button>작년동기</button>
+                <button>전체</button>
+                <input type="image" src="/design_template/images/business/btn_1.png" alt="search" style="width:22px;vertical-align:middle;margin:5px">
+              </div>
+
+              <div class="helf" style="width:100%;">
+                <div class="half1" style="width:50%;float:left;">
+                  <table class="tt" style="margin:20px;">
+                    <thead>
+                      <tr class="big_table">
+                        <th>구분</th>
+                        <th>1주차</th>
+                        <th>월별</th>
+                        <th>건수</th>
+                        <th>등급별</th>
+                        <th>건수</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td rowspan="2">견적건수</td>
+                        <td>65</td>
+                        <td rowspan="2">월</td>
+                        <td rowspan="2">11</td>
+                        <td>VVIP</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>광고홍보물 25건, 기타독판 40건</td>
+                        <td>VIP</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2">팀별건수</td>
+                        <td>1팀 : (23건), 2팀 : (10건)</td>
+                        <td rowspan="2">월</td>
+                        <td rowspan="2">14</td>
+                        <td>PLATINUM</td>
+                        <td>4</td>
+                      </tr>
+                      <tr>
+                        <td>3팀 : (8건), 4팀 : (3건)</td>
+                        <td>GOLD</td>
+                        <td>21</td>
+                      </tr>
+                      <tr>
+                        <td>견적금액</td>
+                        <td>\ 41,260,400</td>
+                        <td rowspan="2">수</td>
+                        <td rowspan="2">7</td>
+                        <td>GOLDLITE</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2">주문건수</td>
+                        <td>12건</td>
+                        <td>SILVER</td>
+                        <td>8</td>
+                      </tr>
+                      <tr>
+                        <td>광고홍보물 5건 기타독판 12건</td>
+                        <td rowspan="2">목</td>
+                        <td>10</td>
+                        <td>SILVERLITE</td>
+                        <td>1012</td>
+                      </tr>
+                      <tr>
+                        <td>건수 오더률</td>
+                        <td>30.91%</td>
+                        <td>10</td>
+                        <td>BRONZE</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>주문금액</td>
+                        <td>\ 12,346,600</td>
+                        <td rowspan="2">금</td>
+                        <td rowspan="2">12</td>
+                        <td>GENERAL</td>
+                        <td>3</td>
+                      </tr>
+                      <tr>
+                        <td>주문 오더률</td>
+                        <td>29.92%</td>
+                        <td>WELCOME</td>
+                        <td>1</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="half2" style="width:48%;float:left;">
+                  <table class="tt" style="margin:20px;">
+                    <thead>
+                      <tr class="big_table">
+                        <th>구분</th>
+                        <th>1주차</th>
+                        <th>월별</th>
+                        <th>건수</th>
+                        <th>등급별</th>
+                        <th>건수</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td rowspan="2">견적건수</td>
+                        <td>65</td>
+                        <td rowspan="2">월</td>
+                        <td rowspan="2">11</td>
+                        <td>VVIP</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td>광고홍보물 25건, 기타독판 40건</td>
+                        <td>VIP</td>
+                        <td>1</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2">팀별건수</td>
+                        <td>1팀 : (23건), 2팀 : (10건)</td>
+                        <td rowspan="2">월</td>
+                        <td rowspan="2">14</td>
+                        <td>PLATINUM</td>
+                        <td>4</td>
+                      </tr>
+                      <tr>
+                        <td>3팀 : (8건), 4팀 : (3건)</td>
+                        <td>GOLD</td>
+                        <td>21</td>
+                      </tr>
+                      <tr>
+                        <td>견적금액</td>
+                        <td>\ 41,260,400</td>
+                        <td rowspan="2">수</td>
+                        <td rowspan="2">7</td>
+                        <td>GOLDLITE</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2">주문건수</td>
+                        <td>12건</td>
+                        <td>SILVER</td>
+                        <td>8</td>
+                      </tr>
+                      <tr>
+                        <td>광고홍보물 5건 기타독판 12건</td>
+                        <td rowspan="2">목</td>
+                        <td>10</td>
+                        <td>SILVERLITE</td>
+                        <td>1012</td>
+                      </tr>
+                      <tr>
+                        <td>건수 오더률</td>
+                        <td>30.91%</td>
+                        <td>10</td>
+                        <td>BRONZE</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>주문금액</td>
+                        <td>\ 12,346,600</td>
+                        <td rowspan="2">금</td>
+                        <td rowspan="2">12</td>
+                        <td>GENERAL</td>
+                        <td>3</td>
+                      </tr>
+                      <tr>
+                        <td>주문 오더률</td>
+                        <td>29.92%</td>
+                        <td>WELCOME</td>
+                        <td>1</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!--견적통계 끝-->
+          </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

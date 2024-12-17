@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>생산</title>
+<meta charset="utf-8">
+
+<!-- 기본 css -->
+<link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font-awesome.min.css">
+<link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font.css" type="text/css"  />
+<link rel="stylesheet" href="[TPH_Vdesign_dir]/css/guide.css" type="text/css"  />
+<link rel="stylesheet" href="[TPH_Vdesign_dir]/css/common.css" type="text/css"  />
+<link rel="stylesheet" href="[TPH_Vdesign_dir]/css/tab.css" type="text/css"  />
+<link rel="stylesheet" href="[TPH_Vdesign_dir]/css/basic_manager.css" type="text/css"  />
+<link rel="stylesheet" href="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.css">
+<link rel="stylesheet" href="[TPH_Vdesign_dir]/css/lightslider.css"/>
+
+<script type="text/javascript" src="[TPH_Vdesign_dir]/js/lib/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="[TPH_Vdesign_dir]/js/jquery.scrollUp.js"></script>
+<script type="text/javascript" src="[TPH_Vdesign_dir]/js/toggle.js"></script>
+<script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-tab.js"></script>
+<script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="[TPH_Vdesign_dir]/js/lib/lightslider.js"></script> 
+
+<!-- 공통 -->
+<script src="[TPH_Vdesign_dir]/js/common/common.js"></script>
+<!-- 생산공통 -->
+<script src="[TPH_Vdesign_dir]/js/common/manufacture_common.js"></script>
+<!-- 페이지별 js -->
+<script src="[TPH_Vdesign_dir]/js/manufacture/web_sheet_typset_regi_popup.js"></script>
+
+<script>
+$(function () {
+$.scrollUp({
+scrollName: 'scrollUp', // Element ID
+scrollDistance: 300, // Distance from top/bottom before showing element (px)
+scrollFrom: 'top', // 'top' or 'bottom'
+scrollSpeed: 300, // Speed back to top (ms)
+easingType: 'linear', // top easing (see http://easings.net/)
+animation: 'fade', // Fade, slide, none
+animationInSpeed: 200, // Animation in speed (ms)
+animationOutSpeed: 200, // Animation out speed (ms)
+scrollText: '<img src="[TPH_Vdesign_dir]/images/top.png">', // Text for element, can contain HTML
+scrollTitle: false, // Set a custom <a> title if required. Defaults to scrollText
+scrollImg: false, // Set true to use image
+activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+zIndex: 2147483647 // Z-Index for the overlay
+});
+});
+</script>
+</head>
+<body>
+<input type="hidden" id="order_common_seqno" value="[TPH_Vorder_common_seqno]">
+<div id="loading_img" style="display:none">
+  <img src='[TPH_Vdesign_dir]/images/loading.gif' style="position:absolute;z-index:9999999;top:30%; left:30%;" alt="로딩" />
+</div>
+<div id="black_mask" style="display:none;position:absolute;left:0;top:0;z-index:9998;background-color:#000;opacity:0.3;"></div>
+<div id="pop_mask" style="display:none;position:absolute;left:0;top:0;z-index:99998;background-color:#000;opacity:0.3;"></div>
+<div id="pop_pop_mask" style="display:none;position:absolute;left:0;top:0;z-index:999998;background-color:#000;opacity:0.3;"></div>
+<!--  onmousedown="startDrag(event, this)"-->
+<div id="pop_popup" style="display:none;position:absolute;z-index:99999;" class="pop_add_box"></div>
+<div id="regi_popup" style="display:none;position:absolute;z-index:9999;" class="pop_add_box"></div>
+
+<!-- 생산지시서 등록 책자형 -->
+<div class="pop_add_box fix_width1150">
+  <dl>
+  <dt class="tit">
+  <h4>조판등록 낱장형</h4>
+  </dt>
+  <dt class="cls">
+  <button type="button" class="btn btn-sm btn-danger fa fa-times" onclick="windowClose();"></button>
+  </dt>
+  </dl>
+  <div class="pop-base2">
+    <ul class="tab_box">
+      <li>
+      <a class="box">조판정보 ( [TPH_Vtypset_num] )</a>
+      </li>
+    </ul>
+
+    <div class="pop-content">
+      <div class="table-body">
+        <table class="table fix_width100f">
+        <thead>
+        <tr>
+          <th class="bm2px">채널</th>
+          <th class="bm2px">주문번호</th>
+          <th class="bm2px">회원명</th>
+          <th class="bm2px">인쇄제목</th>
+          <th class="bm2px">주문상세</th>
+          <th class="bm2px">판구분</th>
+          <th class="bm2px">수량</th>
+          <th class="bm2px">건수</th>
+          <!--th class="bm2px">관리</th-->
+        </tr>
+        </thead>
+        <tbody id="order_detail_list">
+        [TPH_Vlist]
+        </tbody>
+        </table>
+        <p class="p_num_p fs12">
+          Showing 1 to 5 of 30 entries
+          <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+            <option selected="selected">5</option>
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+          </select>
+        </p>
+        <div class="tac clear" id="order_detail_page">
+          [TPH_Vpaging]
+        </div>
+      </div>
+      <input type="hidden" id="typset_num" value="[TPH_Vtypset_num]">
+      <br /><br /><br />
+      <hr class="hr_bd3_b">
+
+      <!-- 상단 TAB UI -->
+      <ul class="nav nav-tabs mt25">
+        <li class="active"><a href="#stab2" data-toggle="tab" onclick="tabCtrl('typset');" id="tab2"> 조판 </a> </li>
+        <li><a href="#stab3" data-toggle="tab" onclick="tabCtrl('paper');" id="tab3"> 종이 </a> </li>
+        <li><a href="#stab4" data-toggle="tab" onclick="tabCtrl('output');" id="tab4"> 출력 </a> </li>
+        <li><a href="#stab5" data-toggle="tab" onclick="tabCtrl('print');" id="tab5"> 인쇄 </a> </li>
+        <li><a href="#stab6" data-toggle="tab" onclick="tabCtrl('after');" id="tab6"> 조판후공정 </a> </li>
+        <!--li><a href="#stab7" data-toggle="tab" onclick="tabCtrl('opt');" id="tab7"> 옵션 </a> </li-->
+        <li><a href="#stab8" data-toggle="tab" onclick="tabCtrl('produce');" id="tab8"> 조판확인 및 생산시작 </a></li>
+      </ul>
+      <!-- 상단 TAB UI -->
+
+      <!-- TAB 컨텐츠 -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="stab2">
+        </div>
+
+        <div class="tab-pane" id="stab3">
+          <!-- 종이 tab 03 -->
+          <div class="table-body">
+            <ul class="ofh">
+              <li class="fix_width440 fl">
+              <!--
+              <label class="control-label fix_width79 tar blue_text01">공정 </label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <label class="control-label cp">
+              <input type="radio" class="radio_box" name="paper_porcess_use_yn" value="Y">사용
+              </label>
+              <label class=" fix_width15"></label>
+              <label class="control-label cp">
+              <input type="radio" class="radio_box" name="paper_porcess_use_yn" value="N" checked="checked">사용안함
+              </label>
+              <br />
+              -->
+
+              <label class="control-label fix_width79 tar">종이명</label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <input type="text" class="input_co5 fix_width145" id="paper_name" value="" disabled>
+              <input type="hidden" id="paper_dvs">
+              <input type="hidden" id="paper_color">
+              <input type="hidden" id="paper_basisweight">
+              <br />
+
+              <label class="control-label fix_width79 tar">수주처</label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <input type="text" class="input_co5 fix_width145" id="paper_manu_name" value="" disabled>
+              <input type="hidden" id="paper_brand_seqno" value="" disabled>
+              <input type="hidden" id="paper_seqno" value="" disabled>
+              <br />
+
+              <label class="control-label fix_width79 tar">발주사이즈</label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <input type="text" class="input_co5 fix_width110" id="paper_affil" value="" disabled>
+              <input type="text" class="input_co5 fix_width55" id="paper_op_wid_size" value="" disabled> *
+              <input type="text" class="input_co5 fix_width55" id="paper_op_vert_size" value="" disabled>
+              <br />
+
+              <label class="control-label fix_width79 tar blue_text01">입고처</label><label class="fix_width20 fs14 tac">:</label>
+              <select class="fix_width150" id="storplace">
+                [TPH_Vprint_manu_html]
+              </select>
+              <br />
+
+              <label class="control-label fix_width79 tar blue_text01">입고사이즈</label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <select class="fix_width120" onchange="changeSubpaper(this.value);" id="paper_subpaper">
+              <option value="">절수(전체)</option>
+              <option value="1">전절</option>
+              <option value="2">2절</option>
+              <option value="4">4절</option>
+              <option value="8">8절</option>
+              <option value="16">16절</option>
+              <option value="32">32절</option>
+              </select>
+              <input type="text" class="input_co5 fix_width55" id="paper_stor_wid_size" value=""> *
+              <input type="text" class="input_co5 fix_width55" id="paper_stor_vert_size" value="">
+              <br />
+
+              <label class="control-label fix_width79 tar blue_text01">결 </label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <label class="control-label cp">
+              <input type="radio" class="radio_box" name="paper_grain" value="종목" checked>종목
+              </label>
+              <label class=" fix_width15"></label>
+              <label class="control-label cp">
+              <input type="radio" class="radio_box" name="paper_grain" value="횡목">횡목
+              </label>
+              <br />
+
+              <label class="control-label fix_width79 tar blue_text01">수량</label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <input type="text" class="input_co5 fix_width110" id="paper_amt" value="">
+              <select class="fix_width75" id="paper_amt_unit">
+              <option value="장">장</option>
+              <option value="R">R</option>
+              </select>
+              <br />
+
+              <label class="control-label fix_width79 tar blue_text01">발주메모</label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <textarea class="bs_noti2" id="paper_memo"></textarea>
+              <br />
+
+              </li>
+              <li  class="fix_width620 fl">
+              <div class="tab-content">
+                <!--ul class="nav nav-tabs">
+                  <li class="active"><a href="#stab_tit_1" data-toggle="tab"> 등록업체 리스트</a> </li>
+                </ul-->
+                <div class="tab-pane active" id="stab_tit_1">
+                  <select class="fix_width140" onchange="changeManuListCall('paper');" id="paper_extnl_etprs_seqno">
+                  [TPH_Vpaper_manu_html]
+                  </select>
+                  <select class="fix_width110" id="name" onchange="selectPaperName(); return false;">
+                  [TPH_Vpaper_opt]
+                  </select>
+                  <select class="fix_width105" id="dvs" onchange="selectPaperDvs(); return false;" disabled>
+                  <option value="">구분(전체)</option>
+                  </select>
+                  <select class="fix_width105" id="color" onchange="selectPaperColor(); return false;" disabled>
+                  <option value="">색상(전체)</option>
+                  </select>
+                  <select class="fix_width105" id="basisweight" onchange="cndSearch.info(''); return false;" disabled>
+                  <option value="">평량(전체)</option>
+                  </select>
+                  <div class="ofa fix_height325 mt15 mb15">
+                    <table class="table" style="width:870px;">
+
+                    <thead>
+                    <tr>
+                      <th class="bm2px">선택</th>
+                      <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('manu_name', this, 'paper');" class="blue_text01 sorting">제조사 <i class="fa fa-sort"></i></a></th>
+                      <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('brand_name', this, 'paper');" class="blue_text01 sorting">브랜드 <i class="fa fa-sort"></i></a></th>
+                      <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('paper_name', this, 'paper');" class="blue_text01 sorting">종이명 <i class="fa fa-sort"></i></a></th>
+                      <th class="bm2px">계열</th>
+                      <th class="bm2px">사이즈</th>
+                    </tr>
+                    </thead>
+                    <tbody id="paper_info_list">
+                    </tbody>
+                    </table>
+                  </div>
+                  <hr class="hr_bd3">
+                  <label class="btn btn_md fix_width55" onclick="getPaper();">적용</label>
+                </div>
+              </div>
+              </li>
+            </ul>
+            <hr class="hr_bd3_b">
+            <p class="btn-lg red_btn ctrl_btn" style="display:none;">
+            <a style="cursor: pointer;" onclick="paperFn.ord(); return false;">발주서 등록/수정</a>
+            </p>
+            <br /><br /><br />
+
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#stab_list_tit" data-toggle="tab"> 종이발주 리스트 </a> </li>
+            </ul>
+
+            <table class="table fix_width100f">
+            <thead>
+            <tr>
+              <th class="bm2px"><input type="checkbox" id="allCheck" onclick="allCheck();"></th>
+              <th class="bm2px">발주번호</th>
+              <th class="bm2px">종이명</th>
+              <th class="bm2px">입고사이즈</th>
+              <th class="bm2px">결</th>
+              <th class="bm2px">수량</th>
+              <th class="bm2px">종이제조사</th>
+              <th class="bm2px">발주자</th>
+              <th class="bm2px">발주일</th>
+              <th class="bm2px">입고처</th>
+              <th class="bm2px">상태</th>
+              <th class="bm2px">메모</th>
+              <th class="bm2px" style="width:85px;">관리</th>
+            </tr>
+            </thead>
+            <tbody id="list">
+              <tr><td colspan="13">검색 된 발주서가 없습니다.</td></tr>
+            </tbody>
+            </table>
+            <label class="btn btn_md ctrl_btn" style="display:none;" onclick="getPaperOpPrint();">
+            <i class="fa fa-print"></i> 종이 발주서 인쇄
+            </label>
+            <p class="btn-lg red_btn clear ctrl_btn" style="display:none;">
+            <a style="cursor: pointer;" onclick="paperOp();">발주</a>
+            </p>
+
+            <br /><br /><br />
+          </div>
+          <!-- table-body -->
+        </div>
+
+        <div class="tab-pane" id="stab4">
+          <!-- 출력 tab 04 -->
+          <div class="table-body">
+            <ul class="ofh">
+              <li class="fix_width440 fl" id="output_view">
+              </li>
+              <li  class="fix_width620 fl">
+              <div class="ofa fix_height325 mt15 mb15">
+                <table class="table fix_width100f ">
+                <thead>
+                <tr>
+                  <th class="bm2px">선택</th>
+                  <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('manu_name', this, 'output');" class="blue_text01 sorting">제조사 <i class="fa fa-sort"></i></a></th>
+                  <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('brand_name', this, 'output');" class="blue_text01 sorting">브랜드 <i class="fa fa-sort"></i></a></th>
+                  <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('output_name', this, 'output');" class="blue_text01 sorting">출력명 <i class="fa fa-sort"></i></a></th>
+                  <th class="bm2px">계열</th>
+                  <th class="bm2px">사이즈</th>
+                  <th class="bm2px">판</th>
+                </tr>
+                </thead>
+                <tbody id="output_info_list">
+                </tbody>
+                </table>
+              </div>
+              <hr class="hr_bd3">
+              <label class="btn btn_md fix_width55" onclick="getOutput();">적용</label>
+              </li>
+            </ul>
+            <hr class="hr_bd3_b">
+            <p class="btn-lg red_btn clear ctrl_btn" style="display:none;">
+            <a style="cursor: pointer;" onclick="outputFn.op();">수정</a>
+            </p>
+
+            <br /><br /><br />
+          </div>
+          <!-- table-body -->
+        </div>
+
+        <div class="tab-pane" id="stab5">
+          <!-- 인쇄 tab 05 -->
+
+          <div class="table-body">
+
+            <ul class="ofh">
+              <li class="fix_width440 fl" id="print_view">
+              </li>
+
+              <li  class="fix_width620 fl">
+              <select class="fix_width150" id="print_extnl_etprs_seqno"  onchange="changeManuListCall('print');">
+              [TPH_Vprint_manu_html2]
+              </select>
+              <div class="ofa fix_height325 mt15 mb15">
+                <table class="table fix_width100f ">
+                <thead>
+                <tr>
+                  <th class="bm2px">선택</th>
+                  <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('manu_name', this, 'print');" class="blue_text01 sorting">제조사 <i class="fa fa-sort"></i></a></th>
+                  <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('brand_name', this, 'print');" class="blue_text01 sorting">브랜드 <i class="fa fa-sort"></i></a></th>
+                  <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('print_name', this, 'print');" class="blue_text01 sorting">인쇄명 <i class="fa fa-sort"></i></a></th>
+                  <th class="bm2px">계열</th>
+                  <th class="bm2px">사이즈</th>
+                </tr>
+                </thead>
+                <tbody id="print_info_list">
+                </tbody>
+                </table>
+              </div>
+              <hr class="hr_bd3">
+              <label class="btn btn_md fix_width55" onclick="getPrint();">적용</label>
+              </li>
+            </ul>
+
+            <hr class="hr_bd3_b">
+            <p class="btn-lg red_btn clear ctrl_btn" style="display:none;">
+            <a style="cursor: pointer;" onclick="printFn.op();">수정</a>
+            </p>
+            <br /><br /><br />
+
+          </div>
+          <!-- table-body -->
+        </div>
+
+        <div class="tab-pane" id="stab6">
+          <!-- 후공정 tab 06 -->
+          <div class="table-body">
+            <ul class="ofh">
+              <li class="fix_width440 fl">
+              <label class="control-label fix_width79 tar">후공정명</label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <input type="text" class="input_co5 fix_width150" id="after_name" value="" disabled>
+              <br />
+
+              <label class="control-label fix_width79 tar">Depth</label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <input type="text" class="input_co5 fix_width75" id="after_depth1" value="" disabled>
+              <input type="text" class="input_co5 fix_width75" id="after_depth2" value="" disabled>
+              <input type="text" class="input_co5 fix_width75" id="after_depth3" value="" disabled>
+              <br />
+
+              <label class="control-label fix_width79 tar">수주처</label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <input type="text" class="input_co5 fix_width150" id="after_manu_name" value="" disabled>
+              <input type="hidden" id="after_extnl_brand_seqno">
+              <input type="hidden" id="basic_after_op_seqno">
+              <br />
+
+              <label class="control-label fix_width79 tar">수량</label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <input type="text" class="input_co5 fix_width110" id="after_amt" value="">
+              <label class="fs14 tac">장</label>
+              <br />
+
+              <label class="control-label fix_width79 tar blue_text01">후공정메모</label>
+              <label class="fix_width20 fs14 tac">:</label>
+              <textarea class="bs_noti2" id="after_memo"> </textarea>
+              <br />
+
+              </li>
+              <li  class="fix_width620 fl">
+              <select class="fix_width150" onchange="changeManuListCall('after');" id="after_extnl_etprs_seqno">
+              [TPH_Vafter_manu_html]
+              </select>
+              <div class="ofa fix_height325 mt15 mb15">
+                <table class="table fix_width100f ">
+                <thead>
+                <tr>
+                  <th class="bm2px">선택</th>
+                  <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('manu_name', this, 'after');" class="blue_text01 sorting">제조사 <i class="fa fa-sort"></i></a></th>
+                  <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('brand_name', this, 'after');" class="blue_text01 sorting">브랜드 <i class="fa fa-sort"></i></a></th>
+                  <th class="bm2px"><a style="cursor: pointer;" onclick="sortList('after_name', this, 'after');" class="blue_text01 sorting">후공정명 <i class="fa fa-sort"></i></a></th>
+                  <th class="bm2px">Depth1</th>
+                  <th class="bm2px">Depth2</th>
+                  <th class="bm2px">Depth3</th>
+                </tr>
+                </thead>
+                <tbody id="after_info_list">
+                </tbody>
+                </table>
+              </div>
+              <hr class="hr_bd3">
+              <label class="btn btn_md fix_width55" onclick="getAfter();">적용</label>
+              </li>
+            </ul>
+            <hr class="hr_bd3_b">
+            <label class="control-label">
+            <p class="btn-lg red_btn ctrl_btn" style="display:none;">
+            <a style="cursor: pointer;" onclick="afterFn.op();">수정</a>
+            </p>
+            </label>
+            <br /><br /><br />
+
+            <ul class="nav nav-tabs">
+              <li class="active">
+              <a href="#stab_list_tit" data-toggle="tab"> 조판후공정 리스트 </a>
+              </li>
+            </ul>
+
+            <table class="table fix_width100f">
+            <thead>
+            <tr>
+              <th class="bm2px">후공정명</th>
+              <th class="bm2px">depth1</th>
+              <th class="bm2px">depth2</th>
+              <th class="bm2px">depth3</th>
+              <th class="bm2px">수량</th>
+              <th class="bm2px">후공정업체</th>
+              <th class="bm2px">관리</th>
+            </tr>
+            </thead>
+            <tbody id="basic_after_list">
+              <tr><td colspan="7">검색된 내용이 없습니다.</td></tr>
+            </tbody>
+            </table>
+            <br /><br /><br />
+          </div>
+          <!-- table-body -->
+        </div>
+
+        <div class="tab-pane" id="stab7">
+          <!-- 옵션 tab 07 -->
+          <div class="table-body">
+            <table class="table fix_width100f">
+            <thead>
+            <tr>
+              <th class="bm2px">선택</th>
+              <th class="bm2px">옵션명</th>
+              <th class="bm2px">Depth1</th>
+              <th class="bm2px">Depth2</th>
+              <th class="bm2px">Depth3</th>
+              <th class="bm2px">수량</th>
+              <th class="bm2px">단위</th>
+            </tr>
+            </thead>
+            <tbody id="opt_info_list">
+            </tbody>
+            </table>
+
+            <p class="btn-lg red_btn ctrl_btn" style="display:none;">
+            <a style="cursor: pointer;" onclick="regiOptDirections();">추가 및 수정</a>
+            </p>
+            <br /><br /><br />
+
+            <ul class="nav nav-tabs">
+              <li class="active">
+              <a href="#stab_list_tit" data-toggle="tab"> 옵션지시서 리스트 </a>
+              </li>
+            </ul>
+
+            <table class="table fix_width100f">
+            <thead>
+            <tr>
+              <th class="bm2px">옵션명</th>
+              <th class="bm2px">Depth1</th>
+              <th class="bm2px">Depth2</th>
+              <th class="bm2px">Depth3</th>
+              <th class="bm2px">수량</th>
+              <th class="bm2px">단위</th>
+              <th class="bm2px">관리</th>
+            </tr>
+            </thead>
+            <tbody id="opt_directions_list">
+            </tbody>
+            </table>
+            <br /><br /><br />
+          </div>
+          <!-- table-body -->
+        </div>
+        <div class="tab-pane" id="stab8">
+          <div class="table-body3">
+            <table class="table fix_width100f">
+            <thead>
+            <tr>
+              <th>공정</th>
+              <th>공정여부</th>
+              <th>저장여부</th>
+              <th>조판파일저장여부</th>
+            </tr>
+            </thead>
+            <tbody id="produce_list">
+            </tbody>
+            </table>
+            <button type="button" class="btn btn-sm btn-primary fix_width150 ctrl_btn" style="display:none;" onclick="produceFn.start();">생산시작</button>
+          </div>
+        </div>
+      </div>
+      <!--TAB 컨텐츠 -->
+    </div>
+    <!-- pop-content -->
+  </div>
+  <!-- pop-base -->
+</div>
+<!-- 지시서 등록 팝업창 -->
+</body>
+</html>

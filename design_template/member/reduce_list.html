@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+
+<body>
+
+<div id="container">
+    	
+       <!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+
+	   <!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+
+       <!-- CONTENT --> 
+       <section id="page-content">
+			<!-- 본문 컨텐츠  시작-->
+            <div class="content_container content_container_reduce_list">
+                <!--메인상단 왼쪽 레이아웃-->
+                <div id="left_content" class="left_content">
+                    <!--타이틀 시작-->
+                    <div class="title">
+                        [TPH_I/common/history.html]
+                    </div>
+                    <!--타이틀 끝-->
+                    <!--기본 검색정보 시작-->
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <!-- 탭 박스 1 기본검색 -->
+                            <div class="">
+                                <ul class="tab_box mt25">
+								</ul>
+								<form>
+									<div class="tab_box_con">
+										<div class="form-group">
+											<label class="lable_member_common_left">판매채널</label>
+											<select class="fix_width180" id="sell_site">
+												[TPH_Vsell_site_html]
+											</select>
+											<!-- 검색버튼 -->
+                                            <div class="div_search_btn_align">
+                                                <button type="button" class="btn_Turquoise01"
+                                                    onclick="searchMember();">검색</button>
+                                            </div>
+										</div>
+										<div class="form-group">
+											<label class="lable_member_common_left">일자별 검색</label>
+											[TPH_Vdatepicker_html]
+										</div>
+										<div class="form-group">
+											<label class="lable_member_common_left">회원명</label>
+											<input type="text" class="input_co2" style="width:173px;" onkeydown="searchOfficeNick(event, this.value, '');" placeholder="검색창 팝업 사용" id="office_nick">
+                          					<input type="hidden" id="member_seqno">
+										</div>
+										<div class="form-group">
+											<label class="lable_member_common_left">구분</label>
+											<select class="fix_width180" id="withdraw_dvs">
+												<option value="">구분(전체)</option>
+												<option value="탈퇴대기/휴면">탈퇴대기/휴면</option>
+												<option value="본인탈퇴">본인탈퇴</option>										
+												<option value="강제탈퇴">강제탈퇴</option>												
+											 </select>
+										</div>
+									</div>
+								</form>
+                            </div>
+                        </div>
+                    </section>
+                    <!--기본검색정보 끝-->
+
+                    <section class="content_section">
+						<div class="content_wrapper">
+							<div class="tb_group2 mt25">
+								<div class="">
+									<ul class="table_top">
+										<li class="float_left">
+											<label class="" id="member_total"></label>
+										</li>
+										<li class="float_right">
+											<button type="button" class="btn_yellow h_26" onclick="restoreMember();">복원</button>
+											<button type="button" class="btn_yellow h_26" onclick="reduceMember();">영구 탈퇴</button>
+										</li>
+									</ul>
+									<div class="table_basic">
+													<table class="fix_width100f">
+											<thead>
+															<tr>
+																<th class="bm2px"><input type="checkbox" class="check_box" id="allCheck" onclick="allCheck();"></t:>
+																<th class="bm2px">구분</th>
+																<th class="bm2px"><a style="cursor: pointer;" onclick="sortList('office_nick', this);" class="blue_text01 sorting">회원명 <i class="fa fa-sort"></i></a></th>
+																<th class="bm2px">선입금</th>
+																<th class="bm2px">사유</th>
+																<th class="bm2px">등록일</th>
+																<th class="bm2px">상세보기</th>
+															</tr>
+														</thead>
+														<tbody id="member_list">	
+														</tbody>
+													</table>
+													<p class="p_num_b fs12">
+														Showing 1 to 5 of 30 entries
+														<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+															<option>5</option>
+															<option>10</option>
+															<option>20</option>
+														<option selected="selected">30</option>
+														</select>
+													</p>
+													<div class="tac clear" id="member_page">
+												</div>
+										</div>
+								</div>
+							</div>
+
+							<!-- 정리회원 VIEW 박스 TAB -->
+							<div class="tb_group" id="member_info"></div>
+						</div>
+                    </section>
+                </div>
+            </div>
+            
+       </section>
+</div>
+</body>
+</html>

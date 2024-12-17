@@ -1,0 +1,140 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/manufacture/typset_mng/TypsetListDAO.inc");
+include_once(INC_PATH . '/com/nexmotion/common/util/pageLib.inc');
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$dao = new TypsetListDAO();
+
+$typset_num = $fb->form("typset_num");
+$state_arr = $fb->session("state_arr");
+
+$param = array();
+$param["table"] = "sheet_typset";
+$param["col"] = "sheet_typset_seqno";
+$param["where"]["typset_num"] = $typset_num;
+
+$sheet_typset_seqno = $dao->selectData($conn, $param)->fields["sheet_typset_seqno"];
+
+$scrnum = 5;
+$list_num = 5;
+$page = 1;
+$s_num = $list_num * ($page-1);
+
+$param = array();
+$param["s_num"] = $s_num;
+$param["list_num"] = $list_num;
+$param["sheet_typset_seqno"] = $sheet_typset_seqno;
+$param["dvs"] = "SEQ";
+
+$rs = $dao->selectSheetTypsetOrderList($conn, $param);
+
+$param["dvs"] = "COUNT";
+$count_rs = $dao->selectSheetTypsetOrderList($conn, $param);
+$rsCount = $count_rs->fields["cnt"];
+$param["cnt"] = $rsCount;
+
+$list = makeSheetTypsetOrderListHtml($rs, $param);
+$paging = mkDotAjaxPage($rsCount, $page, $scrnum, $list_num, "movePage");
+
+$template->reg("list" , $list); 
+$template->reg("paging" , $paging); 
+
+$option_html = "<option value=\"%s\">%s</option>";
+
+//인쇄소
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,manu_name";
+$param["where"]["pur_prdt"] = "인쇄";
+
+$rs = $dao->selectData($conn, $param);
+while ($rs && !$rs->EOF) {
+
+    $print_manu_html .= sprintf($option_html
+            , $rs->fields["extnl_etprs_seqno"]
+            , $rs->fields["manu_name"]);
+
+    $rs->moveNext();
+}
+
+$template->reg("print_manu_html" , $print_manu_html);
+
+//제조사 종이
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,manu_name";
+$param["where"]["pur_prdt"] = "종이";
+
+$rs = $dao->selectData($conn, $param);
+$paper_manu_html = "<option value=\"\">종이제조사(전체)</option>";
+while ($rs && !$rs->EOF) {
+
+    $paper_manu_html .= sprintf($option_html
+            , $rs->fields["extnl_etprs_seqno"]
+            , $rs->fields["manu_name"]);
+
+    $rs->moveNext();
+}
+
+$template->reg("paper_manu_html" , $paper_manu_html);
+
+//기본검색정보 : 종이종류
+$paper_rs = $dao->selectPaperName($conn);
+$paper_opt = "<option value=\"\">종이명(전체)</option>";
+while ($paper_rs && !$paper_rs->EOF) {
+    $paper_opt .= "<option value=\"". $paper_rs->fields["name"] ."\">" . $paper_rs->fields["name"] . "</option>";
+    $paper_rs->moveNext();
+}
+$template->reg("paper_opt", $paper_opt);
+
+//제조사 인쇄
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,manu_name";
+$param["where"]["pur_prdt"] = "인쇄";
+
+$rs = $dao->selectData($conn, $param);
+$print_manu_html = "<option value=\"\">인쇄소(전체)</option>";
+while ($rs && !$rs->EOF) {
+
+    $print_manu_html .= sprintf($option_html
+            , $rs->fields["extnl_etprs_seqno"]
+            , $rs->fields["manu_name"]);
+
+    $rs->moveNext();
+}
+
+$template->reg("print_manu_html2" , $print_manu_html);
+
+//제조사 후공정
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,manu_name";
+$param["where"]["pur_prdt"] = "후공정";
+
+$rs = $dao->selectData($conn, $param);
+$after_manu_html = "<option value=\"\">후공정업체(전체)</option>";
+while ($rs && !$rs->EOF) {
+
+    $after_manu_html .= sprintf($option_html
+            , $rs->fields["extnl_etprs_seqno"]
+            , $rs->fields["manu_name"]);
+
+    $rs->moveNext();
+}
+
+$template->reg("after_manu_html" , $after_manu_html);
+
+$template->reg("typset_num" , $typset_num); 
+$template->reg("design_dir" , "/design_template"); 
+$template->htmlPrint($_SERVER["PHP_SELF"]); 
+$conn->close();
+?>

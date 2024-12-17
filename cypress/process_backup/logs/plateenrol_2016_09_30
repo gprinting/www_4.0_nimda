@@ -1,0 +1,309 @@
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 09:08:05', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NC160930001', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 10:42:22', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NGC160930001', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 10:42:26', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NGC160930001', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (op_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, detail, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 10:42:34', 'test', '2410', NULL, NULL, NULL, NULL, NULL, 'NGC160930001', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (cate_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 10:45:36', 'test', '2410', NULL, NULL, NULL, NULL, 'NGC160930001', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (cate_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 10:46:08', 'test', '2410', NULL, NULL, NULL, NULL, 'NGC160930001', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (cate_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 10:46:17', 'test', '2410', NULL, NULL, NULL, NULL, 'NGC160930001', 'Y')
+-----------------------------------
+-----------------------------------
+3
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (cate_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 10:56:11', 'test', '2410', NULL, NULL, NULL, NULL, 'NGC160930001', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (cate_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 17:59:28', 'test', '2410', NULL, NULL, NULL, NULL, 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (cate_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 17:59:37', 'test', '2410', NULL, NULL, NULL, NULL, 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (cate_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 18:00:53', 'test', '2410', NULL, NULL, NULL, NULL, 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (cate_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 18:01:42', 'test', '2410', NULL, NULL, NULL, NULL, 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 18:02:48SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (cate_name, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 18:02:48', 'test', '2410', NULL, NULL, NULL, NULL, 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 18:05:30SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> FAILED
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [FAILED]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE (NULL, NULL, '1', NULL, NULL, NULL, NULL, '자동발주', '자동생성', '2016-09-30 18:05:30', 'test', '2410', NULL, NULL, NULL, NULL, 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 18:09:11SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('', '1', '', '', '', NULL, '자동발주', '자동생성', '2016-09-30 18:09:11', 'test', '2410', '', '', '', '', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 18:10:38SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('', '1', '', '', '', NULL, '자동발주', '자동생성', '2016-09-30 18:10:38', 'test', '2410', '', '', '', '', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 18:14:24SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('', '1', '', '', '', NULL, '자동발주', '자동생성', '2016-09-30 18:14:24', 'test', '2410', '', '', '', '', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 18:15:37SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '9500', '장', NULL, '자동발주', '자동생성', '2016-09-30 18:15:37', 'test', '2410', '기본재단', '-', '-', '', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 18:17:04SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '9500', '장', NULL, '자동발주', '자동생성', '2016-09-30 18:17:04', 'test', '2410', '기본재단', '-', '-', '34', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-09-30 18:17:04', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 18:19:11SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '9500', '장', NULL, '자동발주', '자동생성', '2016-09-30 18:19:11', 'test', '2410', '기본재단', '-', '-', '34', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-09-30 18:19:11', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 18:23:42SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '9500', '장', NULL, '자동발주', '자동생성', '2016-09-30 18:23:42', 'test', '2410', '기본재단', '-', '-', '34', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-09-30 18:23:42', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 18:34:32SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '9500', '장', NULL, '자동발주', '자동생성', '2016-09-30 18:34:32', 'test', '2410', '기본재단', '-', '-', '34', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-09-30 18:34:32', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC160930046', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 20:36:46SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '9500', '장', NULL, '자동발주', '자동생성', '2016-09-30 20:36:46', 'test', '2410', '기본재단', '-', '-', '34', 'NGC160930047', 'Y')
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-09-30 20:36:46', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC160930047', 'Y')
+-----------------------------------
+-----------------------------------
+22
+-----------------------------------
+-----------------------------------
+2016-09-30 21:27:02SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '9500', '장', NULL, '자동발주', '자동생성', '2016-09-30 21:27:02', 'test', '2410', '기본재단', '-', '-', '34', 'NGC160930048', 'Y')
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-09-30 21:27:02', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC160930048', 'Y')
+-----------------------------------
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT160930NC0005601' LIMIT 1
+-----------------------------------
+-----------------------------------
+24
+-----------------------------------
+-----------------------------------
+2016-09-30 22:01:12SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '24' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '9500', '장', NULL, '자동발주', '자동생성', '2016-09-30 22:01:12', 'test', '2410', '기본재단', '-', '-', '34', 'NGC160930050', 'Y')
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-09-30 22:01:12', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC160930050', 'Y')
+-----------------------------------
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT160930NC0008401' LIMIT 1
+-----------------------------------
+-----------------------------------
+24
+-----------------------------------
+-----------------------------------
+2016-09-30 22:06:14SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '24' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+-----------------------------------
+2016-09-30 -> Array
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '재단', '9500', '장', NULL, '자동발주', '자동생성', '2016-09-30 22:06:14', 'test', '2410', '기본재단', '-', '-', '34', 'NGC160930051', 'Y')
+-----------------------------------
+-----------------------------------
+2016-09-30 -> [Array]INSERT INTO basic_after_op (cate_sortcode, seq, after_name, amt, amt_unit, memo, op_typ, op_typ_detail, regi_date, orderer, state, depth1, depth2, depth3, extnl_brand_seqno, typset_num, flattyp_dvs) VALUE ('001001001', '1', '코팅', '200', '장', NULL, '자동발주', '자동생성', '2016-09-30 22:06:14', 'test', '2410', '기본코팅', '-', '-', '33', 'NGC160930051', 'Y')
+-----------------------------------

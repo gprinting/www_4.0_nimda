@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<title>[TPH_Vmain_title]</title>
+	<meta charset="utf-8">
+	[TPH_I/common/common.html]
+</head>
+
+<body>
+
+	<div id="container">
+
+		<!-- TOP NAVIGATION -->
+		[TPH_I/common/header.html]
+
+		<!-- LEFT NAVIGATION -->
+		[TPH_Vleft]
+
+		<!-- CONTENT -->
+		<section id="page-content">
+			<!-- 본문 컨텐츠  시작-->
+            <div class="content_container content_container_quiescence_list">
+                <!--메인상단 왼쪽 레이아웃-->
+                <div id="left_content" class="left_content">
+                    <!--타이틀 시작-->
+                    <div class="title">
+                        [TPH_I/common/history.html]
+                    </div>
+                    <!--타이틀 끝-->
+                    <!--기본 검색정보 시작-->
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <!-- 탭 박스 1 기본검색 -->
+                            <div class="">
+                                <ul class="tab_box mt25">
+								</ul>
+								<form>
+									<div class="tab_box_con">
+										<div class="form-group">
+											<label class="lable_member_common_left">판매채널</label>
+											<select class="fix_width180" id="sell_site">
+												[TPH_Vsell_site_html]
+											</select>
+											<!-- 검색버튼 -->
+                                            <div class="div_search_btn_align">
+                                                <button type="button" class="btn_Turquoise01"
+                                                    onclick="searchMember();">검색</button>
+                                            </div>
+										</div>
+										<div class="form-group">
+											<label class="lable_member_common_left">일자별 검색</label>
+											[TPH_Vdatepicker_html]
+										</div>
+									</div>
+								</form>
+                            </div>
+                        </div>
+                    </section>
+                    <!--기본검색정보 끝-->
+
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <!-- 검색결과 TABle -->
+                            <!-- 탭 박스 5 TAB -->
+							<div class="tb_group2 mt25">
+								<div class="">
+									<ul class="table_top">
+										<li class="float_left">
+											<label class="" id="member_total"></label>
+											<label class="fix_width20"></label>
+										</li>
+										<li class="float_right">
+											<label for="search" class="con_label">Search(회원명) : <input id="search" type="text"
+													class="search_btn fix_width180" onkeydown="searchKey(event, this.value);"><button
+													type="button" class="btn btn-sm btn-info fa fa-search"
+													onclick="searchText();"></button></label>
+										</li>
+									</ul>
+									<div class="div_table_container">
+										<table class="table_member_common_list">
+											<thead>
+												<tr>
+													<th class="bm2px"><input type="checkbox" class="check_box" id="allCheck"
+															onclick="allCheck();"></t:>
+													<th class="bm2px"><a style="cursor: pointer;"
+															onclick="sortList('member_name', this);" class="blue_text01 sorting">회원명 <i
+																class="fa fa-sort"></i></a></th>
+													<th class="bm2px">최근접속일</th>
+													<th class="bm2px">포인트</th>
+													<th class="bm2px">쿠폰</th>
+													<th class="bm2px">선입금</th>
+													<th class="bm2px">전화번호</th>
+													<th class="bm2px">이메일</th>
+													<th class="bm2px">휴대폰</th>
+													<th class="bm2px">상세보기</th>
+												</tr>
+											</thead>
+											<tbody id="member_list">
+											</tbody>
+										</table>
+										<p class="p_num_b fs12">
+											Showing 1 to 5 of 30 entries
+											<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+												<option>5</option>
+												<option>10</option>
+												<option>20</option>
+												<option selected="selected">30</option>
+											</select>
+										</p>
+										<div class="tac clear" id="member_page">
+										</div>
+									</div>
+								</div>
+
+								<!-- 버튼 -->
+								<div style="text-align:center;">
+									<button class="orange" style="width:130px;height:36px;" onclick="quiescenceProc();">휴면처리</button>
+								</div>
+							</div>
+                        </div>
+                    </section>
+
+                    <form name="frm" id="frm">
+						<input type="hidden" id="seqno" name="seqno">
+					</form>
+                </div>
+            </div>
+		</section>
+	</div>
+</body>
+
+</html>

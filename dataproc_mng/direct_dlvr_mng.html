@@ -1,0 +1,34 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/dataproc_mng/set/MtraDscrMngDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$mtraDAO = new MtraDscrMngDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $mtraDAO;
+
+// 카테고리 대분류 검색
+$direct_dlvr_html = $mtraDAO->selectDirectDlvrList($conn);
+$template->reg("direct_dlvr_html" , $direct_dlvr_html);
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "dataproc_mng"; //전산관리
+$left = "set"; //레프트 메뉴
+$left_sub = "direct_dlvr_mng"; //레프트하위 메뉴, script 주소
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

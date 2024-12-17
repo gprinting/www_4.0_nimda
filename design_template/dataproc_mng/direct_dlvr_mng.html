@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>전산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+<div id="container">
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_list1" onclick="tabCtrl('paper', '1', '3');" data-toggle="tab"> 직배차량관리 </a> </li>
+                            <li><a href="#tab_list2" onclick="tabCtrl('after', '1', '3');" data-toggle="tab"> 직배통합리스트 </a> </li>
+                        </ul>
+                        <div class="tab-content">
+                            <!-- 탭 박스 종이 -->
+                            <div class="tab-pane active" id="tab_list1">
+                                <table class="table_search_layout">
+                                    <tr>
+                                        <th class="th_text th_basic_prdt_price_01">고정금액</th>
+                                        <td>
+                                            <label class="check_box_wrapper_prdt_price" style="width: 60px;">
+                                                <input type="radio" name="method" value="static" class="checkbox_method" onclick="clickRadio(this.value);"> 사용
+                                            </label>
+                                            <label class="check_box_wrapper_prdt_price">
+                                                <input type="radio" name="method" value="dynamic" class="checkbox_method" onclick="clickRadio(this.value);"> 건당 비용 설정
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text th_basic_prdt_price_01">차량선택</th>
+                                        <td>
+                                            <select id="cate_top" onchange="loadDirectDlvrDetail(this.value);" style="width: 192px;" class="select_basic_prdt_price_01">
+                                                [TPH_Vdirect_dlvr_html]
+                                            </select>
+                                            <button onclick="popDlvrDscr('');" style="width: 80px;" class="btn btn_pu fix_width180 fix_height30 bgreen fs12">차량등록</button>
+                                        </td>
+                                        <th class="th_text th_basic_prdt_price_01">담당자명</th>
+                                        <td>
+                                            <input id="mng" type="text" class="search_btn fix_width180">
+                                        </td>
+                                        <th class="th_text th_basic_prdt_price_01">차량이름</th>
+                                        <td>
+                                            <input id="vehi_num" type="text" class="search_btn fix_width180">
+                                        </td>
+                                        <th class="th_text th_basic_prdt_price_01">차량번호</th>
+                                        <td>
+                                            <input id="car_number" type="text" class="search_btn fix_width180">
+                                        </td>
+                                    </tr>
+                                    <tr style="vertical-align: baseline;">
+                                        <th class="th_text th_basic_prdt_price_01">고정비 등록</th>
+                                        <td>
+                                            <div id="cost_static_area" style="display: none;" >
+                                                <input id="cost_static" type="text" class="search_btn fix_width180">
+                                            </div>
+                                            <div id="cost_dynamic_area" style="display: grid;" >
+                                                <div>
+                                                    <input id="cost_dynamic1_area" type="text" class="search_btn fix_width180">
+                                                    <input id="cost_dynamic1" type="text" class="search_btn fix_width100">
+                                                    <button type="button" class="blue_text01 btn btn-xs btn-default fa fa-plus" onclick="addCase();"> 추가</button>
+                                                </div>
+                                                <div style="margin-top:5px;">
+                                                    <input id="cost_dynamic2_area" type="text" class="search_btn fix_width180">
+                                                    <input id="cost_dynamic2" type="text" class="search_btn fix_width100">
+                                                </div>
+                                                <div style="margin-top:5px;">
+                                                    <input id="cost_dynamic3_area" type="text" class="search_btn fix_width180">
+                                                    <input id="cost_dynamic3" type="text" class="search_btn fix_width100">
+                                                </div>
+                                                <div style="margin-top:5px;">
+                                                    <input id="cost_dynamic4_area" type="text" class="search_btn fix_width180">
+                                                    <input id="cost_dynamic4" type="text" class="search_btn fix_width100">
+                                                </div>
+                                                <div style="margin-top:5px;">
+                                                    <input id="cost_dynamic5_area" type="text" class="search_btn fix_width180">
+                                                    <input id="cost_dynamic5" type="text" class="search_btn fix_width100">
+                                                </div>
+                                                <div style="margin-top:5px;">
+                                                    <input id="cost_dynamic6_area" type="text" class="search_btn fix_width180">
+                                                    <input id="cost_dynamic6" type="text" class="search_btn fix_width100">
+                                                </div>
+                                                <div style="margin-top:5px;">
+                                                    <input id="cost_dynamic7_area" type="text" class="search_btn fix_width180">
+                                                    <input id="cost_dynamic7" type="text" class="search_btn fix_width100">
+                                                </div>
+                                                <div style="margin-top:5px;">
+                                                    <input id="cost_dynamic8_area" type="text" class="search_btn fix_width180">
+                                                    <input id="cost_dynamic8" type="text" class="search_btn fix_width100">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <th class="th_text th_basic_prdt_price_01">등록일자</th>
+                                        <td>
+                                            <input type="text" class="datepicker_input input_settle_mng_02" readonly="readonly" id="insert_date">
+                                        </td>
+                                        <th class="th_text th_basic_prdt_price_01">운영현황</th>
+                                        <td>
+                                            <select id="is_using" style="width: 192px;" class="select_basic_prdt_price_01">
+                                                <option value="Y">운영중</option>
+                                                <option value="N">폐선</option>
+                                            </select>
+                                        </td>
+                                        <th class="th_text th_basic_prdt_price_01">배송지역</th>
+                                        <td>
+                                            <input id="dlvr_area" type="text" class="search_btn fix_width180">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <section class="content_section" style="margin-top:50px;">
+                                    <div class="content_wrapper">
+                                        <div id="banner_contents">
+                                            [TPH_Vbanner_contents]
+                                        </div>
+                                        <!-- 상세검색버튼 -->
+                                        <div class="btn_wrapper center">
+                                            <input type="hidden" id="set_seqno" value="[TPH_Vset_seqno]">
+                                            <button class="btn btn_blue btn_large co_blue fs12" onclick="apply();">저장</button>&nbsp;
+                                            <button class="btn btn_red btn_large co_blue fs12" onclick="init();">확인</button>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <!-- 탭 박스 후공정 -->
+                            <div class="tab-pane" id="tab_list2">
+                                <table class="table_search_layout">
+                                    <tr>
+                                        <th class="th_text th_basic_paper_mng_01">차량구분</th>
+                                        <td colspan="8">
+                                            <select onchange="loadPaperBrand(event, '', '', 'Y')" id="manu_name" class="select_basic_paper_mng_01">
+                                                <option value="">전체</option>
+                                                [TPH_Vdirect_dlvr_html]
+                                            </select>
+                                            <button type="button" class="btn_float_right btn_Turquoise01"
+                                                    onclick="searchProcess(30, 1);">
+                                                검색
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text th_basic_paper_mng_01">배송상태</th>
+                                        <td>
+                                            <select id="brand_name" class="select_basic_paper_mng_01" onchange="loadPaperName();">
+                                                <option>전체</option>
+                                                <option>입고완료</option>
+                                                <option>출고완료</option>
+                                                <option>배송완료</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text th_basic_paper_mng_01">회원명</th>
+                                        <td style="width: 200px;">
+                                            <input type="text" id="paper_brand" onkeydown="loadPaperBrand(event, this.value, '')" class="input_basic_paper_mng_02">
+                                        </td>
+                                        <th class="th_text th_basic_paper_mng_03" style="width: 80px;">인쇄물제목</th>
+                                        <td>
+                                            <input type="text" id="paper_brand" onkeydown="loadPaperBrand(event, this.value, '')" class="input_basic_paper_mng_04">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text th_basic_paper_mng_01">마감구분</th>
+                                        <td>
+                                            <label class="check_box_wrapper_paper_mng_01">
+                                                <input type="radio" name="tax_yn" value="Y" class="checkbox_align">전체
+                                            </label>
+                                            <label class="check_box_wrapper_paper_mng_01" style="width:100px;">
+                                                <input type="radio" checked="checked" name="tax_yn" value="N" class="checkbox_align">배정된 주문만
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text th_basic_paper_mng_01">날짜</th>
+                                        <td colspan="4" class="daily_form daily-form">
+                                            <select id="cpn_admin" name="cpn_admin" class="select_order_common_01" onchange="changeCpnAdmin(this.value);" control-id="ControlID-4">
+
+                                                <option value="1">주문일</option>
+                                            </select>
+                                            <input type="text" class="datepicker_input input_settle_mng_02" readonly="readonly" id="basic_from" name="basic_from" control-id="ControlID-5"> -
+                                            <input type="text" class="datepicker_input input_settle_mng_02" readonly="readonly" id="basic_to" name="basic_to" value="" control-id="ControlID-6">
+                                            <span class="btn_float_right" style="float: none;">
+                                                <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -1,  0, $(this).text(), true);" control-id="ControlID-7">어제</button>
+                                                <button type="button" class="btn_gray01" onclick="setDateVal('basic', 't',  0,  0, $(this).text(), false);" control-id="ControlID-8">오늘</button>
+                                                <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -7,  0, $(this).text(), false);" control-id="ControlID-9">일주일</button>
+                                                <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'm', -1,  0, $(this).text(), false);" control-id="ControlID-10">한달</button>
+                                                <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'y', -1, -1, $(this).text(), true);" control-id="ControlID-11">작년동기</button>
+                                            </span>
+                                            <!--<button type="button" onclick="setDateVal('basic', 'a',  0,  0, $(this).text(), false);">전체</button>-->
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <table class="table_basic_layout">
+                                    <thead>
+                                    <tr>
+                                        <th class="bm2px"><input type="checkbox" id="all_check" onclick="allCheck();"></th>
+                                        <th class="bm2px">차량구분</th>
+                                        <th class="bm2px">고객명</th>
+                                        <th class="bm2px">주소</th>
+                                        <th class="bm2px">등록일자</th>
+                                        <th class="bm2px">처리상태</th>
+                                        <th class="bm2px">전월매출</th>
+                                        <th class="bm2px">당월매출(검색일자 기준)</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="paper_list">
+                                    <tr>
+                                        <td colspan='8'>검색된 내용이 없습니다.</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>[TPH_Vmain_title]</title>
+<meta charset="utf-8">
+[TPH_I/common/common.html]
+    <script src="[TPH_Vdesign_dir]/js/lib/highcharts.js"></script>
+</head>
+<body>
+
+<div id="container">
+
+  <!-- TOP NAVIGATION -->
+  [TPH_I/common/header.html]
+
+  <!-- LEFT NAVIGATION -->
+  [TPH_Vleft]
+
+  <!-- CONTENT -->
+   <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <tr>
+                                <th class="th_text th_manu_paper_stock_mng_01">종이</th>
+                                <td>
+                                    <select class="select_manu_paper_stock_mng_01" id="paper_manu" onchange="selectPaperManu('paper_'); return false;">
+                                        [TPH_VmanuList]
+                                    </select>
+                                    <select class="select_manu_paper_stock_mng_01" id="paper_name" onchange="selectPaperName('paper_'); return false;" disabled>
+                                        [TPH_Vpaper_opt]
+                                    </select>
+                                    <select class="select_manu_paper_stock_mng_01" id="paper_dvs" onchange="selectPaperDvs('paper_'); return false;" disabled>
+                                        <option value="">구분(전체)</option>
+                                    </select>
+                                    <select class="select_manu_paper_stock_mng_01" id="paper_color" onchange="selectPaperColor('paper_'); return false;" disabled>
+                                        <option value="">색상(전체)</option>
+                                    </select>
+                                    <select class="select_manu_paper_stock_mng_01" id="paper_basisweight" disabled>
+                                        <option value="">평량(전체)</option>
+                                    </select>
+                                    <button type="button" class="btn_float_right btn_Turquoise01" onclick="searchStockList(30,1);">검색</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_manu_paper_stock_mng_01">날짜</th>
+                                <td>
+                                    <input type="text" id="date" class="input_manu_paper_stock_mng_01 datepicker_input">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <ul class="table_top">
+                            <li class="sel">
+                            </li>
+                            <li class="sel tar">
+                                <button class="btn_yellow h_26" onclick="showStockMng(); return false;">재고관리</button>
+                            </li>
+                        </ul>
+                        <table class="table_basic_layout">
+                            <thead>
+                                <tr>
+                                    <th class="bm2px">날짜</th>
+                                    <th class="bm2px">종이제조사</th>
+                                    <th class="bm2px">종이</th>
+                                    <th class="bm2px">입고량</th>
+                                    <th class="bm2px">사용량</th>
+                                    <th class="bm2px">재고량</th>
+                                    <th class="bm2px">내용</th>
+                                    <th class="bm2px">관리</th>
+                                </tr>
+                            </thead>
+                            <tbody id="list">
+                                <tr><td colspan="8">검색 된 내용이 없습니다.</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="p_num_b fs12">
+                            <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+                                <option>5</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option selected="selected">30</option>
+                            </select>
+                            개씩 보기
+                        </p>
+                        <div class="tac clear" id="page">
+                        </div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+</div>
+</body>
+</html>

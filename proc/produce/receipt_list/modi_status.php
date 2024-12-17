@@ -1,0 +1,29 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/produce/receipt_mng/ReceiptListDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$dao = new ReceiptListDAO();
+$check = 1;
+
+$conn->StartTrans();
+
+$param = array();
+$param["seqno"] = $fb->form("seqno");
+$param["state"] = $fb->form("state");
+
+$rs = $dao->updateStatus($conn, $param);
+
+if (!$rs) {
+    $check = 0;
+}
+
+$conn->CompleteTrans();
+$conn->Close();
+echo $check;
+?>

@@ -1,0 +1,1151 @@
+
+11:08:13 파라미터 ONS : 1
+\n\n\n
+11:08:13 파라미터 ON1 : 1801020069501
+\n\n\n
+11:08:13
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020069501' \n\n\n
+11:08:16 파라미터 ONS : 1
+\n\n\n
+11:08:16 파라미터 ON1 : 1801020354401
+\n\n\n
+11:08:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020354401' \n\n\n
+11:08:27 파라미터 ONS : 1
+\n\n\n
+11:08:27 파라미터 ON1 : 1801020002701
+\n\n\n
+11:08:27
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020002701' \n\n\n
+11:08:32 파라미터 ONS : 1
+\n\n\n
+11:08:32 파라미터 ON1 : 1801020002701
+\n\n\n
+11:08:32
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020002701' \n\n\n
+11:08:36 파라미터 ONS : 1
+\n\n\n
+11:08:36 파라미터 ON1 : 1801020003701
+\n\n\n
+11:08:36
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020003701' \n\n\n
+11:08:44 파라미터 ONS : 1
+\n\n\n
+11:08:44 파라미터 ON1 : 1801020032601
+\n\n\n
+11:08:44
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020032601' \n\n\n
+15:09:21 파라미터 ONS : 1
+\n\n\n
+15:09:21 파라미터 ON1 : 1801020183701
+\n\n\n
+15:09:21
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020183701' \n\n\n
+16:31:52 파라미터 ONS : 1
+\n\n\n
+16:31:52 파라미터 ON1 : 1801020003901
+\n\n\n
+16:31:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020003901' \n\n\n
+16:31:56 파라미터 ONS : 1
+\n\n\n
+16:31:56 파라미터 ON1 : 1801020001101
+\n\n\n
+16:31:56
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020001101' \n\n\n
+16:31:59 파라미터 ONS : 1
+\n\n\n
+16:31:59 파라미터 ON1 : 1801020002701
+\n\n\n
+16:31:59
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020002701' \n\n\n
+16:32:02 파라미터 ONS : 1
+\n\n\n
+16:32:02 파라미터 ON1 : 1801020003902
+\n\n\n
+16:32:02
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020003902' \n\n\n
+16:32:06 파라미터 ONS : 3
+\n\n\n
+16:32:06 파라미터 ON1 : 1801020003903
+\n\n\n
+16:32:06 파라미터 ON2 : 1801020004201
+\n\n\n
+16:32:06 파라미터 ON3 : 1801020004901
+\n\n\n
+16:32:06
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020003903' \n\n\n
+16:32:06
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020004201' \n\n\n
+16:32:06
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020004901' \n\n\n
+16:32:09 파라미터 ONS : 1
+\n\n\n
+16:32:09 파라미터 ON1 : 1801020007301
+\n\n\n
+16:32:09
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020007301' \n\n\n
+16:32:12 파라미터 ONS : 1
+\n\n\n
+16:32:12 파라미터 ON1 : 1801020004901
+\n\n\n
+16:32:12
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020004901' \n\n\n
+16:32:15 파라미터 ONS : 1
+\n\n\n
+16:32:15 파라미터 ON1 : 1801020007301
+\n\n\n
+16:32:15
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020007301' \n\n\n
+16:32:24 파라미터 ONS : 1
+\n\n\n
+16:32:24 파라미터 ON1 : 1801020014601
+\n\n\n
+16:32:24
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014601' \n\n\n
+16:32:27 파라미터 ONS : 1
+\n\n\n
+16:32:27 파라미터 ON1 : 1801020012601
+\n\n\n
+16:32:27
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020012601' \n\n\n
+16:32:29 파라미터 ONS : 1
+\n\n\n
+16:32:29 파라미터 ON1 : 1801020014201
+\n\n\n
+16:32:29
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014201' \n\n\n
+16:32:31 파라미터 ONS : 1
+\n\n\n
+16:32:31 파라미터 ON1 : 1801020012603
+\n\n\n
+16:32:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020012603' \n\n\n
+16:32:33 파라미터 ONS : 5
+\n\n\n
+16:32:33 파라미터 ON1 : 1801020014202
+\n\n\n
+16:32:33 파라미터 ON2 : 1801020014602
+\n\n\n
+16:32:33 파라미터 ON3 : 1801020014603
+\n\n\n
+16:32:33 파라미터 ON4 : 1801020014604
+\n\n\n
+16:32:33 파라미터 ON5 : 1801020014605
+\n\n\n
+16:32:33
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014202' \n\n\n
+16:32:33
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014602' \n\n\n
+16:32:33
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014603' \n\n\n
+16:32:33
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014604' \n\n\n
+16:32:33
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014605' \n\n\n
+16:32:36 파라미터 ONS : 1
+\n\n\n
+16:32:36 파라미터 ON1 : 1801020014603
+\n\n\n
+16:32:36
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014603' \n\n\n
+16:32:38 파라미터 ONS : 1
+\n\n\n
+16:32:38 파라미터 ON1 : 1801020014202
+\n\n\n
+16:32:38
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014202' \n\n\n
+16:32:42 파라미터 ONS : 1
+\n\n\n
+16:32:42 파라미터 ON1 : 1801020029001
+\n\n\n
+16:32:42
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020029001' \n\n\n
+16:32:45 파라미터 ONS : 1
+\n\n\n
+16:32:45 파라미터 ON1 : 1801020029501
+\n\n\n
+16:32:45
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020029501' \n\n\n
+16:32:47 파라미터 ONS : 1
+\n\n\n
+16:32:47 파라미터 ON1 : 1801020030501
+\n\n\n
+16:32:47
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020030501' \n\n\n
+16:32:50 파라미터 ONS : 1
+\n\n\n
+16:32:50 파라미터 ON1 : 1801020031201
+\n\n\n
+16:32:50
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020031201' \n\n\n
+16:32:54 파라미터 ONS : 1
+\n\n\n
+16:32:54 파라미터 ON1 : 1801020031301
+\n\n\n
+16:32:54
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020031301' \n\n\n
+16:32:57 파라미터 ONS : 1
+\n\n\n
+16:32:57 파라미터 ON1 : 1801020031201
+\n\n\n
+16:32:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020031201' \n\n\n
+16:33:01 파라미터 ONS : 1
+\n\n\n
+16:33:01 파라미터 ON1 : 1801020033001
+\n\n\n
+16:33:01
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020033001' \n\n\n
+16:33:04 파라미터 ONS : 1
+\n\n\n
+16:33:04 파라미터 ON1 : 1801020033501
+\n\n\n
+16:33:04
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020033501' \n\n\n
+16:33:06 파라미터 ONS : 1
+\n\n\n
+16:33:06 파라미터 ON1 : 1801020034001
+\n\n\n
+16:33:06
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034001' \n\n\n
+16:33:10 파라미터 ONS : 1
+\n\n\n
+16:33:10 파라미터 ON1 : 1801020034501
+\n\n\n
+16:33:10
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034501' \n\n\n
+16:33:12 파라미터 ONS : 1
+\n\n\n
+16:33:12 파라미터 ON1 : 1801020034702
+\n\n\n
+16:33:12
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034702' \n\n\n
+16:33:14 파라미터 ONS : 1
+\n\n\n
+16:33:14 파라미터 ON1 : 1801020034601
+\n\n\n
+16:33:14
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034601' \n\n\n
+16:33:17 파라미터 ONS : 1
+\n\n\n
+16:33:17 파라미터 ON1 : 1801020034701
+\n\n\n
+16:33:17
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034701' \n\n\n
+16:33:20 파라미터 ONS : 1
+\n\n\n
+16:33:20 파라미터 ON1 : 1801020034601
+\n\n\n
+16:33:20
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034601' \n\n\n
+16:33:23 파라미터 ONS : 1
+\n\n\n
+16:33:23 파라미터 ON1 : 1801020034703
+\n\n\n
+16:33:23
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034703' \n\n\n
+16:33:26 파라미터 ONS : 1
+\n\n\n
+16:33:26 파라미터 ON1 : 1801020034801
+\n\n\n
+16:33:26
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034801' \n\n\n
+16:33:29 파라미터 ONS : 1
+\n\n\n
+16:33:29 파라미터 ON1 : 1801020034601
+\n\n\n
+16:33:29
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034601' \n\n\n
+16:33:31 파라미터 ONS : 1
+\n\n\n
+16:33:31 파라미터 ON1 : 1801020034703
+\n\n\n
+16:33:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034703' \n\n\n
+16:33:34 파라미터 ONS : 1
+\n\n\n
+16:33:34 파라미터 ON1 : 1801020034802
+\n\n\n
+16:33:34
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034802' \n\n\n
+16:33:36 파라미터 ONS : 1
+\n\n\n
+16:33:36 파라미터 ON1 : 1801020035401
+\n\n\n
+16:33:36
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020035401' \n\n\n
+16:33:41 파라미터 ONS : 1
+\n\n\n
+16:33:41 파라미터 ON1 : 1801020037101
+\n\n\n
+16:33:41
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020037101' \n\n\n
+16:33:44 파라미터 ONS : 1
+\n\n\n
+16:33:44 파라미터 ON1 : 1801020037102
+\n\n\n
+16:33:44
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020037102' \n\n\n
+16:33:47 파라미터 ONS : 1
+\n\n\n
+16:33:47 파라미터 ON1 : 1801020038301
+\n\n\n
+16:33:47
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020038301' \n\n\n
+16:33:49 파라미터 ONS : 1
+\n\n\n
+16:33:49 파라미터 ON1 : 1801020038302
+\n\n\n
+16:33:49
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020038302' \n\n\n
+16:33:52 파라미터 ONS : 1
+\n\n\n
+16:33:52 파라미터 ON1 : 1801020038304
+\n\n\n
+16:33:52
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020038304' \n\n\n
+16:33:57 파라미터 ONS : 1
+\n\n\n
+16:33:57 파라미터 ON1 : 1801020039901
+\n\n\n
+16:33:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020039901' \n\n\n
+16:34:00 파라미터 ONS : 1
+\n\n\n
+16:34:00 파라미터 ON1 : 1801020042401
+\n\n\n
+16:34:00
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020042401' \n\n\n
+16:34:03 파라미터 ONS : 6
+\n\n\n
+16:34:03 파라미터 ON1 : 1801020042402
+\n\n\n
+16:34:03 파라미터 ON2 : 1801020043001
+\n\n\n
+16:34:03 파라미터 ON3 : 1801020043002
+\n\n\n
+16:34:03 파라미터 ON4 : 1801020043003
+\n\n\n
+16:34:03 파라미터 ON5 : 1801020043501
+\n\n\n
+16:34:03 파라미터 ON6 : 1801020043502
+\n\n\n
+16:34:03
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020042402' \n\n\n
+16:34:03
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043001' \n\n\n
+16:34:03
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043002' \n\n\n
+16:34:03
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043003' \n\n\n
+16:34:03
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043501' \n\n\n
+16:34:03
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043502' \n\n\n
+16:34:06 파라미터 ONS : 1
+\n\n\n
+16:34:06 파라미터 ON1 : 1801020043002
+\n\n\n
+16:34:06
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043002' \n\n\n
+16:34:09 파라미터 ONS : 1
+\n\n\n
+16:34:09 파라미터 ON1 : 1801020043003
+\n\n\n
+16:34:09
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043003' \n\n\n
+16:34:11 파라미터 ONS : 1
+\n\n\n
+16:34:11 파라미터 ON1 : 1801020043502
+\n\n\n
+16:34:11
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043502' \n\n\n
+16:34:13 파라미터 ONS : 1
+\n\n\n
+16:34:13 파라미터 ON1 : 1801020043001
+\n\n\n
+16:34:13
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043001' \n\n\n
+16:34:15 파라미터 ONS : 1
+\n\n\n
+16:34:15 파라미터 ON1 : 1801020043501
+\n\n\n
+16:34:15
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043501' \n\n\n
+16:34:18 파라미터 ONS : 1
+\n\n\n
+16:34:18 파라미터 ON1 : 1801020043901
+\n\n\n
+16:34:18
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043901' \n\n\n
+16:34:21 파라미터 ONS : 1
+\n\n\n
+16:34:21 파라미터 ON1 : 1801020044602
+\n\n\n
+16:34:21
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020044602' \n\n\n
+16:34:23 파라미터 ONS : 1
+\n\n\n
+16:34:23 파라미터 ON1 : 1801020044501
+\n\n\n
+16:34:23
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020044501' \n\n\n
+16:34:26 파라미터 ONS : 1
+\n\n\n
+16:34:26 파라미터 ON1 : 1801020044201
+\n\n\n
+16:34:26
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020044201' \n\n\n
+16:34:28 파라미터 ONS : 1
+\n\n\n
+16:34:28 파라미터 ON1 : 1801020045501
+\n\n\n
+16:34:28
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020045501' \n\n\n
+16:34:31 파라미터 ONS : 1
+\n\n\n
+16:34:31 파라미터 ON1 : 1801020046501
+\n\n\n
+16:34:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020046501' \n\n\n
+16:34:35 파라미터 ONS : 1
+\n\n\n
+16:34:35 파라미터 ON1 : 1801020050201
+\n\n\n
+16:34:35
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020050201' \n\n\n
+16:34:38 파라미터 ONS : 1
+\n\n\n
+16:34:38 파라미터 ON1 : 1801020052001
+\n\n\n
+16:34:38
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020052001' \n\n\n
+16:34:40 파라미터 ONS : 1
+\n\n\n
+16:34:40 파라미터 ON1 : 1801020053601
+\n\n\n
+16:34:40
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020053601' \n\n\n
+16:34:42 파라미터 ONS : 1
+\n\n\n
+16:34:42 파라미터 ON1 : 1801020053701
+\n\n\n
+16:34:42
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020053701' \n\n\n
+16:34:45 파라미터 ONS : 1
+\n\n\n
+16:34:45 파라미터 ON1 : 1801020054601
+\n\n\n
+16:34:45
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020054601' \n\n\n
+16:34:48 파라미터 ONS : 1
+\n\n\n
+16:34:48 파라미터 ON1 : 1801020059601
+\n\n\n
+16:34:48
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020059601' \n\n\n
+16:34:51 파라미터 ONS : 1
+\n\n\n
+16:34:51 파라미터 ON1 : 1801020061501
+\n\n\n
+16:34:51
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020061501' \n\n\n
+16:34:53 파라미터 ONS : 1
+\n\n\n
+16:34:53 파라미터 ON1 : 1801020062201
+\n\n\n
+16:34:53
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020062201' \n\n\n
+16:34:55 파라미터 ONS : 1
+\n\n\n
+16:34:55 파라미터 ON1 : 1801020062601
+\n\n\n
+16:34:55
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020062601' \n\n\n
+16:34:58 파라미터 ONS : 1
+\n\n\n
+16:34:58 파라미터 ON1 : 1801020062201
+\n\n\n
+16:34:58
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020062201' \n\n\n
+16:35:00 파라미터 ONS : 1
+\n\n\n
+16:35:00 파라미터 ON1 : 1801020062603
+\n\n\n
+16:35:00
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020062603' \n\n\n
+16:35:03 파라미터 ONS : 1
+\n\n\n
+16:35:03 파라미터 ON1 : 1801020063501
+\n\n\n
+16:35:03
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020063501' \n\n\n
+16:35:05 파라미터 ONS : 1
+\n\n\n
+16:35:05 파라미터 ON1 : 1801020063502
+\n\n\n
+16:35:05
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020063502' \n\n\n
+16:35:09 파라미터 ONS : 1
+\n\n\n
+16:35:09 파라미터 ON1 : 1801020073901
+\n\n\n
+16:35:09
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020073901' \n\n\n
+16:35:11 파라미터 ONS : 1
+\n\n\n
+16:35:11 파라미터 ON1 : 1801020074601
+\n\n\n
+16:35:11
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020074601' \n\n\n
+16:35:14 파라미터 ONS : 1
+\n\n\n
+16:35:14 파라미터 ON1 : 1801020074602
+\n\n\n
+16:35:14
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020074602' \n\n\n
+16:35:17 파라미터 ONS : 1
+\n\n\n
+16:35:17 파라미터 ON1 : 1801020074603
+\n\n\n
+16:35:17
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020074603' \n\n\n
+16:35:19 파라미터 ONS : 1
+\n\n\n
+16:35:19 파라미터 ON1 : 1801020074604
+\n\n\n
+16:35:19
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020074604' \n\n\n
+16:35:22 파라미터 ONS : 1
+\n\n\n
+16:35:22 파라미터 ON1 : 1801020075401
+\n\n\n
+16:35:22
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020075401' \n\n\n
+16:35:24 파라미터 ONS : 1
+\n\n\n
+16:35:24 파라미터 ON1 : 1801020076901
+\n\n\n
+16:35:24
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020076901' \n\n\n
+16:35:26 파라미터 ONS : 1
+\n\n\n
+16:35:26 파라미터 ON1 : 1801020077101
+\n\n\n
+16:35:26
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020077101' \n\n\n
+16:35:30 파라미터 ONS : 1
+\n\n\n
+16:35:30 파라미터 ON1 : 1801020076901
+\n\n\n
+16:35:30
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020076901' \n\n\n
+16:35:32 파라미터 ONS : 1
+\n\n\n
+16:35:32 파라미터 ON1 : 1801020079901
+\n\n\n
+16:35:32
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020079901' \n\n\n
+16:35:34 파라미터 ONS : 1
+\n\n\n
+16:35:34 파라미터 ON1 : 1801020080101
+\n\n\n
+16:35:34
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020080101' \n\n\n
+16:35:36 파라미터 ONS : 1
+\n\n\n
+16:35:36 파라미터 ON1 : 1801020080301
+\n\n\n
+16:35:36
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020080301' \n\n\n
+16:35:38 파라미터 ONS : 1
+\n\n\n
+16:35:38 파라미터 ON1 : 1801020080701
+\n\n\n
+16:35:38
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020080701' \n\n\n
+16:35:41 파라미터 ONS : 1
+\n\n\n
+16:35:41 파라미터 ON1 : 1801020079901
+\n\n\n
+16:35:41
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020079901' \n\n\n
+16:35:43 파라미터 ONS : 1
+\n\n\n
+16:35:43 파라미터 ON1 : 1801020080101
+\n\n\n
+16:35:43
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020080101' \n\n\n
+16:35:46 파라미터 ONS : 1
+\n\n\n
+16:35:46 파라미터 ON1 : 1801020080702
+\n\n\n
+16:35:46
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020080702' \n\n\n
+16:35:57 파라미터 ONS : 30
+\n\n\n
+16:35:57 파라미터 ON1 : 1801020003901
+\n\n\n
+16:35:57 파라미터 ON2 : 1801020003902
+\n\n\n
+16:35:57 파라미터 ON3 : 1801020014601
+\n\n\n
+16:35:57 파라미터 ON4 : 1801020012601
+\n\n\n
+16:35:57 파라미터 ON5 : 1801020014201
+\n\n\n
+16:35:57 파라미터 ON6 : 1801020012603
+\n\n\n
+16:35:57 파라미터 ON7 : 1801020014603
+\n\n\n
+16:35:57 파라미터 ON8 : 1801020030501
+\n\n\n
+16:35:57 파라미터 ON9 : 1801020034702
+\n\n\n
+16:35:57 파라미터 ON10 : 1801020034701
+\n\n\n
+16:35:57 파라미터 ON11 : 1801020034801
+\n\n\n
+16:35:57 파라미터 ON12 : 1801020037101
+\n\n\n
+16:35:57 파라미터 ON13 : 1801020038301
+\n\n\n
+16:35:57 파라미터 ON14 : 1801020038302
+\n\n\n
+16:35:57 파라미터 ON15 : 1801020038304
+\n\n\n
+16:35:57 파라미터 ON16 : 1801020042401
+\n\n\n
+16:35:57 파라미터 ON17 : 1801020043002
+\n\n\n
+16:35:57 파라미터 ON18 : 1801020043003
+\n\n\n
+16:35:57 파라미터 ON19 : 1801020043502
+\n\n\n
+16:35:57 파라미터 ON20 : 1801020044602
+\n\n\n
+16:35:57 파라미터 ON21 : 1801020059601
+\n\n\n
+16:35:57 파라미터 ON22 : 1801020062601
+\n\n\n
+16:35:57 파라미터 ON23 : 1801020062603
+\n\n\n
+16:35:57 파라미터 ON24 : 1801020063501
+\n\n\n
+16:35:57 파라미터 ON25 : 1801020063502
+\n\n\n
+16:35:57 파라미터 ON26 : 1801020074601
+\n\n\n
+16:35:57 파라미터 ON27 : 1801020074602
+\n\n\n
+16:35:57 파라미터 ON28 : 1801020074603
+\n\n\n
+16:35:57 파라미터 ON29 : 1801020080701
+\n\n\n
+16:35:57 파라미터 ON30 : 1801020080702
+\n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020003901' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020003902' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014601' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020012601' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014201' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020012603' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014603' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020030501' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034702' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034701' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034801' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020037101' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020038301' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020038302' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020038304' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020042401' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043002' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043003' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043502' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020044602' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020059601' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020062601' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020062603' \n\n\n
+16:35:57
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020063501' \n\n\n
+16:35:58
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020063502' \n\n\n
+16:35:58
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020074601' \n\n\n
+16:35:58
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020074602' \n\n\n
+16:35:58
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020074603' \n\n\n
+16:35:58
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020080701' \n\n\n
+16:35:58
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020080702' \n\n\n
+23:05:31 파라미터 ONS : 30
+\n\n\n
+23:05:31 파라미터 ON1 : 1801020003901
+\n\n\n
+23:05:31 파라미터 ON2 : 1801020003902
+\n\n\n
+23:05:31 파라미터 ON3 : 1801020014601
+\n\n\n
+23:05:31 파라미터 ON4 : 1801020012601
+\n\n\n
+23:05:31 파라미터 ON5 : 1801020014201
+\n\n\n
+23:05:31 파라미터 ON6 : 1801020012603
+\n\n\n
+23:05:31 파라미터 ON7 : 1801020014603
+\n\n\n
+23:05:31 파라미터 ON8 : 1801020030501
+\n\n\n
+23:05:31 파라미터 ON9 : 1801020034702
+\n\n\n
+23:05:31 파라미터 ON10 : 1801020034701
+\n\n\n
+23:05:31 파라미터 ON11 : 1801020034801
+\n\n\n
+23:05:31 파라미터 ON12 : 1801020037101
+\n\n\n
+23:05:31 파라미터 ON13 : 1801020038301
+\n\n\n
+23:05:31 파라미터 ON14 : 1801020038302
+\n\n\n
+23:05:31 파라미터 ON15 : 1801020038304
+\n\n\n
+23:05:31 파라미터 ON16 : 1801020042401
+\n\n\n
+23:05:31 파라미터 ON17 : 1801020043002
+\n\n\n
+23:05:31 파라미터 ON18 : 1801020043003
+\n\n\n
+23:05:31 파라미터 ON19 : 1801020043502
+\n\n\n
+23:05:31 파라미터 ON20 : 1801020044602
+\n\n\n
+23:05:31 파라미터 ON21 : 1801020059601
+\n\n\n
+23:05:31 파라미터 ON22 : 1801020062601
+\n\n\n
+23:05:31 파라미터 ON23 : 1801020062603
+\n\n\n
+23:05:31 파라미터 ON24 : 1801020063501
+\n\n\n
+23:05:31 파라미터 ON25 : 1801020063502
+\n\n\n
+23:05:31 파라미터 ON26 : 1801020074601
+\n\n\n
+23:05:31 파라미터 ON27 : 1801020074602
+\n\n\n
+23:05:31 파라미터 ON28 : 1801020074603
+\n\n\n
+23:05:31 파라미터 ON29 : 1801020080701
+\n\n\n
+23:05:31 파라미터 ON30 : 1801020080702
+\n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020003901' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020003902' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014601' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020012601' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014201' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020012603' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020014603' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020030501' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034702' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034701' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020034801' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020037101' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020038301' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020038302' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020038304' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020042401' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043002' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043003' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020043502' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020044602' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020059601' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020062601' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020062603' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020063501' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020063502' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020074601' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020074602' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020074603' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020080701' \n\n\n
+23:05:31
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020080702' \n\n\n

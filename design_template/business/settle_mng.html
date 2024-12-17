@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/business/common/include.html]
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+<div id="container">
+   <!-- TOP NAVIGATION -->
+   [TPH_I/common/header.html]
+   <!-- LEFT NAVIGATION -->
+   [TPH_Vleft]
+   <!-- CONTENT -->
+   <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀-->
+                <div class="title">
+                    기본 검색정보
+                    <button type="button" id="basic_plus" class="btn_plus" onclick="toggleSearchInfo('basic', 'plus');" style="display:none;"></button>
+                    <button type="button" id="basic_minus" class="btn_minus" onclick="toggleSearchInfo('basic', 'minus');"></button>
+                </div>
+                <!--기본 검색정보 시작-->
+                <section class="content_section" id="basic_search">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <colgroup>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th class="th_text th_settle_mng_left">키워드 검색</th>
+                                    <td colspan="8">
+                                        <select id="search_dvs" class="select_settle_mng_01" onchange="changeInputBox(this.value)">
+                                            <option value="title">제작물 내용</option>
+                                            <option value="price">조정금액</option>
+                                        </select>
+                                        <input type="text" id="search_keyword" class="input_settle_mng_01" />
+                                        <select id ="search_depo" class="select_settle_mng_03" style="display:none;">
+                                            <option value="">전체</option> 
+                                            <option value="sell">매출액</option> 
+                                            <option value="depo">입금액</option> 
+                                        </select>
+                                        <button class="btn_Turquoise01" onclick="cndSearch.exec();" style="float:right;">검색</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_settle_mng_left">기간 검색</th>
+                                    <td colspan="4" class="daily_form daily-form">
+                                        <select id="cpn_admin" class="select_settle_mng_01" onchange="changeCpnAdmin(this.value);">
+                                            [TPH_Vcpn_admin_html]
+                                        </select>
+                                        <input type="text" class="datepicker_input input_settle_mng_02" readonly="readonly" id="basic_from">-
+                                        <input type="text" class="datepicker_input input_settle_mng_02" readonly="readonly" id="basic_to">
+                                        <span class="btn_float_right">
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -1,  0, $(this).text(), true);">어제</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 't',  0,  0, $(this).text(), false);">오늘</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -7,  0, $(this).text(), false);">일주일</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'm', -1,  0, $(this).text(), false);">한달</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'y', -1, -1, $(this).text(), true);">작년동기</button>
+                                        </span>
+                                        <!--<button type="button" onclick="setDateVal('basic', 'a',  0,  0, $(this).text(), false);">전체</button>-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_settle_mng_left">팀/담당자</th>
+                                    <td>
+                                        <select id="depar" class="select_settle_mng_01" onchange="changeDepar(this.value, '');">
+                                            [TPH_Vdepar_html]
+                                        </select>
+                                        <select id="empl" class="select_settle_mng_01">
+                                            <option value=''>전체</option>
+                                            [TPH_Vempl_html]
+                                        </select>
+                                    </td>
+                                    <th class="th_text th_settle_mng_right">배송유형</th>
+                                    <td>
+                                        <select id="dlvr_dvs" class="select_settle_mng_01" onchange="changeDlvrDvs(this.value);">
+                                            [TPH_Vdlvr_dvs_html]
+                                        </select>
+                                        <select id="dlvr_code" class="select_settle_mng_01">
+                                            <option value="">전체</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_settle_mng_left">업체등급</th>
+                                    <td>
+                                          <select id="member_typ" class="select_settle_mng_01">
+                                                <option value="일반회원">일반회원</option>
+                                                <option value="예외업체">예외업체</option>
+                                          </select>
+                                          <select id="member_grade" class="select_settle_mng_01">
+                                              [TPH_Vmember_grade_html]
+                                          </select>
+                                    </td>
+                                    <th class="th_text th_settle_mng_right">카테고리</th>
+                                    <td>
+                                        <select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="select_settle_mng_01">
+                                            [TPH_Vcate_html]
+                                        </select>
+                                        <select id="cate_mid" onchange="cateSelect.exec('mid', this.value);" class="select_settle_mng_01">
+                                            <option value="">전체</option>
+                                        </select>
+                                        <select id="cate_bot" class="select_settle_mng_01">
+                                            <option value="">전체</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_settle_mng_left">미수금</th>
+                                    <td>
+                                        <select id="oa_yn" class="select_settle_mng_02">
+                                            <option value="Y">미수금 있는 회원만 보기</option>
+                                            <option value="N">미수금 없는 회원만 보기</option>
+                                        </select>
+                                    </td>
+                                    <th class="th_text th_settle_mng_right">운영체제</th>
+                                    <td>
+                                        <select id="oper_sys" class="select_settle_mng_01">
+                                            <option value="IBM">IBM</option>
+                                            <option value="MAC">MAC</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div id="content_tab" class="content_wrapper">
+                        <div class="content_tab">
+                            <input id="oa_sales_info" type="radio" name="lastTable" value="oa_sales_info" checked="checked" onclick="changeTabSearchCond()">
+                            <label class="last_label" for="oa_sales_info">개인별 업체별 미수 / 매출액</label>
+                            <input id="sales_depo_info" type="radio" name="lastTable" value="sales_depo_info" onclick="changeTabSearchCond()">
+                            <label class="last_label" for="sales_depo_info" >매출액/입금액 조정내역 조회</label>
+
+                            <section id="table1">
+                                <table class="table_basic_layout">
+                                    <colgroup>
+                                        <col style="width:50px;">
+                                        <col style="width:210px;">
+                                        <col style="width:210px;">
+                                        <col style="width:210px;">
+                                        <col style="width:210px;">
+                                    </colgroup>
+                                    <thead>
+                                        <th>No.</th>
+                                        <th>담당자</th>
+                                        <th class="order_th" onclick="changeSort(this, 'oa_sales', 'sum_net_price');">
+                                            순 매출액
+                                            <i class="fa fa-sort"></i>
+                                        </th>
+                                        <th class="order_th" onclick="changeSort(this, 'oa_sales', 'sum_depo_price');">
+                                            입금액
+                                            <i class="fa fa-sort"></i>
+                                        </th>
+                                        <th class="order_th" onclick="changeSort(this, 'oa_sales', 'sum_period_end_oa');">
+                                            기말 미수액
+                                            <i class="fa fa-sort"></i>
+                                        </th>
+                                        <!--
+                                        <th>No.</th>
+                                        <th>담당자</th>
+                                        <th class="order_th" onclick="changeSort(this, 'oa_sales', 'sum_net_price');">
+                                            순 매출액<span class="sort"></span>
+                                        </th>
+                                        <th class="order_th" onclick="changeSort(this, 'oa_sales', 'sum_depo_price');">
+                                            입금액<span class="sort"></span>
+                                        </th>
+                                        <th class="order_th" onclick="changeSort(this, 'oa_sales', 'sum_period_end_oa');">
+                                            기말 미수액<span class="sort"></span>
+                                        </th>
+                                        -->
+                                    </thead>
+                                    <tbody>
+                                        <tr id="oa_sales_info_sum">
+                                        </tr>
+                                    </tbody>
+                                    <tbody id="oa_sales_info_list">
+                                    </tbody>
+                                </table>
+                                <div id="oa_sales_info_page" class="page_bar"></div>
+
+                                <form class="fix-Form">
+                                    <div class="overflow_auto">
+                                        <table class="table_basic_layout">
+                                            
+                                            <thead id="oa_sales_detail_head" class="settle_table_width">
+                                            </thead>
+                                            <tbody>
+                                                <tr id="oa_sales_detail_sum">
+                                                </tr>
+                                            </tbody>
+                                            <tbody id="oa_sales_info_detail_body">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </form>
+                                <div id="oa_sales_detail_page" class="page_bar"></div>
+                            </section>
+
+                            <section id="table2">
+                                <form class="fix-Form">
+                                    <div class="overflow_auto">
+                                        <table class="table_basic_layout">
+                                            <colgroup>
+                                                <col style="width:50px;">
+                                                <col style="width:100px;">
+                                                <col style="width:80px;">
+                                                <col style="width:130px;">
+                                                <col style="width:100px;">
+                                                <col style="width:100px;">
+                                                <col style="width:100px;">
+                                                <col style="width:100px;">
+                                                <col style="width:100px;">
+                                                <col style="width:100px;">
+                                                <col style="width:100px;">
+                                                <col style="width:100px;">
+                                                <col style="width:100px;">
+                                                <col style="width:100px;">
+                                                <col style="width:100px;">
+                                            </colgroup>
+                                            <thead id="sales_depo_info_head">
+                                            <!-- 
+                                                <th>No.</th>
+                                                <th class="order_th" onclick="">회원명▲▼</th>
+                                                <th class="order_th" onclick="">조정일자▲▼</th>
+                                                <th class="order_th" id="sale_depo_price" onclick="">매출액▲▼<br />입금액▲▼</th>
+                                                <th class="order_th" id="depo_basic_price" onclick="">매출액▲▼<br />기초입금액▲▼</th>
+                                                <th class="order_th" id="modi_depo_price" onclick="">조정금액▲▼<br />입금액▲▼</th>
+                                                <th class="order_th" id="depo_prepay_price" onclick="">입금액▲▼<br />선입금▲▼</th>
+                                                <th class="order_th" onclick="">조정상품▲▼</th>
+                                                <th class="order_th" onclick="">조정유형▲▼</th>
+                                                <th class="order_th" onclick="">담당자▲▼</th>
+                                                <th class="order_th" onclick="">건수▲▼</th>
+                                                <th class="order_th" onclick="">상세메모▲▼</th>
+                                            -->
+                                                <th>No.</th>
+                                                <th class="order_th" onclick="changeSort(this, 'sales_depo_info', 'member_name');">
+                                                    회원명
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" onclick="changeSort(this, 'sales_depo_info', 'deal_date');">
+                                                    조정일자
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" id="sale_depo_price" onclick="changeSort(this, 'sales_depo_info', 'dvs');">
+                                                    매출액
+                                                    <i class="fa fa-sort"></i>
+                                                    입금액
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" id="" onclick="changeSort(this, 'sales_depo_info', 'sell_price');">
+                                                    매출액
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" id="" onclick="changeSort(this, 'sales_depo_info', 'exist_prepay');">
+                                                    기초입금액
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" id="" onclick="changeSort(this, 'sales_depo_info', 'pay_price');">
+                                                    조정금액
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" id="" onclick="changeSort(this, 'sales_depo_info', 'depo_price');">
+                                                    입금액
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" id="" onclick="changeSort(this, 'sales_depo_info', 'depo_price');">
+                                                    입금액
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" id="" onclick="changeSort(this, 'sales_depo_info', 'prepay_bal');">
+                                                    선입금
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" onclick="changeSort(this, 'sales_depo_info', '');">
+                                                    조정상품
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" onclick="changeSort(this, 'sales_depo_info', 'input_typ');">
+                                                    조정유형
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" onclick="changeSort(this, 'sales_depo_info', 'empl_name');">
+                                                    담당자
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" onclick="changeSort(this, 'sales_depo_info', '');">
+                                                    건수
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                                <th class="order_th" onclick="changeSort(this, 'sales_depo_info', 'cont');">
+                                                    상세메모
+                                                    <i class="fa fa-sort"></i>
+                                                </th>
+                                            </thead>
+                                            <thead id="sales_depo_info_list_head">
+                                            </thead>
+                                            <tbody id="sales_depo_info_list_body">
+                                                <!-- 
+                                                <tr>
+                                                    <td colspan="12" style="background:#ccc;padding:8px;font-weight:700;text-align:left">총계</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>안산하나기획</td>
+                                                    <td>2017-06-03 / 13:45:45</td>
+                                                    <td>매출액</td>
+                                                    <td>50,000</td>
+                                                    <td>-10,000</td>
+                                                    <td>40,000</td>
+                                                    <td>스티커</td>
+                                                    <td>사고처리</td>
+                                                    <td>이하영</td>
+                                                    <td>3</td>
+                                                    <td>사고처리</td>
+                                                </tr>
+                                                -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </form>
+                                <div id="sales_depo_list_page" class="page_bar"></div>
+                                
+                                <!-- 2017.08.16 주석처리(montvert : 불필요한 부분)
+                                <div class="tab_new">
+                                    <p style="padding:6px;background:#eee;border:1px solid #ddd;text-align:right;margin-top:20px;"><strong>선입금 :</strong>28,750원</p>
+                                    <table class="last_tab_table">
+                                        <thead>
+                                            <tr><th>등록일시</th>
+                                            <th>내용</th>
+                                            <th>입금액</th>
+                                            <th>적립방법</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>2017-05-25</td>
+                                                <td>제품구입사용 [빌 애반스 공연 전단 별도견적]</td>
+                                                <td>+ 7,000원</td>
+                                                <td>별도견적</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2017-05-25</td>
+                                                <td>주문취소환불 [빌 애반스 공연 전단 선불택배(1)]</td>
+                                                <td>+ 2,7500원</td>
+                                                <td>제품환불</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2017-05-25</td>
+                                                <td>제품DC [앤디워홀엽서세트 DC]</td>
+                                                <td>+ 15,000원</td>
+                                                <td>DC환불</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div> 
+                                -->
+                            </section>
+                            <!--고정상단 아래 탭테이블 끝-->
+                        </div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+</div>
+</body>
+</html>

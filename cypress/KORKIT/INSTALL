@@ -1,0 +1,356 @@
+#!/bin/sh
+#
+# Install Script for Acrobat Language kit
+#
+# Copyright (c)1998 Adobe Systems Incorporated
+# All Rights Reserved
+#
+##########################################################################
+
+success=0
+failure=1
+
+##########################################################################
+
+yesno()
+{
+  msg="$1"
+  def="$2"
+
+  while : ; do
+    printf "$msg [$def]"
+    read answer
+    if [ "$answer" ] ; then
+      case "$answer" in
+        y|Y|yes|YES)
+          return 0
+          ;;
+        n|N|no|NO)
+          return 1
+          ;;
+        *)
+          printf "ERROR: Invalid response, expected %s or %s." "\"yes\"" "\"no\""
+          continue
+          ;;
+      esac
+    else
+      if [ "$def" = "y" ]
+      then
+        return 0
+      else
+        return 1
+      fi
+    fi
+  done
+}
+
+##########################################################################
+
+FindDistFiles()
+{
+  # Get the filenames:
+  for i in ${ScriptDirectory}/* ; do
+    if [ -f "$i" ] ; then
+      case $i in
+        */licread.txt*|*/LICREAD.TXT*)   LicenseFile="$i" ;;
+        */langcom.tar*|*/LANGCOM.TAR*)   LangComTar="$i" ;;
+        */langchs.tar*|*/LANGCHS.TAR*)   LangCHSTar="$i" ;;
+        */langcht.tar*|*/LANGCHT.TAR*)   LangCHTTar="$i" ;;
+        */langjpn.tar*|*/LANGJPN.TAR*)   LangJPNTar="$i" ;;
+        */langkor.tar*|*/LANGKOR.TAR*)   LangKORTar="$i" ;;
+        */bincom.tar*|*/BINCOM.TAR*)   BinaryCOMTar="$i" ;;
+        */install*|*/INSTALL*) ;;
+      esac
+    fi
+  done
+
+  # Validate the configurations, need at least one lang tar
+  if [ -z "$LangCHSTar" \
+    -a -z "$LangCHTTar" \
+    -a -z "$LangJPNTar" \
+    -a -z "$LangKORTar" ]
+  then
+    return $failure
+  fi
+
+  if [ -z "$LangComTar" ]
+  then
+    return $failure
+  fi
+
+  return $success
+}
+
+##########################################################################
+
+GetOS()
+{
+  if [ "`type uname`" != "uname not found" ] ; then
+    OSname=`uname -s`
+    if [ "$OSname" = "AIX" ] ; then
+      OSrelease=`uname -a | ( read name host minor major foo ; echo $major.$minor )`
+    else
+      OSrelease=`uname -r`
+    fi
+  else
+    OSname=unknown
+    OSrelease=unknown
+  fi
+}
+
+##########################################################################
+
+OutputWelcome()
+{
+  printf "%s\n" "Welcome to the Asian Language Kit installation."
+  printf "%s\n" "This installation will not work if you do not have the Unix Adobe Reader version 9.1 installed prior to this installation."
+  printf "%s\n" "If you do not have Adobe Reader version 9.1 already installed on your system please do so before installing this Asian Language Kit."
+}
+
+OutputLicense ()
+{
+  if [ -z "$PAGER" ] || [ "`type $PAGER`" = "$PAGER not found" ]
+  then
+    if [ "`type more`" != "more not found" ] ; then
+      Pager=more
+    elif [ "`type pg`" != "pg not found" ] ; then
+      Pager=pg
+    else
+      Pager=cat
+    fi
+  else
+    Pager="$PAGER"
+  fi
+
+  if [ ! -f "$LicenseFile" ] ; then
+    printf "\n%s\n\n" "ERROR: Cannot find license file ... aborting"
+    exit 1
+  fi
+
+  $Pager "$LicenseFile"
+
+  answer=
+  while [ -z "$answer" ] ; do
+    printf "Please type  %s  to accept the terms and conditions of license agreement; Type  %s  to exit.  " "\"accept\"" "\"decline\""
+    read answer
+    ucanswer=`echo "${answer}" | tr '[a-z]' '[A-Z]'`
+    case "$ucanswer" in
+    "ACCEPT")
+      ;;
+    "DECLINE")
+      printf "%s\n\n" "License agreement not accepted ... aborting installation"
+      exit 1
+      ;;
+    *)
+      printf "ERROR: Invalid response, expected %s or %s.\n" "\"accept\"" "\"decline\""
+      answer=
+      ;;
+    esac
+  done
+}
+
+##########################################################################
+
+DefaultInstallDir()
+{
+  defdir="/opt"
+  case "$OSname" in
+    SunOS)
+      case "$OSrelease" in
+        4.1.3*|4.1.4*|4.1C) defdir="/usr" ;;
+        5.*) defdir="/opt" ;;
+      esac
+      ;;
+    HP-UX)
+      case "$OSrelease" in
+        *.09.*) defdir="/usr" ;;
+        *.10.*) defdir="/opt" ;;
+        *) defdir="/opt" ;;
+      esac
+      ;;
+    IRIX|IRIX64)
+      defdir="/opt"
+      ;;
+    AIX)
+      defdir="/usr/lpp"
+      ;;
+  esac
+
+  echo "$defdir"
+}
+
+TestInstallDir()
+{
+  dir="$1"
+
+  if [ "`expr "X$dir" : 'X/'`" != 2 ]
+  then
+    printf "%s\n" "ERROR: directory must be an absolute path."
+    return $failure
+  fi
+ 
+  if [ ! -d "$dir" ]
+  then
+    printf "ERROR: Directory  %s  does not exist.\n" "\"$dir\""
+    return $failure
+  fi
+
+  if [ ! -d "$dir/Adobe/Reader9/Reader" -o ! -d "$dir/Adobe/Reader9/Resource" ]
+  then
+    return $failure
+  fi
+
+  return $success
+}
+
+GetInfo()
+{
+  var="$1"
+  test="$2"
+  default="$3"
+  tagline="$4"
+  val=""
+ 
+  while [ -z "$val" ]
+  do
+    printf "${tagline}" "$default"
+
+    read ans
+    var=`echo $ans |  cut -d "\"" -f 2`
+
+    case "$var" in
+    ~*)
+      if [ -f /bin/csh -a -x /bin/csh ] ; then
+        var=`/bin/csh -c "echo $var"`
+      fi
+      ;;
+    ../*|./*)
+      var=`pwd`/"${var}"
+      ;;
+    *)
+      ;;
+	esac
+    eval var=\"${var}\"
+    ans=$var
+
+    if [ -z "$ans" ]
+    then
+      ans="$default"
+    fi
+
+    if $test "$ans"
+    then
+      val="$ans"
+    fi
+  done
+
+  eval InstallDir=\"$val\"
+}
+
+GetInstallInfo()
+{
+  InstallDir="`DefaultInstallDir`"
+
+  GetInfo InstallDir TestInstallDir "$InstallDir" "Enter the location where you installed the Adobe Reader [%s] "
+}
+
+##########################################################################
+
+ExtractFiles ()
+{
+
+   prev_directory="`pwd 2> /dev/null`"
+   cd "$1" 
+
+   case "`uname -s`" in
+     Linux)
+        tar --no-same-owner -xpf "$2" ;;
+     HP-UX)
+        tar xfo "$2" ;;
+     *)
+        tar xpfo "$2" ;;
+   esac
+
+   cd "$prev_directory"
+
+}
+
+
+InstallFiles ()
+{
+  msg="$1"
+  install="$2"
+  shift
+  shift
+
+  for i in "$@" ; do
+    if [ "$i" ] ; then
+      if [ "$msg" ] ; then
+        printf "\n%s\n" "$msg"
+        msg=""
+      fi
+      ExtractFiles "$install" "$i"
+    fi
+  done
+
+  if [ -z "$msg" ] ; then
+    printf "%s\n" "Done"
+  fi
+}
+
+InstallLang()
+{
+  ResourceDir="$InstallDir"
+
+  InstallFiles "Installing Common binaries ... " "$InstallDir" "$BinaryCOMTar"
+  InstallFiles "Installing Common resources ... " "$ResourceDir" "$LangComTar"
+  InstallFiles "Installing Simplified Chinese language resources ... " "$ResourceDir" "$LangCHSTar"
+  InstallFiles "Installing Traditional Chinese language resources ... " "$ResourceDir" "$LangCHTTar"
+  InstallFiles "Installing Japanese language resources ... " "$ResourceDir" "$LangJPNTar"
+  InstallFiles "Installing Korean language resources ... " "$ResourceDir" "$LangKORTar"
+}
+
+##############################################################
+
+#
+# Initialization:
+#
+
+umask 022
+
+ScriptName=`basename $0`
+CurrentDirectory=`pwd`
+ScriptDirectory=`dirname $0`
+case "${ScriptDirectory}" in
+  /*) ;;
+  .) ScriptDirectory="$CurrentDirectory" ;;
+  *) ScriptDirectory="$CurrentDirectory"/"$ScriptDirectory" ;;
+esac
+
+GetOS
+
+FindDistFiles
+if [ $? != $success ]
+then
+  printf "%s\n\n" "ERROR: Could not find distribution ... aborting"
+  exit 1
+fi
+
+OutputWelcome
+if yesno "Continue installation? " "y"
+then
+  :
+else
+  printf "\n"
+  exit 1
+fi
+
+OutputLicense
+
+GetInstallInfo
+
+InstallLang
+
+printf "%s\n" "Installation completed."
+exit 0
+

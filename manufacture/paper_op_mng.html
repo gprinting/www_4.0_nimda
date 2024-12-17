@@ -1,0 +1,104 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/manufacture/item_mng/PaperOpMngDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$dao = new PaperOpMngDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dao; 
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "manufacture"; //생산
+$left = "item_mng"; //레프트 메뉴
+$left_sub = "paper_op_mng"; //레프트하위 메뉴, script 주소
+
+$option_html = "<option value=\"%s\">%s</option>";
+
+//상태
+$param = array();
+$param["table"] = "state_admin";
+$param["col"] = "state_code, erp_state_name";
+$param["where"]["dvs"] = "종이발주";
+$param["order"] = "state_code";
+
+// 주문상태값 배열 저장
+$state_html = "<option value=\"\">상태(전체)</option>";
+$rs  = $dao->selectData($conn, $param);
+while ($rs && !$rs->EOF) {
+
+    $state_html .= sprintf($option_html
+            , $rs->fields["state_code"]
+            , $rs->fields["erp_state_name"]);
+
+    $rs->MoveNext();
+}
+$state_arr = $fb->session("state_arr");
+
+$state_html .= "\n<option value=\"" . $state_arr["종이입고완료"] . "\">종이입고완료</option>";
+
+$template->reg("state_html" , $state_html);
+
+//기본검색정보 : 날짜
+$opt = array();
+$opt[0] = "등록일";
+$opt[1] = "발주일";
+
+$optVal = array();
+$optVal[0] = "regi_date";
+$optVal[1] = "op_date";
+
+$param = array();
+$param["value"] = $optVal;
+$param["fields"] = $opt;
+$param["id"] = "date_cnd";
+$param["flag"] = TRUE;
+$param["from_id"] = "from";
+$param["to_id"] = "to";
+
+$template->reg("datepicker_html" , makeDatePickerHtml($param));
+
+//제조사 종이
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,etprs_name";
+$param["where"]["tob"] = "제지사";
+
+$rs = $dao->selectData($conn, $param);
+$paper_manu_html = "<option value=\"\">종이제조사(전체)</option>";
+$option_html = "<option value=\"%s\">%s</option>";
+while ($rs && !$rs->EOF) {
+
+    $paper_manu_html .= sprintf($option_html
+            , $rs->fields["extnl_etprs_seqno"]
+            , $rs->fields["etprs_name"]);
+
+    $rs->moveNext();
+}
+
+$template->reg("paper_manu_html" , $paper_manu_html);
+
+//기본검색정보 : 종이종류
+$paper_rs = $dao->selectPaperName($conn);
+$paper_opt = "<option value=\"\">종이명(전체)</option>";
+while ($paper_rs && !$paper_rs->EOF) {
+    $paper_opt .= "<option value=\"". $paper_rs->fields["name"] ."\">" . $paper_rs->fields["name"] . "</option>";
+    $paper_rs->moveNext();
+}
+$template->reg("paper_opt", $paper_opt);
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

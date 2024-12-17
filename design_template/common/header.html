@@ -1,0 +1,39 @@
+        <div id="loading_img" style="display:none">
+          <img src='[TPH_Vdesign_dir]/images/loading.gif' style="position:absolute;z-index:9999999;top:30%; left:30%;" alt="로딩" />
+        </div> 
+        <div id="black_mask" style="display:none;position:absolute;left:0;top:0;z-index:9998;background-color:#000;opacity:0.3;"></div>
+        <div id="pop_mask" style="display:none;position:absolute;left:0;top:0;z-index:99998;background-color:#000;opacity:0.3;"></div>
+        <div id="pop_pop_mask" style="display:none;position:absolute;left:0;top:0;z-index:999998;background-color:#000;opacity:0.3;"></div>
+<!--  onmousedown="startDrag(event, this)"-->
+        <div id="pop_popup" style="display:none;position:absolute;z-index:99999;" class="pop_add_box"></div>
+        <div id="regi_popup" style="display:none;position:absolute;z-index:9999;" class="pop_add_box"></div>
+    	<!-- TOP NAVIGATION --> 
+		<header id="navbar">
+            <div class="header">
+                <div class="nav_m">
+                    <ul>
+                     <li class="fl line"><img src="[TPH_Vdesign_dir]/images/logo.jpg" alt="Logo"></li>
+                     <li class="menu_box menu01 [TPH_Vbusiness]" style="[TPH_Vbusiness_display]display : none;"><a onclick="loadAuthPage('business')" style="cursor: pointer;">영업</a></li>
+                     <li class="menu_box menu02 [TPH_Vorder]" style="[TPH_Vorder_display]display : none;"><a onclick="loadAuthPage('order')" style="cursor: pointer;">주문</a></li>
+                     <li class="menu_box menu03 [TPH_Vmanufacture]" style="[TPH_Vmanufacture_display]display : none;"><a onclick="loadAuthPage('manufacture')" style="cursor: pointer;">생산</a></li>
+                     <!--li class="menu_box menu02 [TPH_Vproduce]"><a onclick="loadAuthPage('produce')">생산</a></li--> 
+                     <li class="menu_box menu04 [TPH_Vmember]" style="[TPH_Vmember_display]display : none;"><a onclick="loadAuthPage('member')" style="cursor: pointer;">회원</a></li>
+                     <li class="menu_box menu05 [TPH_Vmkt]" style="[TPH_Vmkt_display]display : none;"><a onclick="loadAuthPage('mkt');" style="cursor: pointer;">마케팅</a></li>
+                     <!--<li class="menu_box menu04 [TPH_Vmkt]"><a href="/mkt/grade_mng.html">마케팅</a></li>-->
+                     <li class="menu_box menu06 [TPH_Vcalcul_mng]" style="[TPH_Vcalcul_mng_display]display : none;"><a onclick="loadAuthPage('calcul_mng')" style="cursor: pointer;">정산관리</a></li>
+                     <!--
+                     <li class="menu_box menu06 [TPH_V]"><a href="#">관리업무</a></li> 
+                     <li class="menu_box menu07 [TPH_V]"><a href="#">경영정보</a></li> 
+                     -->
+                     <li class="menu_box menu07 [TPH_Vbasic_mng]" style="[TPH_Vbasic_mng_display]display : none;"><a onclick="loadAuthPage('basic_mng')" style="cursor: pointer;">기초관리</a></li>
+                     <li class="menu_box menu08 [TPH_Vdataproc_mng]" style="[TPH_Vdataproc_mng_display]display : none;"><a onclick="loadAuthPage('dataproc_mng')" style="cursor: pointer;">전산관리</a></li>
+                     <!--li class="menu_box menu09 [TPH_Vstatistics]" style="[TPH_Vstatistics_display]display : none;"><a onclick="loadAuthPage('statistics')" style="cursor: pointer;">통계</a></li-->
+                     <!--
+                     <li class="menu_box menu10 [TPH_V]"><a href="#">모바일</a></li> 
+                     -->
+                    </ul>
+                </div>
+
+                [TPH_Vlogin_info]
+            </div>
+		</header>

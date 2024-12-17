@@ -1,0 +1,76 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . '/com/nexmotion/job/nimda/manufacture/storage_mng/StorageMngDAO.inc');
+include_once(INC_PATH . '/common_define/common_info.inc');
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$dao = new StorageMngDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dao;
+
+$state_arr = $fb->session("state_arr");
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "manufacture"; //생산
+$left = "release_mng"; //레프트 메뉴
+$left_sub = "release_list"; //레프트하위 메뉴, script 주소
+
+// 카테고리 대분류 검색
+$cate_html = $dao->selectCateList($conn);
+$template->reg("cate_html" , $cate_html);
+
+$opt = array();
+$opt[0] = "조판일";
+
+$optVal = array();
+$optVal[0] = "release_date";
+
+$param = array();
+$param["value"] = $optVal;
+$param["fields"] = $opt;
+$param["id"] = "search_cnd";
+$param["flag"] = TRUE;
+$param["from_id"] = "from";
+$param["to_id"] = "to";
+
+//날짜 검색
+$template->reg("datepicker_html" , makeDatePickerHtml($param));
+
+// 특이사항별 구분
+$rs = $dao->selectDetailInfo($conn);
+$option_detail = "";
+while ($rs && !$rs->EOF) {
+    $option_detail .= option($rs->fields['opt_name'], $rs->fields['seq']);
+    $rs->MoveNext();
+}
+$template->reg("detail_info", $option_detail);
+
+// 검색시 배송방법 선택
+$dlvrway_html = "<select class=\"fix_width150\" id=\"dlvr_way\">";
+$dlvrway_html .= "<option value=\"\">전체</option>";
+$dlvrway_html .= "<option value=\"02\" selected>직배</option>";
+$dlvrway_html .= "<option value=\"01\">택배</option>";
+$dlvrway_html .= "<option value=\"03\">화물</option>";
+$dlvrway_html .= "<option value=\"04\">퀵(오토바이)</option>";
+$dlvrway_html .= "<option value=\"05\">퀵(지하철)</option>";
+$dlvrway_html .= "<option value=\"06\">방문(인현동)</option>";
+$dlvrway_html .= "<option value=\"07\">방문(성수동)</option>";
+$dlvrway_html .= "</select>";
+$template->reg("delivery_way", $dlvrway_html);
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

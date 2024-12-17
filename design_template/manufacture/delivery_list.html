@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+
+<body>
+
+    <div id="container">
+
+        <!-- TOP NAVIGATION -->
+        [TPH_I/common/header.html]
+
+        <!-- LEFT NAVIGATION -->
+        [TPH_Vleft]
+
+        <!-- CONTENT -->
+        <section id="page-content">
+
+            <!-- 본문 컨텐츠  시작-->
+            <div id="content-container" class="content_container manufacture_common">
+                <!--메인상단 왼쪽 레이아웃-->
+                <div id="left_content" class="left_content">
+                    <!--타이틀-->
+                    <div class="title">
+                        [TPH_I/common/history.html]
+                    </div>
+                    <!--기본 검색정보 시작-->
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <table class="table_search_layout">
+                                <tbody>
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">카테고리</th>
+                                        <td>
+                                            <select id="dlvr_dvs" class="select_data_prdt_info_01">
+                                                <option value="">전체</option>
+                                                <option value="namecard">명함류</option>
+                                                <option value="leaflet">전단류</option>
+                                                <option value="outsource_namecard">외주류(명함)</option>
+                                                <option value="outsource_leaflet">외주류(전단)</option>
+                                            </select>
+                                            <button type="button" class="btn_float_right btn_Turquoise01"
+                                                onclick="searchProcess();">검색</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">회원명</th>
+                                        <td>
+                                            <input type="text" id="member_name" class="input_co2 fix_width173" value="" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">인쇄물제목</th>
+                                        <td>
+                                            <input type="text" id="title" class="input_co2 fix_width173" value="" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">후공정 구분</th>
+                                        <td>
+                                            <input type='radio' name='after_yn' value='' checked='checked'>전체&nbsp
+                                            <input type='radio' name='after_yn' value='Y'>후가공 있음&nbsp
+                                            <input type='radio' name='after_yn' value='N'>후가공 없음
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">마감 구분</th>
+                                        <td>
+                                            <input type='radio' name='theday_yn' value='' checked='checked'>전체&nbsp
+                                            <input type='radio' name='theday_yn' value='Y'>당일판&nbsp
+                                            <input type='radio' name='theday_yn' value='N'>당일판 아님
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">상태</th>
+                                        <td>
+                                            <select class="fix_width150" id="state" name="state">
+                                                <option value=''>전체</option>
+                                                <option selected value='N'>송장 출력대기</option>
+                                                <option value='Y'>송장 출력완료</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text calcul_mng_th_left">배송 구분</th>
+                                        <td>
+                                            <input type='radio' name='cost' value='' checked='checked'>전체&nbsp
+                                            <input type='radio' name='cost' value='pre'>선불
+                                            <input type='radio' name='cost' value='post'>후불
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="th_text manu th_manu_print_list_01">
+                                            날짜
+                                        </th>
+                                        <td colspan="3">
+                                            <select id="date_cnd" class="select_member_common_cnd">
+                                                <option value="depo_date">입금일</option>
+                                            </select>
+                                            <input type="text" class="datepicker_input input_manu_print_list_02" readonly="readonly" id="basic_from">-
+                                            <input type="text" class="datepicker_input input_manu_print_list_02" readonly="readonly" id="basic_to">
+                                            <span class="container_btn_align_02" style="float: none;">
+                                        <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -1,  0, $(this).text(), true);">어제</button>
+                                        <button type="button" class="btn_gray01" onclick="setDateVal('basic', 't',  0,  0, $(this).text(), false);">오늘</button>
+                                        <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -7,  0, $(this).text(), false);">일주일</button>
+                                        <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'm', -1,  0, $(this).text(), false);">한달</button>
+                                        <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'y', -1, -1, $(this).text(), true);">작년동기</button>
+                                    </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <form name="frm" id="frm">
+                                                <input type="hidden" id="seqno" name="seqno">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <div class="">
+                                <ul class="table_top">
+                                    <li class="sel">
+                                    </li>
+                                    <li class="sel tar">
+                                        <button type="button" class="btn_yellow h_26" onclick="goBarcode('output');"
+                                            style="display:none;">바코드 처리
+                                            페이지</button>
+                                    </li>
+                                </ul>
+                                <div class="table_basic">
+                                    <div>
+                                        <button type="button" class="btn_gray01" style="float:right;margin:5px;width: 100px;" onclick="downloadFile();">엑셀 다운로드</button>
+                                        <button type="button" class="btn_gray01" onclick="openRegiPopup($('#copy_auth').html(), 500); return false;" style="float:right;margin:5px;width: 100px;">송장 등록하기</button>
+                                        <iframe id="file_ifr" src="" style="display:none; width:0px; height:0px;" width=0 height=0></iframe>
+                                    </div>
+                                    <table class="table_basic_layout">
+                                        <thead>
+                                            <tr>
+                                                <th class="bm2px" style="width: 15px;">No.</th>
+                                                <th class="bm2px" style="width: 40px;">주문일</th>
+                                                <th class="bm2px" style="width: 80px;">주문번호</th>
+                                                <th class="bm2px" style="width: 70px;">회원명</th>
+                                                <th class="bm2px" style="width: 90px;">인쇄물제목</th>
+                                                <th class="bm2px" style="width: 180px;">상품정보</th>
+                                                <th class="bm2px" style="width: 100px;">후가공</th>
+                                                <th class="bm2px" style="width: 70px;">송장번호</th>
+                                                <th class="bm2px" style="width: 35px;">매수</th>
+                                                <th class="bm2px" style="width: 15px;">건수</th>
+                                                <th class="bm2px" style="width: 30px;">결제</th>
+                                                <th class="bm2px" style="width: 30px;">요금</th>
+                                                <th class="bm2px" style="width: 200px;">주소</th>
+                                                <th class="bm2px" style="width: 80px;">관리</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="list">
+                                            <tr>
+                                                <td colspan="13">검색 된 내용이 없습니다.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="p_num_b fs12">
+                                        Showing 1 to 5 of 30 entries
+                                        <select name="list_set" class="fix_width55"
+                                                onchange="showPageSetting(this.value);">
+                                            <option>5</option>
+                                            <option>10</option>
+                                            <option>20</option>
+                                            <option selected="selected">30</option>
+                                        </select>
+                                    </p>
+                                    <div class="tac clear" id="page"></div>
+                                </div>
+
+                                <div style="display:none;" id="copy_auth">
+                                    <dl>
+                                        <dt class="tit">
+                                            <h4>송장등록</h4>
+                                        </dt>
+                                        <dt class="cls">
+                                            <button type="button" onclick="hideRegiPopup(); return false;" class="btn btn-sm btn-danger fa fa-times"></button>
+                                        </dt>
+                                    </dl>
+
+                                    <div class="pop-base">
+                                        <div class="pop-content">
+                                            <div class="form-group">
+                                                <label class="control-label fix_width79 tar">택배사 선택</label><label class="fix_width20 fs14 tac">:</label>
+                                                <select class="fix_width150" id="detail_info">
+                                                    <option>롯데택배</option>
+                                                    <option>로젠택배</option>
+                                                    <option>CJ 대한통운</option>
+                                                </select>
+                                                <br />
+
+                                                <label class="control-label fix_width79 tar">업로드파일</label><label class="fix_width20 fs14 tac">:</label>
+                                                <input id="upload_file1" class="input_data_paper_info_01" placeholder="" disabled="disabled" />
+
+                                                <label class="fileUpload">
+                                                    <form name="prdt_form" id="prdt_form" method="post">
+                                                        <input id="upload_btn1" name="preview_file" type="file" class="upload" />
+                                                    </form>
+                                                    <span class="btn btn-sm btn-info fa" style="margin-top: 2px;">파일선택</span>
+                                                    <span id="file_btn"></span>
+                                                    <script type="text/javascript">
+                                                        document.getElementById("upload_btn1").onchange = function () {
+                                                            document.getElementById("upload_file1").value = this.value;
+                                                        };
+                                                    </script>
+                                                </label>
+                                                <br />
+                                                <hr class="hr_bd3">
+                                                <label class="control-label cp">송장번호 등록용 엑셀 파일 예제</label>
+                                                <label class="control-label cp"><img src="[TPH_Vdesign_dir]/images/help_delivery.png"></label>
+                                                <label class="control-label cp" style="color:#FF0000">* Excel 97-2003 통합문서(.xls) 로 저장해서 올려주시기 바랍니다.</label>
+                                                <br />
+                                                <label class="fix_width20"> </label>
+
+                                            </div>
+                                            <hr class="hr_bd3">
+                                            <div class="form-group">
+                                                <p class="tac mt15">
+                                                    <button type="button" onclick="savePrdtInfo(); return false;" class="btn btn-sm btn-success">등록하기</button>
+                                                    <button type="button" onclick="hideRegiPopup(); return false;" class="btn btn-sm btn-primary">닫기</button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+-----------------
+SGPT161005NC000040101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0000401%' ORDER BY seq ASC
+1
+SGPT161005NC000040101
+-----------------
+SGPT161005NC000040101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0000401%' ORDER BY seq ASC
+1
+SGPT161005NC000040101
+-----------------
+SGPT161005NC000050101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0000501%' ORDER BY seq ASC
+1
+SGPT161005NC000050101
+-----------------
+SGPT161005NC000060101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0000601%' ORDER BY seq ASC
+1
+SGPT161005NC000060101
+-----------------
+SGPT161005NC000060101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0000601%' ORDER BY seq ASC
+1
+SGPT161005NC000060101
+-----------------
+SGPT161005NC000070101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0000701%' ORDER BY seq ASC
+1
+SGPT161005NC000070101
+-----------------
+SGPT161005NC000070101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0000701%' ORDER BY seq ASC
+1
+SGPT161005NC000070101
+-----------------
+SGPT161005NC000080101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0000801%' ORDER BY seq ASC
+1
+SGPT161005NC000080101
+-----------------
+SGPT161005NC000080101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0000801%' ORDER BY seq ASC
+1
+SGPT161005NC000080101
+-----------------
+SGPT161005NC000310101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0003101%' ORDER BY seq ASC
+1
+SGPT161005NC000310101
+-----------------
+SGPT161005NC000310101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0003101%' ORDER BY seq ASC
+1
+SGPT161005NC000310101
+-----------------
+SGPT161005NC000310101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0003101%' ORDER BY seq ASC
+1
+SGPT161005NC000310101
+-----------------
+SGPT161005NC000310101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0003101%' ORDER BY seq ASC
+1
+SGPT161005NC000310101
+-----------------
+SGPT161005NC000310101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0003101%' ORDER BY seq ASC
+1
+SGPT161005NC000310101
+-----------------
+SGPT161005NC000310101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0003101%' ORDER BY seq ASC
+1
+SGPT161005NC000310101
+-----------------
+SGPT161005NC000310101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0003101%' ORDER BY seq ASC
+1
+SGPT161005NC000310101
+-----------------
+SGPT161005NC000290101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0002901%' ORDER BY seq ASC
+1
+SGPT161005NC000290101
+-----------------
+SGPT161005NC000300101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0003001%' ORDER BY seq ASC
+1
+SGPT161005NC000300101
+-----------------
+SGPT161005NC000330101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0003301%' ORDER BY seq ASC
+1
+SGPT161005NC000330101
+-----------------
+SGPT161005NC000320101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0003201%' ORDER BY seq ASC
+1
+SGPT161005NC000320101
+-----------------
+SGPT161005NC000320101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0003201%' ORDER BY seq ASC
+1
+SGPT161005NC000320101
+-----------------
+SGPT161005NC000520101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0005201%' ORDER BY seq ASC
+1
+SGPT161005NC000520101
+-----------------
+SGPT161005NC000520101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0005201%' ORDER BY seq ASC
+1
+SGPT161005NC000520101
+-----------------
+SGPT161005NC000530101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0005301%' ORDER BY seq ASC
+1
+SGPT161005NC000530101
+-----------------
+SGPT161005NC000530101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0005301%' ORDER BY seq ASC
+1
+SGPT161005NC000530101
+-----------------
+SGPT161005NC000530101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0005301%' ORDER BY seq ASC
+1
+SGPT161005NC000530101
+-----------------
+SGPT161005NC000530101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0005301%' ORDER BY seq ASC
+1
+SGPT161005NC000530101-SGPT161005NC000530101-2120-2120
+-----------------
+SGPT161005NC000530101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0005301%' ORDER BY seq ASC
+1
+SGPT161005NC000530101-SGPT161005NC000530101-2120-2130
+-----------------
+SGPT161005NC000530101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0005301%' ORDER BY seq ASC
+1
+SGPT161005NC000530101-SGPT161005NC000530101-2120-2120
+FAILED
+-----------------
+SGPT161005NC000530101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0005301%' ORDER BY seq ASC
+1
+SGPT161005NC000530101-SGPT161005NC000530101-2120-2130
+-----------------
+SGPT161005NC000530101
+SELECT order_detail_count_file_seqno AS idx, order_detail_file_num AS file_order_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT161005NC0005301%' ORDER BY seq ASC
+1
+SGPT161005NC000530101-SGPT161005NC000530101-2120-2120
+3

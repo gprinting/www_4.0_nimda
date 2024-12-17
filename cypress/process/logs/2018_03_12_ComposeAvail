@@ -1,0 +1,17 @@
+
+00:42:04 파라미터 ONS : 1
+\n\n\n
+00:42:04 파라미터 ON1 : 1801080094301
+\n\n\n
+00:42:04
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801080094301' \n\n\n
+00:42:16 파라미터 ONS : 1
+\n\n\n
+00:42:16 파라미터 ON1 : 1801020000801
+\n\n\n
+00:42:16
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+   WHERE order_detail_file_num = '1801020000801' \n\n\n

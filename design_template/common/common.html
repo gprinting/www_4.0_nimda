@@ -1,0 +1,83 @@
+    <!-- 기본 css -->       
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font-awesome.min.css">
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/guide.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/common.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/width_height.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/tab.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/basic_manager.css" type="text/css"  />
+	<!--<link rel="stylesheet" href="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.css">-->
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/lightslider.css"/>
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/datepicker.css">
+
+    <script src="[TPH_Vdesign_dir]/js/lib/jquery-1.11.2.min.js"></script>
+    <!--<script type="text/javascript" src="[TPH_Vdesign_dir]/js/lib/jquery-1.11.2.min.js"></script>-->
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-tab.js"></script>
+    <!--<script type="text/javascript" src="[TPH_Vdesign_dir]/js/toggle.js"></script>-->
+	<!--<script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>-->
+
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/jquery.scrollUp2.js"></script>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/locales/bootstrap-datepicker.kr.js"></script>
+
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/seditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/lib/lightslider.js"></script> 
+
+    <!-- 공통 -->
+    <script src="[TPH_Vdesign_dir]/js/common/common.js"></script>
+    <!-- 기본 검색 정보 -->
+    <!-- top 공통 -->
+    <script src="[TPH_Vdesign_dir]/js/common/[TPH_Vtop]_common.js"></script>
+    <!-- 페이지별 js -->
+    <script src="[TPH_Vdesign_dir]/js/[TPH_Vtop]/[TPH_Von].js"></script>
+    <script>
+	$(function(){
+	    $("dd:not(.active)").css("display","none");
+	    $("dl dt").click(function(){
+		if($("+dd",this).css("display")=="none"){
+			$("dd").slideUp("fast");
+			$("+dd",this).slideDown("fast");
+		    }
+	     }); 
+
+        $(".[TPH_Vactive]").addClass("active");
+        $(".[TPH_Vactive]").css("display", "block");
+        $(".[TPH_Von]").addClass("on");
+    });
+    </script> 
+    <script>
+	$(function () {
+		$.scrollUp({
+	        scrollName: 'scrollUp', // Element ID
+	        scrollDistance: 300, // Distance from top/bottom before showing element (px)
+	        scrollFrom: 'top', // 'top' or 'bottom'
+	        scrollSpeed: 300, // Speed back to top (ms)
+	        easingType: 'linear', // top easing (see http://easings.net/)
+	        animation: 'fade', // Fade, slide, none
+	        animationInSpeed: 200, // Animation in speed (ms)
+	        animationOutSpeed: 200, // Animation out speed (ms)
+	        scrollText: '<img src="[TPH_Vdesign_dir]/images/top.png">', // Text for element, can contain HTML
+	        scrollTitle: false, // Set a custom <a> title if required. Defaults to scrollText
+	        scrollImg: false, // Set true to use image
+	        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+	        zIndex: 2147483647 // Z-Index for the overlay
+		});
+	});
+    </script>
+    <style>
+        .demo ul{
+            list-style: none outside none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .content-slider li {
+            background-color: #ed3020;
+            text-align: center;
+            color: #FFF;
+        }
+        .content-slider h3 {
+            margin: 0;
+            padding: 70px 0;
+        }
+    </style>

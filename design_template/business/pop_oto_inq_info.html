@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>영업</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <style>
+        body {background:#fff;}
+        table {vertical-align: top;}
+    </style>
+</head>
+<body>
+<div class="popup_container">
+    <div class="popup_layout">
+        <div class="popup_top">
+            <p>문의내용</p>
+        </div>
+        <div class="container_table">
+            <table class="popup_table">
+                <colgroup>
+                    <col style="width:100px;">
+                    <col style="width:200px;">
+                    <col style="width:100px;">
+                    <col style="width:200px;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th class="th_text th_pop_oto_01">문의제목</th>
+                        <td>
+                            [TPH_Vtitle]
+                        </td>
+                        <th class="th_text th_pop_oto_01">문의유형</th>
+                        <td>
+                            [TPH_Vinq_typ]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="th_text th_pop_oto_01">회원명</th>
+                        <td>
+                            [TPH_Voffice_nick]([TPH_Vmember_name])
+                        </td>
+                        <th class="th_text th_pop_oto_01">연락처</th>
+                        <td>
+                            [TPH_Vtel_num]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="th_text th_pop_oto_01">휴대전화</th>
+                        <td>
+                            [TPH_Vcell_num]
+                        </td>
+                        <th class="th_text th_pop_oto_01">이메일</th>
+                        <td>
+                            [TPH_Vmail]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="th_text th_pop_oto_01">첨부파일</th>
+                        <td>
+                            [TPH_Vinq_file_html]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="th_text th_pop_oto_01">문의내용</th>
+                        <td>
+                            <textarea class="bs_noti4" disabled>[TPH_Vinq_cont]</textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="popup_layout">
+        <div class="popup_top">
+            <p>답변내용</p>
+        </div>
+        <div class="container_table">
+            <table class="popup_table">
+                <tbody>
+                    <tr>
+                        <th class="th_text th_pop_oto_01">답변자</th>
+                        <td>
+                            [TPH_Vname]
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="th_text th_pop_oto_01">답변내용</th>
+                        <td>
+                            <textarea class="bs_noti4" id="reply_cont" [TPH_Vdisabled]>[TPH_Vreply_cont]</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="th_text th_pop_oto_01">답변 파일첨부</th>
+                        <td>
+                            <!-- 파일 업로드 / 스크립이 하단에 있어야 작동함 -->
+                            <input id="upload_path" class="disableInputField" placeholder="Choose File" disabled="disabled" value="[TPH_Vreply_file]"/>
+                            <label class="fileUpload">
+                                <input id="upload_file" type="file" class="upload" [TPH_Vdisabled] onchange="fileSearchBtn(this.value);"/>
+                                <span class="btn btn-sm btn-info fa" id="file_search" [TPH_Vdisabled]>파일찾기</span>
+                            </label>
+                            <br />
+                            [TPH_Vreply_file_html]
+                            <!--<label class="fix_width140"></label>         
+                            <input type="text" class="input_co2 fix_width200" value="File01.ai">     
+                            <button type="button" class="btn btn-sm bred fa fa-times"></button>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="float_right" style="margin-bottom:40px;">
+        <button type="button" class="btn_pop_oto_close" onclick="window.close();">닫기</button>
+        [TPH_Vcancel_regi_btn]
+        [TPH_Vregi_btn]
+    </div>
+    [TPH_I/common/common_mask.html]
+</div>    
+</body>
+</html>

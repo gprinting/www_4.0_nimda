@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Mobile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/manufacture/mobile_barcode_work.js"></script>
+</head>
+
+<!-- 첫 번째 페이지 -->
+<section id="page1" data-role="page">
+    <header data-role="header" data-position="fixed"  data-theme="b">
+        <h1>배송작업</h1>
+        <a href="#page2" data-icon="search" data-theme="a">배송리스트</a>
+    </header>
+    <div data-role="fieldcontain">
+        <input type="text" name="order_detail_num" id="order_detail_num" value=""  placeholder=""/>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview" data-theme="c">
+            <ul data-role="listview" data-theme="c" id="item_list">
+            </ul>
+        </ul>
+    </div>
+    <footer data-role="footer" data-position="fixed">
+        <h2>ⓒcopyright 2016</h2>
+    </footer>
+</section>
+
+
+<!-- 두 번째 페이지 -->
+<section id="page2" data-role="page">
+    <header data-role="header" data-add-back-btn="true" data-icon="back" data-theme="b"><h1>배송대기 리스트</h1>
+        <div data-type="horizontal" data-role="controlgroup" class="ui-btn-right">
+            <a onclick="getDeliveryListByCar();" data-icon="search" data-role="button">검색</a>
+        </div>
+    </header>
+    <div class="content" data-role="content">
+            <fieldset class="ui-field-contain">
+                <select name="kindofcar" id="kindofcar">
+                    <option value="">호차선택</option>
+                    <option value="직배차량01">직배차량01</option>
+                    <option value="직배차량02">직배차량02</option>
+                    <option value="직배차량03">직배차량03</option>
+                    <option value="직배차량04">직배차량04</option>
+                    <option value="직배차량05">직배차량05</option>
+                    <option value="직배차량06">직배차량06</option>
+                    <option value="직배차량07">직배차량07</option>
+                    <option value="직배차량08">직배차량08</option>
+                    <option value="직배차량09">직배차량09</option>
+                    <option value="직배차량10">직배차량10</option>
+                    <option value="직배차량11">직배차량11</option>
+                    <option value="직배차량12">직배차량12</option>
+                    <option value="직배차량13">직배차량13</option>
+                    <option value="서울배송1">서울배송1</option>
+                    <option value="서울배송2">서울배송2</option>
+                    <option value="서울배송3">서울배송3</option>
+                    <option value="서울배송4">서울배송4</option>
+                    <option value="서울배송5">서울배송5</option>
+                    <option value="서울배송6">서울배송6</option>
+                    <option value="서울배송7">서울배송7</option>
+                    <option value="서울배송8">서울배송8</option>
+                    <option value="서울배송9">서울배송9</option>
+                    <option value="서울배송10">서울배송10</option>
+                    <option value="서울배송11">서울배송11</option>
+                    <option value="서울배송12">서울배송12</option>
+                    <option value="서울배송13">서울배송13</option>
+                </select>
+            </fieldset>
+        </div>
+        <ul data-role="listview" data-theme="c">
+            <ul data-role="listview" data-theme="c" id="item_wait_list">
+            </ul>
+        </ul>
+    </div>
+    <footer data-role="footer" data-position="fixed" >
+        <div data-role="navbar">
+        </div>
+        <h2>ⓒcopyright 2016</h2>
+    </footer>
+</section>
+</body>
+</html>

@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/business/common/include.html]
+	<style>
+	#content1 .table_basic_layout .big_body .hidden_row {display:none;}
+	#content1 .table_basic_layout .big_body .hidden_ground {background:#f9f9f7;}
+	#content2 .detail_table .big_body .hidden_row {display:none;}
+    #content2 .detail_table .big_body .hidden_ground {background:#f9f9f7;}
+    body {overflow-y:scroll;}
+	</style>
+</head>
+<body>
+
+<div id="container">
+   <!-- TOP NAVIGATION -->
+   [TPH_I/common/header.html]
+   <!-- LEFT NAVIGATION -->
+   [TPH_Vleft]
+   <!-- CONTENT -->
+   <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container order_mng_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀-->
+                <div class="title">
+                    기본 검색정보
+                    <button type="button" id="basic_plus" class="btn_plus" onclick="toggleSearchInfo('basic', 'plus');" style="display:none;"></button>
+                    <button type="button" id="basic_minus" class="btn_minus" onclick="toggleSearchInfo('basic', 'minus');"></button>
+                </div>
+                <!--기본 검색정보 시작-->
+                <section class="content_section" id="basic_search">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <colgroup>
+                                <col class="normal_search_col_01">
+                                <col class="normal_search_col_02">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th class="th_text order_mng_th_left">키워드 검색</th>
+                                    <td colspan="8">
+                                        <select id="search_dvs" class="order_mng_secect01">
+                                            <option value="office_nick">회원 닉네임</option>
+                                            <option value="member_name">회원 이름</option>
+                                            <option value="title">제작물 내용</option>
+                                            <option value="member_tel">회원 전화번호</option>
+                                            <option value="member_cell">회원 핸드폰번호</option>
+                                            <option value="member_addr">회원 주소</option>
+                                            <option value="receiver">받는 사람</option>
+                                            <option value="virt_ba">가상계좌</option>
+                                        </select>
+                                        <input type="text" id="search_keyword" onkeyup="cndSearch.key(event);" class="order_mng_input01"/>
+                                        <button type="button" class="btn_float_right btn_Turquoise01" onclick="cndSearch.exec();">검색</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text order_mng_th_left">기간 검색</th>
+                                    <td colspan="4" class="daily_form daily-form">
+                                        <select id="cpn_admin" class="order_mng_secect01" onchange="changeCpnAdmin(this.value);">
+                                            [TPH_Vcpn_admin_html]
+                                        </select>
+                                        <input type="text" class="datepicker_input order_mng_input02" readonly="readonly" id="basic_from">-
+                                        <input type="text" class="datepicker_input order_mng_input02" readonly="readonly" id="basic_to">
+                                        <span class="btn_float_right">
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -1,  0, $(this).text(), true);">어제</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 't',  0,  0, $(this).text(), false);">오늘</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -7,  0, $(this).text(), false);">일주일</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'm', -1,  0, $(this).text(), false);">한달</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'y', -1, -1, $(this).text(), true);">작년동기</button>
+                                        </span>
+                                        <!--<button type="button" onclick="setDateVal('basic', 'a',  0,  0, $(this).text(), false);">전체</button>-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text order_mng_th_left">팀/담당자</th>
+                                    <td>
+                                        <select id="depar" class="order_mng_secect01" onchange="changeDepar(this.value, '');">
+                                            [TPH_Vdepar_html]
+                                        </select>
+                                        <select id="empl" class="order_mng_secect01">
+                                            <option value=''>전체</option>
+                                            [TPH_Vempl_html]
+                                        </select>
+                                    </td>
+                                    <th class="th_text order_mng_th_right">사용프로그램</th>
+                                    <td>
+                                        <select id="oper_sys" class="order_mng_secect01" onchange="changeOperSys(this.value);">
+                                            [TPH_Voper_sys_html]
+                                        </select>
+                                        <select id="pro" class="order_mng_secect01">
+                                            <option value=''>전체</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text order_mng_th_left">업체등급</th>
+                                    <td>
+                                        <select id="member_typ" class="order_mng_secect01">
+                                            <option value="일반회원">일반회원</option>
+                                            <option value="예외업체">예외업체</option>
+                                        </select>
+                                        <select id="member_grade" class="order_mng_secect01">
+                                            [TPH_Vmember_grade_html]
+                                        </select>
+                                    </td>
+                                    <th class="th_text order_mng_th_right">배송유형</th>
+                                    <td>
+                                        <select id="dlvr_dvs" class="order_mng_secect01" onchange="changeDlvrDvs(this.value);">
+                                            [TPH_Vdlvr_dvs_html]
+                                        </select>
+                                        <select id="dlvr_code" class="order_mng_secect01">
+                                            <option value="">전체</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text order_mng_th_left">영업형태</th>
+                                    <td>
+                                        <select id="business_dvs" class="order_mng_secect01">
+                                            <option value="tel">전화영업</option>
+                                            <option value="visit">방문영업</option>
+                                            <option value="b2b">B2B</option>
+                                            <option value="b2c">B2C</option>
+                                            <option value="etc">기타영업</option>
+                                        </select>
+                                    </td>
+                                    <th class="th_text order_mng_th_right">미수금</th>
+                                    <td>
+                                        <select id="oa_yn" class="order_mng_secect01">
+                                            <option value="">전체</option>
+                                            <option value="Y">미수금 있는 회원만 보기</option>
+                                            <option value="N">미수금 없는 회원만 보기</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <span class="fix_span">영업 팀 총 <span id="member_total_cnt" class="text_accent_01"></span>개 중 검색 업체수 : <span id="member_result_cnt" class="text_accent_01"></span>개</span>
+                        <div class="fix_search">
+                            <span>회원명 :</span>
+                            <input type="text" id="stat_member_name" class="fix_search_btn">
+                            <img src="[TPH_Vdesign_dir]/images/[TPH_Vtop]/btn_1.png" onclick="innerSearchMemberStats();" alt="search" style="cursor:pointer;">
+                        </div>
+                        <div class="overflow_auto" style="clear:both;">
+                            <table class="table_basic_layout">
+                                <colgroup>
+                                    <col style="width:50px">
+                                    <col style="width:230px">
+                                    <col style="width:110px">
+                                    <col style="width:110px">
+                                    <col style="width:110px">
+                                    <col style="width:110px">
+                                    <col style="width:110px">
+                                    <col style="width:110px">
+                                    <col style="width:120px">
+                                    <col style="width:120px">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>회원명</th>
+                                        <th>총미수액</th>
+                                        <th>에누리</th>
+                                        <th>순매출액</th>
+                                        <th>입금액</th>
+                                        <th>사용가능금액</th>
+                                        <th>기말 미수액</th>
+                                        <th>생산투입한도조정</th>
+                                        <th>매출액/입금액 조정</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="member_stats_list">
+                                    <tr><td colspan='10' style="text-align:center;">검색결과없음</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="member_stats_page" class="page_bar">
+                        </div>
+
+                        <div class="loading_oh" id="member_stats_list_mask" style="display:none; top:374px; width:1111px;">
+                            <table  height="170" align="center" style="opacity:0.5;">
+                                <tr style="background:#CCC">
+                                    <td align="center"><img src="[TPH_Vdesign_dir]/images/business/loading.gif" alt="로딩"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="loading_oh" id="member_stats_page_mask" style="display:none; top:581px; width:1111px;">
+                            <table  height="41" align="center" style="opacity:0.5;">
+                                <tr style="background:#CCC">
+                                    <td align="center"><img src="[TPH_Vdesign_dir]/images/business/loading.gif" alt="로딩"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+                <!--고정상단 아래 탭테이블-->
+                <section class="content_section">
+                    <div id="content_tab" class="content_wrapper">
+                        <div class="content_tab">
+                            <input id="tab1" type="radio" name="tabs" value="sales_info" checked>
+                            <label for="tab1" onclick="changeTab('sales_info');" class="content_label">매출 거래현황정보</label>
+
+                            <input id="tab2" type="radio" name="tabs" value="order_info">
+                            <label for="tab2" onclick="changeTab('order_info');" class="content_label">주문정보</label>
+
+                            <input id="tab3" type="radio" name="tabs" value="order_status">
+                            <label for="tab3" onclick="changeTab('order_status');" class="content_label">주문진행정보</label>
+
+                            <input id="tab4" type="radio" name="tabs" value="manu_limit">
+                            <label for="tab4" onclick="changeTab('manu_limit');" class="content_label">생산 투입한도조회</label>
+
+                            <input id="tab5" type="radio" name="tabs" value="crm_info">
+                            <label for="tab5" onclick="changeTab('crm_info');" class="content_label">CRM정보</label>
+
+                            <input id="tab6" type="radio" name="tabs" value="new_member">
+                            <label for="tab6" onclick="changeTab('new_member');" class="content_label">신규회원정보</label>
+
+                            <input id="tab7" type="radio" name="tabs" value="prdt_info">
+                            <label for="tab7" onclick="changeTab('prdt_info');" class="content_label">품목별 현황정보</label>
+
+                            [TPH_I/business/order_mng/sales_info.html]
+
+                            [TPH_I/business/order_mng/order_info.html]
+
+                            [TPH_I/business/order_mng/order_status.html]
+
+                            [TPH_I/business/order_mng/manu_limit.html]
+
+                            [TPH_I/business/order_mng/crm_info.html]
+
+                            [TPH_I/business/order_mng/new_member.html]
+
+                            [TPH_I/business/order_mng/prdt_info.html]
+                        </div>
+                    </div>
+                </section>
+                <!--고정상단 아래 탭테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+            <!--메인상단 오른쪽 레이아웃-->
+            <div id="right_content">
+                <div class="search_box" style="margin-left:6px;">
+                    <div class="search_heading">검색 회원정보</div>
+                    <div class="form_table right_common">
+                        <table class="wi100">
+                            <colgroup>
+                                <col class="right_contents_col_l">
+                                <col class="right_contents_col_r">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th>회원명</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text01" value="" id="search_office_nick" disabled>
+                                        <button class="btn_right_contents_modify" onclick="modiMemberOfficeNick();"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>대표전화</th>
+                                    <td>
+                                        <input type="text" value="" class="right_content_input_text02" id="search_member_tel" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>대표자 핸드폰</th>
+                                    <td>
+                                        <input type="text" value="" class="right_content_input_text02" id="search_member_cell" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>작업자번호</th>
+                                    <td>
+                                        <input type="text" value=""class="right_content_input_text02" id="search_" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>결제담당자</th>
+                                    <td>
+                                        <input type="text" value="" class="right_content_input_text02" id="search_accting_tel" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>회원등급</th>
+                                    <td>
+                                        <select class="right_content_select01" id="search_member_typ" disabled>
+                                        </select>
+                                        <select class="right_content_select01" id="search_member_grade" disabled>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>등급부족금액</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text02" value="" id="search_grade_lack_price" disabled>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--form_table-->
+
+                    <div class="form_pad right_common">
+                        <table class="wi100">
+                            <colgroup>
+                                <col class="right_contents_col_l">
+                                <col class="right_contents_col_r">
+                            </colgroup>
+                            <tbody>
+                                <tr class="pad_top">
+                                    <th>팀/담당자</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text02" value="" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>최초 가입일</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text02" value="" id="search_first_join_date" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>최근 주문일</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text02" value="" id="search_final_order_date" disabled>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--form_table2-->
+
+                    <div class="form_pad right_common">
+                        <table class="wi100">
+                            <colgroup>
+                                <col class="right_contents_col_l">
+                                <col class="right_contents_col_r">
+                            </colgroup>
+                            <tbody>
+                                <tr class="pad_top">
+                                    <th>총미수액</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text02" value="" id="search_sum_oa" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>이월미수액</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text02" value="" id="search_carryforward_oa" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>총 매출액</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text02" value="" id="search_sum_sales_price" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>에누리액</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text01" value="" id="search_sum_sale_price" disabled>
+                                        <button class="btn_right_contents_view" onclick="showDiscountViewModal('common')"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>순 매출액</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text02" value="" id="search_sum_net_price" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>입금액</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text01" value="" id="search_sum_depo_price" disabled>
+                                        <button class="btn_right_contents_view" onclick="showDepoViewPopup('common')"></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--form_table3-->
+
+                    <div class="form_pad right_common">
+                        <table class="wi100">
+                            <colgroup>
+                              <col class="right_contents_col_l">
+                              <col class="right_contents_col_r">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th>결제종류</th>
+                                    <td>
+                                        <select class="right_content_select02" id="search_loan_collect_dvs" disabled>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>3개월 평균</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text02" value="" id="search_three_mon_avr_price" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>전월 매출액</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text02" value="" id="search_last_mon_sales" disabled>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>여신 한도금액</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text01" value="" id="search_loan_limit_price" disabled>
+                                        <button class="btn_right_contents_modify" onclick="modiLoanLimitPrice();"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>한도 잔여금액</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text01" value="" id="search_rest_loan_price" disabled>
+                                        <button class="btn_right_contents_view"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>여신한도소지금액</th>
+                                    <td>
+                                        <input type="text" class="right_content_input_text03" value="" id="search_loan_useage" disabled>
+                                        <span>%</span>
+                                        <button class="btn_right_contents_danger" id="search_loan_useage_warning" style="cursor:Default;"></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td>
+                                        <button class="btn_right_contents_print" type="button" onclick="showSpecificationPop();" style="width:168px;">명세서 출력</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="loading_oh" id="member_info_mask" style="display:none; top:55px; margin-left:20px;">
+                    <table  height="655" align="center" cellpadding="0" cellspacing="0" style="opacity:0.5; width:100%">
+                        <tr style="background:#CCC">
+                            <td align="center"><img src="[TPH_Vdesign_dir]/images/business/loading.gif" border="0"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--메인상단 오른쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+         [TPH_I/common/common_mask.html]
+    </section>
+</div>
+
+    <!--생산투입한도설정 모달창-->
+    <div id="manu_limit_modal" class="reveal-modal" style="width:1040px;">
+        <div class="Modal-header-2">
+            <span>생산투입한도설정</span>
+            <span><strong id="manu_limit_member_title" class="text_accent_01"></strong> 회원님</span>
+        </div>
+        <div class="Modal-body">
+            <section class="content_section" style="border:none;">
+                <div class="content_wrapper" style="width:960px;">
+                    <table class="table_search_layout">
+                        <colgroup>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th class="th_text th_order_pop_limit_01">상호명</th>
+                                <td>
+                                    <input type="text" class="input_order_pop_limit_01" id="manu_limit_member_name" readonly>
+                                </td>
+                                <th class="th_text th_order_pop_limit_02">거래날짜</th>
+                                <td>
+                                    <input type="text" class="datepicker_input input_order_pop_limit_01" id="manu_limit_deal_date">
+                                </td>
+                                <th class="th_text th_order_pop_limit_03">생산투입한도유형</th>
+                                <td>
+                                    <select class="select_order_pop_limit_01" id="">
+                                        <option>생산투입한도</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_order_pop_limit_01">생산한도설정금액</th>
+                                <td>
+                                    <input type="text" class="input_order_pop_limit_01" id="manu_limit_price">
+                                </td>
+                                <th class="th_text th_order_pop_limit_02">내용</th>
+                                <td>
+                                    <input type="text" class="input_order_pop_limit_01" id="manu_limit_memo">
+                                </td>
+                                <th class="th_text th_order_pop_limit_03">입금약속일</th>
+                                <td>
+                                    <input type="text" class="datepicker_input input_order_pop_limit_01" id="manu_limit_depo_promi_date">
+                                </td>
+
+                            </tr>
+                            <!--<tr>
+                                <th>조정상품 :</th>
+                                <td>
+                                    <select id="manu_limit_cate" onchange="cateSelect.exec('top', this.value, 'manu_limit');" class="tab_btn" style="width:156px;">
+                                    [TPH_Vcate_html]
+                                    </select>
+                                </td>
+                                <th>출고담당 :</th>
+                                <td>
+                                    <input type="text" id="manu_limit_release_empl">
+                                </td>
+                                <th>입금여부 :</th>
+                                <td>
+                                    <select style="padding:4px 2px;border:1px solid #ccc;width:156px;" id="manu_limit_depo_yn">
+                                        <option value="">전체</option>
+                                        <option value="00">입금완료</option>
+                                        <option value="01">미입금</option>
+                                    </select>
+                                </td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                    <div style="text-align:right; padding-top:10px;">
+                        <button type="button" class="btn_red" onclick="submitManuLimit()">등록하기</button>
+                    </div>
+                    <hr class="section_bar" style="margin: 30px 0 10px 0;">
+                    <div class="overflow_auto">
+                        <table class="table_basic_layout">
+                            <colgroup>
+                                <col width="50px;">
+                                <col width="110px;">
+                                <col width="140px;">
+                                <col width="120px;">
+                                <col width="100px;">
+                                <col width="100px;">
+                                <col width="50px;">
+                                <col width="70px;">
+                                <col width="100px;">
+                                <col width="70px;">
+                                <col width="120px;">
+                            </colgroup>
+                            <thead>
+                                <th>No.</th>
+                                <th>회원명</th>
+                                <th>조정일자</th>
+                                <th>생산투입한도금액</th>
+                                <th>거래날짜</th>
+                                <th>입금약속일</th>
+                                <th>담당자</th>
+                                <th>조정상품</th>
+                                <th>상세메모</th>
+                                <th>출고담당</th>
+                                <th>입금여부</th>
+                            </thead>
+                            <thead>
+                                <tr class="big_table2" id="manu_limit_sum">
+                            </thead>
+                            <tbody id="manu_limit_tbody"><!--
+                                <tr>
+                                    <td colspan="10" style="background:#e6e6e6;text-align-left;font-weight:600">총계</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>안산하나기획</td>
+                                    <td>17-06-12 / 11:14:21</td>
+                                    <td>2,000</td>
+                                    <td>17/06/15</td>
+                                    <td>정지선</td>
+                                    <td>스티커</td>
+                                    <td>금액부족</td>
+                                    <td>노병걸</td>
+                                    <td style="color:red;">입금완료(출고)</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>구리성림기획</td>
+                                    <td>17-06-12 / 11:14:21</td>
+                                    <td>2,000</td>
+                                    <td>17/06/12</td>
+                                    <td>최지현</td>
+                                    <td>명함</td>
+                                    <td>금액부족</td>
+                                    <td>홍길동</td>
+                                    <td style="color:blue;">미입금(출고정지)</td>
+                                </tr>-->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="manu_limit_page" class="page_bar">
+                    </div>
+                    <div style="float:right; margin-top:-30px;">
+                        <button type="button" class="btn_blue" onclick="manuLimitExcelDown()">출력(엑셀)</button>
+                    </div>
+                    <!--
+                    <div class="textTable_btn">
+                        <button title="가장 최신 내용만 수정 가능합니다." onclick="">수정하기</button>
+                    </div>
+                    -->
+                    <iframe id="file_ifr" width="0" height="0" style="display:none;" src=""></iframe>
+                    <a class="close-reveal-modal">x</a>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!--생산투입한도설정 모달창 끝-->
+    <!--매출입금 조정 모달창-->
+    <div id="sales_depo_modal" class="reveal-modal" style="width:1040px;">
+        <div class="Modal-header-2">
+            <span>매출액 / 입금액 조정 정보</span>
+            <span><strong id="sales_depo_member_title" class="text_accent_01"></strong> 회원님</span>
+        </div>
+        <div class="Modal-body">
+            <section class="content_section" style="border:none;">
+                <div class="content_wrapper" style="width:960px;">
+                    <table class="tbl_cash_left">
+                        <colgroup>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th class="th_text th_order_pop_sales_01">거래날짜</th>
+                                <td colspan="5"><input type="text" class="datepicker_input input_order_pop_sales_01" id="sales_depo_deal_date"></td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_order_pop_sales_01">입력구분</th>
+                                <td>
+                                    <select class="select_order_pop_sales_01" id="sales_depo_input_pre" onchange="loadSalesDepoInputTyp()">
+                                        <option value="매출">매출</option>
+                                        <option value="입금">입금</option>
+                                    </select>
+                                    <select class="select_order_pop_sales_01" id="sales_depo_input_suf">
+                                        <option value="증가">증가(+)</option>
+                                        <option value="감소">감소(-)</option>
+                                    </select>
+                                </td>
+                                <th class="th_text th_order_pop_sales_02">입력유형</th>
+                                <td>
+                                    <select class="select_order_pop_sales_02" id="sales_depo_input_typ" onchange="loadSalesDepoInputDetail(this.value);">
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_order_pop_sales_01">내용</th>
+                                <td colspan="5"><input type="text" class="input_order_pop_sales_01" id="sales_depo_cont"></td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_order_pop_sales_01">입금액</th>
+                                <td colspan="5"><input type="text" style="width:160px;" class="input_order_pop_sales_02" id="sales_depo_price"></td>
+                                <!--<th>입금구분 :</th>
+                                <td>
+                                    <select id="sales_depo_dvs_detail">
+                                        <option value="0">가상계좌</option>
+                                        <option value="1">현금</option>
+                                        <option value="2">카드</option>
+                                        <option value="3">기타</option>
+                                    </select>
+                                </td>-->
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="tbl_cash_right">
+                        <colgroup> 
+                            <col style="width:50px;">
+                            <col style="width:150px;">
+                            <col style="width:50px;">
+                            <col style="width:150px;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th></th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_order_pop_sales_03">입력세부내용</th>
+                                <td>
+                                    <input type="text" class="input_order_pop_sales_03" id="cont_detail_txt" disabled="">
+                                    <select id="cont_detail_select" class="select_order_pop_sales_03" style="display:none;">
+                                        [TPH_Vcard_comp_html]
+                                    </select>
+                                </td>
+                                <th class="th_text th_order_pop_sales_04">카드번호</th>
+                                <td><input type="text" class="input_order_pop_sales_03" id="sales_depo_card_num" maxlength="16" disabled=""></td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_order_pop_sales_03">할부개월</th>
+                                <td><input type="text" class="input_order_pop_sales_03" id="sales_depo_card_mip_mon" disabled=""></td>
+                                <th class="th_text th_order_pop_sales_04">상호명</th>
+                                <td><input type="text" class="input_order_pop_sales_03" id="sales_depo_name" readonly></td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_order_pop_sales_03">승인번호</th>
+                                <td><input type="text" class="input_order_pop_sales_03" id="sales_depo_card_aprvl_num" disabled=""></td>
+                                <th class="th_text th_order_pop_sales_04">승인일시</th>
+                                <td><input type="text" class="datepicker_input input_order_pop_sales_03" id="sales_depo_card_aprvl_date"disabled=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="clear: both; text-align:right;">
+                        <button type="button" class="btn_red" onclick="submitSalesDepoData()">등록하기</button>
+                    </div>
+                    <hr class="section_bar" style="margin:30px 0;">
+                    <p class="tbl_cash_p"><strong>선입금 : </strong><span id="sales_depo_bal"></span> 원</p>
+                    <table class="table_basic_layout">
+                        <colgroup>
+                            <col style="width:150px;">
+                            <col style="">
+                            <col style="width:150px;">
+                            <col style="width:150px;">
+                        </colgroup>
+                        <thead>
+                            <th>등록일시</th>
+                            <th>내용</th>
+                            <th>입금액</th>
+                            <th>적립방법</th>
+                        </thead>
+                        <tbody id="sales_depo_list">
+                        </tbody>
+                    </table>
+                    <div id="sales_depo_page" class="page_bar">
+                    </div>
+                    <a class="close-reveal-modal">x</a>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!--매출입금 조정 모달창 끝-->
+    <!--입금액 VIEW 모달창-->
+    <div id="depo_view_modal" class="reveal-modal" style="width:1080px;">
+        <div class="Modal-header">
+            <span>입금관리</span>
+        </div>
+        <div class="Modal-body">
+            <div class="payment_btn">
+              <!--  <button>추가</button>
+                <button>저장</button> -->
+                <button onclick="loadDepoViewData.exec('depo_view')">조회하기</button>
+            </div>
+            <table class="table_basic_layout">
+                <colgroup>
+                    <col width="30">
+                    <col width="480">
+                    <col width="60">
+                    <col width="80">
+                    <col width="50">
+                    <col width="150">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>입금일자 :</th>
+                        <td><input type="text" class="datepicker_input" id="depo_view_from">~<input type="text" class="datepicker_input" id="depo_view_to">
+                        </td>
+                        <th>회원명 :</th>
+                        <td>
+                            <input type="text" id="depo_view_name" readonly>
+                        </td>
+                        <th>입금방법 :</th>
+                        <td>
+                            <select id="depo_view_met">
+                            [TPH_Vdepo_view_html]
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>수신은행 :</th>
+                        <td>
+                            <select style="width:310px;">
+                                <option>신한 2 [110-252-319478]</option>
+                            </select>
+                            <button>LIST</button>
+                        </td>
+                        <th>비고 :</th>
+                        <td colspan="4">
+                            <select style="width:415px;">
+                                <option>비고</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                <form class="fix_table">
+                    <table class="table_basic_layout">
+                        <colgroup>
+                            <col width="50px">
+                            <col width="100px">
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <thead>
+                            <th>No.</th>
+                            <th>입금 일자</th>
+                            <th>입금액</th>
+                            <th>입금 경로</th>
+                            <th>입금자</th>
+                            <th>카드번호</th>
+                            <th>할부개월</th>
+                            <th>승인번호</th>
+                            <th>비고</th>
+                            <th>담당자</th>
+                            <th>수표번호</th>
+                            <th>수표발행은행</th>
+                            <th>어음번호</th>
+                            <th>어음만기일</th>
+                        </thead>
+                        <tbody id="depo_view_list">
+                        </tbody>
+                    </table>
+                </form>
+                <div id="depo_view_page" class="page_bar">
+                </div>
+            </div>
+            <a class="close-reveal-modal">x</a>
+        </div>
+    </div>
+    <!--입금액 VIEW 모달창 끝-->
+    <!--에누리액 VIEW 모달창-->
+    <div id="discount_view_modal" class="reveal-modal" style="width:1080px;">
+        <div class="Modal-header">
+            <span>매출액관리</span>
+        </div>
+        <div class="Modal-body">
+            <div class="sales_btn">
+                <button onclick="insertDiscountViewData()">추가</button>
+                <!--<button>저장</button>-->
+            </div>
+            <table class="table_basic_layout">
+                <tbody>
+                    <tr>
+                        <th>회원명 :</th>
+                        <td>
+                            <input type="text" id="discount_view_member_name" disabled>
+                        </td>
+                        <th>거래명세서 표시여부 :</th>
+                        <td>
+                            <select id="discount_view_met">
+                                <option id="">설명필요</option>
+                                <option id="yes">yes</option>
+                                <option id="no">no</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>입금액 :</th>
+                        <td>
+                            <input type="text" id="discount_view_depo_price">
+                        </td>
+                        <th>세부내용 :</th>
+                        <td>
+                            <input type="text" id="discount_view_cont">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="sales_button">
+                <button onclick="loadDiscountData.exec()">조회하기</button>
+            </div>
+            <div class="sales_table">
+                <table class="table_basic_layout">
+                    <thead>
+                        <th>No.</th>
+                        <th>일자</th>
+                        <th>주문번호</th>
+                        <th>조정 금액</th>
+                        <th>세부 내용</th>
+                    </thead>
+                    <tbody id="discount_view_list">
+                    </tbody>
+                </table>
+                <div id="discount_view_page" class="page_bar">
+                </div>
+            </div>
+        </div>
+        <a class="close-reveal-modal">x</a>
+    </div>
+    <!--에누리엑 VIEW 모달창 끝-->
+    <!--CRM메모추가 및 수정 모달창 시작-->
+    <div id="crm_memo_modal" class="reveal-modal" style="width:750px;left:45%;">
+        <div class="Modal-header">
+            <span>회원메모 수정</span>
+        </div>
+        <div class="Modal-body">
+            <table class="table_basic_layout">
+                <tbody>
+                    <tr>
+                        <th>날짜 : </th>
+                        <td><input type="text" class="datepicker_input" id="memo_date"></td>
+                    </tr>
+                    <tr>
+                        <th>내용 : </th>
+                        <td><textarea class="comment-textArea" id="memo_cont" placeholder="" maxlength="100"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="hidden" id="memo_upd_seqno">
+            <div class="Modal_memo_btn">
+                <button onclick="insertOrUpdateCrmMemo()">확인</button>
+                <button onclick="closeCrmMemoModal()">취소</button>
+            </div>
+        </div>
+        <a class="close-reveal-modal">x</a>
+    </div>
+    <!--CRM메모추가 및 수정 모달창 끝-->
+    <!--사용자 메모확인 모달창 시작-->
+    <div id="order_cust_memo_modal" class="reveal-modal" style="width:750px;left:45%;">
+        <div class="Modal-header">
+            <span style="">회원메모</span>
+        </div>
+        <div class="Modal-body">
+            <table style="width: 96%; margin: 0 auto;">
+                <colgroup>
+                    <col style="width:40px;">
+                    <col style="">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th class="th_text">메모</th>
+                        <td><textarea class="comment-textArea" style="margin:20px 0;" id="cust_memo" readonly></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a class="close-reveal-modal">x</a>
+    </div>
+    <!--사용자 메모확인 모달창 끝-->
+</body>
+</html>

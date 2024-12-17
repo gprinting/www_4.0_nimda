@@ -1,0 +1,80 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/common/NimdaCommonDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$dao = new NimdaCommonDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dao; 
+
+$state_arr = $fb->session("state_arr");
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "manufacture"; //생산
+$left = "typset_mng"; //레프트 메뉴
+$left_sub = "manual_brochure_typset"; //레프트하위 메뉴, script 주소
+
+// 카테고리 대분류 검색
+$cate_html = $dao->selectCateList($conn);
+$template->reg("cate_html" , $cate_html);
+
+// 판매채널 검색
+$sell_site_html = $dao->selectSellSite($conn);
+$template->reg("sell_site" , $sell_site_html);
+
+$option_html = "<option value=\"%s\">%s</option>";
+
+//상태
+$param = array();
+$param["table"] = "state_admin";
+$param["col"] = "state_code, erp_state_name";
+$param["where"]["dvs"] = "조판";
+$param["order"] = "state_code";
+
+$state_html = "<option value=\"\">상태(전체)</option>";
+$rs = $dao->selectData($conn, $param);
+
+while ($rs && !$rs->EOF) {
+
+    $state_html .= sprintf($option_html
+            , $rs->fields["state_code"]
+            , $rs->fields["erp_state_name"]);
+
+    $rs->MoveNext();
+}
+
+$template->reg("state_html" , $state_html);
+
+$opt = array();
+$opt[0] = "주문일";
+
+$optVal = array();
+$optVal[0] = "order_regi_date";
+
+$param = array();
+$param["value"] = $optVal;
+$param["fields"] = $opt;
+$param["id"] = "date_cnd";
+$param["flag"] = TRUE;
+$param["from_id"] = "from";
+$param["to_id"] = "to";
+
+//날짜 검색
+$template->reg("datepicker_html" , makeDatePickerHtml($param));
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

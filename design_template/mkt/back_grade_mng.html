@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+       <section id="page-content">
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+
+            <!-- 탭 박스 2 TAB -->
+            <div class="tb_group mt25">
+               <div class="tab_box_con">
+                   <div class="tabbable">
+                   	
+                   	<!-- TAB UI -->
+                     <ul class="nav nav-tabs">
+                       <li class="active">
+                       	   <a href="#tab_level1" onclick="loadGradePointStats();" data-toggle="tab"> 등급통계 </a> 
+                       </li>
+                       <li>
+                       	   <a href="#tab_level2" onclick="loadGradePolicy();" data-toggle="tab"> 등급정책 </a> 
+                       </li>
+                     </ul>
+                     <!-- TAB UI -->
+                     
+                     <div class="tab-content">
+                     	
+                     	<div class="tab-pane active" id="tab_level1"><!-- 등급통계TAB 01 -->                         	
+                     		
+                        	<div class="form-group">
+				            	<label class="control-label fix_width75 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+				                <select id="sell_site" class="fix_width200">
+                                    [TPH_Vsell_site]
+				                </select>
+                            </div>
+                            
+                            <div class="form-group">
+				            	<label class="control-label fix_width75 tar">월</label><label class="fix_width20 fs14 tac">:</label>
+				                <select id="year" class="fix_width120">
+									<option value="2016">2016</option>									
+                                </select>
+				                <select id="mon" class="fix_width73">
+                                    [TPH_Vday_opt]
+				                 </select>
+				                 <label onclick="loadGradePointStats();" class="btn btn_md fix_width63">조회</label>
+                            </div>
+                       	
+                            <div class="table-body">
+
+                                    <div class="table_basic">
+					                    <table class="fix_width100f">
+					                    	<thead>
+					                       <tr>
+					                    	    <th class="bm2px">번호</th>			
+					                    	    <th class="bm2px">등급</th>
+					                    	    <th class="bm2px">지급포인트</th>
+					                    	    <th class="bm2px">사용포인트</th>
+					                    	</tr>					                      				
+					                     </thead>
+					                     <tbody id="gradePointList">	
+					                    	<tr>
+					                    		<td colspan="4">검색된 내용이 없습니다.</td>
+					                    	</tr>					                      				
+					                     </tbody>
+					                    </table>
+                                    </div>
+					                  
+                            </div>
+                         
+                         </div>
+                       
+                         <div class="tab-pane" id="tab_level2"> <!-- 등급정책TAB 02 -->
+                         	
+                         <form id="grade_form">
+                       	    <div class="form-group">
+				                     <label class="control-label fix_width100 tar">등급평가방식</label>
+				                     <label class="fix_width9"> </label>
+				                     <label class="fix_width20 fs14 tac">:</label>
+				                     <span class="fs14">등급평가 방식은 자동평가방식이 기본입니다. 회원의 개별적인 등급평가 방식의 변경은 회원페이지에서 수정이 가능합니다.</span>
+				                     <br />
+				                     <label class="control-label fix_width73 tar">등급평가</label>
+				                     <label class="fix_width15"> </label>
+				                     <label class="control-label fix_width15 tar">월</label>
+				                     <label class="fix_width20 fs14 tac">:</label>
+				                     <label class="fs14 cp"><input type="checkbox" id="mon1" name="mon1" value="1" class="check_box">1월</label>
+				                     <label class="fs14 cp"><input type="checkbox" id="mon2" name="mon2" value="2" class="check_box">2월</label>
+				                     <label class="fs14 cp"><input type="checkbox" id="mon3" name="mon3" value="3" class="check_box">3월</label>
+				                     <label class="fs14 cp"><input type="checkbox" id="mon4" name="mon4" value="4" class="check_box">4월</label>
+				                     <label class="fs14 cp"><input type="checkbox" id="mon5" name="mon5" value="5" class="check_box">5월</label>
+				                     <label class="fs14 cp"><input type="checkbox" id="mon6" name="mon6" value="6" class="check_box">6월</label>
+				                     <label class="fs14 cp"><input type="checkbox" id="mon7" name="mon7" value="7" class="check_box">7월</label>
+				                     <label class="fs14 cp"><input type="checkbox" id"mon8" name="mon8" value="8" class="check_box">8월</label>
+				                     <label class="fs14 cp"><input type="checkbox" id="mon9" name="mon9" value="9" class="check_box">9월</label>
+				                     <label class="fs14 cp"><input type="checkbox" id="mon10" name="mon10" value="10" class="check_box">10월</label>
+				                     <label class="fs14 cp"><input type="checkbox" id="mon11" name="mon11" value="11" class="check_box">11월</label>
+				                     <label class="fs14 cp"><input type="checkbox" id="mon12" name="mon12" value="12" class="check_box">12월</label>
+				                     <br />
+				                     <label class="fix_width94"> </label>
+				                     <label class="control-label fix_width15 tar">일</label>
+				                     <label class="fix_width20 fs14 tac">:</label>
+				                     <select name="set_day" id="set_day" class="fix_width73">
+                                     [TPH_Vday_html]
+                                    </select>				                     
+                             </div> 
+                       	
+                             <div class="table-body">
+
+                                     <div class="table_basic">
+					                    <table class="fix_width100f">
+					                     <thead>
+					                       <tr>
+					                    	    <th rowspan="2"  class="bm2px">등급명</th>
+					                    	    <th rowspan="2" class="bm2px">레벨</th>
+					                    	    <th rowspan="2" class="bm2px">매출</th>					                      				    
+					                    	    <th colspan="2">헤택</th>
+					                    	    <th rowspan="2" class="bm2px">설명</th>
+					                    	</tr>
+					                    	<tr>					                      					
+					                    		<th class="bm2px">할인</th>
+					                    		<th class="bm2px">포인트</th>
+					                    	</tr>
+					                     </thead>
+					                     <tbody id="grade_list">	
+					                     </tbody>
+					                    </table>
+                                     </div>
+                                     
+                                     <p class="btn-lg red_btn">
+                                         <a onclick="saveGradePolicy(); return false;" href="#">등급정책을 저장합니다</a>					
+                                     </p>
+					                   
+                             </div>
+                       	      
+                             </form>
+                         </div>
+
+                     </div> 
+                    
+                   </div> 
+                </div>
+            </div> <!-- 탭 박스 3 TAB -->
+
+
+       </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>전산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+<div id="container">
+    <!-- TOP NAVIGATION --> 
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION --> 
+    [TPH_Vleft]
+    <!-- CONTENT --> 
+    <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <ul class="nav nav-tabs">
+                           <li class="active"><a href="#tab_list1" onclick="loadDeparList(); return false;" data-toggle="tab"> 부서리스트 </a> </li>
+                           <li><a href="#tab_list2" onclick="loadMngList(); return false;" data-toggle="tab"> 관리자리스트 </a> </li>                           
+                      	</ul>
+                      	<div class="tab-content">                         
+                     	    <!-- 탭 박스 부서리스트 -->
+	                     	<div class="tab-pane active" id="tab_list1">	
+                                <ul class="table_top">	
+                                    <li class="sel">                                            
+                                    </li>						      	                  
+                                    <li class="sel tar">
+                                    </li>
+                                </ul>
+                                <div class="table_basic">                                
+                                    <table class="table_basic_layout">
+                                        <thead>
+                                            <tr>
+                                                <th class="">판매채널</th>
+                                                <th class="">상위부서</th>
+                                                <th class="">부서명</th>
+                                                <th class="">관리</th> 
+                                                <th class=""></th>                
+                                            </tr>
+                                        </thead>
+                                        <tbody id="depar_list">
+                                            [TPH_Vdepar_list]
+                                        </tbody>
+                                    </table>
+                                    <p class="p_num_b fs12">
+                                        <button onclick="popDeparView('','');" class="btn btn_pu fix_width120 fix_height30 bgreen fs12">부서추가</button>
+                                    </p>
+                                    <br />
+                                </div>
+    						</div>
+    						<!-- 탭 박스 관리자리스트 -->   
+    						<div class="tab-pane" id="tab_list2">
+                                <ul class="table_top">	
+                                    <li class="sel">                                            
+                                    </li>						      	                  
+                                    <li class="sel tar">                    			            
+                                    </li>
+                                </ul>
+                                <div class="table_basic">                                
+                                    <table class="table_basic_layout">
+                                        <thead>
+                                            <tr>
+                                                <th class="">판매채널</th>
+                                                <th class="">부서</th>
+                                                <th class="">이름</th>
+                                                <th class="">직책</th>
+                                                <th class="">ID</th>
+                                                <th class="">관리</th>
+                                                <th class=""></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="mng_list">
+                                        </tbody>
+                                    </table>
+                                    <p class="p_num_b fs12">
+                                        <button onclick="popMngView('','');" class="btn btn_pu fix_width120 fix_height30 bgreen fs12">관리자추가</button>
+                                        Showing 1 to 5 of 30 entries
+                                            <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value); return false;">
+                                            <option>5</option>
+                                            <option>10</option>
+                                            <option>20</option>
+                                            <option>30</option>
+                                            </select>
+                                    </p>
+                                    <div class="tac clear" id="mng_page">
+                                            <ul class="pagination">
+                                                <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                                <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                                <li><a class="active" href="#">1</a></li>
+                                                <li class="disabled"><i class="fa fa-angle-right"></i></li>
+                                                <li class="disabled"><i class="fa fa-angle-double-right"></i></li>
+                                            </ul>
+                                    </div>
+                                    <br />
+                                </div>
+    						</div>						
+    					</div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+</div>
+</body>
+</html>

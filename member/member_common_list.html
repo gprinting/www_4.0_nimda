@@ -1,0 +1,73 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/common_define/common_info.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/member/member_mng/MemberCommonListDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$memberCommonListDAO = new MemberCommonListDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $memberCommonListDAO; 
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "member"; //회원
+$left = "member_mng"; //레프트 메뉴
+$left_sub = "member_common_list"; //레프트하위 메뉴, script 주소
+
+$sell_site_html = "<option value=\"\">판매채널(전체)</option>";
+$sell_site_html .= $memberCommonListDAO->selectSellSite($conn);
+
+//판매채널 검색
+$template->reg("sell_site_html" , $sell_site_html);
+
+$param = array();
+$param["table"] = "member_grade_policy";
+$param["col"] = "grade_name, grade";
+
+$rs = $memberCommonListDAO->selectData($conn, $param);
+
+$arr = [];
+$arr["flag"] = "Y";
+$arr["def"] = "등급(전체)";
+$arr["dvs"] = "grade_name";
+$arr["val"] = "grade";
+
+//등급 검색
+$template->reg("grade_html" , makeSelectOptionHtml($rs, $arr));
+
+$opt = array();
+$opt[0] = "최초가입일";
+$opt[1] = "최근주문일";
+$opt[2] = "최근로그인";
+
+$optVal = array();
+$optVal[0] = "first_join_date";
+$optVal[1] = "final_order_date";
+$optVal[2] = "final_login_date";
+
+$param = array();
+$param["value"] = $optVal;
+$param["fields"] = $opt;
+$param["id"] = "search_cnd";
+$param["flag"] = TRUE;
+$param["from_id"] = "from";
+$param["to_id"] = "to";
+
+//날짜 검색
+$template->reg("datepicker_html" , makeDatePickerHtml($param));
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

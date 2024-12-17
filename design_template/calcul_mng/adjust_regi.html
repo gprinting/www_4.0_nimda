@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content">            
+
+            <!-- 본문 컨텐츠  시작-->
+			<div id="content-container" class="content_container calcul_common">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀-->
+					<div class="title">
+						[TPH_I/common/history.html]
+					</div>
+					<!--기본 검색정보 시작-->
+
+					<!-- 탭 박스 1 기본검색 -->
+					<section class="content_section">
+						<div class="content_wrapper">
+							<!-- 탭 박스 1 기본검색 -->
+							<div class="">
+								<ul class="tab_box mt25">
+								</ul>
+								<form onsubmit="return false;">
+									<table class="table_search_layout">
+                                        <tbody>
+                                            <tr>
+												<th class="th_text calcul_mng_th_left">판매채널</th>
+												<td>
+													<select id="sell_site" name="sell_site" class="fix_width180">
+														<option value="">전체</option>
+														[TPH_Vsell_site]
+													</select>
+													<button type="button" class="btn_float_right btn_Turquoise01" onclick="loadAdjustList(1);">검색</button>
+												</td>
+											</tr>
+											<tr>
+												<th class="th_text calcul_mng_th_left">회원명</th>
+												<td>
+													<input type="text" id="office_nick" name="office_nick" onkeydown="searchOfficeNick(event, this.value, '');" class="input_co2 fix_width200" placeholder="검색창 팝업 사용">
+													<input type="hidden" name="member_seqno" id="member_seqno"><label class="fs12">(*회원명 검색 후 회원명을 클릭하고 선택한 조건으로 검색 버튼을 누른 후 조정을 등록해야 합니다.)</label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</form>
+							</div> <!-- 탭 박스 1 기본검색 -->
+						</div>
+					</section>
+
+					<section class="content_section">
+						<div class="content_wrapper">
+							<ul class="">
+								<li style="margin-bottom: 10px;">
+									<a class="box" style="font-size: 14px; font-weight: bold;"> 등록 </a>
+								</li>
+							</ul>
+							<form name="adjust_form" id="adjust_form" onsubmit="return false;">
+								<table class="table_search_layout">
+									<tbody>
+										<tr>
+											<th class="th_text calcul_mng_th_left">내용</th>
+											<td>
+												<input type="text" class="input_co2 fix_width550" name="cont" id="cont">
+											</td>
+											<th class="th_text calcul_mng_th_left">입력구분</th>
+											<td>
+												<select id="dvs" name="dvs" onchange="loadDvsDetailList();" class="fix_width100">
+												[TPH_Vdvs_html]
+												</select>
+												<select id="dvs_detail" id="dvs_detail" name="dvs_detail" class="fix_width100">
+												<option value="">결과없음</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th class="th_text calcul_mng_th_left">거래일자</th>
+											<td>
+												<input placeholder="yyyy-MM-dd" class="input_co2 fix_width150 date" id="deal_date" name="deal_date" readonly>
+											</td>
+											<th class="th_text calcul_mng_th_left">입금액</th>
+											<td>
+												<input type="text" id="price" name="price" onkeydown="return checkOnlyNumber(event)" onkeyup="removeChar(event)" maxlength="18" style="ime-mode:disabled;" class="input_co2 fix_width182">
+												<input type="hidden" class="input_co2 fix_width550" name="adjust_seqno" id="adjust_seqno">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="btn_wrapper">
+									<button id="save_btn" class="btn btn_orange fix_width120 fix_height30 co_blue fs12" onclick="saveAdjust();">저장</button>
+									<button style="display:none;" id="del_btn" class="btn btn_red fix_width120 fix_height30 co_blue fs12" onclick="delAdjust();">삭제</button>
+									<button style="display:none;" id="cancle_btn" class="btn btn_blue fix_width120 fix_height30 co_blue fs12" onclick="resetRegiForm();">보기취소</button>
+								</div>
+							</form>
+						</div>
+					</section>
+
+					<section class="content_section">
+						<div class="content_wrapper">
+							<table class="table_basic_layout">
+								<thead>
+									<tr>
+										  <th class="bm2px">날짜</th>
+										  <th class="bm2px">내용</th>
+										  <th class="bm2px">입금액</th>
+										  <th class="bm2px">입력구분</th> 	
+										  <th class="bm2px">보기</th> 
+									</tr>
+								</thead>
+								<tbody id="adjust_list">
+									<tr>
+										<td colspan='5'>검색된 내용이 없습니다.</td>
+									</tr>
+								</tbody>
+							</table>
+							
+							<p class="p_num_b fs12">
+								Showing 1 to 5 of 30 entries
+								<select name="list_set" onchange="showPageSetting(this.value); return false;" class="fix_width55">
+									 <option>5</option>
+									 <option>10</option>
+									 <option>20</option>
+									 <option>30</option>
+								</select>
+							</p>
+							<div class="tac clear" id="adjust_page">
+								<ul class="pagination">
+									<li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+									<li class="disabled"><i class="fa fa-angle-left"></i></li>
+									<li><a class="active" href="#">1</a></li>
+									<li><a href="#" class="fa fa-angle-right"></a></li>
+									<li><a href="#" class="fa fa-angle-double-right"></a></li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+        </section>
+</div>
+</body>
+</html>

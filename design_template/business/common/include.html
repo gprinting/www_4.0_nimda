@@ -1,0 +1,48 @@
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font-awesome.min.css">
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/guide.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/common.css" type="text/css"  />
+
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/[TPH_Vtop]/common.css" />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/[TPH_Vtop]/[TPH_Von].css" />
+    <!--reveal modal-->
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/[TPH_Vtop]/reveal.css">
+    <!--달력-->
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/datepicker.css">
+    <style type="text/css">
+        .datepicker {
+            z-index: 1151 !important;
+        }
+    </style>
+    <!-- highchart -->
+    <script src="[TPH_Vdesign_dir]/js/lib/highcharts.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/lib/highcharts-more.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/lib/highcharts-3d.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/lib/exporting.js"></script>
+
+    <script src="[TPH_Vdesign_dir]/js/lib/jquery-1.11.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/locales/bootstrap-datepicker.kr.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/[TPH_Vtop]/jquery.reveal.js"></script>
+
+    <!-- 페이지별 js -->
+    <script src="[TPH_Vdesign_dir]/js/common/common.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/common/[TPH_Vtop]_common.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/[TPH_Vtop]/[TPH_Vactive]_common.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/[TPH_Vtop]/[TPH_Von].js"></script>
+    <script>
+    $(function(){
+        $("dd:not(.active)").css("display","none");
+        $("dl dt").click(function(){
+        if($("+dd",this).css("display")=="none"){
+            $("dd").slideUp("fast");
+            $("+dd",this).slideDown("fast");
+            }
+         });
+
+        $(".[TPH_Vactive]").addClass("active");
+        $(".[TPH_Vactive]").css("display", "block");
+        $(".[TPH_Von]").addClass("on");
+    });
+    </script>

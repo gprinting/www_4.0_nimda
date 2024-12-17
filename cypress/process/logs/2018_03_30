@@ -1,0 +1,277 @@
+
+13:35:31 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801020026701'
+\n\n\n
+13:35:31SGPT180102NC002670101
+\n\n\n
+13:35:31 PRINT QUERY -> 
+SELECT oc.order_common_seqno, oc.order_state, oc.oper_sys, oc.dlvr_produce_dvs 
+,oc.order_regi_date, oc.member_seqno, oc.title, oc.page_cnt 
+,od.work_size_wid, od.work_size_vert, od.cut_size_wid 
+,od.cut_size_vert, od.pay_price, od.order_detail 
+,od.amt, od.amt_unit_dvs, od.cate_sortcode, od.side_dvs 
+,od.tot_tmpt, od.receipt_mng, od.receipt_memo, od.produce_memo 
+,od.receipt_finish_date, od.tomson_yn, od.stan_name, odcf.barcode_num 
+ , concat(A.name, " " , A.color, " ", A.basisweight) as paper_name, A.mpcode 
+ , A.name as only_paper_name 
+  FROM order_common AS oc, order_detail AS od, order_detail_count_file AS odcf, cate_paper AS A 
+ WHERE oc.order_common_seqno = od.order_common_seqno AND od.order_detail_seqno = odcf.order_detail_seqno AND A.mpcode = od.cate_paper_mpcode 
+   AND odcf.order_detail_file_num = 'SGPT180102NC002670101' LIMIT 1
+\n\n\n
+13:35:31 SELECT after_name  FROM  order_after_history WHERE order_common_seqno = '8384' AND after_name = '코팅' 
+\n\n\n
+13:35:31 PRINT QUERY -> select * from order_after_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno where C.barcode_num = 'SGPT180102NC002670101' AND basic_yn = 'N'
+\n\n\n
+13:35:31 PRINT QUERY -> SELECT D.color_name, D.color_code, D.nick from order_opt_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno INNER JOIN opt_info AS D ON A.opt_name = D.opt_name where C.barcode_num = 'SGPT180102NC002670101' and A.basic_yn = 'N' ORDER BY D.opt_name ASC 
+\n\n\n
+13:35:32 PRINT QUERY -> aa
+\n\n\n
+13:35:32 PRINT QUERY -> 
+SELECT oc.order_common_seqno, oc.order_state, oc.oper_sys, oc.dlvr_produce_dvs 
+,oc.order_regi_date, oc.member_seqno, oc.title, oc.page_cnt 
+,od.work_size_wid, od.work_size_vert, od.cut_size_wid 
+,od.cut_size_vert, od.pay_price, od.order_detail 
+,od.amt, od.amt_unit_dvs, od.cate_sortcode, od.side_dvs 
+,od.tot_tmpt, od.receipt_mng, od.receipt_memo, od.produce_memo 
+,od.receipt_finish_date, od.tomson_yn, od.stan_name, odcf.barcode_num 
+ , concat(A.name, " " , A.color, " ", A.basisweight) as paper_name, A.mpcode 
+ , A.name as only_paper_name 
+  FROM order_common AS oc, order_detail AS od, order_detail_count_file AS odcf, cate_paper AS A 
+ WHERE oc.order_common_seqno = od.order_common_seqno AND od.order_detail_seqno = odcf.order_detail_seqno AND A.mpcode = od.cate_paper_mpcode 
+   AND odcf.barcode_num = '1801020026701' LIMIT 1
+\n\n\n
+13:35:32 SELECT after_name  FROM  order_after_history WHERE order_common_seqno = '8384' AND after_name = '코팅' 
+\n\n\n
+13:35:32 PRINT QUERY -> select * from order_after_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno where C.barcode_num = '1801020026701' AND basic_yn = 'N'
+\n\n\n
+13:35:32 PRINT QUERY -> SELECT D.color_name, D.color_code, D.nick from order_opt_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno INNER JOIN opt_info AS D ON A.opt_name = D.opt_name where C.barcode_num = '1801020026701' and A.basic_yn = 'N' ORDER BY D.opt_name ASC 
+\n\n\nRes=0
+\n\n\nStateName=조판대기\n\n\nStateCode=2120\n\n\nProcessGo=0\n\n\nOrderNum=1801020026701
+\n\n\nOS=필동
+\n\n\nName=코바
+\n\n\nPName=고급명함 / 반누브 네츄럴 미색 210g / 90*50 / 양면칼라8도 / 전체 2p
+\n\n\nProductName=명함
+\n\n\nProductCode=003
+\n\n\nItemName=수입명함
+\n\n\nItemCode=003002
+\n\n\nKindName=수입명함
+\n\n\nKindCode=003002001
+\n\n\nSide=2
+\n\n\nColorName=양면칼라8도
+\n\n\nColorCode=8
+\n\n\nColorValue=8
+\n\n\nSizeName=90*50
+\n\n\nSizeCode=9050
+\n\n\nSizeRegular=1
+\n\n\nWidth=92
+\n\n\nHeight=52
+\n\n\nPWidth=90
+\n\n\nPHeight=50
+\n\n\nPaperName=반누보 미색 210g
+\n\n\nPaperCode=160
+\n\n\nQuantityName=300.0장
+\n\n\nQuantityCode=300.0
+\n\n\nQuantityValue=300
+\n\n\nCaseName=1건
+\n\n\nCaseCode=1
+\n\n\nCaseValue=1
+\n\n\nAworks=
+\n\n\nRefc=1
+\n\n\nMethod=인방
+\n\n\nPerson=(방문)대륙사
+\n\n\nPhone=02-734-3942
+\n\n\nMobile=010-3337-5875
+\n\n\nAddress=서울특별시 중구 태평로1가
+\n\n\nQuantity=
+\n\n\nCoast=
+\n\n\nWMemo=
+\n\n\nCMemo=
+\n\n\nDMemo=
+\n\n\nUnit=원
+\n\n\nValue=15400
+\n\n\nRMet=M
+\n\n\nRDiv=당일판
+\n\n\nPurchaseDate=2018-01-02-10-43-20
+\n\n\nReceiptDate=2018-01-02-11-02-00
+\n\n\nReceiverID=ERROR
+\n\n\nReceiverName=
+\n\n\nStateName=조판대기
+\n\n\nStateCode=2120
+\n\n\nUType=
+\n\n\nUID=tamakos
+\n\n\nUCom=(방문)대륙사
+\n\n\nUName=(방문)대륙사
+\n\n\nUTel=
+\n\n\nUMobile=
+\n\n\nUAddr=
+\n\n\nFileURL=
+\n\n\nPDFPath=/(명함)수입명함/수입명함/8_300.0/
+\n\n\nPreviewPath=/2018/03/30/
+\n\n\n
+13:35:41 PRINT QUERY -> aa
+\n\n\n
+13:35:41 PRINT QUERY -> 
+SELECT oc.order_common_seqno, oc.order_state, oc.oper_sys, oc.dlvr_produce_dvs 
+,oc.order_regi_date, oc.member_seqno, oc.title, oc.page_cnt 
+,od.work_size_wid, od.work_size_vert, od.cut_size_wid 
+,od.cut_size_vert, od.pay_price, od.order_detail 
+,od.amt, od.amt_unit_dvs, od.cate_sortcode, od.side_dvs 
+,od.tot_tmpt, od.receipt_mng, od.receipt_memo, od.produce_memo 
+,od.receipt_finish_date, od.tomson_yn, od.stan_name, odcf.barcode_num 
+ , concat(A.name, " " , A.color, " ", A.basisweight) as paper_name, A.mpcode 
+ , A.name as only_paper_name 
+  FROM order_common AS oc, order_detail AS od, order_detail_count_file AS odcf, cate_paper AS A 
+ WHERE oc.order_common_seqno = od.order_common_seqno AND od.order_detail_seqno = odcf.order_detail_seqno AND A.mpcode = od.cate_paper_mpcode 
+   AND odcf.barcode_num = '1801020026701' LIMIT 1
+\n\n\n
+13:35:41 SELECT after_name  FROM  order_after_history WHERE order_common_seqno = '8384' AND after_name = '코팅' 
+\n\n\n
+13:35:41 PRINT QUERY -> select * from order_after_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno where C.barcode_num = '1801020026701' AND basic_yn = 'N'
+\n\n\n
+13:35:41 PRINT QUERY -> SELECT D.color_name, D.color_code, D.nick from order_opt_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno INNER JOIN opt_info AS D ON A.opt_name = D.opt_name where C.barcode_num = '1801020026701' and A.basic_yn = 'N' ORDER BY D.opt_name ASC 
+\n\n\nRes=0
+\n\n\nStateName=조판대기\n\n\nStateCode=2120\n\n\nProcessGo=0\n\n\nOrderNum=1801020026701
+\n\n\nOS=필동
+\n\n\nName=코바
+\n\n\nPName=고급명함 / 반누브 네츄럴 미색 210g / 90*50 / 양면칼라8도 / 전체 2p
+\n\n\nProductName=명함
+\n\n\nProductCode=003
+\n\n\nItemName=수입명함
+\n\n\nItemCode=003002
+\n\n\nKindName=수입명함
+\n\n\nKindCode=003002001
+\n\n\nSide=2
+\n\n\nColorName=양면칼라8도
+\n\n\nColorCode=8
+\n\n\nColorValue=8
+\n\n\nSizeName=90*50
+\n\n\nSizeCode=9050
+\n\n\nSizeRegular=1
+\n\n\nWidth=92
+\n\n\nHeight=52
+\n\n\nPWidth=90
+\n\n\nPHeight=50
+\n\n\nPaperName=반누보 미색 210g
+\n\n\nPaperCode=160
+\n\n\nQuantityName=300.0장
+\n\n\nQuantityCode=300.0
+\n\n\nQuantityValue=300
+\n\n\nCaseName=1건
+\n\n\nCaseCode=1
+\n\n\nCaseValue=1
+\n\n\nAworks=
+\n\n\nRefc=1
+\n\n\nMethod=인방
+\n\n\nPerson=(방문)대륙사
+\n\n\nPhone=02-734-3942
+\n\n\nMobile=010-3337-5875
+\n\n\nAddress=서울특별시 중구 태평로1가
+\n\n\nQuantity=
+\n\n\nCoast=
+\n\n\nWMemo=
+\n\n\nCMemo=
+\n\n\nDMemo=
+\n\n\nUnit=원
+\n\n\nValue=15400
+\n\n\nRMet=M
+\n\n\nRDiv=당일판
+\n\n\nPurchaseDate=2018-01-02-10-43-20
+\n\n\nReceiptDate=2018-01-02-11-02-00
+\n\n\nReceiverID=ERROR
+\n\n\nReceiverName=
+\n\n\nStateName=조판대기
+\n\n\nStateCode=2120
+\n\n\nUType=
+\n\n\nUID=tamakos
+\n\n\nUCom=(방문)대륙사
+\n\n\nUName=(방문)대륙사
+\n\n\nUTel=
+\n\n\nUMobile=
+\n\n\nUAddr=
+\n\n\nFileURL=
+\n\n\nPDFPath=/(명함)수입명함/수입명함/8_300.0/
+\n\n\nPreviewPath=/2018/03/30/
+\n\n\n
+13:35:43 PRINT QUERY -> aa
+\n\n\n
+13:35:43 PRINT QUERY -> 
+SELECT oc.order_common_seqno, oc.order_state, oc.oper_sys, oc.dlvr_produce_dvs 
+,oc.order_regi_date, oc.member_seqno, oc.title, oc.page_cnt 
+,od.work_size_wid, od.work_size_vert, od.cut_size_wid 
+,od.cut_size_vert, od.pay_price, od.order_detail 
+,od.amt, od.amt_unit_dvs, od.cate_sortcode, od.side_dvs 
+,od.tot_tmpt, od.receipt_mng, od.receipt_memo, od.produce_memo 
+,od.receipt_finish_date, od.tomson_yn, od.stan_name, odcf.barcode_num 
+ , concat(A.name, " " , A.color, " ", A.basisweight) as paper_name, A.mpcode 
+ , A.name as only_paper_name 
+  FROM order_common AS oc, order_detail AS od, order_detail_count_file AS odcf, cate_paper AS A 
+ WHERE oc.order_common_seqno = od.order_common_seqno AND od.order_detail_seqno = odcf.order_detail_seqno AND A.mpcode = od.cate_paper_mpcode 
+   AND odcf.barcode_num = '1801020026701' LIMIT 1
+\n\n\n
+13:35:43 SELECT after_name  FROM  order_after_history WHERE order_common_seqno = '8384' AND after_name = '코팅' 
+\n\n\n
+13:35:43 PRINT QUERY -> select * from order_after_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno where C.barcode_num = '1801020026701' AND basic_yn = 'N'
+\n\n\n
+13:35:43 PRINT QUERY -> SELECT D.color_name, D.color_code, D.nick from order_opt_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno INNER JOIN opt_info AS D ON A.opt_name = D.opt_name where C.barcode_num = '1801020026701' and A.basic_yn = 'N' ORDER BY D.opt_name ASC 
+\n\n\nRes=0
+\n\n\nStateName=조판대기\n\n\nStateCode=2120\n\n\nProcessGo=0\n\n\nOrderNum=1801020026701
+\n\n\nOS=필동
+\n\n\nName=코바
+\n\n\nPName=고급명함 / 반누브 네츄럴 미색 210g / 90*50 / 양면칼라8도 / 전체 2p
+\n\n\nProductName=명함
+\n\n\nProductCode=003
+\n\n\nItemName=수입명함
+\n\n\nItemCode=003002
+\n\n\nKindName=수입명함
+\n\n\nKindCode=003002001
+\n\n\nSide=2
+\n\n\nColorName=양면칼라8도
+\n\n\nColorCode=8
+\n\n\nColorValue=8
+\n\n\nSizeName=90*50
+\n\n\nSizeCode=9050
+\n\n\nSizeRegular=1
+\n\n\nWidth=92
+\n\n\nHeight=52
+\n\n\nPWidth=90
+\n\n\nPHeight=50
+\n\n\nPaperName=반누보 미색 210g
+\n\n\nPaperCode=160
+\n\n\nQuantityName=300.0장
+\n\n\nQuantityCode=300.0
+\n\n\nQuantityValue=300
+\n\n\nCaseName=1건
+\n\n\nCaseCode=1
+\n\n\nCaseValue=1
+\n\n\nAworks=
+\n\n\nRefc=1
+\n\n\nMethod=인방
+\n\n\nPerson=(방문)대륙사
+\n\n\nPhone=02-734-3942
+\n\n\nMobile=010-3337-5875
+\n\n\nAddress=서울특별시 중구 태평로1가
+\n\n\nQuantity=
+\n\n\nCoast=
+\n\n\nWMemo=
+\n\n\nCMemo=
+\n\n\nDMemo=
+\n\n\nUnit=원
+\n\n\nValue=15400
+\n\n\nRMet=M
+\n\n\nRDiv=당일판
+\n\n\nPurchaseDate=2018-01-02-10-43-20
+\n\n\nReceiptDate=2018-01-02-11-02-00
+\n\n\nReceiverID=ERROR
+\n\n\nReceiverName=
+\n\n\nStateName=조판대기
+\n\n\nStateCode=2120
+\n\n\nUType=
+\n\n\nUID=tamakos
+\n\n\nUCom=(방문)대륙사
+\n\n\nUName=(방문)대륙사
+\n\n\nUTel=
+\n\n\nUMobile=
+\n\n\nUAddr=
+\n\n\nFileURL=
+\n\n\nPDFPath=/(명함)수입명함/수입명함/8_300.0/
+\n\n\nPreviewPath=/2018/03/30/
+\n\n\n

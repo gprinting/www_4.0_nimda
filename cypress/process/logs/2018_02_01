@@ -1,0 +1,677 @@
+
+01:34:30 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080230702'
+\n\n\n
+01:34:30SGPT180108NC023070102
+\n\n\n
+01:34:30 PRINT QUERY -> 
+SELECT oc.order_common_seqno, oc.order_state, oc.oper_sys, oc.dlvr_produce_dvs 
+,oc.order_regi_date, oc.member_seqno, oc.title, oc.page_cnt 
+,od.work_size_wid, od.work_size_vert, od.cut_size_wid 
+,od.cut_size_vert, od.pay_price, od.order_detail 
+,od.amt, od.amt_unit_dvs, od.cate_sortcode, od.side_dvs 
+,od.tot_tmpt, od.receipt_mng, od.receipt_memo, od.produce_memo 
+,od.receipt_finish_date, od.tomson_yn, od.stan_name, odcf.barcode_num 
+ , concat(A.name, " " , A.color, " ", A.basisweight) as paper_name, A.mpcode 
+ , A.name as only_paper_name 
+  FROM order_common AS oc, order_detail AS od, order_detail_count_file AS odcf, cate_paper AS A 
+ WHERE oc.order_common_seqno = od.order_common_seqno AND od.order_detail_seqno = odcf.order_detail_seqno AND A.mpcode = od.cate_paper_mpcode 
+   AND odcf.order_detail_file_num = 'SGPT180108NC023070102' LIMIT 1
+\n\n\n
+01:34:30 SELECT after_name  FROM  order_after_history WHERE order_common_seqno = '2311' AND after_name = '코팅' 
+\n\n\n
+01:34:30 PRINT QUERY -> select * from order_after_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno where C.barcode_num = 'SGPT180108NC023070102' AND basic_yn = 'N'
+\n\n\n
+01:34:30 PRINT QUERY -> SELECT D.color_name, D.color_code, D.nick from order_opt_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno INNER JOIN opt_info AS D ON A.opt_name = D.opt_name where C.barcode_num = 'SGPT180108NC023070102' and A.basic_yn = 'N' ORDER BY D.opt_name ASC 
+\n\n\n
+01:34:30 PRINT QUERY -> aa
+\n\n\n
+01:34:30 PRINT QUERY -> 
+SELECT oc.order_common_seqno, oc.order_state, oc.oper_sys, oc.dlvr_produce_dvs 
+,oc.order_regi_date, oc.member_seqno, oc.title, oc.page_cnt 
+,od.work_size_wid, od.work_size_vert, od.cut_size_wid 
+,od.cut_size_vert, od.pay_price, od.order_detail 
+,od.amt, od.amt_unit_dvs, od.cate_sortcode, od.side_dvs 
+,od.tot_tmpt, od.receipt_mng, od.receipt_memo, od.produce_memo 
+,od.receipt_finish_date, od.tomson_yn, od.stan_name, odcf.barcode_num 
+ , concat(A.name, " " , A.color, " ", A.basisweight) as paper_name, A.mpcode 
+ , A.name as only_paper_name 
+  FROM order_common AS oc, order_detail AS od, order_detail_count_file AS odcf, cate_paper AS A 
+ WHERE oc.order_common_seqno = od.order_common_seqno AND od.order_detail_seqno = odcf.order_detail_seqno AND A.mpcode = od.cate_paper_mpcode 
+   AND odcf.barcode_num = '1801080230702' LIMIT 1
+\n\n\n
+01:34:30 SELECT after_name  FROM  order_after_history WHERE order_common_seqno = '2311' AND after_name = '코팅' 
+\n\n\n
+01:34:30 PRINT QUERY -> select * from order_after_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno where C.barcode_num = '1801080230702' AND basic_yn = 'N'
+\n\n\n
+01:34:30 PRINT QUERY -> SELECT D.color_name, D.color_code, D.nick from order_opt_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno INNER JOIN opt_info AS D ON A.opt_name = D.opt_name where C.barcode_num = '1801080230702' and A.basic_yn = 'N' ORDER BY D.opt_name ASC 
+\n\n\nRes=0
+\n\n\nStateName=조판대기\n\n\nStateCode=2120\n\n\nProcessGo=0\n\n\nOrderNum=1801080230702
+\n\n\nOS=필동
+\n\n\nName=웰릭스렌탈
+\n\n\nPName=고급명함 / 그레이스 화이트 미색 209g / 90*50 / 양면칼라8도 / 전체 2p
+\n\n\nProductName=명함
+\n\n\nProductCode=003
+\n\n\nItemName=고급명함
+\n\n\nItemCode=003002
+\n\n\nKindName=고급명함
+\n\n\nKindCode=003002001
+\n\n\nSide=2
+\n\n\nColorName=양면칼라8도
+\n\n\nColorCode=8
+\n\n\nColorValue=8
+\n\n\nSizeName=90*50
+\n\n\nSizeCode=9050
+\n\n\nSizeRegular=1
+\n\n\nWidth=92
+\n\n\nHeight=52
+\n\n\nPWidth=90
+\n\n\nPHeight=50
+\n\n\nPaperName=그레이스 미색 209g
+\n\n\nPaperCode=177
+\n\n\nQuantityName=200.0장
+\n\n\nQuantityCode=200.0
+\n\n\nQuantityValue=200
+\n\n\nCaseName=1건
+\n\n\nCaseCode=1
+\n\n\nCaseValue=1
+\n\n\nAworks=
+\n\n\nRefc=0
+\n\n\nMethod=
+\n\n\nPerson=구로동한성인쇄
+\n\n\nPhone=02-854-8200
+\n\n\nMobile=010-5269-8200
+\n\n\nAddress=서울 구로구 구로3동
+\n\n\nQuantity=
+\n\n\nCoast=
+\n\n\nWMemo=
+\n\n\nCMemo=
+\n\n\nDMemo=
+\n\n\nUnit=원
+\n\n\nValue=19800
+\n\n\nRMet=M
+\n\n\nRDiv=일반
+\n\n\nPurchaseDate=2018-01-08-16-17-38
+\n\n\nReceiptDate=2018-01-08-16-41-00
+\n\n\nReceiverID=ERROR
+\n\n\nReceiverName=
+\n\n\nStateName=조판대기
+\n\n\nStateCode=2120
+\n\n\nUType=
+\n\n\nUID=hansungpt
+\n\n\nUCom=구로동한성인쇄
+\n\n\nUName=구로동한성인쇄
+\n\n\nUTel=
+\n\n\nUMobile=
+\n\n\nUAddr=
+\n\n\nFileURL=
+\n\n\nPDFPath=/(명함)고급명함/그레이스명함/8_200/
+\n\n\nPreviewPath=/2018/02/01/
+\n\n\n
+01:35:24 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080218901'
+\n\n\n
+01:35:24SGPT180108BL021890101
+\n\n\n
+01:35:24 PRINT QUERY -> 
+SELECT oc.order_common_seqno, oc.order_state, oc.oper_sys, oc.dlvr_produce_dvs 
+,oc.order_regi_date, oc.member_seqno, oc.title, oc.page_cnt 
+,od.work_size_wid, od.work_size_vert, od.cut_size_wid 
+,od.cut_size_vert, od.pay_price, od.order_detail 
+,od.amt, od.amt_unit_dvs, od.cate_sortcode, od.side_dvs 
+,od.tot_tmpt, od.receipt_mng, od.receipt_memo, od.produce_memo 
+,od.receipt_finish_date, od.tomson_yn, od.stan_name, odcf.barcode_num 
+ , concat(A.name, " " , A.color, " ", A.basisweight) as paper_name, A.mpcode 
+ , A.name as only_paper_name 
+  FROM order_common AS oc, order_detail AS od, order_detail_count_file AS odcf, cate_paper AS A 
+ WHERE oc.order_common_seqno = od.order_common_seqno AND od.order_detail_seqno = odcf.order_detail_seqno AND A.mpcode = od.cate_paper_mpcode 
+   AND odcf.order_detail_file_num = 'SGPT180108BL021890101' LIMIT 1
+\n\n\n
+01:35:25 SELECT after_name  FROM  order_after_history WHERE order_common_seqno = '2193' AND after_name = '코팅' 
+\n\n\n
+01:35:25 PRINT QUERY -> select * from order_after_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno where C.barcode_num = 'SGPT180108BL021890101' AND basic_yn = 'N'
+\n\n\n
+01:35:25 PRINT QUERY -> SELECT D.color_name, D.color_code, D.nick from order_opt_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno INNER JOIN opt_info AS D ON A.opt_name = D.opt_name where C.barcode_num = 'SGPT180108BL021890101' and A.basic_yn = 'N' ORDER BY D.opt_name ASC 
+\n\n\n
+01:35:25 PRINT QUERY -> aa
+\n\n\n
+01:35:25 PRINT QUERY -> 
+SELECT oc.order_common_seqno, oc.order_state, oc.oper_sys, oc.dlvr_produce_dvs 
+,oc.order_regi_date, oc.member_seqno, oc.title, oc.page_cnt 
+,od.work_size_wid, od.work_size_vert, od.cut_size_wid 
+,od.cut_size_vert, od.pay_price, od.order_detail 
+,od.amt, od.amt_unit_dvs, od.cate_sortcode, od.side_dvs 
+,od.tot_tmpt, od.receipt_mng, od.receipt_memo, od.produce_memo 
+,od.receipt_finish_date, od.tomson_yn, od.stan_name, odcf.barcode_num 
+ , concat(A.name, " " , A.color, " ", A.basisweight) as paper_name, A.mpcode 
+ , A.name as only_paper_name 
+  FROM order_common AS oc, order_detail AS od, order_detail_count_file AS odcf, cate_paper AS A 
+ WHERE oc.order_common_seqno = od.order_common_seqno AND od.order_detail_seqno = odcf.order_detail_seqno AND A.mpcode = od.cate_paper_mpcode 
+   AND odcf.barcode_num = '1801080218901' LIMIT 1
+\n\n\n
+01:35:25 SELECT after_name  FROM  order_after_history WHERE order_common_seqno = '2193' AND after_name = '코팅' 
+\n\n\n
+01:35:25 PRINT QUERY -> select * from order_after_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno where C.barcode_num = '1801080218901' AND basic_yn = 'N'
+\n\n\n
+01:35:25 PRINT QUERY -> SELECT D.color_name, D.color_code, D.nick from order_opt_history AS A INNER JOIN order_detail AS B ON A.order_common_seqno = B.order_common_seqno INNER JOIN order_detail_count_file AS C ON B.order_detail_seqno = C.order_detail_seqno INNER JOIN opt_info AS D ON A.opt_name = D.opt_name where C.barcode_num = '1801080218901' and A.basic_yn = 'N' ORDER BY D.opt_name ASC 
+\n\n\nRes=0
+\n\n\nStateName=조판대기\n\n\nStateCode=2120\n\n\nProcessGo=0\n\n\nOrderNum=1801080218901
+\n\n\nOS=필동
+\n\n\nName=클리어싱크대야
+\n\n\nPName=합판전단지 / 아트지 백색 90g / 32절 / 단면칼라4도
+\n\n\nProductName=전단
+\n\n\nProductCode=005
+\n\n\nItemName=합판전단지
+\n\n\nItemCode=005001
+\n\n\nKindName=합판전단지
+\n\n\nKindCode=005001001
+\n\n\nSide=1
+\n\n\nColorName=단면칼라4도
+\n\n\nColorCode=4
+\n\n\nColorValue=4
+\n\n\nSizeName=32절
+\n\n\nSizeCode=32절
+\n\n\nSizeRegular=1
+\n\n\nWidth=185
+\n\n\nHeight=130
+\n\n\nPWidth=182
+\n\n\nPHeight=127
+\n\n\nPaperName=아트지 백색 90g
+\n\n\nPaperCode=243
+\n\n\nQuantityName=1.0R
+\n\n\nQuantityCode=1.0
+\n\n\nQuantityValue=16000
+\n\n\nCaseName=1건
+\n\n\nCaseCode=1
+\n\n\nCaseValue=1
+\n\n\nAworks=
+\n\n\nRefc=0
+\n\n\nMethod=
+\n\n\nPerson=영등포태양문화사
+\n\n\nPhone=02-2631-9502
+\n\n\nMobile=010-2720-0302
+\n\n\nAddress=서울 영등포구 문래동1가
+\n\n\nQuantity=
+\n\n\nCoast=
+\n\n\nWMemo=
+\n\n\nCMemo=
+\n\n\nDMemo=
+\n\n\nUnit=원
+\n\n\nValue=47300
+\n\n\nRMet=M
+\n\n\nRDiv=일반
+\n\n\nPurchaseDate=2018-01-08-16-01-19
+\n\n\nReceiptDate=2018-01-08-18-36-00
+\n\n\nReceiverID=ERROR
+\n\n\nReceiverName=
+\n\n\nStateName=조판대기
+\n\n\nStateCode=2120
+\n\n\nUType=
+\n\n\nUID=dugi0401
+\n\n\nUCom=영등포태양문화사
+\n\n\nUName=영등포태양문화사
+\n\n\nUTel=
+\n\n\nUMobile=
+\n\n\nUAddr=
+\n\n\nFileURL=
+\n\n\nPDFPath=/(전단)합판전단지/합판전단지_아트지/상업인쇄팀_46/4_1.0/
+\n\n\nPreviewPath=/2018/02/01/
+\n\n\n
+01:35:28 파라미터 ONS : 1
+\n\n\n
+01:35:28 파라미터 ON1 : 1801080218901
+\n\n\n
+01:35:28 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080218901'
+\n\n\n
+01:35:28
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108BL021890101' \n\n\n
+01:35:28
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+01:35:28
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '3533' 
+   LIMIT 1\n\n\n
+01:35:28
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3533' \n\n\n
+01:35:28state : 2130\n\n\n
+01:35:28to_state : '2130'\n\n\n
+01:35:28
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180108BL021890101' \n\n\n
+01:35:29
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108BL021890101'\n\n\n
+01:35:29
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108BL021890101', 2120, '2130') \n\n\n
+01:35:29
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108BL0218901%' \n\n\n
+01:35:29
+    UPDATE order_detail 
+   SET state = '2130' 
+   WHERE order_detail_dvs_num = 'SGPT180108BL0218901' \n\n\n
+01:35:29
+    UPDATE order_common 
+   SET order_state = '2130' 
+   WHERE order_num = 'GPT180108BL02189' \n\n\n
+10:54:26 파라미터 ONS : 1
+\n\n\n
+10:54:26 파라미터 ON1 : 1801080221701
+\n\n\n
+10:54:26 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080221701'
+\n\n\n
+10:54:26
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108BL022170101' \n\n\n
+10:54:26
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+10:54:26
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '3576' 
+   LIMIT 1\n\n\n
+10:54:26
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3576' \n\n\n
+10:54:26state : 2130\n\n\n
+10:54:26to_state : '2130'\n\n\n
+10:54:26
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180108BL022170101' \n\n\n
+10:54:26
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108BL022170101'\n\n\n
+10:54:26
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108BL022170101', 2120, '2130') \n\n\n
+10:54:26
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108BL0221701%' \n\n\n
+10:54:26
+    UPDATE order_detail 
+   SET state = '2130' 
+   WHERE order_detail_dvs_num = 'SGPT180108BL0221701' \n\n\n
+10:54:26
+    UPDATE order_common 
+   SET order_state = '2130' 
+   WHERE order_num = 'GPT180108BL02217' \n\n\n
+10:57:13 파라미터 ONS : 1
+\n\n\n
+10:57:13 파라미터 ON1 : 1801080109401
+\n\n\n
+10:57:13 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080109401'
+\n\n\n
+10:57:13
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC010940101' \n\n\n
+10:57:13
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+10:57:13
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '1795' 
+   LIMIT 1\n\n\n
+10:57:13
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1795' \n\n\n
+10:57:13state : 2130\n\n\n
+10:57:13to_state : '2130'\n\n\n
+10:57:13
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180108NC010940101' \n\n\n
+10:57:13
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC010940101'\n\n\n
+10:57:13
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC010940101', 2120, '2130') \n\n\n
+10:57:13
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0109401%' \n\n\n
+10:57:13
+    UPDATE order_detail 
+   SET state = '2130' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0109401' \n\n\n
+10:57:13
+    UPDATE order_common 
+   SET order_state = '2130' 
+   WHERE order_num = 'GPT180108NC01094' \n\n\n
+11:22:06 파라미터 ONS : 1
+\n\n\n
+11:22:06 파라미터 ON1 : 1801080307201
+\n\n\n
+11:22:06 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080307201'
+\n\n\n
+11:22:06
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108BL030720101' \n\n\n
+11:22:06
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+11:22:06
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '5075' 
+   LIMIT 1\n\n\n
+11:22:06
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '5075' \n\n\n
+11:22:06state : 2130\n\n\n
+11:22:06to_state : '2130'\n\n\n
+11:22:06
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180108BL030720101' \n\n\n
+11:22:07
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108BL030720101'\n\n\n
+11:22:07
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108BL030720101', 2120, '2130') \n\n\n
+11:22:07
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108BL0307201%' \n\n\n
+11:22:07
+    UPDATE order_detail 
+   SET state = '2130' 
+   WHERE order_detail_dvs_num = 'SGPT180108BL0307201' \n\n\n
+11:22:07
+    UPDATE order_common 
+   SET order_state = '2130' 
+   WHERE order_num = 'GPT180108BL03072' \n\n\n
+18:14:49 파라미터 ONS : 1
+\n\n\n
+18:14:49 파라미터 ON1 : 1801080148101
+\n\n\n
+18:14:49 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080148101'
+\n\n\n
+18:14:49
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108BL014810101' \n\n\n
+18:14:49
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+18:14:49
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '2391' 
+   LIMIT 1\n\n\n
+18:14:49
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '2391' \n\n\n
+18:14:49state : 2130\n\n\n
+18:14:49to_state : '2130'\n\n\n
+18:14:49
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180108BL014810101' \n\n\n
+18:14:49
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108BL014810101'\n\n\n
+18:14:49
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108BL014810101', 2120, '2130') \n\n\n
+18:14:49
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108BL0148101%' \n\n\n
+18:24:40 파라미터 ONS : 4
+\n\n\n
+18:24:40 파라미터 ON1 : 1801080094201
+\n\n\n
+18:24:40 파라미터 ON2 : 1801080094202
+\n\n\n
+18:24:40 파라미터 ON3 : 1801080105701
+\n\n\n
+18:24:40 파라미터 ON4 : 1801080131601
+\n\n\n
+18:24:40 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080094201'
+\n\n\n
+18:24:40
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC009420101' \n\n\n
+18:24:40
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+18:24:40
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '1536' 
+   LIMIT 1\n\n\n
+18:24:40
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1536' \n\n\n
+18:24:40state : 2130\n\n\n
+18:24:40to_state : '2130'\n\n\n
+18:24:40
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180108NC009420101' \n\n\n
+18:24:40
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC009420101'\n\n\n
+18:24:40
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC009420101', 2120, '2130') \n\n\n
+18:24:41
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0094201%' \n\n\n
+18:24:41 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080094202'
+\n\n\n
+18:24:41
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC009420102' \n\n\n
+18:24:41
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+18:24:41
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '1537' 
+   LIMIT 1\n\n\n
+18:24:41
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1537' \n\n\n
+18:24:41state : 2130\n\n\n
+18:24:41to_state : '2130'\n\n\n
+18:24:41
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180108NC009420102' \n\n\n
+18:24:41
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC009420102'\n\n\n
+18:24:41
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC009420102', 2120, '2130') \n\n\n
+18:24:41
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0094201%' \n\n\n
+18:24:41
+    UPDATE order_detail 
+   SET state = '2130' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0094201' \n\n\n
+18:24:41
+    UPDATE order_common 
+   SET order_state = '2130' 
+   WHERE order_num = 'GPT180108NC00942' \n\n\n
+18:24:41 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080105701'
+\n\n\n
+18:24:41
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC010570101' \n\n\n
+18:24:41
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+18:24:41
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '1739' 
+   LIMIT 1\n\n\n
+18:24:41
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '1739' \n\n\n
+18:24:41state : 2130\n\n\n
+18:24:41to_state : '2130'\n\n\n
+18:24:41
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180108NC010570101' \n\n\n
+18:24:41
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC010570101'\n\n\n
+18:24:41
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC010570101', 2120, '2130') \n\n\n
+18:24:41
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0105701%' \n\n\n
+18:24:41
+    UPDATE order_detail 
+   SET state = '2130' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0105701' \n\n\n
+18:24:41
+    UPDATE order_common 
+   SET order_state = '2130' 
+   WHERE order_num = 'GPT180108NC01057' \n\n\n
+18:24:41 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080131601'
+\n\n\n
+18:24:41
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC013160101' \n\n\n
+18:24:41
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+18:24:41
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '2112' 
+   LIMIT 1\n\n\n
+18:24:41
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '2112' \n\n\n
+18:24:41state : 2130\n\n\n
+18:24:41to_state : '2130'\n\n\n
+18:24:41
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180108NC013160101' \n\n\n
+18:24:41
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC013160101'\n\n\n
+18:24:41
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC013160101', 2120, '2130') \n\n\n
+18:24:41
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0131601%' \n\n\n
+18:25:03 파라미터 ONS : 1
+\n\n\n
+18:25:03 파라미터 ON1 : 1801080200501
+\n\n\n
+18:25:03 SELECT order_detail_file_num  FROM order_detail_count_file  WHERE barcode_num = '1801080200501'
+\n\n\n
+18:25:03
+    SELECT order_detail_count_file_seqno 
+   FROM order_detail_count_file 
+  WHERE order_detail_file_num = 'SGPT180108NC020050101' \n\n\n
+18:25:03
+    SELECT sheet_typset_seqno 
+   FROM sheet_typset 
+  WHERE typset_num = '' \n\n\n
+18:25:03
+    UPDATE amt_order_detail_sheet 
+   SET state = '2130' 
+   WHERE order_detail_count_file_seqno = '3253' 
+   LIMIT 1\n\n\n
+18:25:03
+    SELECT state 
+    FROM amt_order_detail_sheet 
+   WHERE order_detail_count_file_seqno = '3253' \n\n\n
+18:25:03state : 2130\n\n\n
+18:25:03to_state : '2130'\n\n\n
+18:25:03
+    UPDATE order_detail_count_file 
+   SET state = '2130' 
+   WHERE order_detail_file_num = 'SGPT180108NC020050101' \n\n\n
+18:25:03
+    SELECT * FROM order_detail_count_file 
+   where order_detail_file_num = 'SGPT180108NC020050101'\n\n\n
+18:25:03
+ INSERT INTO state_change_admin 
+ (order_detail_file_num, before_state, aft_state) 
+ VALUES
+ ('SGPT180108NC020050101', 2120, '2130') \n\n\n
+18:25:03
+    SELECT state 
+    FROM order_detail_count_file 
+   WHERE order_detail_file_num like 'SGPT180108NC0200501%' \n\n\n
+18:25:03
+    UPDATE order_detail 
+   SET state = '2130' 
+   WHERE order_detail_dvs_num = 'SGPT180108NC0200501' \n\n\n
+18:25:03
+    UPDATE order_common 
+   SET order_state = '2130' 
+   WHERE order_num = 'GPT180108NC02005' \n\n\n

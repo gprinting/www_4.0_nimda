@@ -1,0 +1,96 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/common/NimdaCommonDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$dao = new NimdaCommonDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dao; 
+
+$param = array();
+$param["table"] = "state_admin";
+$param["col"] = "dvs
+                ,state_code 
+                ,erp_state_name
+                ,front_state_name
+                ,erp_cancel_able_yn
+                ,front_cancel_able_yn
+                ,manual_receipt_cancel_able_yn
+                ,dscr";
+$param["order"] = "state_code";
+
+$rs = $dao->selectData($conn, $param);
+
+$list = "";
+$html  = "\n  <tr class='%s'>";
+$html .= "\n    <td>%s</td>";
+$html .= "\n    <td>%s</td>";
+$html .= "\n    <td>%s</td>";
+$html .= "\n    <td>%s</td>";
+$html .= "\n    <td>%s</td>";
+$html .= "\n    <td>%s</td>";
+$html .= "\n    <td>%s</td>";
+$html .= "\n    <td>%s</td>";
+$html .= "\n  </tr>";
+$i = 1;
+while ($rs && !$rs->EOF) {
+
+    if ($i % 2 == 0) {
+        $class = "cellbg";
+    } else if ($i % 2 == 1) {
+        $class = "";
+    }
+
+    $erp_cancel_able_yn = "취소가능";
+    $front_cancel_able_yn = "취소가능";
+    $manual_receipt_cancel_able_yn = "취소가능";
+
+    if ($rs->fields["erp_cancel_able_yn"] == "N") {
+        $erp_cancel_able_yn = "취소불가";
+    }
+
+    if ($rs->fields["front_cancel_able_yn"] == "N") {
+        $front_cancel_able_yn = "취소불가";
+    }
+
+    if ($rs->fields["manual_receipt_cancel_able_yn"] == "N") {
+        $manual_receipt_cancel_able_yn = "취소불가";
+    }
+
+    $list .= sprintf($html,
+            $class,
+            $rs->fields["dvs"],
+            $rs->fields["state_code"],
+            $rs->fields["erp_state_name"],
+            $erp_cancel_able_yn,
+            $rs->fields["front_state_name"],
+            $front_cancel_able_yn,
+            $manual_receipt_cancel_able_yn,
+            $rs->fields["dscr"]);
+    $i++;
+    $rs->moveNext();
+}
+
+$template->reg("list" , $list);
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "dataproc_mng"; //전산관리
+$left = "set"; //레프트 메뉴
+$left_sub = "state_mng"; //레프트하위 메뉴, script 주소
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

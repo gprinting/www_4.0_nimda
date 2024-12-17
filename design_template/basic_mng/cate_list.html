@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<title>[TPH_Vmain_title]</title>
+	<meta charset="utf-8"> [TPH_I/common/common.html]
+</head>
+
+<body>
+
+	<div id="container">
+
+		<!-- TOP NAVIGATION -->
+		[TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION -->
+		[TPH_Vleft]
+		<!-- CONTENT -->
+		<section id="page-content" class="">
+			<!-- 본문 컨텐츠  시작-->
+			<div id="content-container" class="content_container">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀 시작-->
+					<div class="title">
+						[TPH_I/common/history.html]
+					</div>
+					<!--타이틀 끝-->
+					<!--기본 검색정보 시작-->
+					<section class="content_section">
+						<div class="content_wrapper">
+							<!-- 탭 박스 3 TAB -->
+							<div class="tabbable">
+
+								<!-- TAB UI 
+				<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#tab2" data-toggle="tab"> 카테고리정보</a>
+				</li>
+				</ul>
+				TAB UI -->
+
+								<div class="tab-content">
+
+									<div class="tab-pane active" id="tab2">
+										<!-- TAB 02 -->
+
+										<div class="tree_box" id="tree_box" style="width:340px;">
+											[TPH_Vcate_tree]
+										</div>
+										<div class="category_box">
+											<form>
+												<table class="table_search_layout">
+													<tr>
+														<th class="th_text th_basic_cate_list_01">현재 선택한 카테고리</th>
+														<td>
+															<input type="text" class="input_dis select_basic_cate_list_01" placeholder="선택 카테고리 없음" id="select_cate" disabled>
+														</td>
+													</tr>
+													<tr>
+														<th class="th_text th_basic_cate_list_01">도수구분</th>
+														<td>
+															<label class="check_box_wrapper_cate_list_01"><input type="radio" id="tmpt_0" name="tmpt_dvs" class="checkbox_align" onchange="changeTmptDvs(this.value);" value="0" checked> 단/양면</label>
+															<label class="check_box_wrapper_cate_list_01"><input type="radio" id="tmpt_1" name="tmpt_dvs" class="checkbox_align" onchange="changeTmptDvs(this.value);" value="1"> 전/후면</label>
+														</td>
+													</tr>
+													<tr>
+														<th class="th_text th_basic_cate_list_01">생산유형</th>
+														<td>
+															<label class="check_box_wrapper_cate_list_01"><input type="radio" id="flattyp_y" name="flattyp" class="checkbox_align" checked> 낱장형</label>
+															<label class="check_box_wrapper_cate_list_02"><input type="radio" id="flattyp_n" name="flattyp" class="checkbox_align"> 책자형</label>
+                                                            <label class="check_box_wrapper_cate_list_03"><input type="radio" id="flattyp_s" name="flattyp" class="checkbox_align"> 단품형</label>
+															<label class="fix_width15"></label>
+															<!--label class="check_box_wrapper_cate_list_01"><input type="radio" id="flattyp_m" name="flattyp" class="checkbox_align"> 혼합형</label-->
+														</td>
+													</tr>
+													<tr>
+														<th class="th_text th_basic_cate_list_01">계산방식</th>
+														<td>
+															<label class="check_box_wrapper_cate_list_01"><input type="checkbox" id="mono_n" class="checkbox_align" checked> 확정형</label>
+															<label class="check_box_wrapper_cate_list_01"><input type="checkbox" id="mono_y" class="checkbox_align"> 계산형</label>
+														</td>
+													</tr>
+													<tr>
+														<th class="th_text th_basic_cate_list_01">조판방식</th>
+														<td>
+															<label class="check_box_wrapper_cate_list_02"><input type="radio" id="typset_way2" name="outsource_yn" class="checkbox_align" checked> MOAMOA</label>
+															<label class="check_box_wrapper_cate_list_01"><input type="radio" id="typset_way3" name="outsource_yn" class="checkbox_align"> 외주</label>
+														</td>
+													</tr>
+													<tr>
+														<th class="th_text th_basic_cate_list_01">외주카테고리분류</th>
+														<td>
+															<label class="form-radio">
+																<select id="outsource_etprs_cate" class="select_basic_cate_list_01">
+																	<option value="">없음</option>
+																	<option value="card_nc">카드명함</option>
+																	<option value="magnet">자석</option>
+																	<option value="menu_flate">메뉴판</option>
+																	<option value="master">마스터</option>
+																	<option value="green_bag">그린백</option>
+																</select>
+															</label>
+														</td>
+													</tr>
+													<tr>
+														<th class="th_text th_basic_cate_list_01">사용여부</th>
+														<td>
+															<label class="check_box_wrapper_cate_list_01"><input type="radio" id="use_y" name="use" class="checkbox_align" checked> 사용</label>
+															<label class="check_box_wrapper_cate_list_01"><input type="radio" id="use_n" name="use" class="checkbox_align"> 미사용</label>
+														</td>
+													</tr>
+													<tr>
+														<th class="th_text th_basic_cate_list_01">기준단위</th>
+														<td>
+															<label class="form-radio">
+																<select id="amt_unit" class="select_basic_cate_list_01">
+																	<option value="장">장</option>
+																	<option value="부">부</option>
+																	<option value="권">권</option>
+																	<option value="R">R</option>
+                                                                    <option value="개">개</option>
+                                                                    <option value="박스">박스</option>
+                                                                    <option value="세트">세트</option>
+																</select>
+															</label>
+														</td>
+													</tr>
+                                                    <tr>
+                                                        <th class="th_text th_basic_cate_list_01">마진율</th>
+                                                        <td>
+                                                            <label class="form-radio">
+                                                                <input type="number" id="channel_price_rate" class="select_basic_cate_list_01" disabled>%
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+												</table>
+												<div class="fr" style="margin-right: 15px;">
+													<label class="tar"><button type="button" id="update_btn" class="btn btn-sm btn-info" onclick="editCateInfo();">수정</button><button type="button" id="save_btn" class="btn btn-sm btn-success" onclick="saveCateInfo();" style="display:none;">저장</button></label>
+												</div>
+
+												<br />
+												<br />
+												<hr class="section_bar">
+
+												<!-- SUB TAB UI -->
+												<ul class="nav nav-tabs mt50">
+													<li class="active">
+														<a href="#tab5" onclick="tabCtrl('paper');" data-toggle="tab"> 종이 </a>
+													</li>
+													<li>
+														<a href="#tab6" onclick="tabCtrl('size');" data-toggle="tab"> 사이즈 </a>
+													</li>
+													<li>
+														<a href="#tab7" onclick="tabCtrl('print');" data-toggle="tab"> 인쇄도수 </a>
+													</li>
+													<li>
+														<a href="#tab8" onclick="tabCtrl('after');" data-toggle="tab"> 후공정 </a>
+													</li>
+													<li>
+														<a href="#tab9" onclick="tabCtrl('opt');" data-toggle="tab"> 옵션 </a>
+													</li>
+													<li>
+														<a href="#tab10" onclick="tabCtrl('grade');" data-toggle="tab"> 등급할인 </a>
+													</li>
+													<!--
+											<li>
+												<a href="#tab11" onclick="tabCtrl('member');" data-toggle="tab"> 회원할인 </a> 
+											</li>
+											-->
+												</ul>
+
+												<div class="tab-content">
+													<div class="tab-pane active" id="tab5">
+														<!-- 종이 TAB -->
+
+														<div class="">
+															<ul class="table_top">
+																<li class="sel">
+																	<select class="fix_width150" id="paper_sort" onchange="selectSortOption('paper');">
+																<option>종이대분류(전체)</option>
+															    </select> <label class="fs12">현재 등록된 종이입니다.</label>
+                                                                    <br>
+                                                                    <br>
+                                                                    <input type="checkbox" id="paper_select_yn" class="checkbox_align" disabled="">옵션선택 숨김
+																</li>
+																<li class="sel tar">
+																	<label for="paper_search" class="con_label">Search(종이명) : <input id="paper_search" type="text" class="search_btn fix_width100" onkeydown="searchKey(event, this.value);"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('paper');"></button></label>
+																</li>
+															</ul>
+
+															<div class="">
+																<table class="table_basic_layout">
+																	<thead>
+																		<tr>
+																			<th class="">번호</th>
+																			<th class="">대분류</th>
+																			<th class=""><a style="cursor: pointer;" onclick="sortList('name', this);" class="blue_text01 sorting">종이명 <i class="fa fa-sort"></i></a></th>
+																			<th class="">구분</th>
+																			<th class="">색상</th>
+																			<th class="">평량</th>
+																		</tr>
+																	</thead>
+																	<tbody id="paper_list">
+																		<tr>
+																			<td colspan="6">검색 된 내용이 없습니다.
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<p class="p_num_b fs12">
+																	<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'paper');">
+																	    [TPH_I/common/list_count.html]
+																	</select>
+                                                                    개씩 보기
+																</p>
+																<div class="tac clear" id="paper_page">
+																</div>
+															</div>
+														</div>
+
+													</div>
+													<!-- 종이 TAB -->
+
+													<div class="tab-pane" id="tab6">
+														<!-- 사이즈 TAB -->
+
+														<div class="">
+															<ul class="table_top">
+																<li class="sel">
+																	<select class="fix_width150" id="size_sort" onchange="selectSortOption('size');">
+																<option>사이즈대분류(전체)</option>
+																</select> <label class="fs12">현재 등록된 사이즈입니다.</label>
+                                                                    <br>
+                                                                    <br>
+                                                                    <input type="checkbox" id="size_select_yn" class="checkbox_align" disabled="">옵션선택 숨김
+																</li>
+																<li class="sel tar">
+																	<label for="size_search" class="con_label">Search(사이즈명) : <input id="size_search" type="text" class="search_btn fix_width100" onkeydown="searchKey(event, this.value);"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('size');"></button></label>
+																</li>
+															</ul>
+
+															<div class="">
+																<table class="table_basic_layout">
+																	<thead>
+																		<tr>
+																			<th class="">번호</th>
+																			<th class="">대분류</th>
+																			<th class=""><a style="cursor: pointer;" onclick="sortList('name', this);" class="blue_text01 sorting">사이즈명 <i class="fa fa-sort"></i></a></th>
+																			<th class="">사이즈유형</th>
+																			<th class="">작업사이즈</th>
+																			<th class="">재단사이즈</th>
+																			<th class="">디자인사이즈</th>
+																			<th class="">도무송사이즈</th>
+																		</tr>
+																	</thead>
+																	<tbody id="size_list">
+																		<tr>
+																			<td colspan="8">검색 된 내용이 없습니다.
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<p class="p_num_b fs12">
+																	<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'size');">
+																		[TPH_I/common/list_count.html]
+																	</select>
+                                                                    개씩 보기
+																</p>
+																<div class="tac clear" id="size_page">
+																</div>
+															</div>
+														</div>
+
+													</div>
+													<!-- 사이즈 TAB -->
+
+													<div class="tab-pane" id="tab7">
+														<!-- 인쇄도수 TAB -->
+
+														<div class="">
+															<ul class="table_top">
+																<li class="sel">
+																	<select class="fix_width150" id="print_sort" onchange="selectSortOption('print');">
+																<option>인쇄대분류(전체)</option>
+																</select> <label class="fs12">현재 등록된 인쇄도수입니다.</label>
+                                                                    <br>
+                                                                    <br>
+                                                                    <input type="checkbox" id="tmpt_select_yn" class="checkbox_align" disabled="">옵션선택 숨김
+																</li>
+																<li class="sel tar">
+																	<label for="print_search" class="con_label">Search(인쇄도수명) : <input id="print_search" type="text" class="search_btn fix_width100" onkeydown="searchKey(event, this.value);"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('print');"></button></label>
+																</li>
+															</ul>
+
+															<div class="">
+																<table class="table_basic_layout">
+																	<thead>
+																		<tr>
+																			<th class="">번호</th>
+																			<th class="">대분류</th>
+																			<th class=""><a style="cursor: pointer;" onclick="sortList('name', this);" class="blue_text01 sorting">인쇄도수명 <i class="fa fa-sort"></i></a></th>
+																			<th class="">면구분</th>
+																			<th class="">앞면인쇄</th>
+																			<th class="">뒷면인쇄</th>
+																			<th class="">추가인쇄</th>
+																			<th class="">총도수</th>
+																		</tr>
+																	</thead>
+																	<tbody id="print_list">
+																		<tr>
+																			<td colspan="8">검색 된 내용이 없습니다.
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<p class="p_num_b fs12">
+																	<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'print');">
+																	    [TPH_I/common/list_count.html]
+																	</select>
+                                                                    개씩 보기
+																</p>
+																<div class="tac clear" id="print_page">
+																</div>
+															</div>
+														</div>
+
+													</div>
+													<!-- 인쇄도수 TAB -->
+
+													<div class="tab-pane" id="tab8">
+														<!-- 후공정 TAB -->
+
+														<div class="">
+															<ul class="table_top">
+																<li class="sel">
+																	<select class="fix_width150" id="after_sort" onchange="selectSortOption('after');">
+																<option>후공정대분류(전체)</option>
+																</select> <label class="fs12">현재 등록된 후공정입니다.</label>
+																</li>
+																<li class="sel tar">
+																	<label for="after_search" class="con_label">Search(후공정명) : <input id="after_search" type="text" class="search_btn fix_width100" onkeydown="searchKey(event, this.value);"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('after');"></button></label>
+																</li>
+															</ul>
+
+															<div class="">
+																<table class="table_basic_layout">
+																	<thead>
+																		<tr>
+																			<th class="">번호</th>
+																			<th class="">대분류</th>
+																			<th class=""><a style="cursor: pointer;" onclick="sortList('after_name', this);" class="blue_text01 sorting">후공정명 <i class="fa fa-sort"></i></a></th>
+																			<th class="">Depth1</th>
+																			<th class="">Depth2</th>
+																			<th class="">Depth3</th>
+																		</tr>
+																	</thead>
+																	<tbody id="after_list">
+																		<tr>
+																			<td colspan="6">검색 된 내용이 없습니다.
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<p class="p_num_b fs12">
+																	<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'after');">
+																		[TPH_I/common/list_count.html]
+																	</select>
+                                                                    개씩 보기
+																</p>
+																<div class="tac clear" id="after_page">
+																</div>
+															</div>
+														</div>
+
+													</div>
+													<!-- 후공정 TAB -->
+
+													<div class="tab-pane" id="tab9">
+														<!-- 옵션 TAB -->
+
+														<div class="">
+															<ul class="table_top">
+																<li class="sel">
+																	<select class="fix_width150" id="opt_sort" onchange="selectSortOption('opt');">
+																<option>옵션대분류(전체)</option>
+																</select> <label class="fs12">현재 등록된 옵션입니다.</label>
+																</li>
+																<li class="sel tar">
+																	<label for="opt_search" class="con_label">Search(옵션명) : <input id="opt_search" type="text" class="search_btn fix_width100" onkeydown="searchKey(event, this.value);"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('opt');"></button></label>
+																</li>
+															</ul>
+
+															<div class="">
+																<table class="table_basic_layout">
+																	<thead>
+																		<tr>
+																			<th class="">번호</th>
+																			<th class="">대분류</th>
+																			<th class=""><a style="cursor: pointer;" onclick="sortList('opt_name', this);" class="blue_text01 sorting">옵션명 <i class="fa fa-sort"></i></a></th>
+																			<th class="">Depth1</th>
+																			<th class="">Depth2</th>
+																			<th class="">Depth3</th>
+																		</tr>
+																	</thead>
+																	<tbody id="opt_list">
+																		<tr>
+																			<td colspan="6">검색 된 내용이 없습니다.
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<p class="p_num_b fs12">
+																	<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, 'opt');">
+																		[TPH_I/common/list_count.html]
+																	</select>
+                                                                    개씩 보기
+																</p>
+																<div class="tac clear" id="opt_page">
+																</div>
+															</div>
+														</div>
+
+													</div>
+													<!-- 옵션 TAB -->
+
+													<div class="tab-pane" id="tab10">
+														<!-- 등급할인 TAB -->
+														<div class="">
+															<div class="">
+																<table class="table_basic_layout">
+																	<thead>
+																		<tr>
+																			<th class="">등급명</th>
+																			<th class="">등급</th>
+																			<th class="">할인</th>
+																		</tr>
+																	</thead>
+																	<tbody id="grade_list">
+																		<tr>
+																			<td colspan="3">카테고리별 등급할인은 소분류에만 적용 됩니다.
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<p class="btn-lg red_btn" id="grade_btn" style="display:none;">
+																	<a style="cursor: pointer;" onclick="insertCateMemberGradeRate();">등급정책을 저장합니다.</a>
+
+																</p>
+															</div>
+														</div>
+													</div>
+													<!-- 등급할인 TAB -->
+
+													<div class="tab-pane" id="tab11">
+														<!-- 회원할인 TAB -->
+														<div class="">
+															<div class="">
+																<table class="table_basic_layout">
+																	<thead>
+																		<tr>
+																			<th class="">회원명</th>
+																			<th class="">할인</th>
+																			<th class="">수정/삭제</th>
+																		</tr>
+																	</thead>
+																	<tbody id="member_list">
+																		<tr>
+																			<td colspan="3">카테고리별 회원할인은 소분류에만 적용 됩니다.
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+
+																<div class="tac clear">
+																	<label class="control-label fix_width75 tar">회원명</label>
+																	<label class="fix_width10 fs14 tac">:</label>
+																	<input type="text" class="input_co2 fix_width140" onkeydown="searchOfficeNick(event, this.value, '');" placeholder="검색창 팝업 사용"
+																	 id="office_nick" />
+																	<input type="hidden" id="member_seqno" />
+
+																	<label class="control-label fix_width75 tar">할인</label>
+																	<label class="fix_width10 fs14 tac">:</label> -
+																	<input type="text" class="input_co2 fix_width110" id="member_rate" onkeyup="this.value = inputOnlyNumber(this.value);" maxlength="10"
+																	/>%
+																</div>
+
+																<p class="btn-lg red_btn" id="grade_btn">
+																	<a style="cursor: pointer;" id="member_btn" onclick="modiMemberRateInfo(null, null);">정책추가</a>
+																</p>
+															</div>
+														</div>
+													</div>
+													<!-- 회원할인 TAB -->
+												</div>
+												<!-- TAB UI -->
+
+											</form>
+										</div>
+
+									</div>
+									<!-- TAB 02 -->
+								</div>
+							</div>
+						</div>
+					</section>
+					<!--기본검색정보 끝-->
+				</div>
+				<!--메인상단 왼쪽 레이아웃 끝-->
+			</div>
+			<!-- 본문 컨텐츠 끝 -->
+		</section>
+		<div id="cate_regi_popup" style="display:none;position:absolute;z-index:8888;" class="pop_add_box"></div>
+	</div>
+</body>
+</html>

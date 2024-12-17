@@ -1,0 +1,662 @@
+
+
+==================================================================================================
+>>>>> 2016-08-11 10:06:48 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 24374
+# Message -> ORA-24374: define not done before fetch or execute and fetch
+# OffSet -> 0
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400) := '30139938';  P_CLNTMGMCUSTCD       VARCHAR2(400) := '30139938';  P_PRNGDIVCD           VARCHAR2(400) := '01';  P_CGOSTS              VARCHAR2(400) := '91';  P_ADDRESS             VARCHAR2(400) := '서울시 중구 필동로 8길 50-9';  P_ZIPNUM              VARCHAR2(400);  P_ZIPID               VARCHAR2(400);  P_OLDADDRESS          VARCHAR2(400);  P_OLDADDRESSDTL       VARCHAR2(400);  P_NEWADDRESS          VARCHAR2(400);  P_NESADDRESSDTL       VARCHAR2(400);  P_ETCADDR             VARCHAR2(400);  P_SHORTADDR           VARCHAR2(400);  P_CLSFADDR            VARCHAR2(400);  P_CLLDLVBRANCD        VARCHAR2(400);  P_CLLDLVBRANNM        VARCHAR2(400);  P_CLLDLCBRANSHORTNM   VARCHAR2(400);  P_CLLDLVEMPNUM        VARCHAR2(400);  P_CLLDLVEMPNM         VARCHAR2(400);  P_CLLDLVEMPNICKNM     VARCHAR2(400);  P_CLSFCD              VARCHAR2(400);  P_CLSFNM              VARCHAR2(400);  P_SUBCLSFCD           VARCHAR2(400);  P_RSPSDIV             VARCHAR2(400);  P_NEWADDRYN           VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM      , P_CLNTMGMCUSTCD      , P_PRNGDIVCD      , P_CGOSTS      , P_ADDRESS      , P_ZIPNUM      , P_ZIPID      , P_OLDADDRESS      , P_OLDADDRESSDTL      , P_NEWADDRESS      , P_NESADDRESSDTL      , P_ETCADDR      , P_SHORTADDR      , P_CLSFADDR      , P_CLLDLVBRANCD      , P_CLLDLVBRANNM      , P_CLLDLCBRANSHORTNM      , P_CLLDLVEMPNUM      , P_CLLDLVEMPNM      , P_CLLDLVEMPNICKNM      , P_CLSFCD      , P_CLSFNM      , P_SUBCLSFCD      , P_RSPSDIV      , P_NEWADDRYN      , P_ERRORCD      , P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 10:33:31 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 24374
+# Message -> ORA-24374: define not done before fetch or execute and fetch
+# OffSet -> 0
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400) := '30139938';  P_CLNTMGMCUSTCD       VARCHAR2(400) := '30139938';  P_PRNGDIVCD           VARCHAR2(400) := '01';  P_CGOSTS              VARCHAR2(400) := '91';  P_ADDRESS             VARCHAR2(400) := '서울시 중구 필동로 8길 50-9';  P_ZIPNUM              VARCHAR2(400);  P_ZIPID               VARCHAR2(400);  P_OLDADDRESS          VARCHAR2(400);  P_OLDADDRESSDTL       VARCHAR2(400);  P_NEWADDRESS          VARCHAR2(400);  P_NESADDRESSDTL       VARCHAR2(400);  P_ETCADDR             VARCHAR2(400);  P_SHORTADDR           VARCHAR2(400);  P_CLSFADDR            VARCHAR2(400);  P_CLLDLVBRANCD        VARCHAR2(400);  P_CLLDLVBRANNM        VARCHAR2(400);  P_CLLDLCBRANSHORTNM   VARCHAR2(400);  P_CLLDLVEMPNUM        VARCHAR2(400);  P_CLLDLVEMPNM         VARCHAR2(400);  P_CLLDLVEMPNICKNM     VARCHAR2(400);  P_CLSFCD              VARCHAR2(400);  P_CLSFNM              VARCHAR2(400);  P_SUBCLSFCD           VARCHAR2(400);  P_RSPSDIV             VARCHAR2(400);  P_NEWADDRYN           VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM      , P_CLNTMGMCUSTCD      , P_PRNGDIVCD      , P_CGOSTS      , P_ADDRESS      , P_ZIPNUM      , P_ZIPID      , P_OLDADDRESS      , P_OLDADDRESSDTL      , P_NEWADDRESS      , P_NESADDRESSDTL      , P_ETCADDR      , P_SHORTADDR      , P_CLSFADDR      , P_CLLDLVBRANCD      , P_CLLDLVBRANNM      , P_CLLDLCBRANSHORTNM      , P_CLLDLVEMPNUM      , P_CLLDLVEMPNM      , P_CLLDLVEMPNICKNM      , P_CLSFCD      , P_CLSFNM      , P_SUBCLSFCD      , P_RSPSDIV      , P_NEWADDRYN      , P_ERRORCD      , P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 11:57:24 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 1008
+# Message -> ORA-01008: not all variables bound
+# OffSet -> 0
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS      , :P_ZIPNUM      , :P_ZIPID      , :P_OLDADDRESS      , :P_OLDADDRESSDTL      , :P_NEWADDRESS      , :P_NESADDRESSDTL      , :P_ETCADDR      , :P_SHORTADDR      , :P_CLSFADDR      , :P_CLLDLVBRANCD      , :P_CLLDLVBRANNM      , :P_CLLDLCBRANSHORTNM      , :P_CLLDLVEMPNUM      , :P_CLLDLVEMPNM      , :P_CLLDLVEMPNICKNM      , :P_CLSFCD      , :P_CLSFNM      , :P_SUBCLSFCD      , :P_RSPSDIV      , :P_NEWADDRYN      , :P_ERRORCD      , :P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 11:58:03 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 1008
+# Message -> ORA-01008: not all variables bound
+# OffSet -> 0
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS      , :P_ZIPNUM      , :P_ZIPID      , :P_OLDADDRESS      , :P_OLDADDRESSDTL      , :P_NEWADDRESS      , :P_NESADDRESSDTL      , :P_ETCADDR      , :P_SHORTADDR      , :P_CLSFADDR      , :P_CLLDLVBRANCD      , :P_CLLDLVBRANNM      , :P_CLLDLCBRANSHORTNM      , :P_CLLDLVEMPNUM      , :P_CLLDLVEMPNM      , :P_CLLDLVEMPNICKNM      , :P_CLSFCD      , :P_CLSFNM      , :P_SUBCLSFCD      , :P_RSPSDIV      , :P_NEWADDRYN      , :P_ERRORCD      , :P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 12:04:11 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 1008
+# Message -> ORA-01008: not all variables bound
+# OffSet -> 0
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400) := '30139938';  P_CLNTMGMCUSTCD       VARCHAR2(400) := '30139938';  P_PRNGDIVCD           VARCHAR2(400) := '01';  P_CGOSTS              VARCHAR2(400) := '91';  P_ADDRESS             VARCHAR2(400) := '서울시 중구 필동로 8길 50-9';  P_ZIPNUM              VARCHAR2(400);  P_ZIPID               VARCHAR2(400);  P_OLDADDRESS          VARCHAR2(400);  P_OLDADDRESSDTL       VARCHAR2(400);  P_NEWADDRESS          VARCHAR2(400);  P_NESADDRESSDTL       VARCHAR2(400);  P_ETCADDR             VARCHAR2(400);  P_SHORTADDR           VARCHAR2(400);  P_CLSFADDR            VARCHAR2(400);  P_CLLDLVBRANCD        VARCHAR2(400);  P_CLLDLVBRANNM        VARCHAR2(400);  P_CLLDLCBRANSHORTNM   VARCHAR2(400);  P_CLLDLVEMPNUM        VARCHAR2(400);  P_CLLDLVEMPNM         VARCHAR2(400);  P_CLLDLVEMPNICKNM     VARCHAR2(400);  P_CLSFCD              VARCHAR2(400);  P_CLSFNM              VARCHAR2(400);  P_SUBCLSFCD           VARCHAR2(400);  P_RSPSDIV             VARCHAR2(400);  P_NEWADDRYN           VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS      , :P_ZIPNUM      , :P_ZIPID      , :P_OLDADDRESS      , :P_OLDADDRESSDTL      , :P_NEWADDRESS      , :P_NESADDRESSDTL      , :P_ETCADDR      , :P_SHORTADDR      , :P_CLSFADDR      , :P_CLLDLVBRANCD      , :P_CLLDLVBRANNM      , :P_CLLDLCBRANSHORTNM      , :P_CLLDLVEMPNUM      , :P_CLLDLVEMPNM      , :P_CLLDLVEMPNICKNM      , :P_CLSFCD      , :P_CLSFNM      , :P_SUBCLSFCD      , :P_RSPSDIV      , :P_NEWADDRYN      , :P_ERRORCD      , :P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 12:04:20 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 1008
+# Message -> ORA-01008: not all variables bound
+# OffSet -> 0
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400) := '30139938';  P_CLNTMGMCUSTCD       VARCHAR2(400) := '30139938';  P_PRNGDIVCD           VARCHAR2(400) := '01';  P_CGOSTS              VARCHAR2(400) := '91';  P_ADDRESS             VARCHAR2(400) := '서울시 중구 필동로 8길 50-9';  P_ZIPNUM              VARCHAR2(400);  P_ZIPID               VARCHAR2(400);  P_OLDADDRESS          VARCHAR2(400);  P_OLDADDRESSDTL       VARCHAR2(400);  P_NEWADDRESS          VARCHAR2(400);  P_NESADDRESSDTL       VARCHAR2(400);  P_ETCADDR             VARCHAR2(400);  P_SHORTADDR           VARCHAR2(400);  P_CLSFADDR            VARCHAR2(400);  P_CLLDLVBRANCD        VARCHAR2(400);  P_CLLDLVBRANNM        VARCHAR2(400);  P_CLLDLCBRANSHORTNM   VARCHAR2(400);  P_CLLDLVEMPNUM        VARCHAR2(400);  P_CLLDLVEMPNM         VARCHAR2(400);  P_CLLDLVEMPNICKNM     VARCHAR2(400);  P_CLSFCD              VARCHAR2(400);  P_CLSFNM              VARCHAR2(400);  P_SUBCLSFCD           VARCHAR2(400);  P_RSPSDIV             VARCHAR2(400);  P_NEWADDRYN           VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS      , :P_ZIPNUM      , :P_ZIPID      , :P_OLDADDRESS      , :P_OLDADDRESSDTL      , :P_NEWADDRESS      , :P_NESADDRESSDTL      , :P_ETCADDR      , :P_SHORTADDR      , :P_CLSFADDR      , :P_CLLDLVBRANCD      , :P_CLLDLVBRANNM      , :P_CLLDLCBRANSHORTNM      , :P_CLLDLVEMPNUM      , :P_CLLDLVEMPNM      , :P_CLLDLVEMPNICKNM      , :P_CLSFCD      , :P_CLSFNM      , :P_SUBCLSFCD      , :P_RSPSDIV      , :P_NEWADDRYN      , :P_ERRORCD      , :P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:40:02 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 1008
+# Message -> ORA-01008: not all variables bound
+# OffSet -> 0
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400) := '30139938';  P_CLNTMGMCUSTCD       VARCHAR2(400) := '30139938';  P_PRNGDIVCD           VARCHAR2(400) := '01';  P_CGOSTS              VARCHAR2(400) := '91';  P_ADDRESS             VARCHAR2(400) := '서울시 중구 필동로 8길 50-9';  P_ZIPNUM              VARCHAR2(400);  P_ZIPID               VARCHAR2(400);  P_OLDADDRESS          VARCHAR2(400);  P_OLDADDRESSDTL       VARCHAR2(400);  P_NEWADDRESS          VARCHAR2(400);  P_NESADDRESSDTL       VARCHAR2(400);  P_ETCADDR             VARCHAR2(400);  P_SHORTADDR           VARCHAR2(400);  P_CLSFADDR            VARCHAR2(400);  P_CLLDLVBRANCD        VARCHAR2(400);  P_CLLDLVBRANNM        VARCHAR2(400);  P_CLLDLCBRANSHORTNM   VARCHAR2(400);  P_CLLDLVEMPNUM        VARCHAR2(400);  P_CLLDLVEMPNM         VARCHAR2(400);  P_CLLDLVEMPNICKNM     VARCHAR2(400);  P_CLSFCD              VARCHAR2(400);  P_CLSFNM              VARCHAR2(400);  P_SUBCLSFCD           VARCHAR2(400);  P_RSPSDIV             VARCHAR2(400);  P_NEWADDRYN           VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS      , :P_ZIPNUM      , :P_ZIPID      , :P_OLDADDRESS      , :P_OLDADDRESSDTL      , :P_NEWADDRESS      , :P_NESADDRESSDTL      , :P_ETCADDR      , :P_SHORTADDR      , :P_CLSFADDR      , :P_CLLDLVBRANCD      , :P_CLLDLVBRANNM      , :P_CLLDLCBRANSHORTNM      , :P_CLLDLVEMPNUM      , :P_CLLDLVEMPNM      , :P_CLLDLVEMPNICKNM      , :P_CLSFCD      , :P_CLSFNM      , :P_SUBCLSFCD      , :P_RSPSDIV      , :P_NEWADDRYN      , :P_ERRORCD      , :P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:41:07 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 1008
+# Message -> ORA-01008: not all variables bound
+# OffSet -> 0
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400) := '30139938';  P_CLNTMGMCUSTCD       VARCHAR2(400) := '30139938';  P_PRNGDIVCD           VARCHAR2(400) := '01';  P_CGOSTS              VARCHAR2(400) := '91';  P_ADDRESS             VARCHAR2(400) := '서울시 중구 필동로 8길 50-9';  P_ZIPNUM              VARCHAR2(400);  P_ZIPID               VARCHAR2(400);  P_OLDADDRESS          VARCHAR2(400);  P_OLDADDRESSDTL       VARCHAR2(400);  P_NEWADDRESS          VARCHAR2(400);  P_NESADDRESSDTL       VARCHAR2(400);  P_ETCADDR             VARCHAR2(400);  P_SHORTADDR           VARCHAR2(400);  P_CLSFADDR            VARCHAR2(400);  P_CLLDLVBRANCD        VARCHAR2(400);  P_CLLDLVBRANNM        VARCHAR2(400);  P_CLLDLCBRANSHORTNM   VARCHAR2(400);  P_CLLDLVEMPNUM        VARCHAR2(400);  P_CLLDLVEMPNM         VARCHAR2(400);  P_CLLDLVEMPNICKNM     VARCHAR2(400);  P_CLSFCD              VARCHAR2(400);  P_CLSFNM              VARCHAR2(400);  P_SUBCLSFCD           VARCHAR2(400);  P_RSPSDIV             VARCHAR2(400);  P_NEWADDRYN           VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS      , :P_ZIPNUM      , :P_ZIPID      , :P_OLDADDRESS      , :P_OLDADDRESSDTL      , :P_NEWADDRESS      , :P_NESADDRESSDTL      , :P_ETCADDR      , :P_SHORTADDR      , :P_CLSFADDR      , :P_CLLDLVBRANCD      , :P_CLLDLVBRANNM      , :P_CLLDLCBRANSHORTNM      , :P_CLLDLVEMPNUM      , :P_CLLDLVEMPNM      , :P_CLLDLVEMPNICKNM      , :P_CLSFCD      , :P_CLSFNM      , :P_SUBCLSFCD      , :P_RSPSDIV      , :P_NEWADDRYN      , :P_ERRORCD      , :P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:41:47 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 900
+# Message -> ORA-00900: invalid SQL statement
+# OffSet -> 2
+# SqlText ->   PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:42:24 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:43:06 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:45:10 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:45:16 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:47:05 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:47:32 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:47:58 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:49:33 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:49:38 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:50:11 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:50:22 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:57:52 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 246:
+PLS-00201: identifier 'P_ERRORCD' must be declared
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 245
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS      , P_ERRORCD => P_ERRORCD      , P_ERRORMSG => P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:58:15 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 246:
+PLS-00201: identifier 'P_ERRORCD' must be declared
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 245
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS      , P_ERRORCD => P_ERRORCD      , P_ERRORMSG => P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:58:36 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 246:
+PLS-00201: identifier 'P_ERRORCD' must be declared
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 245
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS      , P_ERRORCD => P_ERRORCD      , P_ERRORMSG => P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:58:47 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 246:
+PLS-00201: identifier 'P_ERRORCD' must be declared
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 245
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS      , P_ERRORCD => P_ERRORCD      , P_ERRORMSG => P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:58:51 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 246:
+PLS-00201: identifier 'P_ERRORCD' must be declared
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 245
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS      , P_ERRORCD => P_ERRORCD      , P_ERRORMSG => P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:59:11 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 246:
+PLS-00201: identifier 'P_ERRORCD' must be declared
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 245
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS      , P_ERRORCD => P_ERRORCD      , P_ERRORMSG => P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 13:59:23 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 246:
+PLS-00201: identifier 'P_ERRORCD' must be declared
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 245
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS      , P_ERRORCD => P_ERRORCD      , P_ERRORMSG => P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:01:34 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 246:
+PLS-00201: identifier 'P_ERRORCD' must be declared
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 245
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS      , P_ERRORCD => P_ERRORCD      , P_ERRORMSG => P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:02:45 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:03:37 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:06:48 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:08:15 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM => :P_CLNTNUM      , P_CLNTMGMCUSTCD => :P_CLNTMGMCUSTCD      , P_PRNGDIVCD => :P_PRNGDIVCD      , P_CGOSTS => :P_CGOSTS      , P_ADDRESS => :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:15:13 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 64:
+PLS-00201: identifier 'P_CLNTNUM' must be declared
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 63
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM      , P_CLNTMGMCUSTCD      , P_PRNGDIVCD      , P_CGOSTS      , P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:15:36 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 64:
+PLS-00201: identifier 'P_CLNTNUM' must be declared
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 63
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM      , P_CLNTMGMCUSTCD      , P_PRNGDIVCD      , P_CGOSTS      , P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:15:57 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:17:20 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+ORA-06550: line 1, column 180:
+PLS-00201: identifier 'P_ERRORCD' must be declared
+ORA-06550: line 1, column 159:
+PL/SQL: Statement ignored
+ORA-06550: line 1, column 214:
+PLS-00201: identifier 'P_ERRORMSG' must be declared
+ORA-06550: line 1, column 193:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );  DBMS_OUTPUT.PUT_LINE(P_ERRORCD);  DBMS_OUTPUT.PUT_LINE(P_ERRORMSG);END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:17:53 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 12:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+ORA-06550: line 1, column 180:
+PLS-00201: identifier 'P_ERRORCD' must be declared
+ORA-06550: line 1, column 159:
+PL/SQL: Statement ignored
+ORA-06550: line 1, column 214:
+PLS-00201: identifier 'P_ERRORMSG' must be declared
+ORA-06550: line 1, column 193:
+PL/SQL: Statement ignored
+# OffSet -> 11
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );  DBMS_OUTPUT.PUT_LINE(P_ERRORCD);  DBMS_OUTPUT.PUT_LINE(P_ERRORMSG);END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:18:20 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 289:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 289:
+PL/SQL: Statement ignored
+# OffSet -> 288
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400);  P_CLNTMGMCUSTCD       VARCHAR2(400);  P_PRNGDIVCD           VARCHAR2(400);  P_CGOSTS              VARCHAR2(400);  P_ADDRESS             VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );  DBMS_OUTPUT.PUT_LINE(P_ERRORCD);  DBMS_OUTPUT.PUT_LINE(P_ERRORMSG);END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:18:50 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 289:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 289:
+PL/SQL: Statement ignored
+# OffSet -> 288
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400);  P_CLNTMGMCUSTCD       VARCHAR2(400);  P_PRNGDIVCD           VARCHAR2(400);  P_CGOSTS              VARCHAR2(400);  P_ADDRESS             VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );  DBMS_OUTPUT.PUT_LINE(P_ERRORCD);  DBMS_OUTPUT.PUT_LINE(P_ERRORMSG);END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:19:04 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 289:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 289:
+PL/SQL: Statement ignored
+# OffSet -> 288
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400);  P_CLNTMGMCUSTCD       VARCHAR2(400);  P_PRNGDIVCD           VARCHAR2(400);  P_CGOSTS              VARCHAR2(400);  P_ADDRESS             VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );  DBMS_OUTPUT.PUT_LINE(P_ERRORCD);  DBMS_OUTPUT.PUT_LINE(P_ERRORMSG);END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:19:26 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 289:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 289:
+PL/SQL: Statement ignored
+# OffSet -> 288
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400);  P_CLNTMGMCUSTCD       VARCHAR2(400);  P_PRNGDIVCD           VARCHAR2(400);  P_CGOSTS              VARCHAR2(400);  P_ADDRESS             VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM      , P_CLNTMGMCUSTCD      , P_PRNGDIVCD      , P_CGOSTS      , P_ADDRESS  );  DBMS_OUTPUT.PUT_LINE(P_ERRORCD);  DBMS_OUTPUT.PUT_LINE(P_ERRORMSG);END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:19:40 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 289:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 289:
+PL/SQL: Statement ignored
+# OffSet -> 288
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400);  P_CLNTMGMCUSTCD       VARCHAR2(400);  P_PRNGDIVCD           VARCHAR2(400);  P_CGOSTS              VARCHAR2(400);  P_ADDRESS             VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );  DBMS_OUTPUT.PUT_LINE(P_ERRORCD);  DBMS_OUTPUT.PUT_LINE(P_ERRORMSG);END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:20:31 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 350:
+PLS-00103: Encountered the symbol "" when expecting one of the following:
+
+   . ( ) , * @ % & = - + < / > at in is mod remainder not rem =>
+   <an exponent (**)> <> or != or ~= >= <= <> and or like like2
+   like4 likec as between from using || multiset member
+   submultiset
+# OffSet -> 349
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400);  P_CLNTMGMCUSTCD       VARCHAR2(400);  P_PRNGDIVCD           VARCHAR2(400);  P_CGOSTS              VARCHAR2(400);  P_ADDRESS             VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        varchar2 :P_CLNTNUM      , varchar2 :P_CLNTMGMCUSTCD      , varchar2 :P_PRNGDIVCD      , varchar2 :P_CGOSTS      , varchar2 :P_ADDRESS  );  DBMS_OUTPUT.PUT_LINE(P_ERRORCD);  DBMS_OUTPUT.PUT_LINE(P_ERRORMSG);END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:24:46 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 289:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 289:
+PL/SQL: Statement ignored
+# OffSet -> 288
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400);  P_CLNTMGMCUSTCD       VARCHAR2(400);  P_PRNGDIVCD           VARCHAR2(400);  P_CGOSTS              VARCHAR2(400);  P_ADDRESS             VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:25:12 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 289:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 289:
+PL/SQL: Statement ignored
+# OffSet -> 288
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400);  P_CLNTMGMCUSTCD       VARCHAR2(400);  P_PRNGDIVCD           VARCHAR2(400);  P_CGOSTS              VARCHAR2(400);  P_ADDRESS             VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS      , P_ERRORCD      , P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:25:18 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 289:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 289:
+PL/SQL: Statement ignored
+# OffSet -> 288
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400);  P_CLNTMGMCUSTCD       VARCHAR2(400);  P_PRNGDIVCD           VARCHAR2(400);  P_CGOSTS              VARCHAR2(400);  P_ADDRESS             VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS      , P_ERRORCD      , P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:28:19 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 289:
+PLS-00306: wrong number or types of arguments in call to 'PR_RVAP_SEARCHADDRESS'
+ORA-06550: line 1, column 289:
+PL/SQL: Statement ignored
+# OffSet -> 288
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400);  P_CLNTMGMCUSTCD       VARCHAR2(400);  P_PRNGDIVCD           VARCHAR2(400);  P_CGOSTS              VARCHAR2(400);  P_ADDRESS             VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS      , P_ERRORCD      , P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:38:20 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 1008
+# Message -> ORA-01008: not all variables bound
+# OffSet -> 0
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400) := :P_CLNTNUM;  P_CLNTMGMCUSTCD       VARCHAR2(400) := :P_CLNTMGMCUSTCD;  P_PRNGDIVCD           VARCHAR2(400) := :P_PRNGDIVCD;  P_CGOSTS              VARCHAR2(400) := :P_CGOSTS;  P_ADDRESS             VARCHAR2(400) := :P_ADDRESS;  P_ZIPNUM              VARCHAR2(400);  P_ZIPID               VARCHAR2(400);  P_OLDADDRESS          VARCHAR2(400);  P_OLDADDRESSDTL       VARCHAR2(400);  P_NEWADDRESS          VARCHAR2(400);  P_NESADDRESSDTL       VARCHAR2(400);  P_ETCADDR             VARCHAR2(400);  P_SHORTADDR           VARCHAR2(400);  P_CLSFADDR            VARCHAR2(400);  P_CLLDLVBRANCD        VARCHAR2(400);  P_CLLDLVBRANNM        VARCHAR2(400);  P_CLLDLCBRANSHORTNM   VARCHAR2(400);  P_CLLDLVEMPNUM        VARCHAR2(400);  P_CLLDLVEMPNM         VARCHAR2(400);  P_CLLDLVEMPNICKNM     VARCHAR2(400);  P_CLSFCD              VARCHAR2(400);  P_CLSFNM              VARCHAR2(400);  P_SUBCLSFCD           VARCHAR2(400);  P_RSPSDIV             VARCHAR2(400);  P_NEWADDRYN           VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM      , P_CLNTMGMCUSTCD      , P_PRNGDIVCD      , P_CGOSTS      , P_ADDRESS      , P_ZIPNUM      , P_ZIPID      , P_OLDADDRESS      , P_OLDADDRESSDTL      , P_NEWADDRESS      , P_NESADDRESSDTL      , P_ETCADDR      , P_SHORTADDR      , P_CLSFADDR      , P_CLLDLVBRANCD      , P_CLLDLVBRANNM      , P_CLLDLCBRANSHORTNM      , P_CLLDLVEMPNUM      , P_CLLDLVEMPNM      , P_CLLDLVEMPNICKNM      , P_CLSFCD      , P_CLSFNM      , P_SUBCLSFCD      , P_RSPSDIV      , P_NEWADDRYN      , :P_ERRORCD      , :P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:38:37 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 1008
+# Message -> ORA-01008: not all variables bound
+# OffSet -> 0
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400) := :P_CLNTNUM;  P_CLNTMGMCUSTCD       VARCHAR2(400) := :P_CLNTMGMCUSTCD;  P_PRNGDIVCD           VARCHAR2(400) := :P_PRNGDIVCD;  P_CGOSTS              VARCHAR2(400) := :P_CGOSTS;  P_ADDRESS             VARCHAR2(400) := :P_ADDRESS;  P_ZIPNUM              VARCHAR2(400);  P_ZIPID               VARCHAR2(400);  P_OLDADDRESS          VARCHAR2(400);  P_OLDADDRESSDTL       VARCHAR2(400);  P_NEWADDRESS          VARCHAR2(400);  P_NESADDRESSDTL       VARCHAR2(400);  P_ETCADDR             VARCHAR2(400);  P_SHORTADDR           VARCHAR2(400);  P_CLSFADDR            VARCHAR2(400);  P_CLLDLVBRANCD        VARCHAR2(400);  P_CLLDLVBRANNM        VARCHAR2(400);  P_CLLDLCBRANSHORTNM   VARCHAR2(400);  P_CLLDLVEMPNUM        VARCHAR2(400);  P_CLLDLVEMPNM         VARCHAR2(400);  P_CLLDLVEMPNICKNM     VARCHAR2(400);  P_CLSFCD              VARCHAR2(400);  P_CLSFNM              VARCHAR2(400);  P_SUBCLSFCD           VARCHAR2(400);  P_RSPSDIV             VARCHAR2(400);  P_NEWADDRYN           VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM      , P_CLNTMGMCUSTCD      , P_PRNGDIVCD      , P_CGOSTS      , P_ADDRESS      , P_ZIPNUM      , P_ZIPID      , P_OLDADDRESS      , P_OLDADDRESSDTL      , P_NEWADDRESS      , P_NESADDRESSDTL      , P_ETCADDR      , P_SHORTADDR      , P_CLSFADDR      , P_CLLDLVBRANCD      , P_CLLDLVBRANNM      , P_CLLDLCBRANSHORTNM      , P_CLLDLVEMPNUM      , P_CLLDLVEMPNM      , P_CLLDLVEMPNICKNM      , P_CLSFCD      , P_CLSFNM      , P_SUBCLSFCD      , P_RSPSDIV      , P_NEWADDRYN      , :P_ERRORCD      , :P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:38:41 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6502
+# Message -> ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+ORA-06512: at "OPENMATE.PKG_RVAP_ADDRSEARCH", line 689
+ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+ORA-06512: at line 1
+# OffSet -> 0
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400) := :P_CLNTNUM;  P_CLNTMGMCUSTCD       VARCHAR2(400) := :P_CLNTMGMCUSTCD;  P_PRNGDIVCD           VARCHAR2(400) := :P_PRNGDIVCD;  P_CGOSTS              VARCHAR2(400) := :P_CGOSTS;  P_ADDRESS             VARCHAR2(400) := :P_ADDRESS;  P_ZIPNUM              VARCHAR2(400);  P_ZIPID               VARCHAR2(400);  P_OLDADDRESS          VARCHAR2(400);  P_OLDADDRESSDTL       VARCHAR2(400);  P_NEWADDRESS          VARCHAR2(400);  P_NESADDRESSDTL       VARCHAR2(400);  P_ETCADDR             VARCHAR2(400);  P_SHORTADDR           VARCHAR2(400);  P_CLSFADDR            VARCHAR2(400);  P_CLLDLVBRANCD        VARCHAR2(400);  P_CLLDLVBRANNM        VARCHAR2(400);  P_CLLDLCBRANSHORTNM   VARCHAR2(400);  P_CLLDLVEMPNUM        VARCHAR2(400);  P_CLLDLVEMPNM         VARCHAR2(400);  P_CLLDLVEMPNICKNM     VARCHAR2(400);  P_CLSFCD              VARCHAR2(400);  P_CLSFNM              VARCHAR2(400);  P_SUBCLSFCD           VARCHAR2(400);  P_RSPSDIV             VARCHAR2(400);  P_NEWADDRYN           VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM      , P_CLNTMGMCUSTCD      , P_PRNGDIVCD      , P_CGOSTS      , P_ADDRESS      , P_ZIPNUM      , P_ZIPID      , P_OLDADDRESS      , P_OLDADDRESSDTL      , P_NEWADDRESS      , P_NESADDRESSDTL      , P_ETCADDR      , P_SHORTADDR      , P_CLSFADDR      , P_CLLDLVBRANCD      , P_CLLDLVBRANNM      , P_CLLDLCBRANSHORTNM      , P_CLLDLVEMPNUM      , P_CLLDLVEMPNM      , P_CLLDLVEMPNICKNM      , P_CLSFCD      , P_CLSFNM      , P_SUBCLSFCD      , P_RSPSDIV      , P_NEWADDRYN      , :P_ERRORCD      , :P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:39:01 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6502
+# Message -> ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+ORA-06512: at "OPENMATE.PKG_RVAP_ADDRSEARCH", line 689
+ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+ORA-06512: at line 1
+# OffSet -> 0
+# SqlText -> DECLARE      P_CLNTNUM             VARCHAR2(400) := :P_CLNTNUM;  P_CLNTMGMCUSTCD       VARCHAR2(400) := :P_CLNTMGMCUSTCD;  P_PRNGDIVCD           VARCHAR2(400) := :P_PRNGDIVCD;  P_CGOSTS              VARCHAR2(400) := :P_CGOSTS;  P_ADDRESS             VARCHAR2(400) := :P_ADDRESS;  P_ZIPNUM              VARCHAR2(400);  P_ZIPID               VARCHAR2(400);  P_OLDADDRESS          VARCHAR2(400);  P_OLDADDRESSDTL       VARCHAR2(400);  P_NEWADDRESS          VARCHAR2(400);  P_NESADDRESSDTL       VARCHAR2(400);  P_ETCADDR             VARCHAR2(400);  P_SHORTADDR           VARCHAR2(400);  P_CLSFADDR            VARCHAR2(400);  P_CLLDLVBRANCD        VARCHAR2(400);  P_CLLDLVBRANNM        VARCHAR2(400);  P_CLLDLCBRANSHORTNM   VARCHAR2(400);  P_CLLDLVEMPNUM        VARCHAR2(400);  P_CLLDLVEMPNM         VARCHAR2(400);  P_CLLDLVEMPNICKNM     VARCHAR2(400);  P_CLSFCD              VARCHAR2(400);  P_CLSFNM              VARCHAR2(400);  P_SUBCLSFCD           VARCHAR2(400);  P_RSPSDIV             VARCHAR2(400);  P_NEWADDRYN           VARCHAR2(400);  P_ERRORCD             VARCHAR2(400);  P_ERRORMSG            VARCHAR2(400);BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        P_CLNTNUM      , P_CLNTMGMCUSTCD      , P_PRNGDIVCD      , P_CGOSTS      , P_ADDRESS      , P_ZIPNUM      , P_ZIPID      , P_OLDADDRESS      , P_OLDADDRESSDTL      , P_NEWADDRESS      , P_NESADDRESSDTL      , P_ETCADDR      , P_SHORTADDR      , P_CLSFADDR      , P_CLLDLVBRANCD      , P_CLLDLVBRANNM      , P_CLLDLCBRANSHORTNM      , P_CLLDLVEMPNUM      , P_CLLDLVEMPNM      , P_CLLDLVEMPNICKNM      , P_CLSFCD      , P_CLSFNM      , P_SUBCLSFCD      , P_RSPSDIV      , P_NEWADDRYN      , :P_ERRORCD      , :P_ERRORMSG  );END;
+
+
+==================================================================================================
+>>>>> 2016-08-11 14:54:59 <<<<<
+==================================================================================================
+>>>>> [message] <<<<<
+# Code -> 6550
+# Message -> ORA-06550: line 1, column 161:
+PLS-00201: identifier 'P_ZIPNUM' must be declared
+ORA-06550: line 1, column 12:
+PL/SQL: Statement ignored
+# OffSet -> 160
+# SqlText -> BEGIN      PKG_RVAP_ADDRSEARCH.PR_RVAP_SEARCHADDRESS  (        :P_CLNTNUM      , :P_CLNTMGMCUSTCD      , :P_PRNGDIVCD      , :P_CGOSTS      , :P_ADDRESS      , P_ZIPNUM      , P_ZIPID      , P_OLDADDRESS      , P_OLDADDRESSDTL      , P_NEWADDRESS      , P_NESADDRESSDTL      , P_ETCADDR      , P_SHORTADDR      , P_CLSFADDR      , P_CLLDLVBRANCD      , P_CLLDLVBRANNM      , P_CLLDLCBRANSHORTNM      , P_CLLDLVEMPNUM      , P_CLLDLVEMPNM      , P_CLLDLVEMPNICKNM      , P_CLSFCD      , P_CLSFNM      , P_SUBCLSFCD      , P_RSPSDIV      , P_NEWADDRYN      , P_ERRORCD      , P_ERRORMSG  );END;

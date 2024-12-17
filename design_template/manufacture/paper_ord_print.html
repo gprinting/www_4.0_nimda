@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>[TPH_Vmain_title]</title>
+<meta charset="utf-8">
+[TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+
+  <!-- TOP NAVIGATION -->
+  [TPH_I/common/header.html]
+
+  <!-- LEFT NAVIGATION -->
+  [TPH_Vleft]
+
+  <!-- CONTENT -->
+  <section id="page-content">
+    <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <colgroup>
+                                <col class="">
+                                <col class="">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th class="th_text th_manu_paper_ord_print_01">종이제지사</th>
+                                    <td>
+                                        <select class="select_manu_paper_ord_print_01" id="extnl_etprs_seqno">
+                                            [TPH_Vmanu_html]
+                                        </select>
+                                    </td>
+                                    <th class="th_text th_manu_paper_ord_print_02">날짜</th>
+                                    <td>
+                                        <input type="text" id="date" class="input_manu_paper_ord_print_01" placeholder="yyyy-MM-dd">
+                                        <button type="button" class="btn_float_right btn_Turquoise01" onclick="ordFn.list();">검색</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <div id="paper_op_print">
+                        </div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+  </section>
+</div>
+</body>
+</html>

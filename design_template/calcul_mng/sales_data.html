@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    
+    <!-- TOP NAVIGATION --> 
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION --> 
+    [TPH_Vleft]
+    <!-- CONTENT --> 
+    <section id="page-content">            
+
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container calcul_common sales_data">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        
+                        <!-- 검색 영역 START -->
+                        <div class="tab-content">                		  
+                            <!-- 탭 박스 계정/날짜별 검색 -->
+                            <div>	                  		
+                                <form id="sales_form" name="sales_form">
+                                    <table class="table_search_layout">
+                                        <tbody>
+                                            <tr>
+                                                <th class="th_text calcul_mng_th_left">판매채널</th>
+                                                <td colspan="3">
+                                                    <select id="sell_site" onchange="loadDeparList();" name="sell_site" class="fix_width180">
+                                                        <option value="">전체</option>
+                                                        [TPH_Vsell_site]
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_text calcul_mng_th_left">카테고리</th>
+                                                <td colspan="3">
+                                                    <select id="cate_top" name="cate_top" onchange="cateSelect.exec('top', this.value);" class="fix_width150">
+                                                        [TPH_Vcate_html]
+                                                    </select>
+                                                    <select id="cate_mid" name="cate_mid" onchange="cateSelect.exec('mid', this.value);" class="fix_width150">
+                                                        <option value="">중분류(전체)</option>
+                                                    </select>
+                                                    <select id="cate_bot" name="cate_bot" class="fix_width150">
+                                                        <option value="">소분류(전체)</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_text calcul_mng_th_left">팀구분</th>
+                                                <td>
+                                                    <select id="depar_dvs" name="depar_dvs" class="fix_width150">
+                                                        <option value="">전체</option>
+                                                    </select>
+                                                </td>
+                                                <th class="th_text calcul_mng_th_left">데이터구분</th>
+                                                <td>
+                                                    <select id="oper_sys" name="oper_sys" class="fix_width150">
+                                                        <option value="">전체</option>
+                                                        [TPH_Voper_sys_html]
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="th_text calcul_mng_th_left">일자별</th>
+                                                <td colspan="3">
+                                                    <div class="form-group">
+                                                        <span class="">
+                                                            <input type="text" placeholder="yyyy-MM-dd" class="input_co2 fix_width83 date" name="date_from" id="date_from">
+                                                            ~
+                                                            <input id="date_to" name="date_to" class="input_co2 fix_width83 date" type="text" placeholder="yyyy-MM-dd">
+                                                            <button type="button" class="btn_gray01" onclick="dateSet('1')">어제</button>
+                                                            <button type="button" class="btn_gray01" onclick="dateSet('0')">오늘</button>
+                                                            <button type="button" class="btn_gray01" onclick="dateSet('7')">일주일</button>
+                                                            <button type="button" class="btn_gray01" onclick="dateSet('30')">한달</button>
+                                                            <button type="button" class="btn_gray01" onclick="dateSet('all')">전체</button>
+                                                            <button type="button" class="btn_Turquoise01" onclick="loadSalesList(1);">검색</button>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>				
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <div class="table-body" style="padding: 0;">
+                            <table class="table fix_width100f">
+                                <tr>
+                                    <th style="background: #eee;">발주업체</th>
+                                    <td id="member_cnt" class="tar">0원</td>
+                                    <th style="background: #eee;">매출총액</th>
+                                    <td id="sales_sum" class="tar">0원</td>
+                                    <th style="background: #eee;">차감총액</th>
+                                    <td id="minus_sum" class="tar">0원</td>
+                                    <th style="background: #eee;">순매출</th>
+                                    <td id="income_sum" class="tar">0원</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="table_basic">
+                            <table class="table_basic_layout">
+                                <thead>
+                                    <tr>
+                                            <th class="bm2px">날짜</th>
+                                            <th class="bm2px">팀명</th>
+                                            <th class="bm2px">데이터구분</th>
+                                            <th class="bm2px">카테고리</th>
+                                            <th class="bm2px">주문액</th>   	       
+                                            <th class="bm2px">에누리</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sales_list">
+                                    <tr>
+                                        <td colspan='6'>검색된 내용이 없습니다.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="p_num_b fs12">
+                                Showing 1 to 5 of 30 entries
+                                <select name="list_set" onchange="showPageSetting(this.value); return false;" class="fix_width55">
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>20</option>
+                                        <option>30</option>
+                                </select>
+                            </p>
+                            <div class="tac clear" id="sales_page">
+                                <ul class="pagination">
+                                    <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                    <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                    <li><a class="active" href="#">1</a></li>
+                                    <li><a href="#" class="fa fa-angle-right"></a></li>
+                                    <li><a href="#" class="fa fa-angle-double-right"></a></li>
+                                </ul>
+                            </div>		
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+   
+   
+</body>
+</html>

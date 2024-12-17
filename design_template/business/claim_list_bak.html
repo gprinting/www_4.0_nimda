@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/business/common/include.html]
+    <script src="[TPH_Vdesign_dir]/js/uploader/plupload.full.min.js"></script>
+</head>
+<body>
+
+<div id="container">
+    	
+       <!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+
+	   <!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+
+       <!-- CONTENT --> 
+        <section id="page-content">            
+            <div id="content-container" class="content_container">
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            
+            <!-- 본문 컨텐츠  시작-->
+            
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group clear">
+    			<ul class="tab_box mt25">
+    			</ul>
+			    <form style="margin:0 auto;">
+                    <div style="width: 900px;margin: 0 auto;">
+                        <div class="search_body">
+                            <div class="form-group">
+                                <label class="th_claim_list_left">키워드 검색</label>
+                                <select id="search_dvs" class="select_claim_list_01">
+                                    <option value="status">상태</option>
+                                </select>
+                                <input type="text" id="search_keyword" class="input_claim_list_01" />
+                                <div class="div_search_btn_align">
+                                    <button type="button" class="btn_Turquoise01" onclick="searchClaim();">검색</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="th_claim_list_left">판매채널</label>
+                                <select id="sell_site" class="select_claim_list_01">
+                                [TPH_Vsell_site_html]
+                                </select>
+                                <input type="text" class="datepicker_input order_mng_input02" readonly="readonly" id="basic_from">-
+                                <input type="text" class="datepicker_input order_mng_input02" readonly="readonly" id="basic_to">
+                                <span class="container_btn_align_02">
+                                    <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -1,  0, $(this).text(), true);">어제</button>
+                                    <button type="button" class="btn_gray01" onclick="setDateVal('basic', 't',  0,  0, $(this).text(), false);">오늘</button>
+                                    <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -7,  0, $(this).text(), false);">일주일</button>
+                                    <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'm', -1,  0, $(this).text(), false);">한달</button>
+                                    <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'y', -1, -1, $(this).text(), true);">작년동기</button>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label class="th_claim_list_left">팀/담당자</label>
+                                <select id="depar" class="select_claim_list_01" onchange="changeDepar(this.value, '');">
+                                    [TPH_Vdepar_html]
+                                </select>
+                                <select id="empl" class="select_claim_list_01">
+                                    <option value=''>전체</option>
+                                    [TPH_Vempl_html]
+                                </select>
+                                <span class="span_float_right">
+                                <label class="th_claim_list_right">회원등급</label>
+                                <select id="member_typ" class="select_claim_list_01">
+                                    <option value="일반회원">일반회원</option>
+                                    <option value="예외업체">예외업체</option>
+                                </select>
+                                <select id="member_grade" class="select_claim_list_01">
+                                    [TPH_Vmember_grade_html]
+                                </select>
+                                </span>
+                            </div>
+                        </div>
+                    </div>      
+			    </form>
+            </div> <!-- 탭 박스 1 기본검색 -->
+           
+             <!-- 상세검색버튼 --> 
+            <div>
+                <p class="btn-lg red_btn">
+                    <a style="cursor: pointer;" onclick="searchClaim();">선택 조건으로 검색</a>					
+                </p>
+            <div>
+            
+            <!-- 클레임 리스트 TAB -->
+            <div class="tb_group mt25">
+                <div class="tabbable">                  	
+                    <div class="tab-content">                     	
+                 	    <div class="tab-pane active" id="tab_list1">
+                            <div class="table-body">
+                                <div class="table_basic">
+				                    <ul class="table_top">
+				                    	<li class="sel">
+				                    	</li>
+				                    	<li class="sel tar">
+				                    	</li>
+				                    </ul>
+				                    <table class="table_basic_layout">
+                                        <thead>
+							                <tr>
+							                    <th class="bm2px">No.</th>
+							                    <th class="bm2px">클레임요청일</th>
+							                    <th class="bm2px">회원명</th>
+							                    <th class="bm2px">주문일</th>
+							                    <th class="bm2px">주문번호</th>
+							                    <th class="bm2px">제작물내용</th>
+							                    <th class="bm2px">클레임제목</th>
+							                    <th class="bm2px">건수</th>
+							                    <th class="bm2px">주문금액</th>
+							                    <th class="bm2px">상태</th>
+							                    <th class="bm2px">승인</th>
+							                    <th class="bm2px">상세보기</th>
+							                </tr>
+                                        </thead>
+                                        <thead id="thead_count">
+                                        </thead>
+                                        <tbody id="list">
+                                        </tbody>
+				                   	</table>
+				                <!--<p class="p_num_b fs12">					                   	    
+				                   	    Showing 1 to 5 of 30 entries
+				                        <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+				                   	        <option>5</option>
+				                   	        <option>10</option>
+				                   	        <option>20</option>
+				                            <option selected="selected">30</option>
+				                   	    </select>
+				                   	</p>-->
+				                   	<div class="tac clear" id="page">
+							        </div>					                   		
+                                </div>
+                            </div>
+                        </div>
+                    </div>                     	 
+                </div>                    
+            </div> <!-- 클레임 리스트 TAB -->
+<form name="frm" id="frm">
+    <input type="hidden" id="seqno" name="seqno">
+</form>
+			<!-- 클레임 상세 TAB -->
+			<div id="claim_cont">
+            </div><!-- 클레임 상세 TAB -->
+            </div>				
+        </section>
+</div>
+</body>
+</html>

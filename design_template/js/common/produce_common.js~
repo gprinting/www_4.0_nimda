@@ -1,0 +1,24 @@
+//팝업 검색
+var searchCnd = function(event, val) {
+    if(event.keyCode != 13){
+        return false;
+    }
+
+    var url = "/ajax/produce/receipt_list/load_cnd_search_list.php";
+    var data = {
+   	    "search_cnd"  : $("#search_cnd").val(),
+   	    "search_txt"  : $("#search_txt").val()
+    };
+    var callback = function(result) {
+
+        if (dvs !== "select") {
+            searchPopShow(event, "cndSearch.cndKey", "cndSearch.cndKey");
+        } else {
+            showBgMask();
+        }
+
+        $("#search_list").html(result);
+    };
+
+    ajaxCall(url, "html", data, callback);
+}

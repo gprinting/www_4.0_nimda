@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>[TPH_Vmain_title]</title>
+<meta charset="utf-8">
+[TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+
+  <!-- TOP NAVIGATION -->
+  [TPH_I/common/header.html]
+
+  <!-- LEFT NAVIGATION -->
+  [TPH_Vleft]
+
+  <!-- CONTENT -->
+  <section id="page-content">
+
+  <!-- 히스토리 -->
+  [TPH_I/common/history.html]
+
+  <!-- 본문 컨텐츠  시작-->
+
+  <!-- 탭 박스 1 기본검색 -->
+  <div class="tb_group clear">
+    <ul class="tab_box mt25">
+    </ul>
+    <form>
+    <div class="tab_box_con">
+
+      <div class="form-group">
+        <label class="control-label fix_width150 tar">날짜</label><label class="fix_width20 fs14 tac">:</label>
+        <input type="text" id="date" class="input_co2 fix_width150 date" placeholder="yyyy-MM-dd">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label fix_width150 tar">종이</label><label class="fix_width20 fs14 tac">:</label>
+        <select class="fix_width110" id="paperName" name="paperName" onchange="selectPaperName(); return false;">
+        [TPH_VpaperOpt]
+        </select>
+        <select class="fix_width110" id="paperDvs" name="paperDvs" onchange="selectPaperDvs(); return false;" disabled>
+        <option value="">구분(전체)</option>
+        </select>
+        <select class="fix_width110" id="paperColor" name="paperColor" onchange="selectPaperColor(); return false;" disabled>
+        <option value="">색상(전체)</option>
+        </select>
+        <select class="fix_width110" id="paperBasisweight" name="paperBasisweight" disabled>
+        <option value="">평량(전체)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label fix_width150 tar">제조사</label><label class="fix_width20 fs14 tac">:</label>
+        <select class="fix_width150" id="selManu">
+        [TPH_VmanuList]
+        </select>
+      </div>
+
+    </div>
+    </form>
+  </div>
+  <!-- 탭 박스 1 기본검색 -->
+
+  <form name="frm" id="frm">
+  <input type="hidden" id="seqno" name="seqno">
+  </form>
+
+  <!-- 상세검색버튼 -->
+  <div>
+    <p class="btn-lg red_btn">
+    <a style="cursor: pointer;" onclick="searchList();">선택 조건으로 검색</a>
+    </p>
+
+    <!-- 탭 박스 3 TAB -->
+    <div class="tb_group mt25">
+      <div class="tabbable">
+        <div class="tab-content">
+          <div class="table-body">
+            <div class="table_basic">
+              <ul class="table_top">
+                <li class="sel">
+                <button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showStockMng(); return false;">재고조정</button>
+                </li>
+                <li class="sel tar">
+                <label class="control-label fix_width100 tar"> &lt;단위 : R&gt;</label>
+                </li>
+              </ul>
+              <table class="table fix_width100f">
+              <thead>
+              <tr>
+                <th class="bm2px">날짜</th>
+                <th class="bm2px">입고처(제조사)</th>
+                <th class="bm2px">종이품목</th>
+                <th class="bm2px">입고량</th>
+                <th class="bm2px">사용량</th>
+                <th class="bm2px">재고량</th>
+                <th class="bm2px">상세보기</th>
+              </tr>
+              </thead>
+              <tbody id="list">
+              </tbody>
+              </table>
+              <p class="p_num_b fs12">
+              Showing 1 to 5 of 30 entries
+              <select class="fix_width55" name="list_set" onchange="changeListSet();">
+              <option>5</option>
+              <option>10</option>
+              <option>20</option>
+              <option selected="selected">30</option>
+              </select>
+              </p>
+              <div class="tac clear" id="page">
+              </div>
+
+              <!--
+                                <p class="p_num_b fs12">
+                                      <button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="location.href='접수리스트_상태변경관리_팝업창.html'">상태변경관리</button>
+                                      <label class="fix_width20">&nbsp;</label>
+
+                                      Showing 1 to 5 of 30 entries
+                                      <select class="fix_width55">
+                                        <option>5</option>
+                                        <option>10</option>
+                                        <option>20</option>
+                                        <option>30</option>
+                                      </select>
+                                </p>
+                              <div class="tac clear">
+                                             <ul class="pagination">
+                                                 <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                                 <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                                 <li><a class="active" href="#">1</a></li>
+                                                 <li><a href="#">2</a></li>
+                                                 <li><a href="#">3</a></li>
+                                                 <li><a href="#">4</a></li>
+                                                 <li><a href="#">5</a></li>
+                                                 <li><a href="#">...</a></li>
+                                                 <li><a href="#" class="fa fa-angle-right"></a></li>
+                                                 <li><a href="#" class="fa fa-angle-double-right"></a></li>
+                                             </ul>
+                                      </div>
+                                -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 탭 박스 3 TAB -->
+
+    <input type="hidden" id="detail_manu" name=""/>
+    <input type="hidden" id="detail_regi_date" name=""/>
+    <input type="hidden" id="detail_paper_name" name=""/>
+    <input type="hidden" id="detail_paper_dvs" name=""/>
+    <input type="hidden" id="detail_paper_color" name=""/>
+    <input type="hidden" id="detail_paper_basisweight" name=""/>
+    <input type="hidden" id="detail_page" name=""/>
+
+
+    <div class="tb_group mt25">
+      <div class="tabbable">
+
+        <div class="tab-content">
+          <div class="table-body">
+            <div class="table_basic">
+              <ul class="table_top">
+                <li class="sel">
+                </li>
+                <li class="sel tar">
+                <label class="control-label fix_width100 tar">&lt;단위 : R&gt;</label>
+                </li>
+              </ul>
+              <table class="table fix_width100f">
+              <thead>
+              <tr>
+                <th class="bm2px">날짜</th>
+                <th class="bm2px">내용</th>
+                <th class="bm2px">입고량</th>
+                <th class="bm2px">사용량</th>
+                <th class="bm2px">재고량</th>
+                <th class="bm2px">실재고량</th>
+              </tr>
+              </thead>
+              <tbody id="detailList">
+              <tr>
+                <td colspan="6">
+                  상세보기 버튼을 클릭해주세요.
+                </td>
+              </tr>
+              <!--
+                                    <tr>
+										<td>2015.09.12</td>
+										<td>우성인쇄</td>
+										<td>아트지 백색 250g</td>
+										<td>89.4</td>
+										<td>80.7</td>
+										<td>8.7</td>
+										<td></td>
+									</tr>
+									<tr class="cellbg">
+										<td>2015.09.12</td>
+										<td>우성인쇄</td>
+										<td>아트지 백색 250g</td>
+										<td>89.4</td>
+										<td>80.7</td>
+										<td>8.7</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>2015.09.12</td>
+										<td>우성인쇄</td>
+										<td>아트지 백색 250g</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>8</td>
+									</tr>
+-->
+              </tbody>
+              </table>
+              <p class="p_num_b fs12">
+              <!--
+                owing 1 to 5 of 30 entries
+                elect class="fix_width55">
+                <option>5</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+              </ct>
+              --
+								</p>
+								<br />
+                                <div class="tac clear" id="detailPage">
+								<!--
+                              <div class="tac clear">
+                                             <ul class="pagination">
+                                                 <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                                 <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                                 <li><a class="active" href="#">1</a></li>
+                                                 <li><a href="#">2</a></li>
+                                                 <li><a href="#">3</a></li>
+                                                 <li><a href="#">4</a></li>
+                                                 <li><a href="#">5</a></li>
+                                                 <li><a href="#">...</a></li>
+                                                 <li><a href="#" class="fa fa-angle-right"></a></li>
+                                                 <li><a href="#" class="fa fa-angle-double-right"></a></li>
+                                             </ul>
+                                      </div>
+                                -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 탭 박스 3 TAB -->
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/member/member_mng/DlvrListDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$dlvrDAO = new DlvrListDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dlvrDAO; 
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "member"; //회원
+$left = "member_mng"; //회원 관리
+$left_sub = "dlvr_friend_list"; //배송친구리스트
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.inc');
+
+$conn->close();
+?>

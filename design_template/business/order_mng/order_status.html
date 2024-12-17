@@ -1,0 +1,144 @@
+                <!--주문상태-->
+                <section id="content3" class="content">
+                    <div class="tab_button">
+                        <table class="status_table">
+                            <colgroup>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                <th class="order_order_status_th_01">키워드 검색</th>
+                                <td colspan="5">
+                                    <select id="order_status_search_dvs" class="order_order_status_secect_01">
+                                        <option value="title">제작물 내용</option>
+                                        <option value="member_name">회원 이름</option>
+                                    </select>
+                                    <input type="text" id="order_status_search_keyword" class="order_order_status_input_01" style="margin-right:6px;" />
+                                    <span class="btn_float_right"><button class="btn_Turquoise01" onclick="loadOrderStatus.exec('order_status');">검색</button></span>
+                                </td>
+                                </tr>
+                                <tr>
+                                <th class="order_order_status_th_01">팀구분</th>
+                                <td>
+                                    <select id="order_status_depar" class="order_order_status_secect_01">
+                                        <option value="">전체</option>
+                                        [TPH_Vdepar_html]
+                                    </select>
+                                </td>
+                                <th class="order_order_status_th_02">회원유형</th>
+                                <td>
+                                    <select id="order_status_member_typ" class="order_order_status_secect_02">
+                                        <option value="일반회원">일반회원</option>
+                                        <option value="예외업체">예외업체</option>
+                                    </select>
+                                </td>
+                                <th class="order_order_status_th_03">상품 검색</th>
+                                <td>
+                                    <select id="order_status_cate_top" onchange="cateSelect.exec('top', this.value, 'order_status');" class="order_order_status_secect_03">
+                                        [TPH_Vcate_html]
+                                    </select>
+                                    <select id="order_status_cate_mid" class="order_order_status_secect_03">
+                                        <option value="">선택</option>
+                                    </select>
+                                </td>
+                                </tr>
+                                <tr>
+                                <th class="order_order_status_th_01">주문진행현황</th>
+                                <td>
+                                    <select id="order_status" onchange="changeOrderStatusSummary(this);" class="order_order_status_secect_01">
+                                        [TPH_Vstatus_html]
+                                    </select>
+                                </td>
+                                <th class="order_order_status_th_02">주문일</th>
+                                <td colspan="4">
+                                    <input class="order_order_status_input_02 datepicker_input" type="text" id="order_status_from" />-
+                                    <input class="order_order_status_input_02 datepicker_input" type="text" id="order_status_to" style="margin-right:6px;" />
+                                    <span class="btn_float_right">
+                                        <button type="button" class="btn_gray01" onclick="setDateVal('order_status', 'd', -1,  0, $(this).text(), true);">어제</button>
+                                        <button type="button" class="btn_gray01" onclick="setDateVal('order_status', 't',  0,  0, $(this).text(), false);">오늘</button>
+                                        <button type="button" class="btn_gray01" onclick="setDateVal('order_status', 'd', -7,  0, $(this).text(), false);">일주일</button>
+                                        <button type="button" class="btn_gray01" onclick="setDateVal('order_status', 'm', -1,  0, $(this).text(), false);">한달</button>
+                                    </span>
+                                </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="progress-left">
+                        <p id="order_status_summary" style="margin-bottom:20px;">
+                            <!--<strong id="order_status_title">주문대기현황</strong>-->
+                            회원수 :<span id="order_status_member_cnt" class="text_accent_01">-</span>
+                            &nbsp;/&nbsp;총주문예정금액 &nbsp;&#65510;
+                            <span id="order_status_sum_price" class="text_accent_01">0</span>
+                        </p>
+                    </div>
+                    <form class="progress-table" style="margin-bottom:0px;">
+                        <div class="overflow_auto">
+                            <table class="table_basic_layout">
+                                <colgroup>
+                                    <col style="width:50px">
+                                    <col style="width:100px">
+                                    <col style="width:150px">
+                                    <col style="width:150px">
+                                    <col style="width:180px">
+                                    <col style="width:120px">
+                                    <col style="width:180px">
+                                    <col style="width:180px">
+                                    <col style="width:60px">
+                                    <col style="width:60px">
+                                    <col style="width:100px">
+                                    <col style="width:110px">
+                                    <col style="width:100px">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                </colgroup>
+                                <thead>
+                                    <th>No.</th>
+                                    <th>주문진행현황</th>
+                                    <th>주문/등록일</th>
+                                    <th>접수일</th>
+                                    <th>회원명(이름)</th>
+                                    <th>휴대폰번호</th>
+                                    <th>제작물내용</th>
+                                    <th>재질 및 규격</th>
+                                    <th>수량</th>
+                                    <th>건수</th>
+                                    <th>주문금액</th>
+                                    <th>할인금액</th>
+                                    <th>결제금액</th>
+                                    <th>배송방법</th>
+                                    <th>상세내용</th>
+                                    <th>관리</th>
+                                </thead>
+                                <tbody id="order_status_list">
+                                    <tr>
+                                        <td colspan="17">검색정보 없음</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+
+                    <div id="order_status_page" class="page_bar"></div>
+
+                    <div id="order_status_mms_modal" class="crm_modal" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" role="dialog">
+                        수신자 : <span id="order_status_mms_name"></span>&nbsp;/&nbsp;<span id="order_status_mms_cell_num"></span>
+                        <div role="document">
+                            <textarea id="order_status_mms_title" class="modal_area" name="text" rows="1" placeholder="제목"></textarea>
+                            <textarea id="order_status_mms_msg" class="modal_area" name="text" rows="6" placeholder="내용"></textarea>
+                            <!-- <button id="modalCloseButton" class="modalCloseButton" title="Close registration form"><span>X</span></button>-->
+                            <div class="modal_btn">
+                            <button class="btn_orange" style="margin-right:15px;" onclick="sendMmsMessage('order_status_mms')">발송</button>
+                            <button class="btn_gray" onclick="hideModal('order_status_mms')">취소</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modalOverlay" tabindex="-1"></div>
+                </section>
+                <!--주문상태 끝-->

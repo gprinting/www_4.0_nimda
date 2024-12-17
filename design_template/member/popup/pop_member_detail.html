@@ -1,0 +1,975 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원관리</title>
+    <style>
+        body {margin:0;padding:0;font-family: Dotum,'돋움',gulim,'굴림','Malgun Gothic','Droid Sans','Helvetica','Apple-Gothic','애플고딕','Tahoma','sans-serif';}
+        .cart_container {width:960px;font-size:12px;}
+        .cart_container p {display:inline-block; margin: 0px;}
+        .cart_container .container_table {width:100%;border-collapse: collapse;margin:0px 0 20px 0;overflow:auto; border-top:1px solid #838383;}
+        .cart_container .container_table tr th {text-align:right;padding-right:10px;font-weight:500;line-height:30px;}
+        .cart_container .container_table tr td>input {width:165px;padding:2px 4px;border:1px solid #ccc;height:18px;}
+        .cart_container .container_table tr td>select {width:175px;padding:2px 4px;border:1px solid #ccc;height:25px;}
+        .cart_container input[type=text][readonly], input[type=password][readonly], select[readonly] {background:#eee;}
+        .cart_container input[type=text], input[type=password], textarea {padding:2px 4px;border:1px solid #ccc;height:20px;}
+        .cart_container .rowWrap {margin-top:3px;}
+        .cart_container .rowWrap input:last-child {width:660px;}
+        .member_layout {margin:20px 0 40px 0; border-bottom:1px solid #ddd;}
+        .member_layout .member_top p {background:#838383;font-size:13px;font-weight:600;color:#fff;padding:8px 40px;}
+        .member_layout .member_top button {border:1px solid #ccc;;padding:5px 10px;cursor:pointer;color:#fff; font-weight: 600;}
+        .member_layout .member_top button:first-child {margin-left:10px;}
+        .member_3_table  {margin:20px 0;}
+        .member_3_table tr th {text-align:right;padding-right:10px;font-weight:500;line-height:30px;width:119px;}
+        .member_3_table tr td>input {width:110px;padding:2px 4px;border:1px solid #ccc;height:18px;}
+        .member_4_table {margin-top:20px;}
+        .member_4_table:last-child {border:none;}
+        .member_btn {margin-bottom:40px;float:right;}
+        .member_btn button {border:none;color:#fff;padding:10px 60px;}
+
+        .btn_warn {padding:2px 10px;background:red;color:#fff;}
+        .btn_safe {padding:2px 10px;background:#417c12;color:#fff;}
+
+        .datepicker {
+            position: absolute;
+            border: 1px solid;
+            background: white;
+            border-color: #cccccc;
+            z-index: 1151 !important;
+        }
+
+        .th_member_01 {width:100px;}
+        .th_member_02 {width:100px; padding-left:50px;}
+        .th_member_03 {width:100px; padding-left:50px;}
+
+        .th_pay_01 {width:100px;}
+        .th_pay_02 {width:100px; padding-left:50px;}
+        .th_pay_03 {width:100px; padding-left:50px;}
+
+        .th_etc_01 {width:100px;}
+        .th_etc_02 {width:100px; padding-left:50px;}
+        .th_etc_03 {width:100px; padding-left:50px;}
+
+        .th_charge_01 {width:100px;}
+        .th_charge_02 {width:100px; padding-left:50px;}
+        .th_charge_03 {width:100px; padding-left:50px;}
+
+        .btn_add_charge {background-color: #f0ad4e;color: white;font-size: 12px;font-weight: bold;padding: 2px 10px; border-radius: 5px; font-weight:600;}
+        .btn_modify {background-color: #f16d33;color: white;font-size: 12px;font-weight: bold;padding: 2px 10px; border-radius: 5px; font-weight:600;}
+    </style>
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/business/datepicker.css">
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/business/reveal.css">
+
+    <script src="[TPH_Vdesign_dir]/js/lib/jquery-1.11.2.min.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/locales/bootstrap-datepicker.kr.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/business/jquery.reveal.js"></script>
+    <!--script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js?autoload=false"></script-->
+    <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
+    <script>
+        /**
+         * @brief 가상계좌 은행 변경시 체크
+         */
+        var virtBaChk = {
+            "orgBankName" : null,
+            "chgBankName" : null
+        };
+
+        $(document).ready(function() {
+            $(".datepicker_input").datepicker({
+                format         : "yyyy-mm-dd",
+                autoclose      : true,
+                todayBtn       : "linked",
+                todayHighlight : true,
+                language       : "kr"
+            });
+        });
+
+        //우편번호 팝업
+        var showPostcodePop = function(el) {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                   var fullAddr = ''; // 최종 주소 변수
+                   var extraAddr = ''; // 조합형 주소 변수
+
+                   // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                   if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                       fullAddr = data.roadAddress;
+
+                   } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                       fullAddr = data.jibunAddress;
+                   }
+
+                   // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+                   if (data.userSelectedType === 'R'){
+                       //법정동명이 있을 경우 추가한다.
+                       if(data.bname !== ''){
+                           extraAddr += data.bname;
+                       }
+                       // 건물명이 있을 경우 추가한다.
+                       if(data.buildingName !== ''){
+                           extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                       }
+                       // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                       fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                   }
+
+                   // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                   $("#" + el + "zipcode").val(data.zonecode); //5자리 새우편번호 사용
+                   $("#" + el + "addr").val(fullAddr);
+
+                   // 커서를 상세주소 필드로 이동한다.
+                   $("#" + el + "addr_detail").focus();
+                }
+            }).open({
+                popupName: 'postcodePopup'
+            });
+        };
+
+        /**
+         * @brief 추가 사업자 등록 클릭시 팝업 출력
+         */
+        var showLicenseeAddPop = function() {
+            $("#pop_admin_licenseeregi").find("input").val('');
+            $('#licensee_add_pop').reveal();
+        };
+
+        /**
+         * @brief 등록증 이미지 추가 클릭시 팝업 출력
+         */
+        var showLicenseeImgAddPop = function() {
+            $("#member_certi_file").val('');
+            $('#licensee_img_add_pop').reveal();
+        };
+
+        /**
+         * @brief 담당자 정보 추가 등록
+         */
+        var showEmplMemberMngAddPop = function() {
+            $("#pop_empl_member_mng").find("input").val('');
+            $('#member_mng_add_pop').reveal();
+        };
+
+        /**
+         * @brief 저장버튼 클릭시 수정가능한 정보 수정
+         */
+        var modiMemberInfo = function() {
+            var data = getModiData();
+
+            if (data === false) {
+                return false;
+            }
+
+            $.ajax({
+                type     : "POST",
+                url      : "/proc/member/member_common_list/modi_member_info.php",
+                dataType : "json",
+                data     : data,
+                success  : function(result) {
+                    if (result.success === "false") {
+                        alert(result.msg);
+                        return false;
+                    }
+
+                    alert(result.msg);
+                    location.reload();
+                },
+                error: function() {
+                }
+            });
+        };
+
+        /**
+         * @brief 수정할 데이터 파라미터 생성
+         */
+        var getModiData = function() {
+            var data = {};
+            data.member_seqno = $("#member_seqno").val();
+            //! 회원기본정보
+            // 회사명(닉네임)
+            data.office_nick     = $("#office_nick").val();
+            // 채널구분
+            data.cpn_admin_seqno = $("#cpn_admin").val();
+            // 회원구분
+            data.member_dvs      = $("#member_dvs").val();
+            // 전화번호
+            data.tel_num0        = $("#tel_num0").val();
+            data.tel_num1        = $("#tel_num1").val();
+            data.tel_num2        = $("#tel_num2").val();
+            // 휴대폰번호
+            data.cell_num0       = $("#cell_num0").val();
+            data.cell_num1       = $("#cell_num1").val();
+            data.cell_num2       = $("#cell_num2").val();
+            // 생년월일
+            data.birth           = $("#birth").val();
+            // 이메일
+            data.mail            = $("#mail").val();
+            // 이메일 수신여부
+            data.mailing_yn       = $("#mailing_yn").val();
+            // sms 수신여부      
+            data.sms_yn          = $("#sms_yn").val();
+
+            data.default_release          = $("#default_release").val();
+            data.is_except          = $("#is_except option:selected").val();
+
+            // 홈페이지
+            data.hp              = $("#hp").val();
+            // 주소
+            data.zipcode         = $("#member_zipcode").val();
+            data.addr            = $("#member_addr").val();
+            data.addr_detail     = $("#member_addr_detail").val();
+
+            //! 사업자 등록 정보
+            data.licensee_info_seqno = $("#licensee_info_seqno").val();
+            // 기업명
+            data.corp_name = $("#corp_name").val();
+            // 대표자명
+            data.repre_name = $("#repre_name").val();
+            // 사업자 등록번호
+            data.crn0 = $("#crn0").val();
+            data.crn1 = $("#crn1").val();
+            data.crn2 = $("#crn2").val();
+            // 업태
+            data.bc = $("#bc").val();
+            // 종목
+            data.tob = $("#tob").val();
+            // 팩스번호
+            data.licensee_fax_num0 = $("#licensee_fax_num0").val();
+            data.licensee_fax_num1 = $("#licensee_fax_num1").val();
+            data.licensee_fax_num2 = $("#licensee_fax_num2").val();
+            // 주소
+            data.licensee_zipcode     = $("#licensee_zipcode").val();
+            data.licensee_addr        = $("#licensee_addr").val();
+            data.licensee_addr_detail = $("#licensee_addr_detail").val();
+
+            //! 추가사업자 등록정보(관리사업자등록)
+            data.admin_licenseeregi_info = [];
+
+            var isExit = false;
+            $(".admin_licenseeregi_info").each(function() {
+                var seqno      = $(this).find("input[name='seqno']").val();
+                var corpName   = $(this).find("input[name='corp_name']").val();
+                var repreName  = $(this).find("input[name='repre_name']").val();
+                var crn0       = $(this).find("input[name='crn0']").val();
+                var crn1       = $(this).find("input[name='crn1']").val();
+                var crn2       = $(this).find("input[name='crn2']").val();
+                var bc         = $(this).find("input[name='bc']").val();
+                var tob        = $(this).find("input[name='tob']").val();
+                var tel0       = $(this).find("input[name='tel_num0']").val();
+                var tel1       = $(this).find("input[name='tel_num1']").val();
+                var tel2       = $(this).find("input[name='tel_num2']").val();
+                var fax0       = $(this).find("input[name='fax_num0']").val();
+                var fax1       = $(this).find("input[name='fax_num1']").val();
+                var fax2       = $(this).find("input[name='fax_num2']").val();
+                var zipcode    = $(this).find("input[name='zipcode']").val();
+                var addr       = $(this).find("input[name='addr']").val();
+                var addrDetail = $(this).find("input[name='addr_detail']").val();
+
+                if (!validateCrn(crn0, crn1, crn2)) {
+                    alert(corpName + "의 사업자 등록번호가 맞지 않습니다.");
+                    isExit = true;
+                    return false;
+                }
+
+                var obj = {
+                     "seqno"       : null
+                    ,"corp_name"   : null
+                    ,"repre_name"  : null
+                    ,"crn0"        : null
+                    ,"crn1"        : null
+                    ,"crn2"        : null
+                    ,"bc"          : null
+                    ,"tob"         : null
+                    ,"tel0"        : null
+                    ,"tel1"        : null
+                    ,"tel2"        : null
+                    ,"fax0"        : null
+                    ,"fax1"        : null
+                    ,"fax2"        : null
+                    ,"zipcode"     : null
+                    ,"addr"        : null
+                    ,"addr_detail" : null
+                };
+
+                obj.seqno       = seqno;
+                obj.corp_name   = corpName;
+                obj.repre_name  = repreName;
+                obj.crn0        = crn0;
+                obj.crn1        = crn1;
+                obj.crn2        = crn2;
+                obj.bc          = bc;
+                obj.tob         = tob;
+                obj.tel0        = tel0;
+                obj.tel1        = tel1;
+                obj.tel2        = tel2;
+                obj.fax0        = fax0;
+                obj.fax1        = fax1;
+                obj.fax2        = fax2;
+                obj.zipcode     = zipcode;
+                obj.addr        = addr;
+                obj.addr_detail = addrDetail;
+
+                data.admin_licenseeregi_info.push(obj);
+            });
+
+            if (isExit) {
+                return false;
+            }
+
+            //! 회원 담당자 정보(직원이 입력한 정보)
+            data.empl_input_mng_info = [];
+            $(".empl_input_mng_info").each(function() {
+                var seqno = $(this).find("input[name='seqno']").val();
+                var name  = $(this).find("input[name='name']").val();
+                var tel0  = $(this).find("input[name='tel_num0']").val();
+                var tel1  = $(this).find("input[name='tel_num1']").val();
+                var tel2  = $(this).find("input[name='tel_num2']").val();
+                var exten = $(this).find("input[name='exten']").val();
+                var cell0 = $(this).find("input[name='cell_num0']").val();
+                var cell1 = $(this).find("input[name='cell_num1']").val();
+                var cell2 = $(this).find("input[name='cell_num2']").val();
+                var job   = $(this).find("input[name='job']").val();
+                var depar = $(this).find("input[name='depar']").val();
+                var mail  = $(this).find("input[name='mail']").val();
+                var pro   = $(this).find("input[name='pro']").val();
+
+                var obj = {
+                     "seqno" : null
+                    ,"name"  : null
+                    ,"tel0"  : null
+                    ,"tel1"  : null
+                    ,"tel2"  : null
+                    ,"exten" : null
+                    ,"cell0" : null
+                    ,"cell1" : null
+                    ,"cell2" : null
+                    ,"job"   : null
+                    ,"depar" : null
+                    ,"mail"  : null
+                    ,"pro"   : null
+                };
+
+                obj.seqno = seqno;
+                obj.name  = name;
+                obj.tel0  = tel0;
+                obj.tel1  = tel1;
+                obj.tel2  = tel2;
+                obj.exten = exten;
+                obj.cell0 = cell0;
+                obj.cell1 = cell1;
+                obj.cell2 = cell2;
+                obj.job   = job;
+                obj.depar = depar;
+                obj.mail  = mail;
+                obj.pro   = pro;
+
+                data.empl_input_mng_info.push(obj);
+            });
+
+            //! 결제정보 - 공통
+            data.bank_name            = $("#bank_name").val();
+            data.depo_name            = $("#depo_name").val();
+            data.refund_ba_num        = $("#refund_ba_num").val();
+            data.refund_bank_name     = $("#refund_bank_name").val();
+            data.refund_name          = $("#refund_name").val();
+            //data.card_name            = $("#card_name").val();
+            //data.card_num             = $("#card_num").val();
+            //data.card_limit           = $("#card_limit").val();
+            data.cashreceipt_name     = $("#cashreceipt_name").val();
+            data.cashreceipt_cell_num = $("#cashreceipt_cell_num").val();
+            data.cashreceipt_card_num = $("#cashreceipt_card_num").val();
+            data.tax_dvs              = $("#tax_dvs").val();
+            data.member_typ           = $("#member_typ option:selected").val();
+            //! 결제정보 - 예외
+            data.excpt_member_seqno     = $("#excpt_member_seqno").val();
+            data.action_result          = $("#action_result").val();
+            data.loan_pay_promi_date    = $("#loan_pay_promi_date").val();
+            data.loan_limit_price       = $("#loan_limit_price").val();
+            data.loan_pay_promi_dvs     = $("#loan_pay_promi_dvs").val();
+            data.loan_pay_promi_dvs_day = $("#loan_pay_promi_dvs_day").val();
+            data.card_pay_yn            = $("#card_pay_yn").val();
+
+            //! 기타정보
+            data.member_grade = $("#member_grade").val();
+            data.dlvr_dvs     = $("#dlvr_dvs").val();
+            data.dlvr_code    = $("#dlvr_code").val();
+
+            //! 사내 담당자 정보
+            data.member_mng_seqno = $("#member_mng_seqno").val();
+            data.depar            = $("#depar").val();
+            data.cm               = $("#cm").val();
+            data.ca               = $("#ca").val();
+            data.crm              = $("#crm").val();
+            data.cs               = $("#cs").val();
+            data.pro              = $("#pro").val();
+            data.nc_release_resp  = $("#nc_release_resp").val();
+            data.bl_release_resp  = $("#bl_release_resp").val();
+
+            return data;
+        };
+
+        /**
+         * @brief 사업자 등록번호 검증
+         */
+        var validateCrn = function(crn0, crn1, crn2) {
+            return true;
+
+            var crn = '' + crn0 + crn1 + crn2;
+            crn = crn.substr(0, crn.length - 1);
+
+            var key = parseInt(crn2.substr(crn2.length - 1, 1));
+
+            var multiValArr = [1, 3, 7, 1, 3, 7, 1, 3, 5];
+            var length = multiValArr.length;
+
+            var val1 = 0;
+            for (var i = 0; i < length; i++) {
+                val1 += parseInt(crn[i]) * multiValArr[i];
+            }
+
+            var val2 = parseInt(crn.substr(crn.length - 1, 1)) * 5 / 10;
+
+            var calc = 10 - ((val1 + val2) % 10);
+
+            if (calc === key) {
+                return true;
+            }
+
+            return false;
+        };
+
+        /**
+         * @brief 추가 사업자 등록
+         */
+        var addAdminLicenseeregiInfo = function() {
+            var $obj = $("#pop_admin_licenseeregi");
+            var data = {
+                 "member_seqno" : $("#member_seqno").val()
+                ,"corp_name"   : $obj.find("input[name='corp_name']").val()
+                ,"repre_name"  : $obj.find("input[name='repre_name']").val()
+                ,"crn0"        : $obj.find("input[name='crn0']").val()
+                ,"crn1"        : $obj.find("input[name='crn1']").val()
+                ,"crn2"        : $obj.find("input[name='crn2']").val()
+                ,"bc"          : $obj.find("input[name='bc']").val()
+                ,"tob"         : $obj.find("input[name='tob']").val()
+                ,"tel0"        : $obj.find("input[name='tel0']").val()
+                ,"tel1"        : $obj.find("input[name='tel1']").val()
+                ,"tel2"        : $obj.find("input[name='tel2']").val()
+                ,"fax0"        : $obj.find("input[name='fax0']").val()
+                ,"fax1"        : $obj.find("input[name='fax1']").val()
+                ,"fax2"        : $obj.find("input[name='fax2']").val()
+                ,"zipcode"     : $obj.find("input[name='zipcode']").val()
+                ,"addr"        : $obj.find("input[name='addr']").val()
+                ,"addr_detail" : $obj.find("input[name='addr_detail']").val()
+            };
+
+            $.ajax({
+                type     : "POST",
+                url      : "/proc/member/member_common_list/insert_admin_licenseeregi_info.php",
+                dataType : "json",
+                data     : data,
+                success  : function(result) {
+                    if (result.success === "false") {
+                        alert(result.msg);
+                        return false;
+                    }
+
+                    alert(result.msg);
+                    location.reload();
+                },
+                error    : function() {
+                }
+            });
+        };
+
+        /**
+         * @brief 사업자 등록증 이미지 추가
+         */
+        var uploadMemberCertiFile = function(file) {
+            if ($("#member_certi_file").val() == '') {
+                return false;
+            }
+
+            var formData = new FormData();
+            formData.append("file"        , $("#member_certi_file")[0].files[0]);
+            formData.append("file_seqno"  , $("#member_certi_file_seqno").val());
+            formData.append("member_seqno", $("#member_seqno").val());
+
+            $.ajax({
+                type        : "POST",
+                data        : formData,
+                url         : "/proc/member/member_common_list/insert_member_certi.php",
+                dataType    : "json",
+                processData : false,
+                contentType : false,
+                success     : function(data) {
+                    if (data.success === "false") {
+                        alert(data.msg);
+                        return false;
+                    }
+
+                    $("#member_certi_file_name").html(data.file_name);
+                    $("#member_certi_file").val('');
+                },
+                error       : function() {
+                }
+            });
+        };
+
+        var changeDlvrDvs = function(val) {
+            $.ajax({
+                type     : "POST",
+                url      : "/ajax/member/member_common_list/load_member_dlvr_detail.php",
+                data     : {
+                    "dlvr_dvs" : val
+                },
+                success  : function(result) {
+                    $("#dlvr_code").html(result);
+                },
+                error    : function(result) {
+                    $("#dlvr_code").html(result);
+                }
+            });
+        }
+
+        /**
+         * @brief 회원 인증 파일 다운로드
+         */
+        var downMemberCertiFile = function() {
+            var url = "/member/down_member_certi_file.php?";
+            url += "seqno=" + $("#member_certi_file_seqno").val();
+
+            $("#file_ifr").attr("src", url);
+        };
+
+        /**
+         * @brief 회원 담당자 등록
+         */
+        var addMemberMngInfo = function() {
+            var $obj = $("#pop_empl_member_mng");
+            var data = {
+                 "member_seqno" : $("#member_seqno").val()
+                ,"name"        : $obj.find("input[name='name']").val()
+                ,"tel0"        : $obj.find("input[name='tel0']").val()
+                ,"tel1"        : $obj.find("input[name='tel1']").val()
+                ,"tel2"        : $obj.find("input[name='tel2']").val()
+                ,"exten"       : $obj.find("input[name='exten']").val()
+                ,"cell0"       : $obj.find("input[name='cell0']").val()
+                ,"cell1"       : $obj.find("input[name='cell1']").val()
+                ,"cell2"       : $obj.find("input[name='cell2']").val()
+                ,"job"         : $obj.find("input[name='job']").val()
+                ,"depar"       : $obj.find("input[name='depar']").val()
+                ,"mail"        : $obj.find("input[name='mail']").val()
+                ,"pro"         : $obj.find("input[name='pro']").val()
+            };
+
+            $.ajax({
+                type     : "POST",
+                url      : "/proc/member/member_common_list/insert_empl_input_member_mng.php",
+                dataType : "json",
+                data     : data,
+                success  : function(result) {
+                    if (result.success === "false") {
+                        alert(result.msg);
+                        return false;
+                    }
+
+                    alert(result.msg);
+                },
+                error    : function() {
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <div class="cart_container">
+            <div class="member_layout">
+                <div class="member_top">
+                    <p>회원기본정보</p>
+                </div>
+                <div class="container_table">
+                    <table class="member_4_table">
+                        <colgroup>
+                            <col style="width:100px;">
+                            <col style="width:180px;">
+                            <col style="width:100px;">
+                            <col style="width:180px;">
+                            <col style="width:100px;">
+                            <col style="width:180px;">
+                        </colgroup>
+                        <tbody>
+                            [TPH_Vdefault_info]
+                            <tr>
+                                <th style="vertical-align:top;">주소(배송지)</th>
+                                <td colspan="5">
+                                    <div class="postNum">
+                                        <input type="text" style="width:165px;" id="member_zipcode" value="[TPH_Vmember_zipcode]" readonly="readonly">
+                                        <button type="button" onclick="showPostcodePop('member_');">우편번호 찾기</button>
+                                    </div>
+                                    <div class="rowWrap">
+                                        <input type="text" style="width:165px;" id="member_addr" value="[TPH_Vmember_addr]" readonly="readonly" />
+                                        <input type="text" id="member_addr_detail" value="[TPH_Vmember_addr_detail]" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- member1 끝-->
+
+            [TPH_Vlicensee_info]
+            <!-- member2 끝 -->
+
+            [TPH_Vmng_info]
+            <!-- member_3 끝-->
+            [TPH_Vgroup_info]
+            <!-- member_3-1 끝-->
+            [TPH_Vaccting_info]
+            <!-- member_3-2 끝-->
+            <div class="member_layout">
+                <div class="member_top">
+                    <p>결제정보</p>
+                </div>
+                <div class="container_table">
+                    <table class="member_4_table">
+                        <tbody>
+                            <tr>
+                                <th class="th_pay_01">가상계좌번호</th>
+                                <td><input type="text" id="virt_ba" value="[TPH_Vba_num]" readonly="readonly"></td>
+                                <th class="th_pay_02">은행명</th>
+                                <td>
+                                    <select id="bank_name">
+                                        [TPH_Vbank_name]
+                                    </select>
+                                </td>
+                                <th class="th_pay_03">입금자명</th>
+                                <td><input type="text" value="[TPH_Vdepo_name]" /></td>
+                            </tr>
+                            <tr>
+                                <th class="th_pay_01">환불계좌번호</th>
+                                <td><input type="text" id="refund_ba_num" value="[TPH_Vrefund_ba_num]" /></td>
+                                <th class="th_pay_02">은행명</th>
+                                <td>
+                                    <select id="refund_bank_name">
+                                        [TPH_Vrefund_bank_name]
+                                    </select>
+                                </td>
+                                <th class="th_pay_03">예금주</th>
+                                <td><input type="text" id="refund_name" value="[TPH_Vrefund_account_holder]" /></td>
+                            </tr>
+                            <tr>
+                                <th class="th_pay_01">카드명</th>
+                                <td>
+                                    <select id="card_name">
+                                        [TPH_Vcard_name]
+                                    </select>
+                                </td>
+                                <th class="th_pay_02">카드번호</th>
+                                <td><input type="text" value="[TPH_Vcard_num]" /></td>
+                                <th class="th_pay_03">카드한도</th>
+                                <td><input type="text" value="[TPH_Vcard_limit]" /></td>
+                            </tr>
+                            <tr>
+                                <th class="th_pay_01" style="line-height:15px;font-size:11px;">현금영수증<br>/현금카드</th>
+                                <td><input type="text" id="cashreceipt_name" value="[TPH_Vcashreceipt_name]" /></td>
+                                <th class="th_pay_02">휴대폰번호</th>
+                                <td><input type="text" id="cashreceipt_cell_num" value="[TPH_Vcashreceipt_cell_num]" /></td>
+                                <th class="th_pay_03">현금카드 번호</th>
+                                <td><input type="text" id="cashreceipt_card_num" value="[TPH_Vcashreceipt_card_num]" /></td>
+                            </tr>
+                            <tr>
+                                <th class="th_pay_01">과세구분</th>
+                                <td>
+                                    <select id="tax_dvs">
+                                        <option [YPH_Vnormal_tax] value="일반과세자">일반과세자</option>
+                                        <option [YPH_Vsimple_tax] value="간이과세자">간이과세자</option>
+                                        <option [YPH_Vcorp_tax] value="법인사업자">법인사업자</option>
+                                        <option [YPH_Vfree_tax] value="면세사업자">면세사업자</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                        [TPH_Vexcpt_member]
+                    </table>
+                </div>
+            </div>
+            <!-- member_4 끝-->
+
+            <div class="member_layout">
+                <div class="member_top">
+                    <p>기타 정보</p>
+                </div>
+                <div class="container_table">
+                    <table class="member_4_table">
+                        <tbody>
+                            <tr>
+                                <th class="th_text th_etc_01">회원등급</th>
+                                <td>
+                                    <select id="member_grade">
+                                        [TPH_Vgrade_html]
+                                    </select>
+                                </td>
+                                <th class="th_text th_etc_02">배송유형</th>
+                                <td colspan="3">
+                                    <select id="dlvr_dvs" style="width:100px" onchange="changeDlvrDvs(this.value)">
+                                        [TPH_Vdlvr_dvs]
+                                    </select>
+                                    <select id="dlvr_code" style="width:100px">
+                                        [TPH_Vdlvr_code]
+                                    </select>
+                                    <!--
+                                    <select id="dlvr_pay_way" style="width:100px">
+                                        <option value="선불">선불</option>
+                                        <option value="착불">착불</option>
+                                        <option value="무료">무료</option>
+                                    </select>
+                                    -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_etc_01">가입일</th>
+                                <td><input type="text" value="[TPH_Vfirst_join_date]" readonly="readonly" /></td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_etc_01">최종수정일</th>
+                                <td><input type="text" value="[TPH_Vfinal_modi_date]" readonly="readonly" /></td>
+                            </tr>
+                            <!--
+                            <tr>
+                                <th>영업활동관리</th>
+                                <td>
+                                    <select>
+                                        <option>통화완료로 변경</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- member_5 끝-->
+
+            <div class="member_layout">
+                <div class="member_top">
+                    <p>사내 담당자 정보</p>
+                </div>
+                <div class="container_table">
+                    <table class="member_4_table">
+                        <tbody>
+                            <tr>
+                                <th class="th_text th_charge_01">팀구분</th>
+                                <td>
+                                    <select id="depar">
+                                        [TPH_Vbusiness_depar]
+                                    </select>
+                                </td>
+                                <th class="th_text th_charge_02">담당 CM</th>
+                                <td>
+                                    <select id="cm">
+                                        [TPH_Vcm]
+                                    </select>
+                                </td>
+                                <th class="th_text th_charge_03">담당 CA</th>
+                                <td>
+                                    <select id="ca">
+                                        [TPH_Vca]
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_charge_01">담당 CRM</th>
+                                <td>
+                                    <select id="crm">
+                                        [TPH_Vcrm]
+                                    </select>
+                                </td>
+                                <th class="th_text th_charge_02">CS</th>
+                                <td>
+                                    <select id="cs">
+                                        [TPH_Vcs]
+                                    </select>
+                                </td>
+                                <th class="th_text th_charge_03">프로그램</th>
+                                <td>
+                                    <select id="pro">
+                                        [TPH_Vpro]
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text th_charge_01">명함출고</th>
+                                <td>
+                                    <select id="nc_release_resp">
+                                        [TPH_Vnc]
+                                    </select>
+                                </td>
+                                <th class="th_text th_charge_02">전단출고</th>
+                                <td>
+                                    <select id="bl_release_resp">
+                                        [TPH_Vbl]
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <input type="hidden" id="member_seqno" value="[TPH_Vmember_seqno]" />
+                <input type="hidden" id="member_mng_seqno" value="[TPH_Vmember_mng_seqno]" />
+            </div>
+            <!-- member_6 끝-->
+            <div class="member_btn">
+                <button type="button" class="btn_modify" onclick="modiMemberInfo();">수정</button>
+            </div>
+        </div>
+        <!-- container 끝 -->
+
+        <!-- 추가 사업자 등록 팝업 -->
+        <div id="licensee_add_pop" class="reveal-modal" style="width:920px;">
+            <div class="Modal-header">
+                <span>추가 사업자 등록</span>
+            </div>
+            <div class="Modal-body">
+                <table class="container_table">
+                    <tbody id="pop_admin_licenseeregi">
+                        <tr>
+                            <th>기업명</th>
+                            <td><input type="text" name="corp_name" value="" /></td>
+                            <th>대표자명</th>
+                            <td><input type="text" name="repre_name" value="" /></td>
+                            <th>사업자 등록 번호</th>
+                            <td>
+                                <input type="text" name="crn0" value="" style="width:32px;" maxlength="3" />
+                                <input type="text" name="crn1" value="" style="width:25px;" maxlength="2" />
+                                <input type="text" name="crn2" value="" style="width:78px;" maxlength="5" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>업태</th>
+                            <td><input type="text" name="bc" value="" /></td>
+                            <th>종목</th>
+                            <td><input type="text" name="tob" value="" /></td>
+                            <th></th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>전화번호</th>
+                            <td>
+                                <input type="text" name="tel0" maxlength="3" value="" style="width:25px;" />
+                                <input type="text" name="tel1" maxlength="4" value="" style="width:55px;" />
+                                <input type="text" name="tel2" maxlength="4" value="" style="width:55px;" />
+                            </td>
+                            <th>팩스번호</th>
+                            <td>
+                                <input type="text" name="fax0" maxlength="3" value="" style="width:25px;" />
+                                <input type="text" name="fax1" maxlength="4" value="" style="width:55px;" />
+                                <input type="text" name="fax2" maxlength="4" value="" style="width:55px;" />
+                            </td>
+                            <th></th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td></td>
+                            <th></th>
+                            <td></td>
+                            <th></th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th style="vertical-align:top;">주소</th>
+                            <td colspan="5">
+                                <div class="postNum">
+                                    <input type="text" id="pop_licensee_zipcode" name="zipcode" value="" readonly="readonly" style="background:#eee;">
+                                    <button type="button" onclick="showPostcodePop('pop_licensee_');">우편번호 찾기</button>
+                                </div>
+                                <div class="rowWrap">
+                                    <input type="text" id="pop_licensee_addr" name="addr" value="" readonly="readonly" style="background:#eee;" />
+                                    <input type="text" name="addr_detail" value="" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" onclick="addAdminLicenseeregiInfo();">저장</button>
+            </div>
+            <a class="close-reveal-modal">&#215;</a>
+        </div> <!-- 추가 사업자 등록 팝업 끝 -->
+
+        <!-- 등록증 이미지 추가 팝업 -->
+        <div id="licensee_img_add_pop" class="reveal-modal" style="width:620px;">
+            <div class="Modal-header">
+                <span>등록증 이미지 추가</span>
+            </div>
+            <div class="Modal-body">
+                <table class="container_table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="file" id="member_certi_file" />
+                                <input type="hidden" id="member_certi_file_seqno" value="[TPH_Vmember_certi_seqno]" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td onclick="downMemberCertiFile();" id="member_certi_file_name" style="cursor:pointer;">[TPH_Vmember_certi_file_name]</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" onclick="uploadMemberCertiFile();">저장</button>
+            </div>
+            <a class="close-reveal-modal">&#215;</a>
+        </div> <!-- 추가 사업자 등록 팝업 끝 -->
+
+        <!-- 담당자 정보 추가 팝업 -->
+        <div id="member_mng_add_pop" class="reveal-modal" style="width:960px;">
+            <div class="Modal-header">
+                <span>담당자 정보 추가</span>
+            </div>
+            <div class="Modal-body">
+                <table class="member_3_table">
+                    <tbody id="pop_empl_member_mng">
+                        <tr>
+                            <th>성명</th>
+                            <td><input name="name" type="text" /></td>
+                            <th>회사직통번호</th>
+                            <td>
+                                <input name="tel0" type="text" style="width:24px;" maxlength="3" />
+                                <input name="tel1" type="text" style="width:28px;" maxlength="4" />
+                                <input name="tel2" type="text" style="width:28px;" maxlength="4" />
+                            </td>
+                            <th style="width:50px;">내선</th>
+                            <td><input type="text" name="exten" /></td>
+                            <th>휴대폰 번호</th>
+                            <td>
+                                <input name="cell0" type="text" style="width:24px;" maxlength="3" />
+                                <input name="cell1" type="text" style="width:28px;" maxlength="4" />
+                                <input name="cell2" type="text" style="width:28px;" maxlength="4" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>직무</th>
+                            <td><input type="text" name="job" /></td>
+                            <th>부서</th>
+                            <td colspan="3"><input type="text" name="depar" style="width:297px;"></td>
+                            <th>이메일</th>
+                            <td><input type="text" name="mail" /></td>
+                        </tr>
+                        <tr>
+                            <th>사용 프로그램</th>
+                            <td><input type="text" name="pro" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button type="button" onclick="addMemberMngInfo();">저장</button>
+            </div>
+            <a class="close-reveal-modal">&#215;</a>
+        </div> <!-- 추가 사업자 등록 팝업 끝 -->
+
+        <iframe id="file_ifr" src="" width="0" height="0" style="display:none;width:0px;height:0px"></iframe>
+</body>
+</html>

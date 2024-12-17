@@ -1,0 +1,144 @@
+                <!--매출거래현황정보-->
+                <section id="content1" class="content" style="padding-top:25px;">
+                    <div class="tab_button">
+                        <button type="button" value="d" class="btn_sales_info btn_active" onclick="$('#content1 .btn_sales_info').removeClass('btn_active'); $(this).addClass('btn_active');">일별</button>
+                        <button type="button" value="w" class="btn_sales_info" onclick="$('#content1 .btn_sales_info').removeClass('btn_active'); $(this).addClass('btn_active');">주별</button>
+                        <button type="button" value="m" class="btn_sales_info" onclick="$('#content1 .btn_sales_info').removeClass('btn_active'); $(this).addClass('btn_active');">월별</button>
+                        <button type="button" value="q" class="btn_sales_info" onclick="$('#content1 .btn_sales_info').removeClass('btn_active'); $(this).addClass('btn_active');">분기별</button>
+                        <button type="button" value="y" class="btn_sales_info" onclick="$('#content1 .btn_sales_info').removeClass('btn_active'); $(this).addClass('btn_active');">년별</button>
+                        <span class="btn_float_right">
+                            <input type="text" class="order_sales_info_input_01 datepicker_input" id="sales_info_from">-
+                            <input type="text" class="order_sales_info_input_01 datepicker_input" id="sales_info_to" style="margin-right:6px;">
+                            <button type="button" class="btn_Turquoise01" onclick="loadSalesInfo('sales_info');">검색</button>
+                        </span>
+                        
+                    </div>
+                    <div id="tableData2" class="detail_table">
+                        <div class="overflow_auto">
+                            <table class="table_basic_layout">
+                                <colgroup>
+                                    <col style="width:50px">
+                                    <col style="width:120px">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
+                                    <col style="width:100px">
+                                </colgroup>
+                                <thead>
+                                    <tr class="big_table">
+                                        <th>No</th>
+                                        <th>일자</th>
+                                        <th>총 미수액</th>
+                                        <th>이월미수액</th>
+                                        <th>총 매출액</th>
+                                        <th>에누리</th>
+                                        <th>순 매출액</th>
+                                        <th>입금액</th>
+                                        <th>기말미수액</th>
+                                        <th>매출 증감액</th>
+                                        <th>매출 증감율</th>
+                                        <th>미수 증감액</th>
+                                        <th>미수 증감율</th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr class="big_table2" id="sales_info_sum">
+                                    </tr>
+                                </thead>
+                                <tbody class="big_body" id="sales_info_list">
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--170619 이청산 추가-->
+                        <div class="tab_button"><br>
+                        <span class="sales_span_text01">키워드 검색</span>
+                        <select class="order_sales_info_select_01" id="sales_info_keyword">
+                            <option value="">제작물내용</option>
+                            <option value="">판번호</option>
+                        </select>
+                        <input type="text" id="sales_info_searchTxt" class="order_sales_info_input_01" size='30'>
+                            <span class="btn_float_right">
+                                <span class="sales_span_text02">상품 검색</span>
+                                <select class="order_sales_info_select_02" id="sales_info_cate_mid" onchange="cateSelect.exec('mid', this.value, 'sales_info');">
+                                    [TPH_Vcate_mid_html]
+                                </select>
+                                <select class="order_sales_info_select_02" id="sales_info_cate_bot" style="margin-right:6px;">
+                                    <option value="">선택</option>
+                                </select>
+                                <button type="button" class="btn_Turquoise01" onclick="loadSalesDetail.exec('', 'sales_detail')">검색</button>
+                            </span>
+                        </div>
+                        <div class="overflow_auto">
+                            <table class="table_basic_layout">
+                                <colgroup>
+                                    <col style="width:50px">
+                                    <col style="width:130px">
+                                    <col style="width:158px">
+                                    <col style="width:120px">
+                                    <col style="width:50px">
+                                    <col style="width:50px">
+                                    <col style="width:100px">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                    <col style="width:80px">
+                                </colgroup>
+                                <thead>
+                                    <tr class="big_table">
+                                        <th>No</th>
+                                        <th>품목</th>
+                                        <th>제작물내용</th>
+                                        <th>상품 품목</th>
+                                        <th>수량</th>
+                                        <th>건수</th>
+                                       <th>결제금액</th>
+                                        <th>상태</th>
+                                        <th>배송유형</th>
+                                        <th>메모</th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr class="big_table2" id="sales_detail_sum">
+                                    </tr>
+                                </thead>
+                                <tbody class="big_body" id="sales_detail_list">
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--여기까지-->
+                        <div class="loading_oh" id="sales_info_mask" style="display:none; top:842px;">
+                            <table  height="34" align="center" cellpadding="0" cellspacing="0" style="opacity:0.5; width:100%">
+                                <tr style="background:#CCC">
+                                    <td align="center"><img src="[TPH_Vdesign_dir]/images/business/loading.gif" border="0"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="update" style="margin:50px 20px 20px 20px;">
+                        <div id="sum_oa" style="min-width:400px;display:inline-block"></div>
+                        <div id="sum_net" style="min-width:400px;max-width:300px;display:inline-block"></div>
+                        <hr style="border: solid 1px #bbb;margin-top: 10px;margin-bottom: 10px;">
+
+                        <div id="sum_sale" style="min-width:400px;max-width:300px;display:inline-block"></div>
+                        <div id="sum_depo" style="min-width:400px;max-width:300px;display:inline-block"></div>
+                        <hr style="border: solid 1px #bbb;margin-top: 10px;margin-bottom: 10px;">
+
+                        <div id="year_sum_net" style="min-width:400px;max-width:300px;display:inline-block"></div>
+
+                        <div class="loading_oh" id="sales_info_chart_mask" style="display:none; top:920px; width:605px;">
+                            <table  height="1210" align="center" cellpadding="0" cellspacing="0" style="opacity:0.5; width:100%">
+                                <tr style="background:#CCC">
+                                    <td align="center"><img src="[TPH_Vdesign_dir]/images/business/loading.gif" border="0"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                <!--매출거래현황정보 끝-->

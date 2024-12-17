@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>전산관리</title>
+    <meta charset="utf-8"> [TPH_I/common/common.html]
+</head>
+<body>
+<div id="container">
+    <!-- TOP NAVIGATION -->
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION -->
+    [TPH_Vleft]
+    <!-- CONTENT -->
+    <section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <tr>
+                                <th class="th_text th_data_prdt_info_01">카테고리</th>
+                                <td>
+                                    <select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="select_data_prdt_info_01">
+                                        [TPH_Vcate_html]
+                                    </select>
+                                    <select id="cate_mid" onchange="cateSelect.exec('mid', this.value);" class="select_data_prdt_info_01">
+                                        <option value="">중분류</option>
+                                    </select>
+                                    <select id="cate_bot" onchange="loadPrdtInfo(this.value);" class="select_data_prdt_info_01">
+                                        <option value="">소분류</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- 탭 박스 3 TAB -->
+                        <div id="prdt_info">
+                            <table class="table_search_layout">
+                                <tr>
+                                    <td colspan="2">
+                                        <hr class="section_bar">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_data_prdt_info_01">품절 여부</th>
+                                    <td>
+                                        <label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="gen_y"> 일반상품으로 표시</label>
+                                        <label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="prjt_y"> 기획상품으로 표시</label>
+                                        <label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="new_y"> 신상품으로 표시</label>
+                                        <label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="recomm_y"> 추천상품으로 표시</label>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_data_prdt_info_01"></th>
+                                    <td>
+                                        <label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="soldout_y"> 품절상품으로 표시</label>
+                                        <label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="popular_y"> 인기상품으로 표시</label>
+                                        <label class="check_box_wrapper_prdt_info_01"><input type="checkbox" class="checkbox_align" id="event_y"> 이벤트상품으로 표시</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <hr class="section_bar">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="th_text th_data_prdt_info_01">구분</th>
+                                    <td>
+                                        <label class="check_box_wrapper_prdt_info_01"><input type="radio" name="bun_yn" value="Y" class="checkbox_align">묶음가능</label>
+                                        <label class="check_box_wrapper_prdt_info_01"><input type="radio" name="bun_yn" value="N" class="checkbox_align">묶음불가능</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <hr class="section_bar">
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!--배송 혜택 부분-->
+                            <!--
+                            <div class="form-group">
+                            <label class="control-label fix_width150 tar">회원혜택 제외</label><label class="fix_width20 fs14 tac"> : </label>
+                            <label class="form-radio"><input type="checkbox" class="check_box" checked> 회원 배송혜택 적용 제외 상품</label>
+                            <label class="fix_width15"></label>
+                            <button type="button" class="btn btn-sm btn-success">마케팅 회원관리창으로 바로가기</button>
+                            <br />
+                            <label class="control-label fix_width170"> </label>
+                            <span  class="fs12 grey_text01">* 선택시 상품별 할인과 배송할인 중복 적용 안됩니다. 이벤트는 우선 적용됩니다.</span>
+                            <br /><br />
+                            </div>
+
+                            <div class="form-group">
+                            <label class="control-label fix_width150 tar">상품별 배송할인 설정</label><label class="fix_width20 fs14 tac"> : </label>
+                            <label class="form-radio form-normal"><input type="radio" name="de-blk3" class="radio_box">사용안함</label>
+                            <label class="fix_width15"></label>
+                            <span  class="fs12 grey_text01">* 기본배송정책에 따릅니다.</span>
+                            <br />
+
+                            <label class="control-label fix_width170 tar"></label>
+                            <label class="form-radio form-normal"><input type="radio" name="de-blk3" class="radio_box">특정 배송규칙 적용</label>
+                            <br />
+
+                            <label class="control-label fix_width310 tar"></label>
+                            <select class="fix_width120">
+                            <option>수량별 배송비</option>
+                            </select>
+                            <br />
+                            <label class="control-label fix_width310 tar"></label>
+                            <span  class="fs12 grey_text01">* 해당 상품의 수량에 따라 x n 으로 배송비가 증가하여 청구됩니다.</span>
+                            <br /><br />
+                            </div>				            
+                            -->
+                            <div class="pop-base fl fix_width1150" style="padding-top:20px;">
+                                <div class="pop-content fix_height415">
+                                    <ul class="form-group">
+                                        <li class="fix_width400 fl">
+                                            <div class="process_view_box10">
+                                            </div>
+                                        </li>
+                                        <li class="fix_width120 fl">
+                                            <div class="process_view_box11">
+                                            </div>
+                                            <br />
+                                            <div class="process_view_box11">
+                                            </div>
+                                            <br />
+                                            <div class="process_view_box11">
+                                            </div>
+                                            <br />
+                                            <div class="process_view_box11">
+                                            </div>
+                                        </li>
+                                        <li class="fl">
+                                            <div class="file_div_wrapper">
+                                                <label class="th_text th_data_prdt_info_02">이미지</label>
+                                                <!-- 파일 업로드 / 스크립이 하단에 있어야 작동함 -->
+                                                <input id="upload_file1" class="input_data_prdt_info_01" placeholder="" readonly="readonly" />
+						<input type="hidden" id="upload_file_check1" name="upload_file_check1">
+                                                <label class="fileUpload">
+                                                    <input id="upload_btn1" type="file" class="upload" />
+                                                    <span class="btn btn-sm btn-info fa">찾아보기</span>
+                                                </label>
+                                                <p class="fs13" style="color:red;">* 사이즈 : 1000 x 1000 / 사용가능 확장자 : jpg, gif, png</p>
+                                                <script type="text/javascript">
+                                                    document.getElementById("upload_btn1").onchange = function () {
+                                                        document.getElementById("upload_file1").value = this.value;
+                                                        document.getElementById("upload_file_check1").value = this.value;
+                                                    };
+                                                </script>
+                                                <div id="file_area1">
+                                                    <label class="fix_width105"> </label>
+                                                    <label class="control-label cp blue_text01" id="file_name4"></label>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="file_div_wrapper">
+                                                <label class="th_text th_data_prdt_info_02">이미지</label>
+                                                <!-- 파일 업로드 / 스크립이 하단에 있어야 작동함 -->
+                                                <input id="upload_file2" class="input_data_prdt_info_01" placeholder="" readonly="readonly" />
+						                        <input type="hidden" id="upload_file_check2" name="upload_file_check2">
+
+                                                <label class="fileUpload">
+                                                    <input id="upload_btn2" type="file" class="upload" />
+                                                    <span class="btn btn-sm btn-info fa">찾아보기</span>
+                                                </label>
+                                                <p class="fs13" style="color:red;">* 사이즈 : 1000 x 1000 / 사용가능 확장자 : jpg, gif, png</p>
+                                                <script type="text/javascript">
+                                                    document.getElementById("upload_btn2").onchange = function () {
+                                                        document.getElementById("upload_file2").value = this.value;
+                                                        document.getElementById("upload_file_check2").value = this.value;
+                                                    };
+                                                </script>
+                                                <div id="file_area2">
+                                                    <label class="fix_width105"> </label>
+                                                    <label class="control-label cp blue_text01" id="file_name2"></label>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="file_div_wrapper">
+                                                <label class="th_text th_data_prdt_info_02">이미지</label>
+                                                <!-- 파일 업로드 / 스크립이 하단에 있어야 작동함 -->
+                                                <input id="upload_file3" class="input_data_prdt_info_01" placeholder="" readonly="readonly" />
+						                        <input type="hidden" id="upload_file_check3" name="upload_file_check3">
+
+                                                <label class="fileUpload">
+                                                <input id="upload_btn3" type="file" class="upload" />
+                                                <span class="btn btn-sm btn-info fa">찾아보기</span>
+                                                </label>
+                                                <p class="fs13" style="color:red;">* 사이즈 : 1000 x 1000 / 사용가능 확장자 : jpg, gif, png</p>
+                                                <script type="text/javascript">
+                                                    document.getElementById("upload_btn3").onchange = function () {
+                                                        document.getElementById("upload_file3").value = this.value;
+                                                        document.getElementById("upload_file_check3").value = this.value;
+                                                    };
+                                                </script>
+                                                <div id="file_area3">
+                                                    <label class="fix_width105"> </label>
+                                                    <label class="control-label cp blue_text01" id="file_name3"></label>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="file_div_wrapper">
+                                                <label class="th_text th_data_prdt_info_02">이미지</label>
+                                                <!-- 파일 업로드 / 스크립이 하단에 있어야 작동함 -->
+                                                <input id="upload_file4" class="input_data_prdt_info_01" placeholder="" readonly="readonly" />
+						                        <input type="hidden" id="upload_file_check4" name="upload_file_check4">
+
+                                                <label class="fileUpload">
+                                                    <input id="upload_btn4" type="file" class="upload" />
+                                                    <span class="btn btn-sm btn-info fa">찾아보기</span>
+                                                </label>
+                                                <p class="fs13" style="color:red;">* 사이즈 : 1000 x 1000 / 사용가능 확장자 : jpg, gif, png</p>
+                                                <script type="text/javascript">
+                                                    document.getElementById("upload_btn4").onchange = function () {
+                                                        document.getElementById("upload_file4").value = this.value;
+                                                        document.getElementById("upload_file_check4").value = this.value;
+                                                    };
+                                                </script>
+                                                <div id="file_area4">
+                                                    <label class="fix_width105"> </label>
+                                                    <label class="control-label cp blue_text01" id="file_name3"></label>
+                                                </div>
+                                            </div>
+                                            <br /><br />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- 배너영역, 현재 사용하지 않음
+                            <div class="pop-base fl fix_width1150">
+                                <div class="pop-content ofa fix_height200">
+                                    <ul class="form-group">
+                                        <li class="fix_width520 fl">
+                                            <div class="process_view_box12" style="width:455px;">
+                                            </div>
+                                        </li>
+                                        <li class="fix_width500 fl">
+                                            <label class="th_text th_data_prdt_info_02">이미지</label>
+                                            <input id="upload_bn_file" class="input_data_prdt_info_01" placeholder="" disabled="disabled" />
+                                            <label class="fileUpload">
+                                                <input id="upload_bn_btn" type="file" class="upload" />
+                                                <span class="btn btn-sm btn-info fa">찾아보기</span>
+                                            </label>
+                                            <p class="fs13" style="color:red;">* 사이즈 : 400 x 70 / 사용가능 확장자 : jpg, gif, png</p>
+                                            <script type="text/javascript">
+                                                document.getElementById("upload_bn_btn").onchange = function () {
+                                                    document.getElementById("upload_bn_file").value = this.value;
+                                                };
+                                            </script>
+                                            <div id="banner_file_area">
+                                                <label class="fix_width105"> </label>
+                                            </div>
+                                            <br />
+
+                                            <div>
+                                                <label class="th_text th_data_prdt_info_02">Link URL</label>
+                                                <input type="text" class="input_data_prdt_info_02" value="">
+                                            </div>
+                                            <div>
+                                                <label class="th_text th_data_prdt_info_02">Target</label><label class="fix_width20 fs14 tac"> : </label>
+                                                <label class="check_box_wrapper_prdt_info_02"><input type="radio" name="target_yn" value="Y" class="checkbox_align">현재창</label>
+                                                <label class="check_box_wrapper_prdt_info_02"><input type="radio" name="target_yn" value="N" class="checkbox_align">새창</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                        <!-- 탭 박스 3 TAB -->
+                        <!-- 상세검색버튼 -->
+                        <div style="clear:both;">
+                            <p class="btn-lg red_btn">
+                                <a onclick="savePrdtInfo()" href="#">선택한 설정을 저장합니다.</a>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <!--하단 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+</div>
+</body>
+</html>

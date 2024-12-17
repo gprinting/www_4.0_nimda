@@ -1,0 +1,492 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+	<title>[TPH_Vmain_title]</title>
+	<meta charset="utf-8"> [TPH_I/common/common.html]
+</head>
+
+<body>
+
+	<div id="container">
+
+		<!-- TOP NAVIGATION -->
+		[TPH_I/common/header.html]
+
+		<!-- LEFT NAVIGATION -->
+		[TPH_Vleft]
+
+		<!-- CONTENT -->
+		<section id="page-content" class="">
+			<!-- 본문 컨텐츠  시작-->
+			<div id="content-container" class="content_container">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀 시작-->
+					<div class="title">
+						[TPH_I/common/history.html]
+					</div>
+					<!--타이틀 끝-->
+					<!--테이블 시작-->
+					<section class="content_section">
+						<div class="content_wrapper">
+							<!-- 탭 박스 3 TAB -->
+							<div class="">
+								<div class="tab_box_con">
+									<div class="tabbable">
+
+										<!-- TAB UI -->
+										<ul class="nav nav-tabs mt25">
+											<li class="active">
+												<a href="#tab6" data-toggle="tab" onclick="tabCtrl('paper');"> 종이 </a>
+											</li>
+											<li>
+												<a href="#tab7" data-toggle="tab" onclick="tabCtrl('size');"> 사이즈 </a>
+											</li>
+											<li>
+												<a href="#tab8" data-toggle="tab" onclick="tabCtrl('tmpt');"> 인쇄도수 </a>
+											</li>
+											<li>
+												<a href="#tab9" data-toggle="tab" onclick="tabCtrl('after');"> 후공정 </a>
+											</li>
+											<li>
+												<a href="#tab10" data-toggle="tab" onclick="tabCtrl('opt');"> 옵션</a>
+											</li>
+											<li>
+												<a href="#tab11" data-toggle="tab" onclick="tabCtrl('ao_after');"> 실사 후공정 </a>
+											</li>
+											<li>
+												<a href="#tab12" data-toggle="tab" onclick="tabCtrl('ao_opt');"> 실사 옵션</a>
+											</li>
+										</ul>
+
+										<div class="tab-content">
+
+											<div class="tab-pane active" id="tab6">
+												<!-- TAB 종이 -->
+												<div class="">
+													<ul class="table_top">
+														<li class="sel">
+															<select class="fix_width180" id="paper_sort" onchange="selectSortOption('paper', this.value);">
+															</select>
+															<select class="fix_width180" id="paper_name" onchange="selectNameOption('paper', this.value);">
+															</select>
+														</li>
+														<li class="sel tar">
+															<label for="paper_search" class="con_label">Search(종이명) : <input id="paper_search" type="text" class="search_btn fix_width180" onkeydown="searchKey(event, this.value, 'paper');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('paper');"></button></label>
+														</li>
+													</ul>
+													<div class="">
+														<table class="table_basic_layout">
+															<thead>
+																<tr>
+																	<th class="">번호</th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('sort', this, 'paper');" class="blue_text01 sorting">종이 대분류 <i class="fa fa-sort"></i></a></th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('name', this, 'paper');" class="blue_text01 sorting">종이명 <i class="fa fa-sort"></i></a></th>
+																	<th class="">구분</th>
+																	<th class="">색상</th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('basisweight', this, 'paper');" class="blue_text01 sorting">평량 <i class="fa fa-sort"></i></a></th>
+																	<th class="">계열</th>
+																	<th class="">사이즈</th>
+																	<th class="">관리</th>
+																</tr>
+															</thead>
+															<tbody id="paper_list">
+																<tr>
+																	<td colspan="9">검색 된 내용이 없습니다.</td>
+																</tr>
+															</tbody>
+														</table>
+														<p class="p_num_b fs12">
+															<button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showRegiPopup('paper', '');"> 상품종이추가</button>
+															<label class="fix_width20">&nbsp;</label>
+															<select name="list_set" class="fix_width55" onchange="showPageSetting('paper', this.value);">
+															[TPH_I/common/list_count.html]
+															</select>
+                                                            개씩 보기
+														</p>
+
+														<div class="tac clear" id="paper_page">
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+											<div class="tab-pane" id="tab7">
+												<!-- TAB 사이즈 -->
+												<div class="">
+													<ul class="table_top">
+														<li class="sel">
+															<select class="fix_width180" id="output_name" onchange="selectNameOption('output', this.value);">
+															</select>
+														</li>
+														<li class="sel tar">
+															<label for="output_search" class="con_label">Search(출력명) : <input id="output_search" type="text" class="search_btn fix_width180" onkeydown="searchKey(event, this.value, 'output');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('output');"></button></label>
+														</li>
+													</ul>
+
+													<div class="">
+														<table class="table_basic_layout">
+															<thead>
+																<tr>
+																	<th class="">번호</th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('output_name', this, 'output');" class="blue_text01 sorting">출력명 <i class="fa fa-sort"></i></a></th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('output_board_dvs', this, 'output');" class="blue_text01 sorting">출력판구분 <i class="fa fa-sort"></i></a></th>
+																	<th class="">관리</th>
+																</tr>
+															</thead>
+															<tbody id="output_list">
+																<tr>
+																	<td colspan="6">검색 된 내용이 없습니다.</td>
+																</tr>
+															</tbody>
+														</table>
+														<p class="p_num_b fs12">
+															<button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showRegiPopup('output', '');"> 출력정보추가</button>
+															<label class="fix_width20">&nbsp;</label>
+															<select name="list_set" class="fix_width55" onchange="showPageSetting('output' ,this.value);">
+															[TPH_I/common/list_count.html]
+															</select>
+                                                            개씩 보기
+														</p>
+														<div class="tac clear" id="output_page">
+														</div>
+
+													</div>
+													<br /><br />
+													<br /><br />
+													<hr class="hr_bd3_b">
+													<br /><br />
+
+													<ul class="table_top">
+														<li class="sel">
+															<select class="fix_width180" id="size_sort" onchange="selectSortOption('size', this.value);">
+															</select>
+															<select class="fix_width180" id="size_name" onchange="selectNameOption('size', this.value);">
+															</select>
+														</li>
+														<li class="sel tar">
+															<label for="size_search" class="con_label">Search(사이즈명) : <input id="size_search" type="text" class="search_btn fix_width180" onkeydown="searchKey(event, this.value, 'size');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('size');"></button></label>
+														</li>
+													</ul>
+													<div class="">
+														<table class="table_basic_layout">
+															<thead>
+																<tr>
+																	<th class="">번호</th>
+																	<th class="">사이즈 대분류</th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('name', this, 'size');" class="blue_text01 sorting">사이즈명 <i class="fa fa-sort"></i></a></th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('typ', this, 'size');" class="blue_text01 sorting">사이즈유형 <i class="fa fa-sort"></i></a></th>
+																	<th class="">작업사이즈</th>
+																	<th class="">재단사이즈</th>
+																	<th class="">디자인사이즈</th>
+																	<th class="">도무송사이즈</th>
+																	<th class="">관리</th>
+																</tr>
+															</thead>
+															<tbody id="size_list">
+															</tbody>
+														</table>
+														<p class="p_num_b fs12">
+															<button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showRegiPopup('size', '');"> 상품사이즈추가</button>
+															<label class="fix_width20">&nbsp;</label>
+															<select name="list_set" class="fix_width55" onchange="showPageSetting('size', this.value);">
+															[TPH_I/common/list_count.html]
+															</select>
+                                                            개씩 보기
+														</p>
+														<div class="tac clear" id="size_page">
+														</div>
+
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane" id="tab8">
+												<!-- TAB 인쇄도수 -->
+												<div class="">
+													<ul class="table_top">
+														<li class="sel">
+															<select class="fix_width180" id="print_name" onchange="selectNameOption('print', this.value);">
+															</select>
+														</li>
+														<li class="sel tar">
+															<label for="print_search" class="con_label">Search(인쇄명) : <input id="print_search" type="text" class="search_btn fix_width180" onkeydown="searchKey(event, this.value, 'print');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('print');"></button></label>
+														</li>
+													</ul>
+
+													<div class="">
+														<table class="table_basic_layout">
+															<thead>
+																<tr>
+																	<th class="">번호</th>
+																	<th class="">카테고리</th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('print_name', this, 'print');" class="blue_text01 sorting">인쇄명 <i class="fa fa-sort"></i></a></th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('purp_dvs', this, 'print');" class="blue_text01 sorting">용도구분 <i class="fa fa-sort"></i></a></th>
+																	<th class="">계열</th>
+																	<th class="">관리</th>
+																</tr>
+															</thead>
+															<tbody id="print_list">
+															</tbody>
+														</table>
+														<p class="p_num_b fs12">
+															<button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showRegiPopup('print', '');"> 인쇄정보추가</button>
+															<label class="fix_width20">&nbsp;</label>
+															<select name="list_set" class="fix_width55" onchange="showPageSetting('print' ,this.value);">
+															[TPH_I/common/list_count.html]
+															</select>
+                                                            개씩 보기
+														</p>
+														<div class="tac clear" id="print_page">
+														</div>
+
+													</div>
+
+													<br /><br />
+													<br /><br />
+													<hr class="hr_bd3_b">
+													<br /><br />
+
+													<ul class="table_top">
+														<li class="sel">
+															<select class="fix_width180" id="tmpt_sort" onchange="selectSortOption('tmpt', this.value);">
+															</select>
+															<select class="fix_width180" id="tmpt_name" onchange="selectNameOption('tmpt', this.value);">
+															</select>
+														</li>
+														<li class="sel tar">
+															<label for="tmpt_search" class="con_label">Search( 인쇄도수명) : <input id="tmpt_search" type="text" class="search_btn fix_width180" onkeydown="searchKey(event, this.value, 'tmpt');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('tmpt');"></button></label>
+														</li>
+													</ul>
+													<div class="">
+														<table class="table_basic_layout">
+															<thead>
+																<tr>
+																	<th class="">번호</th>
+																	<th class="">인쇄도수대분류</th>
+																	<th class="">인쇄명</th>
+																	<th class="">용도구분</th>
+																	<th class="">계열</th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('name', this, 'tmpt');" class="blue_text01 sorting">인쇄도수명 <i class="fa fa-sort"></i></a></th>
+																	<th class="">면구분</th>
+																	<th class="">앞면인쇄</th>
+																	<th class="">뒷면인쇄</th>
+																	<th class="">추가인쇄</th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('tot_tmpt', this, 'tmpt');" class="blue_text01 sorting">총도수 <i class="fa fa-sort"></i></a></th>
+																	<th class="">관리</th>
+																</tr>
+															</thead>
+															<tbody id="tmpt_list">
+															</tbody>
+														</table>
+														<p class="p_num_b fs12">
+															<button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showRegiPopup('tmpt', '');">상품 인쇄도수추가</button>
+															<label class="fix_width20">&nbsp;</label>
+															<select name="list_set" class="fix_width55" onchange="showPageSetting('tmpt', this.value);">
+															[TPH_I/common/list_count.html]
+															</select>
+                                                            개씩 보기
+														</p>
+														<div class="tac clear" id="tmpt_page">
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+											<div class="tab-pane" id="tab9">
+												<!-- TAB 후공정 -->
+												<div class="">
+													<ul class="table_top">
+														<li class="sel">
+															<select class="fix_width180" id="after_name" onchange="selectNameOption('after', this.value);">
+															</select>
+														</li>
+														<li class="sel tar">
+															<label for="after_search" class="con_label">Search(후공정명) : <input id="after_search" type="text" class="search_btn fix_width180" onkeydown="searchKey(event, this.value, 'after');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('after');"></button></label>
+														</li>
+													</ul>
+													<div class="">
+														<table class="table_basic_layout">
+															<thead>
+																<tr>
+																	<th class="">번호</th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('after_name', this, 'after');" class="blue_text01 sorting">후공정명 <i class="fa fa-sort"></i></a></th>
+																	<th class="">Depth1</th>
+																	<th class="">Depth2</th>
+																	<th class="">Depth3</th>
+																	<th class="">관리</th>
+																</tr>
+															</thead>
+															<tbody id="after_list">
+															</tbody>
+														</table>
+														<p class="p_num_b fs12">
+															<button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showRegiPopup('after', '');"> 후공정정보추가</button>
+															<label class="fix_width20">&nbsp;</label>
+															<select name="list_set" class="fix_width55" onchange="showPageSetting('after', this.value);">
+															[TPH_I/common/list_count.html]
+															</select>
+                                                            개씩 보기
+														</p>
+														<div class="tac clear" id="after_page">
+														</div>
+
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane" id="tab10">
+												<!-- TAB 옵션 -->
+												<div class="">
+													<ul class="table_top">
+														<li class="sel">
+															<select class="fix_width180" id="opt_name" onchange="selectNameOption('opt', this.value);">
+															</select>
+														</li>
+														<li class="sel tar">
+															<label for="opt_search" class="con_label">Search(옵션명) : <input id="opt_search" type="text" class="search_btn fix_width180" onkeydown="searchKey(event, this.value, 'opt');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('opt');"></button></label>
+														</li>
+													</ul>
+
+													<div class="">
+														<table class="table_basic_layout">
+															<thead>
+																<tr>
+																	<th class="">번호</th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('opt_name', this, 'opt');" class="blue_text01 sorting">옵션명 <i class="fa fa-sort"></i></a></th>
+																	<th class="">Depth1</th>
+																	<th class="">Depth2</th>
+																	<th class="">Depth3</th>
+																	<th class="">관리</th>
+																</tr>
+															</thead>
+															<tbody id="opt_list">
+															</tbody>
+														</table>
+														<p class="p_num_b fs12">
+															<button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showRegiPopup('opt', '');"> 옵션정보추가</button>
+															<label class="fix_width20">&nbsp;</label>
+															<select name="list_set" class="fix_width55" onchange="showPageSetting('opt', this.value);">
+															[TPH_I/common/list_count.html]
+															</select>
+                                                            개씩 보기
+														</p>
+														<div class="tac clear" id="opt_page">
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane" id="tab11">
+												<!-- TAB 실사 후공정 -->
+												<div class="">
+													<ul class="table_top">
+														<li class="sel">
+															<select class="fix_width180" id="ao_after_name" onchange="selectNameOption('ao_after', this.value);">
+															</select>
+														</li>
+														<li class="sel tar">
+															<label for="after_search" class="con_label">Search(후공정명) : <input id="ao_after_search" type="text" class="search_btn fix_width180" onkeydown="searchKey(event, this.value, 'ao_after');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('ao_after');"></button></label>
+														</li>
+													</ul>
+													<div class="">
+														<table class="table_basic_layout">
+															<thead>
+																<tr>
+																	<th class="">번호</th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('after_name', this, 'ao_after');" class="blue_text01 sorting">후공정명 <i class="fa fa-sort"></i></a></th>
+																	<th class="">Depth1</th>
+																	<th class="">Depth2</th>
+																	<th class="">Depth3</th>
+																	<th class="">단가</th>
+																	<th class="">관리</th>
+																</tr>
+															</thead>
+															<tbody id="ao_after_list">
+															</tbody>
+														</table>
+														<p class="p_num_b fs12">
+															<button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showRegiPopup('ao_after', '');"> 실사 후공정정보추가</button>
+															<label class="fix_width20">&nbsp;</label>
+															<select name="list_set" class="fix_width55" onchange="showPageSetting('after', this.value);">
+															[TPH_I/common/list_count.html]
+															</select>
+                                                            개씩 보기
+														</p>
+														<div class="tac clear" id="ao_after_page">
+														</div>
+
+													</div>
+												</div>
+											</div>
+
+											<div class="tab-pane" id="tab12">
+												<!-- TAB 실사 옵션 -->
+												<div class="">
+													<ul class="table_top">
+														<li class="sel">
+															<select class="fix_width180" id="ao_opt_name" onchange="selectNameOption('ao_opt', this.value);">
+															</select>
+														</li>
+														<li class="sel tar">
+															<label for="ao_opt_search" class="con_label">Search(옵션명) : <input id="ao_opt_search" type="text" class="search_btn fix_width180" onkeydown="searchKey(event, this.value, 'ao_opt');"><button type="button" class="btn btn-sm btn-info fa fa-search" onclick="searchText('ao_opt');"></button></label>
+														</li>
+													</ul>
+
+													<div class="">
+														<table class="table_basic_layout">
+															<thead>
+																<tr>
+																	<th class="">번호</th>
+																	<th class=""><a style="cursor: pointer;" onclick="sortList('opt_name', this, 'opt');" class="blue_text01 sorting">옵션명 <i class="fa fa-sort"></i></a></th>
+																	<th class="">Depth1</th>
+																	<th class="">Depth2</th>
+																	<th class="">Depth3</th>
+																	<th class="">단가</th>
+																	<th class="">관리</th>
+																</tr>
+															</thead>
+															<tbody id="ao_opt_list">
+															</tbody>
+														</table>
+														<p class="p_num_b fs12">
+															<button class="btn btn_pu fix_width120 fix_height30 bgreen fs12" onclick="showRegiPopup('ao_opt', '');"> 실사옵션정보추가</button>
+															<label class="fix_width20">&nbsp;</label>
+															<select name="list_set" class="fix_width55" onchange="showPageSetting('opt', this.value);">
+															[TPH_I/common/list_count.html]
+															</select>
+                                                            개씩 보기
+														</p>
+														<div class="tac clear" id="ao_opt_page">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--tab-content -->
+
+
+									</div>
+								</div>
+							</div>
+							<!-- 탭 박스 3 TAB -->
+						</div>
+					</section>
+					<!--테이블 끝-->
+				</div>
+				<!--메인상단 왼쪽 레이아웃 끝-->
+			</div>
+			<!-- 본문 컨텐츠 끝 -->
+		</section>
+
+
+	</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>마케팅</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+       <section id="page-content">
+
+            <!-- 본문 컨텐츠  시작-->
+			<div id="content-container" class="content_container mkt_common content_container_mkt_aprvl_mng">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀-->
+					<div class="title">
+						[TPH_I/common/history.html]
+					</div>
+					<!--기본 검색정보 시작-->
+
+						<section class="content_section">
+							<div class="content_wrapper">
+
+								<!-- TAB CONTENT START -->
+								<div class="tab-content">
+									<div class="tab-pane active" id="tab_level1">
+										<!-- 검색 영역 START -->
+										<table class="table_search_layout">
+											<tbody>
+												<tr>
+													<th class="th_text mkt_mng_th_left">판매 채널</th>
+													<td>
+														<select id="sell_site" class="fix_width200">
+															[TPH_Vsell_site]
+														</select>
+														<button type="button" class="btn_float_right btn_Turquoise01" onclick="selectSearch('1','1');">검색</button>
+													</td>
+												</tr>
+												<tr>
+													<th class="th_text mkt_mng_th_left">회원명</th>
+													<td>
+														<input type="text" id="office_nick" onkeydown="loadOfficeNick(event, this.value, '');" name="office_nick" class="input_co2 fix_width191" placeholder="검색창 팝업 사용">
+                                                        <input type="hidden" id="member_seqno" />
+													</td>
+												</tr>
+												<tr>
+													<th class="th_text mkt_mng_th_left">변경월</th>
+													<td>
+                                                        <select id="year" class="fix_width120">
+                                                            [TPH_Vyear_html]
+                                                        </select>
+                                                        <select id="mon" class="fix_width73">
+                                                            [TPH_Vday_opt]
+                                                        </select>
+													</td>
+												</tr>
+												<tr>
+													<th class="th_text mkt_mng_th_left">Status(상태)</th>
+													<td>
+														<select id="aprvl_dvs" class="fix_width130" disabled>
+															<option value="grade">등급승인</option>
+															<!--option value="point">포인트승인</option-->
+													   </select>
+													   <select id="aprvl_type" class="fix_width100">
+															<option value="">전체</option>
+															<option value="1">대기</option>
+															<option value="2">완료</option>
+															<option value="3">거절</option>
+													   </select>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<!--div class="">
+											<div class="table_basic">
+												<table class="table_basic_layout">
+													<thead>
+													<tr>
+														<th class="bm2px">번호</th>					                      				    
+														<th class="bm2px">채널</th>
+														<th class="bm2px">쿠폰명</th>
+														<th class="bm2px">카테고리</th>
+														<th class="bm2px">내역</th>
+														<th class="bm2px">발행건수</th>
+														<th class="bm2px">사용건수</th>
+														<th class="bm2px">사용된금액</th>
+													</tr>					                      				
+													</thead>
+													<tbody id="cp_stats_list">	
+													
+													</tbody>
+												</table>
+											</div>
+										</div-->
+									</div>
+
+									<div class="tab-pane" id="tab_level2"> <!-- 쿠폰정책TAB TAB 02 -->
+										<table class="table_search_layout">
+											<tbody>
+												<tr>
+													<th class="th_text mkt_mng_th_left">판매 채널</th>
+													<td>
+														<select onchange="loadCpList();" id="policy_sell_site" class="fix_width200">
+															[TPH_Vsell_site]
+														</select>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="">
+											<div class="table_basic">
+												<table class="table_basic_layout">
+													<thead>
+													<tr>
+														<th class="bm2px">번호</th>		
+														<th class="bm2px">채널</th>
+														<th class="bm2px">쿠폰명</th>
+														<th class="bm2px">할인내용</th>
+														<th class="bm2px">발행일</th>
+														<th class="bm2px">소멸일</th>
+														<th class="bm2px">대상지정</th>
+														<th class="bm2px">노출여부</th>
+														<th class="bm2px">관리</th>
+													</tr>					                      				
+													</thead>
+													<tbody id="cp_list">
+			
+													</tbody>
+												</table>					                    
+												<div class="btn_wrapper">
+													<button class="btn btn_orange fix_width120 fix_height30 co_blue fs12" onclick="regiCpPopup();">등록</button>
+												</div>
+											</div>					                  
+										</div>
+                                    </div>
+								</div>
+								<!-- TAB CONTENT END -->
+
+							</div>
+						</section>
+
+						<section class="content_section">
+							<div class="content_wrapper">
+								<div class="tb_group mt25">
+									<div class="tab_box_con">
+										<div class="tabbable">                   	
+											<ul class="nav nav-tabs">
+												<li class="active"><a href="#tab_list1" onclick="tabCtrl('grade','1','3')" data-toggle="tab"> 등급승인 </a> </li>
+												<!--li><a href="#tab_list2" onclick="tabCtrl('point','1','3')" data-toggle="tab"> 포인트승인 </a> </li-->
+											</ul>
+					
+											  <div class="tab-content">
+											 
+												 <!-- 등급승인 TAB -->
+												 <div class="tab-pane active" id="tab_list1">
+													<div class="">
+														<div class="table_basic">
+															<table class="table_basic_layout">
+																<thead>
+																	<tr>
+																	<th class="bm2px">번호</th>
+																	<th class="bm2px">회원명</th>
+																	<th class="bm2px">변경월</th>
+																	<th class="bm2px">이전등급</th>
+																	<th class="bm2px">변경등급</th>
+																	<th class="bm2px">전월매출</th>
+																	<th class="bm2px">상태</th>
+																	<th class="bm2px">보기</th>
+																	</tr>
+																</thead>
+																<tbody id="grade_list">
+																<tr><td colspan='8'>검색된 내용이 없습니다.</td></tr>
+																  </tbody>
+															</table>
+															<p class="p_num_b fs12">
+																  Showing 1 to 5 of 30 entries
+																  <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value)">
+																	<option>5</option>
+																	<option>10</option>
+																	<option>20</option>
+																	<option>30</option>
+																  </select>
+															</p>
+															<div class="tac clear" id="grade_page">
+																   <ul class="pagination">
+																	   <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+																	   <li class="disabled"><i class="fa fa-angle-left"></i></li>
+																	   <li><a class="active" href="#">1</a></li>
+																	   <li class="disabled"><i class="fa fa-angle-right"></i></li>
+																	   <li class="disabled"><i class="fa fa-angle-double-right"></i></li>
+																   </ul>
+															</div>
+														</div>
+													</div>
+												 </div> <!-- 등급승인 TAB -->                     	    
+											  
+												 <!-- 포인트승인 TAB -->
+												 <div class="tab-pane" id="tab_list2">
+													 <div class="">
+														<div class="table_basic">
+															<table class="table_basic_layout">
+																<thead>
+																	<tr>
+																	<th class="bm2px">번호</th>
+																	<th class="bm2px">회원명</th>
+																	<th class="bm2px">신청일</th>
+																	<th class="bm2px">포인트명</th>
+																	<th class="bm2px">포인트</th>
+																	<th class="bm2px">신청자</th>
+																	<th class="bm2px">사유</th>
+																	<th class="bm2px">상태</th>
+																	<th class="bm2px">보기</th>
+																	</tr>
+																</thead>
+																<tbody id="point_list">
+																<tr><td colspan='9'>검색된 내용이 없습니다.</td></tr>
+																<!--
+																	<tr>        
+																		<td>1</td>
+																		<td></td>
+																		<td>2015.11.01</td>
+																		<td>소셜추천</td>
+																		<td>1000</td>
+																		<td>일담당</td>
+																		<td>자동->수동 충성도 높은 기업으로 평가되어...</td>
+																		<td><button type="button" class="orge btn_pu btn fix_height20 fix_width55">승인대기</button></td>
+																		<td><button type="button" class="green btn_pu btn fix_height20 fix_width50">view</button></td>
+																			
+																	</tr>
+																	<tr class="cellbg">                  
+																		<td>2</td>
+																		<td></td>
+																		<td>2015.11.01</td>
+																		<td>관리자포인트</td>
+																		<td>1200</td>
+																		<td>이담당</td>
+																		<td></td>
+																		<td><button type="button" class="orge btn_pu btn fix_height20 fix_width55">승인완료</button></td>
+																		<td><button type="button" class="green btn_pu btn fix_height20 fix_width50">view</button></td>
+																	</tr>
+																	<tr>                  									            
+																		<td>3</td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td></td>
+																		<td><button type="button" class="orge btn_pu btn fix_height20 fix_width55">승인거절</button></td>
+																		<td><button type="button" class="green btn_pu btn fix_height20 fix_width50">view</button></td>
+																	</tr>
+																	-->
+																  </tbody>
+															</table>
+															<p class="p_num_b fs12">
+																  Showing 1 to 5 of 30 entries
+																  <select name="list_set" onchange="showPageSetting(this.value)" class="fix_width55">
+																	<option>5</option>
+																	<option>10</option>
+																	<option>20</option>
+																	<option>30</option>
+																  </select>
+															</p>
+															<div class="tac clear" id="point_page">
+																   <ul class="pagination">
+																		<li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+																		<li class="disabled"><i class="fa fa-angle-left"></i></li>
+																		<li><a class="active" href="#">1</a></li>
+																		<li class="disabled"><i class="fa fa-angle-right"></i></li>
+																		<li class="disabled"><i class="fa fa-angle-double-right"></i></li>
+																   </ul>
+															</div>					                              		
+														</div>
+													</div>                                
+												</div> <!-- 포인트승인 TAB -->                            
+											 </div>
+										</div>
+									</div>
+								</div>
+							</div> <!-- 탭 박스 -->
+						</section>
+				</div>
+			</div>
+       </section>
+</div>
+
+   
+   
+</body>
+</html>

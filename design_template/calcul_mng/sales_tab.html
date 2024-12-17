@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<title>정산관리</title>
+	<meta charset="utf-8">
+	[TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+
+	<!-- TOP NAVIGATION -->
+	[TPH_I/common/header.html]
+	<!-- LEFT NAVIGATION -->
+	[TPH_Vleft]
+	<!-- CONTENT -->
+	<section id="page-content">
+
+		<!-- 본문 컨텐츠  시작-->
+		<div id="content-container" class="content_container calcul_common">
+			<!--메인상단 왼쪽 레이아웃-->
+			<div id="left_content" class="left_content">
+				<!--타이틀-->
+				<div class="title">
+					[TPH_I/common/history.html]
+				</div>
+				<!--기본 검색정보 시작-->
+
+				<!-- 탭 박스 1 기본검색 -->
+				<section class="content_section">
+					<div class="content_wrapper">
+                        <table class="table_search_layout">
+                            <tbody>
+                            <tr>
+                                <th class="th_text calcul_mng_th_left">판매채널</th>
+                                <td>
+                                    <select id="sell_site" class="fix_width180">
+                                        <option value="">전체</option>
+                                        [TPH_Vsell_site]
+                                    </select>
+                                    <button type="button" class="btn_float_right btn_Turquoise01" onclick="tabCtrl();">검색</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text calcul_mng_th_left">회원구분</th>
+                                <td>
+                                    <select id="member_dvs" class="fix_width180">
+                                        <option value="">전체</option>
+                                        <option value="개인">개인</option>
+                                        <option value="기업">기업</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text calcul_mng_th_left">월</th>
+                                <td>
+                                    <select id="year" class="fix_width85">
+                                        [TPH_Vyear]
+                                    </select>
+                                    <select id="mon" class="fix_width85">
+                                        [TPH_Vmon]
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text calcul_mng_th_left">회원명</th>
+                                <td>
+                                    <input type="text" id="office_nick" onkeydown="loadOfficeNick(event, this.value, '')" name="office_nick" class="input_co2 fix_width160" placeholder="회원명 검색창 팝업">
+                                    <!--엔터시 form으로 넘어가는 이유로 아래 input 추가 지우면 안됨-->
+                                    <input type="hidden" id="member_seqno" name="member_seqno"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="th_text calcul_mng_th_left">배송방법</th>
+                                <td>
+                                    <select name="dlvr_way" id="dlvr_way" class="fix_width85">
+                                        <option value="">전체</option>
+                                        <option value="01">택배</option>
+                                        <option value="02">직배</option>
+                                        <option value="05">방문</option>
+                                    </select>
+                                    <input type="hidden" class="dlvr_price" id="to_1_dlvr_price" name="to_1_dlvr_price" value="2750">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+					</div>
+				</section>
+
+				<section class="content_section">
+					<div class="content_wrapper">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#tab1" onclick="tabCtrl('대기')" data-toggle="tab"> 세금계산서(대기)</a> </li>
+                            <li><a href="#tab4" onclick="tabCtrl('완료')" data-toggle="tab"> 세금계산서(발급완료) </a> </li>
+							<li><a href="#tab2" onclick="tabCtrl('현금영수증(대기)')" data-toggle="tab">현금영수증(대기)</a> </li>
+                            <li><a href="#tab6" onclick="tabCtrl('현금영수증(완료)')" data-toggle="tab">현금영수증(완료)</a> </li>
+							<li><a href="#tab3" onclick="tabCtrl('미발행')" data-toggle="tab"> 세금계산서 미발행 </a> </li>
+							<li><a href="#tab5" onclick="tabCtrl('카드건별')" data-toggle="tab"> 카드결제 </a> </li>
+                            <li><a href="#tab0" onclick="tabCtrl('전체')" data-toggle="tab"> 전체매출</a> </li>
+						</ul>
+						<div class="tab-content">
+                            <div class="tab-pane" id="tab0"> <!-- tab 01 -->
+
+                                <div class="table-body">
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <th style="background: #eee;">업체수</th>
+                                            <td id="all_member_cnt" class="tar"></td>
+                                            <th style="background: #eee;">총매출합계</th>
+                                            <td class="red_text" id="all_total_price" class="tar"></td>
+                                            <th style="background: #eee;">에누리합계</th>
+                                            <td class="red_text" id="all_enuri" class="tar"></td>
+                                            <th style="background: #eee;">순매출합계</th>
+                                            <td class="red_text" id="all_pay_price" class="tar"></td>
+                                            <th style="background: #eee;">카드합계</th>
+                                            <td class="red_text" id="all_card_total" class="tar"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <ul class="table_top">
+                                        <li class="tar pb10">
+                                            <label class="control-label fix_width79">검색유형</label><label class="fix_width20 fs14 tac">:</label>
+                                            <select class="fix_width79">
+                                                <option value="">업체명</option>
+                                            </select>
+                                            <input id="standby_corp_name" onkeydown="enterCheck(event, 'standby')" type="text" class="search_btn fix_width180"><button type="button" onclick="loadAllList.exec()" class="btn btn-sm btn-info fa fa-search"></button>
+
+                                        </li>
+                                    </ul>
+                                    <div class="tar pb10">
+                                        <button type="button" class="btn_yellow h_26" onclick="insertNewPublic();">생성작업</button>
+                                        <!--button type="button" class="btn_yellow h_26" onclick="saveStandbyPublic();">일괄신청</button-->
+                                        <button type="button" class="btn_yellow h_26" onclick="saveStandbyChkPublic('완료');">신청세금계산서</button>
+                                        <button type="button" class="btn_yellow h_26" onclick="downloadFile();">엑셀 다운로드</button>
+                                    </div>
+
+                                    <div class="table_basic">
+                                        <table class="table_basic_layout">
+                                            <thead>
+                                            <tr class="bm2px">
+                                                <th><input type="checkbox" class="check_box" id="allCheck_all" onclick="allCheck('all');"></th>
+                                                <th>No.</th>
+                                                <th>채널</th>
+                                                <th>신청일자</th>
+                                                <th>발급일자</th>
+                                                <th>업체명</th>
+                                                <th>사업자상호</th>
+                                                <th>사업자번호</th>
+												<th>전화번호</th>
+                                                <th>휴대폰번호</th>
+                                                <th>총매출</th>
+                                                <th>에누리</th>
+                                                <th>순매출</th>
+                                                <th>충전금(카드)</th>
+                                                <th>충전금(가상계좌)</th>
+                                                <th>충전금(현금)</th>
+                                                <th>기타(입금조정)</th>
+                                                <th>현금영수증</th>
+                                                <th>세금계산서선발행</th>
+                                                <th>가상계좌(미발행요청)</th>
+                                                <th>카드건별결제</th>
+                                                <th>카드(단말기)</th>
+                                                <th>현금(미발행)</th>
+                                                <th>발급금액</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="all_list">
+                                            </tbody>
+                                        </table>
+                                        <p class="p_num_b fs12">
+                                            Showing 1 to 30 of 200 entries
+                                            <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, '대기');">
+                                                <option selected="selected">30</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                                <option>200</option>
+                                            </select>
+                                        </p>
+                                        <!--div class="tac clear" id="all_page">
+                                            <ul class="pagination">
+                                                <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                                <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                                <li><a class="active" style="cursor:pointer;">1</a></li>
+                                                <li class="disabled"><i class="fa fa-angle-right"></i></li>
+                                                <li class="disabled"><a class="fa fa-angle-double-right"></a></li>
+                                            </ul>
+
+                                        </div-->
+                                    </div>
+                                </div>
+                            </div>
+							<div class="tab-pane active" id="tab1"> <!-- tab 01 -->
+
+								<div class="table-body">
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <th style="background: #eee;">업체수</th>
+                                            <td id="standby_member_cnt" class="tar"></td>
+                                            <th style="background: #eee;">총매출</th>
+                                            <td class="red_text" id="standby_pay_price" class="tar"></td>
+                                            <th style="background: #eee;">에누리</th>
+                                            <td class="red_text" id="standby_card_price" class="tar"></td>
+                                            <th style="background: #eee;">순매출</th>
+                                            <td class="red_text" id="standby_total_price" class="tar"></td>
+                                            <th style="background: #eee;">발급금액</th>
+                                            <td class="red_text" id="standby_issue_price" class="tar"></td>
+                                        </tr>
+                                    </table>
+								</div>
+								<div>
+									<ul class="table_top">
+										<li class="tar pb10">
+                                            <label class="control-label fix_width79">검색유형</label><label class="fix_width20 fs14 tac">:</label>
+											<select class="fix_width79">
+												<option value="">업체명</option>
+											</select>
+											<input id="standby_corp_name" onkeydown="enterCheck(event, 'standby')" type="text" class="search_btn fix_width180"><button type="button" onclick="loadPublicStandByList.exec()" class="btn btn-sm btn-info fa fa-search"></button>
+                                            
+										</li>
+									</ul>
+                                    <div class="tar pb10">
+										<button type="button" class="btn_yellow h_26" onclick="insertNewPublic();">생성작업</button>
+										<!--button type="button" class="btn_yellow h_26" onclick="saveStandbyPublic();">일괄신청</button-->
+										<button type="button" class="btn_yellow h_26" onclick="saveStandbyChkPublic('완료');">신청세금계산서</button>
+                                        <button type="button" class="btn_yellow h_26" onclick="downloadFileStandby();">엑셀 다운로드</button>
+                                        <button type="button" class="btn_yellow h_26" onclick="downloadFileTaxform();">세금계산서 양식 다운로드</button>
+                                    </div>
+
+									<div class="table_basic">
+										<table class="table_basic_layout">
+											<thead>
+											<tr class="bm2px">
+												<th><input type="checkbox" class="check_box" id="allCheck_standby" onclick="allCheck('standby');"></th>
+                                                <th>No.</th>
+                                                <th>채널</th>
+                                                <th>별칭회원명</th>
+                                                <th>사업자번호</th>
+												<th>정식회원명</th>
+												<th>전화번호</th>
+                                                <th>휴대폰번호</th>
+												<th>총매출</th>
+												<th>에누리</th>
+                                                <th>순매출</th>
+												<th>발급금액</th>
+												<th>발급금액변경</th>
+												<th>상태</th>
+												<th>기타</th>
+											</tr>
+											</thead>
+											<tbody id="standby_list">
+											</tbody>
+										</table>
+										<p class="p_num_b fs12">
+											Showing 1 to 30 of 200 entries
+											<select name="list_set" class="fix_width55" onchange="showPageSetting(this.value, '대기');">
+												<option selected="selected">30</option>
+												<option>50</option>
+												<option>100</option>
+												<option>200</option>
+											</select>
+										</p>
+										<div class="tac clear" id="standby_page">
+                                            <ul class="pagination">
+                                                <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                                <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                                <li><a class="active" style="cursor:pointer;">1</a></li>
+                                                <li class="disabled"><i class="fa fa-angle-right"></i></li>
+                                                <li class="disabled"><a class="fa fa-angle-double-right"></a></li>
+                                            </ul>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- tab 02 -->
+							<div class="tab-pane" id="tab2">
+								<div class="table-body">
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <th style="background: #eee;">업체수</th>
+                                            <td id="cashreceipt_member_cnt" class="tar"></td>
+                                            <th style="background: #eee;">총매출</th>
+                                            <td class="red_text" id="cashreceipt_pay_total" class="tar"></td>
+                                            <th style="background: #eee;">에누리</th>
+                                            <td class="red_text" id="cashreceipt_card_total" class="tar"></td>
+                                            <th style="background: #eee;">순매출</th>
+                                            <td class="red_text" id="cashreceipt_total_price" class="tar"></td>
+                                            <th style="background: #eee;">발급금액</th>
+                                            <td class="red_text" id="cashreceipt_issue_total" class="tar"></td>
+                                        </tr>
+                                    </table>
+								</div>
+								<div>
+                                    <ul class="table_top">
+                                        <li class="tar pb10">
+                                            <label class="control-label fix_width79">검색유형</label><label class="fix_width20 fs14 tac">:</label>
+                                            <select class="fix_width79">
+                                                <option value="">업체명</option>
+                                            </select>
+                                            <input id="cashreceipt_corp_name" onkeydown="enterCheck(event, 'cashreceipt')" type="text" class="search_btn fix_width180"><button type="button" onclick="loadCashreceiptList.exec()" class="btn btn-sm btn-info fa fa-search"></button>
+                                        </li>
+                                    </ul>
+                                    <div class='tar pb10'>
+										<button type="button" class="btn_yellow h_26" onclick="saveCashreceiptPublic();">일괄신청</button>
+										<!--button type="button" class="btn_yellow h_26" onclick="excelDownload('cashreceipt')">엑셀다운로드</button-->
+                                    </div>
+									<div class="table_basic">
+										<table class="table_basic_layout">
+											<thead>
+											<tr class="bm2px">
+												<th><input type="checkbox" class="check_box" id="allCheck_cashreceipt" onclick="allCheck('cashreceipt');"></th>
+                                                <th>No.</th>
+                                                <th>채널</th>
+                                                <th>별칭회원명</th>
+                                                <th>발행종류</th>
+                                                <th>주민/핸드폰/사업자번호</th>
+                                                <th>정식회원명</th>
+                                                <th>전화번호</th>
+                                                <th>휴대폰번호</th>
+                                                <th>총매출</th>
+                                                <th>에누리</th>
+                                                <th>순매출</th>
+                                                <th>발급금액</th>
+                                                <th>상태</th>
+                                                <th>기타</th>
+											</tr>
+											</thead>
+											<tbody id="cashreceipt_list">
+											</tbody>
+										</table>
+                                        <div class="fs12">
+                                         * 거래자구분(0 : 소득공제용/1:지출증빙용)
+                                        </div>
+										<p class="p_num_b fs12">
+											Showing 1 to 30 of 200 entries
+											<select class="fix_width55" name="list_set" onchange="showPageSetting(this.value, '현금영수증')">
+												<option selected="selected">30</option>
+												<option>50</option>
+												<option>100</option>
+												<option>200</option>
+											</select>
+										</p>
+										<div class="tac clear" id="cashreceipt_page">
+                                            <ul class="pagination">
+                                                <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                                <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                                <li><a class="active" style="cursor:pointer;">1</a></li>
+                                                <li class="disabled"><i class="fa fa-angle-right"></i></li>
+                                                <li class="disabled"><a class="fa fa-angle-double-right"></a></li>
+                                            </ul>
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<!-- tab2 end-->
+                            <div class="tab-pane" id="tab6">
+                                <div class="table-body">
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <th style="background: #eee;">업체수</th>
+                                            <td id="cashreceipt_complete_member_cnt" class="tar"></td>
+                                            <th style="background: #eee;">총매출</th>
+                                            <td class="red_text" id="cashreceipt_complete_pay_total" class="tar"></td>
+                                            <th style="background: #eee;">에누리</th>
+                                            <td class="red_text" id="cashreceipt_complete_card_total" class="tar"></td>
+                                            <th style="background: #eee;">순매출</th>
+                                            <td class="red_text" id="cashreceipt_complete_total_price" class="tar"></td>
+                                            <th style="background: #eee;">발급금액</th>
+                                            <td class="red_text" id="cashreceipt_complete_issue_total" class="tar"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <ul class="table_top">
+                                        <li class="tar pb10">
+                                            <label class="control-label fix_width79">검색유형</label><label class="fix_width20 fs14 tac">:</label>
+                                            <select class="fix_width79">
+                                                <option value="">업체명</option>
+                                            </select>
+                                            <input id="cashreceipt_complete_corp_name" onkeydown="enterCheck(event, 'cashreceipt')" type="text" class="search_btn fix_width180"><button type="button" onclick="loadCashreceiptList.exec()" class="btn btn-sm btn-info fa fa-search"></button>
+                                        </li>
+                                    </ul>
+                                    <div class='tar pb10'>
+                                        <button type="button" class="btn_yellow h_26" onclick="saveCashreceiptPublic();">일괄신청</button>
+                                        <!--button type="button" class="btn_yellow h_26" onclick="excelDownload('cashreceipt')">엑셀다운로드</button-->
+                                    </div>
+                                    <div class="table_basic">
+                                        <table class="table_basic_layout">
+                                            <thead>
+                                            <tr class="bm2px">
+                                                <th><input type="checkbox" class="check_box" id="allCheck_cashreceipt" onclick="allCheck('cashreceipt');"></th>
+                                                <th>No.</th>
+                                                <th>채널</th>
+                                                <th>별칭회원명</th>
+                                                <th>발행종류</th>
+                                                <th>주민/핸드폰/사업자번호</th>
+                                                <th>정식회원명</th>
+                                                <th>전화번호</th>
+                                                <th>휴대폰번호</th>
+                                                <th>총매출</th>
+                                                <th>에누리</th>
+                                                <th>순매출</th>
+                                                <th>발급금액</th>
+                                                <th>상태</th>
+                                                <th>기타</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="cashreceipt_complete_list">
+                                            </tbody>
+                                        </table>
+                                        <div class="fs12">
+
+                                        </div>
+                                        <p class="p_num_b fs12">
+                                            Showing 1 to 30 of 200 entries
+                                            <select class="fix_width55" name="list_set" onchange="showPageSetting(this.value, '현금영수증')">
+                                                <option selected="selected">30</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                                <option>200</option>
+                                            </select>
+                                        </p>
+                                        <div class="tac clear" id="cashreceipt_complete_page">
+                                            <ul class="pagination">
+                                                <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                                <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                                <li><a class="active" style="cursor:pointer;">1</a></li>
+                                                <li class="disabled"><i class="fa fa-angle-right"></i></li>
+                                                <li class="disabled"><a class="fa fa-angle-double-right"></a></li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+							<!-- tab 03 -->
+							<div class="tab-pane" id="tab3">
+								<div class="table-body">
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <th style="background: #eee;">업체수</th>
+                                            <td id="unissued_member_cnt" class="tar"></td>
+                                            <th style="background: #eee;">총매출</th>
+                                            <td class="red_text" id="unissued_pay_total" class="tar"></td>
+                                            <th style="background: #eee;">에누리</th>
+                                            <td class="red_text" id="unissued_complete_enuri_total" class="tar"></td>
+                                            <th style="background: #eee;">순매출</th>
+                                            <td class="red_text" id="unissued_complete_total_price" class="tar"></td>
+                                            <th style="background: #eee;">발급금액</th>
+                                            <td class="red_text" id="unissued_complete_issue_total" class="tar"></td>
+                                        </tr>
+                                    </table>
+								</div>
+
+								<div>
+                                    <ul class="table_top">
+                                        <li class="tar pb10">
+                                            <label class="control-label fix_width79">검색유형</label><label class="fix_width20 fs14 tac">:</label>
+                                            <select id="unissued_search_dvs" class="fix_width79">
+                                                <option value="">전체</option>
+                                                <option value="name">업체명</option>
+                                                <option value="num">사업자번호</option>
+                                            </select>
+                                            <input id="unissued_search" onkeydown="enterCheck(event, 'unissued')" type="text" class="search_btn fix_width180"><button type="button" onclick="loadUnissuedList.exec()" class="btn btn-sm btn-info fa fa-search"></button>
+                                        </li>
+                                    </ul>
+									<div class="table_basic">
+										<table class="table_basic_layout">
+											<thead>
+											<tr class="bm2px">
+												<th><input type="checkbox" class="check_box" id="allCheck_unissued" onclick="allCheck('unissued');"></th>
+                                                <th>No.</th>
+                                                <th>채널</th>
+                                                <th>별칭회원명</th>
+                                                <th>정식회원명</th>
+                                                <th>사업자번호</th>
+                                                <th>전화번호</th>
+                                                <th>휴대폰번호</th>
+                                                <th>총매출</th>
+                                                <th>에누리</th>
+                                                <th>순매출</th>
+                                                <th>발급금액</th>
+                                                <th>상태</th>
+                                                <th>기타</th>
+											</tr>
+											</thead>
+											<tbody id="unissued_list">
+											</tbody>
+										</table>
+										<p class="p_num_b fs12">
+											Showing 1 to 30 of 200 entries
+											<select class="fix_width55" name="list_set" onchange="showPageSetting(this.value, '미발행')">
+												<option selected="selected">30</option>
+												<option>50</option>
+												<option>100</option>
+												<option>200</option>
+											</select>
+										</p>
+										<div class="tac clear" id="unissued_page">
+                                            <ul class="pagination">
+                                                <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                                <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                                <li><a class="active" style="cursor:pointer;">1</a></li>
+                                                <li class="disabled"><i class="fa fa-angle-right"></i></li>
+                                                <li class="disabled"><a class="fa fa-angle-double-right"></a></li>
+                                            </ul>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<!-- tab3 end-->
+							<!-- tab 04 -->
+							<div class="tab-pane" id="tab4">
+								<div class="table-body">
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <th style="background: #eee;">업체수</th>
+                                            <td id="complete_member_cnt" class="tar"></td>
+                                            <th style="background: #eee;">총매출</th>
+                                            <td class="red_text" id="complete_pay_total" class="tar"></td>
+                                            <th style="background: #eee;">에누리</th>
+                                            <td class="red_text" id="complete_card_total" class="tar"></td>
+                                            <th style="background: #eee;">순매출</th>
+                                            <td class="red_text" id="complete_total_price" class="tar"></td>
+                                            <th style="background: #eee;">발급금액</th>
+                                            <td class="red_text" id="complete_issue_price" class="tar"></td>
+                                        </tr>
+                                    </table>
+								</div>
+								<div>
+									<ul class="table_top">
+										<li class="tar pb10">
+											<label class="control-label fix_width79">검색유형</label><label class="fix_width20 fs14 tac">:</label>
+                                            <select id="tab_public" class="fix_width79">
+												<option value="">전체</option>
+												<option value="발행">발행</option>
+												<option value="미발행">미발행</option>
+											</select>
+											<select id="complete_search_dvs" class="fix_width79">
+												<option value="">전체</option>
+												<option value="name">업체명</option>
+												<option value="num">사업자번호</option>
+												<option value="repre">대표자명</option>
+											</select>
+											<input id="complete_search" onkeydown="enterCheck(event, 'complete')" type="text" class="search_btn fix_width180"><button type="button" onclick="loadPublicCompleteList.exec()" class="btn btn-sm btn-info fa fa-search"></button>
+                                        </li>
+									</ul>
+                                    <div class='tar pb10'>
+										<button type="button" class="btn_yellow h_26" onclick="saveCompletePublic('완료','N')">일괄다운</button>
+										<button type="button" class="btn_yellow h_26" onclick="downloadFileComplete()">엑셀다운</button>
+                                    </div>
+
+									<div class="table_basic">
+										<table class="table_basic_layout">
+											<thead>
+											<tr class="bm2px">
+												<th><input type="checkbox" class="check_box" id="allCheck_complete" onclick="allCheck('complete')"></th>
+                                                <th>회원명</th>
+                                                <th>업체번호</th>
+                                                <th>업체명</th>
+                                                <th>전화번호</th>
+                                                <th>휴대폰번호</th>
+                                                <th>총매출</th>
+                                                <th>에누리</th>
+                                                <th>순매출</th>
+                                                <th>발급금액</th>
+                                                <th>상태</th>
+                                                <th>기타</th>
+											</tr>
+											</thead>
+											<tbody id="complete_list">
+											</tbody>
+										</table>
+										<p class="p_num_b fs12">
+											Showing 1 to 30 of 200 entries
+											<select class="fix_width55" name="list_set" onchange="showPageSetting(this.value, '완료')">
+												<option selected="selected">30</option>
+												<option>50</option>
+												<option>100</option>
+												<option>200</option>
+											</select>
+										</p>
+										<div class="tac clear" id="complete_page">
+                                            <ul class="pagination">
+                                                <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                                <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                                <li><a class="active" style="cursor:pointer;">1</a></li>
+                                                <li class="disabled"><i class="fa fa-angle-right"></i></li>
+                                                <li class="disabled"><a class="fa fa-angle-double-right"></a></li>
+                                            </ul>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- tab4 end-->
+							<!-- tab5 start-->
+							<div class="tab-pane" id="tab5">
+								<div class="table-body">
+                                    <table class="table fix_width100f">
+                                        <tr>
+                                            <th style="background: #eee;">업체수</th>
+                                            <td id="cardpay_member_cnt" class="tar"></td>
+                                            <th style="background: #eee;">총매출</th>
+                                            <td class="red_text" id="cardpay_pay_total" class="tar"></td>
+                                            <th style="background: #eee;">에누리</th>
+                                            <td class="red_text" id="cardpay_card_total" class="tar"></td>
+                                            <th style="background: #eee;">순매출</th>
+                                            <td class="red_text" id="cardpay_total_price" class="tar"></td>
+                                            <th style="background: #eee;">승인금액</th>
+                                            <td class="red_text" id="cardpay_issue_price" class="tar">0원</td>
+                                        </tr>
+                                    </table>
+								</div>
+								<div>
+                                    <ul class="table_top">
+                                        <li class="tar pb10">
+                                            <label class="control-label fix_width79">검색유형</label><label class="fix_width20 fs14 tac">:</label>
+                                            <select class="fix_width79">
+                                                <option value="">업체명</option>
+                                            </select>
+                                            <input id="cardpay_corp_name" onkeydown="enterCheck(event, 'cardpay')" type="text" class="search_btn fix_width180"><button type="button" onclick="loadCardpayList.exec()" class="btn btn-sm btn-info fa fa-search"></button>
+                                        </li>
+                                    </ul>
+                                    <div class='tar pb10'>
+										<button type="button" class="btn_yellow h_26" onclick="insertNewPublic()">생성작업</button>
+										<button type="button" class="btn_yellow h_26" onclick="saveExceptBatchPublic()">일괄신청</button>
+										<button type="button" class="btn_yellow h_26" onclick="downloadFileCard()">엑셀다운로드</button>
+                                    </div>
+									<div class="table_basic">
+										<table class="table_basic_layout">
+											<thead>
+											<tr class="bm2px">
+												<th><input type="checkbox" class="check_box" id="allCheck_except" onclick="allCheck('cardpay');"></th>
+                                                <th>No.</th>
+                                                <th>채널</th>
+                                                <th>별칭회원명</th>
+                                                <th>정식회원명</th>
+                                                <th>사업자번호</th>
+                                                <th>전화번호</th>
+                                                <th>휴대폰번호</th>
+                                                <th>총매출</th>
+                                                <th>에누리</th>
+                                                <th>순매출</th>
+                                                <th>승인금액</th>
+                                                <th>기타</th>
+											</tr>
+											</thead>
+											<tbody id="cardpay_list">
+											</tbody>
+										</table>
+										<p class="p_num_b fs12">
+											Showing 1 to 30 of 200 entries
+											<select class="fix_width55" name="list_set" onchange="showPageSetting(this.value, '예외')">
+												<option selected="selected">30</option>
+												<option>50</option>
+												<option>100</option>
+												<option>200</option>
+											</select>
+										</p>
+										<div class="tac clear" id="cardpay_page">
+                                            <ul class="pagination">
+                                                <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+                                                <li class="disabled"><i class="fa fa-angle-left"></i></li>
+                                                <li><a class="active" style="cursor:pointer;">1</a></li>
+                                                <li class="disabled"><i class="fa fa-angle-right"></i></li>
+                                                <li class="disabled"><a class="fa fa-angle-double-right"></a></li>
+                                            </ul>
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<!-- tab5 end-->
+						</div>
+					</div>
+				</section>
+
+				<!--팝업-->
+				<div id="basic_popup" style="display:none;">
+				<form>
+				<dl>
+					<dt class="tit">
+						<h4>발급</h4>
+					</dt>
+					<dt class="cls">
+						<button type="button" onclick="hideRegiPopup();" class="btn btn-sm btn-danger fa fa-times"></button>
+					</dt>
+				</dl>  
+				<div class="pop-base">
+					<div class="pop-content">								        	
+						<div class="form-group">
+							<div class="table-body">
+								<div class="table_basic" style="min-height:0">
+									<div style="float:right; margin-bottom:10px;">
+										<span class="control-label">발행일</span>
+											<input placeholder="yyyy-MM-dd" class="input_co2 fix_width150 date" id="basic_public_date" name="basic_public_date">
+										<span class="control-label">발행사업자</span>
+										<select class="fix_width140" id="basic_sell_site" disabled>
+											[TPH_Vsell_site]
+										</select>
+									</div>
+										<table class="fix_width100f">
+											<thead>
+												<tr>
+													<th colspan="2" class="bm2px">매출</th>
+													<th class="bm2px">카드</th>
+													<th class="bm2px">현금</th>
+													<th class="bm2px">기타</th>
+													<th class="bm2px">미수금</th>
+													<th class="bm2px">이전미수금</th>
+													<th class="bm2px">대상금액</th>
+												</tr>
+											</thead>
+											<tbody>	
+												<tr>
+													<td id="basic_req_date"></td>
+													<td id="basic_pay_price"></td>
+													<td id="basic_card_price"></td>
+													<td id="basic_cash_price"></td>
+													<td id="basic_etc_price"></td>
+													<td><input type="text" id="basic_oa" class="fix_width63"></td>
+													<td><input type="text" id="basic_before_oa" class="fix_width63"></td>
+													<td id="basic_object_price">0</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="table-body">
+									<div class="table_basic" style="min-height:0">
+										<table class="fix_width100f">
+										<colgroup>
+											<col width="80">
+											<col>
+											<col width="80">
+											<col width="80">
+											<col width="80">
+											<col>
+											<col width="80">
+											<col width="80">
+										</colgroup>
+										<thead>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row" style="background: rgb(224, 238, 251)">업체명</th>
+												<td id="basic_corp_name"></td>
+												<th scope="row" style="background: rgb(224, 238, 251)">성명</th>
+												<td id="basic_repre_name"></td>
+												<th scope="row" style="background: rgb(224, 238, 251)">사업자번호</th>
+												<td colspan="3" id="basic_crn"></td>
+											</tr>
+											<tr>
+												<th scope="row" style="background: rgb(224, 238, 251)">업태</th>
+												<td id="basic_bc"></td>
+												<th scope="row" style="background: rgb(224, 238, 251)">종목</th>
+												<td id="basic_tob"></td>
+												<td colspan="4"></td>
+											</tr>
+											<tr>
+												<th scope="row" style="background: rgb(224, 238, 251)">주소</th>
+												<td colspan="3" id="basic_addr"></td>
+												<td colspan="4" id="basic_zipcode"></td>
+											</tr>
+										</tbody>
+										</table>
+										</div>
+										</div>
+										<div class="table-body">
+								<div class="table_basic" style="min-height:0">
+									<table class="fix_width100f">
+										<thead>
+											<tr>
+												<th class="bm2px"></th>
+												<th class="bm2px">월</th>
+												<th class="bm2px">일</th>
+												<th class="bm2px">품목</th>
+												<th class="bm2px">규격</th>
+												<th class="bm2px">수량</th>
+												<th class="bm2px">단가</th>
+												<th class="bm2px">공급가액</th>
+												<th class="bm2px">세액</th>
+												<th class="bm2px">비고</th>
+											</tr>
+										</thead>
+										<tbody>	
+											<tr>
+												<td>1</td>
+												<td id="basic_mon"></td>
+												<td id="basic_day"></td>
+												<td>인쇄비</td>
+												<td></td>
+												<td></td>
+												<td id="basic_unitprice">0</td>
+												<td id="basic_supply_price">0</td>
+												<td id="basic_vat">0</td>
+												<td></td>
+											</tr>
+											<!--
+											<tr>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+											</tr>
+											-->
+											<tr>
+												<td>2</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td>합계</td>
+												<td id="basic_tot_price"></td>
+												<td></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="form-group">			
+									<p class="clear tac mt15">
+										<button type="button" class="btn btn-sm btn-success" onclick="savePublicDetail();">저장</button>
+										<button type="button" class="btn btn-sm btn-danger" onclick="savePublic('예외');">삭제</button>
+										<button type="button" class="btn btn-sm btn-primary" onclick="hideRegiPopup();" >닫기</button>
+									</p> 
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>  
+				<!-- -->
+
+				<!--팝업-->
+				<div id="edit_popup" style="display:none;">
+					<form id="editForm">
+						<dl>
+							<dt class="tit">
+								<h4>발급</h4>
+							</dt>
+							<dt class="cls">
+								<button type="button" onclick="hideRegiPopup();" class="btn btn-sm btn-danger fa fa-times"></button>
+							</dt>
+						</dl>  
+						<div class="pop-base">
+							<div class="pop-content">								        	
+								<div class="form-group">
+									<div class="table-body" style="padding: 15px 15px 0 15px;">
+										<div class="table_basic" style="min-height:0">
+											<div id="new_member" style="float:left">
+												<span class="fs12 red_text">＊회원검색후 등록</span>
+												<input type="text" id="regi_office_nick" onkeydown="loadRegiOfficeNick(event, this.value, '')" name="regi_office_nick" class="input_co2 fix_width160" placeholder="회원명 검색창 팝업">
+												<input type="hidden" id="regi_member_seqno" name="regi_member_seqno">
+											</div>
+											<div style="float:right; margin-bottom:10px;">
+												<span class="control-label">발행일</span>
+													<input placeholder="yyyy-MM-dd" class="input_co2 fix_width150 date" id="edit_public_date" name="edit_public_date" readonly>
+												<span class="control-label">발행사업자</span>
+												<select class="fix_width140" id="edit_sell_site" name="edit_sell_site" disabled>
+													[TPH_Vsell_site]
+												</select>
+											</div>
+												<table class="fix_width100f">
+													<thead style="background: rgb(224, 238, 251)">
+														<tr>
+															<th colspan="2" class="bm2px">매출</th>
+															<th class="bm2px">카드</th>
+															<th class="bm2px">현금</th>
+															<th class="bm2px">기타</th>
+															<th class="bm2px">미수금</th>
+															<th class="bm2px">이전미수금</th>
+															<th class="bm2px">대상금액</th>
+														</tr>
+													</thead>
+													<tbody>	
+														<tr>
+															<td id="edit_req_date" name="edit_req_date"></td>
+															<td>
+																<input type="number" class="fix_width63" name="edit_pay_price" id="edit_pay_price" readonly>
+															</td>
+															<td>
+																<input type="text" class="fix_width63" name="edit_card_price" onkeydown="return checkNumber(event)" onkeyup="applySumPrice(event)" id="edit_card_price">
+															</td>
+															<td>
+																<input type="text" class="fix_width63" name="edit_cash_price" onkeydown="return checkNumber(event)" onkeyup="applySumPrice(event)" id="edit_cash_price">
+															</td>
+															<td>
+																<input type="text" class="fix_width63" name="edit_etc_price" onkeydown="return checkNumber(event)" onkeyup="applySumPrice(event)" id="edit_etc_price">
+															</td>
+															<td>
+																<input type="text" class="fix_width63" onkeydown="return checkNumber(event)" onkeyup="removeChar(event)"  id="edit_oa" name="edit_oa" class="fix_width63">
+															</td>
+															<td>
+																<input type="text" class="fix_width63" onkeydown="return checkNumber(event)" onkeyup="removeChar(event)"  id="edit_before_oa" name="edit_before_oa" class="fix_width63">
+															</td>
+															<td>
+																<input type="text" class="fix_width63" id="edit_object_price" name="edit_object_price" class="fix_width63" readonly>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="form-group" style="margin-left: 15px;">
+											<div class="form-radio">
+												<span>발급유형 : </span>
+												<label>
+													<input type="radio" name="edit_public_dvs" value="세금계산서" onchange="changePublicDvs(this.value)" class="radio_box" checked> 세금계산서 
+												</label>
+												<label>
+													<input type="radio" name="edit_public_dvs" value="미발행" onchange="changePublicDvs(this.value)" class="radio_box"> 미발행 
+												</label>
+												<label>
+													<input type="radio" name="edit_public_dvs" value="현금영수증" onchange="changePublicDvs(this.value)" class="radio_box"> 현금영수증
+												</label>
+											</div>
+										</div>
+										<div id="tax_invoice" class="table-body">
+											<div class="table_basic" style="min-height:0">
+												<table class="fix_width100f">
+												<colgroup>
+													<col width="80">
+													<col>
+													<col width="80">
+													<col width="80">
+													<col width="80">
+													<col>
+													<col width="80">
+													<col width="80">
+												</colgroup>
+												<thead>
+												</thead>
+												<tbody>
+													<tr>
+														<th scope="row" style="background: rgb(224, 238, 251)">업체명</th>
+														<td>
+															<input type="text" class="fix_width112" id="edit_corp_name" name="edit_corp_name">
+														</td>
+														<th scope="row" style="background: rgb(224, 238, 251)">성명</th>
+														<td>
+															<input type="text" class="fix_width112" id="edit_repre_name" name="edit_repre_name">
+														</td>
+														<th scope="row" style="background: rgb(224, 238, 251)">사업자번호</th>
+														<td colspan="3">
+															<input type="text" class="fix_width112" id="edit_crn" name="edit_crn">
+														</td>
+													</tr>
+													<tr>
+														<th scope="row" style="background: rgb(224, 238, 251)">업태</th>
+														<td>
+															<input type="text" class="fix_width112" id="edit_bc" name="edit_bc">
+														</td>
+														<th scope="row" style="background: rgb(224, 238, 251)">종목</th>
+														<td>
+															<input type="text" class="fix_width112" id="edit_tob" name="edit_tob">
+														</td>
+														<td colspan="4"></td>
+													</tr>
+													<tr>
+														<th scope="row" style="background: rgb(224, 238, 251)">주소</th>
+														<td colspan="3">
+															<input type="text" class="fix_width344" id="edit_addr" name="edit_addr">
+														</td>
+														<td colspan="4">
+															<input type="text" class="fix_width63" id="edit_zipcode" name="edit_zipcode">
+														</td>
+													</tr>
+												</tbody>
+												</table>
+											</div>
+										</div>
+										<div id="cashreceipt" style="display:none;" class="table-body">
+											<div class="table_basic" style="min-height:0">
+												<table class="fix_width100f">
+												<colgroup>
+													<col width="80">
+													<col width="80">
+													<col width="80">
+													<col width="80">
+												</colgroup>
+												<thead>
+												</thead>
+												<tbody>
+													<tr>
+														<th scope="row" style="background: rgb(224, 238, 251)">구분</th>
+														<td colspan="7">
+														( <input type="radio" checked="checked" name="evid_dvs" value="소득공제용" class="radio_box">소득공제<input type="radio" name="evid_dvs" value="지출증빙용" class="radio_box">지출증빙 - <input type="text" name="cashreceipt_num" class="input_co2 fix_width120" value=""> )
+														</td>
+													</tr>
+												</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="table-body">
+										<div class="table_basic" style="min-height:0">
+											<table class="fix_width100f">
+												<thead>
+													<tr>
+														<th class="bm2px"></th>
+														<th class="bm2px">월</th>
+														<th class="bm2px">일</th>
+														<th class="bm2px">품목</th>
+														<th class="bm2px">규격</th>
+														<th class="bm2px">수량</th>
+														<th class="bm2px">단가</th>
+														<th class="bm2px">공급가액</th>
+														<th class="bm2px">세액</th>
+														<th class="bm2px">비고</th>
+													</tr>
+												</thead>
+												<tbody>	
+													<tr>
+														<td>1</td>
+														<td id="edit_mon"></td>
+														<td id="edit_day"></td>
+														<td id="edit_item">
+															인쇄비
+														</td>
+														<td id="edit_stan">
+														</td>
+														<td id="edit_amt">
+														</td>
+														<td id="edit_unitprice">
+														</td>
+														<td id="edit_supply_price">
+														</td>
+														<td id="edit_vat">
+														</td>
+														<td id="edit_note">
+														</td>
+														<input type="hidden" name="edit_unitprice">
+														<input type="hidden" name="edit_supply_price">
+														<input type="hidden" name="edit_vat">
+														<input type="hidden" name="edit_tot_price">
+													</tr>
+													<!--
+													<tr>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+													</tr>
+													-->
+													<tr>
+														<td>2</td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td>합계</td>
+														<td id="edit_tot_price">
+														</td>
+														<td></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="form-group">			
+											<p class="clear tac mt15">
+												<button type="button" id="new_save" class="btn btn-sm btn-success" onclick="saveNewPublic();">저장</button>
+												<button type="button" id="except_save" class="btn btn-sm btn-success" onclick="saveExceptPublic();">저장</button>
+												<button type="button" id="except_del" class="btn btn-sm btn-danger" onclick="savePublicState('대기');">삭제</button>
+												<button type="button" class="btn btn-sm btn-primary" onclick="hideRegiPopup();" >닫기</button>
+											</p> 
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- -->
+			<iframe id="file_ifr" width="0" height="0" style="display:none;" src=""></iframe>
+
+			</div>
+		</div>
+	</section>
+</div>
+</body>
+</html>

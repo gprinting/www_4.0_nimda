@@ -1,0 +1,9 @@
+@charset 'utf-8';
+.mainBanner .list { position: relative; margin-left:45px;}
+.mainBanner .list li { position: absolute; height: 200px; top: 0; left: 0; right: 0; background: center top repeat-x; background-size: cover; opacity: 0; display:none;}
+.mainBanner .list li.previous { opacity: 1; }
+.mainBanner .list li.on { opacity: 1; transition: opacity .5s; z-index: 1; display:block;}
+.mainBanner .list a { display: block; width: 250px; margin: 0 auto; }
+.mainBanner nav > button { position: relative; margin: auto 0; padding: 3px; }
+.mainBanner nav .prev { top: 84px; border: none; background: none; padding: 0; margin: 0; outline: none;}
+.mainBanner nav .next { top: 84px; left: 275px; border: none; background: none; padding: 0; margin: 0; outline: none; z-index: 2;}

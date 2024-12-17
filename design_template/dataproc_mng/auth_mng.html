@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>전산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+<div id="container">
+    <!-- TOP NAVIGATION --> 
+    [TPH_I/common/header.html]
+    <!-- LEFT NAVIGATION --> 
+    [TPH_Vleft]
+    <!-- CONTENT --> 
+	<section id="page-content" class="">
+        <!-- 본문 컨텐츠  시작-->
+        <div id="content-container" class="content_container">
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#tab_list1" data-toggle="tab"> 관리자목록 </a> </li>                           
+						</ul>
+						<div class="tab-content">                         
+							<!-- 탭 박스 관리자목록 -->
+							<div class="tab-pane active" id="tab_list1">
+								<ul class="table_top">	
+									<li class="sel">                                            
+										<select id="sell_site" onchange="loadMngAuthList(1); return false;" class="fix_width180">
+											[TPH_Vsell_site]
+										</select>
+									</li>						      	                  
+									<li class="sel tar">
+										<!-- <label for="search" class="con_label">Search(회원명) : <input id="search" type="text" class="search_btn fix_width120"><button type="button" class="btn btn-sm btn-info fa fa-search"></button></label> -->
+									</li>
+								</ul>
+			
+								<div class="table_basic">                                
+									<table class="table_basic_layout">
+										<thead>
+											<tr>
+												<th class="bm2px">번호</th>
+												<th class="bm2px">판매채널</th>
+												<th class="bm2px">소속팀</th>
+												<th class="bm2px">이름</th>
+												<th class="bm2px">아이디</th>
+												<th class="bm2px">관리</th>                			    	            		    	              
+											</tr>
+										</thead>
+										<tbody id="auth_list">
+										<tr>
+											<td colspan='6'>검색된 내용이 없습니다.</td>
+										</tr>
+										</tbody>
+									</table>
+									
+									<p class="p_num_b fs12">
+										<button onclick="openRegiPopup($('#copy_auth').html(), 500); return false;" class="btn btn_pu fix_width120 fix_height30 bgreen fs12">접근권한복사</button>
+										    <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value); return false;">
+										        <option>5</option>
+										        <option>10</option>
+										        <option>20</option>
+										        <option>30</option>
+										    </select>
+                                            개씩 보기
+									</p>
+									<div class="tac clear" id="auth_page">
+										<ul class="pagination">
+											<li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+											<li class="disabled"><i class="fa fa-angle-left"></i></li>
+											<li><a class="active" href="#">1</a></li>
+											<li><a href="#" class="fa fa-angle-right"></a></li>
+											<li><a href="#" class="fa fa-angle-double-right"></a></li>
+										</ul>
+									</div>	
+								</div>
+						
+								<!-- 검색 팝업창 --> 
+								<div style="display:none;" id="search_name">
+									<dl>
+										<dt class="tit">
+											<h4>검색창 팝업</h4>
+										</dt>
+										<dt class="cls">
+											<button type="button" onclick="hideSearchPop(); return false;" class="btn btn-sm btn-danger fa fa-times"></button>
+										</dt>
+									</dl>  
+									<div class="pop-base">
+										<div class="pop-content">								        	   
+											<label for="search" class="con_label">Search : <input id="search" onkeydown="loadEmplNamePopupList(event, 'enter')" type="text" class="search_btn fix_width180"><button type="button" onclick="loadEmplNamePopupList(event, 'btn')" class="btn btn-sm btn-info fa fa-search"></button></label>
+											<hr class="hr_bd3">
+												<div class="list_scroll fix_height120">
+													<ul id="search_list" style="ofh">
+													</ul>
+												</div>
+										</div>
+									</div>					 	 
+								</div>  
+								<!-- 검색 팝업창 -->
+
+
+									
+								<div style="display:none;" id="copy_auth">
+									<dl>
+										<dt class="tit">
+											<h4>접근권한복사</h4>
+										</dt>
+										<dt class="cls">
+											<button type="button" onclick="hideRegiPopup(); return false;" class="btn btn-sm btn-danger fa fa-times"></button>
+										</dt>
+									</dl>
+																				
+									<div class="pop-base">                                    
+										<div class="pop-content">								 	  	
+											<div class="form-group">                               		 
+												<label class="control-label fix_width79 tar">사용자 A</label><label class="fix_width20 fs14 tac">:</label>
+												<input type="text" class="input_co2 fix_width180" id="a_mng" onkeydown="loadEmplName(event, this.value, 'aMng');" placeholder="검색창 팝업 사용">
+												<br />		    
+																
+												<label class="control-label fix_width79 tar">사용자 B</label><label class="fix_width20 fs14 tac">:</label>
+												<input type="text" id="b_mng" onkeydown="loadEmplName(event, this.value,'bMng')" class="input_co2 fix_width180" placeholder="검색창 팝업 사용">
+												<br />
+												
+												<label class="fix_width20"> </label>
+												<label class="control-label cp">사용자(A)의 권한을 사용자(B)로 복사합니다.</label>
+												<br />
+												<label class="fix_width20"> </label>
+												<label class="control-label cp">사용자(A)와 동일한 권한을 사용자(B)에게 부여합니다.</label>
+											</div>                               
+											<hr class="hr_bd3">
+												<div class="form-group">                               		 
+												<p class="tac mt15">                                                        
+													<button type="button" onclick="saveCopyMngAuth(); return false;" class="btn btn-sm btn-success">저장</button>
+													<button type="button" onclick="hideRegiPopup(); return false;" class="btn btn-sm btn-primary">닫기</button>                                                        
+												</p> 
+											</div>                              			    		     
+										</div> 
+									</div>                    			    
+								</div>                                    
+							</div>
+						</div>								
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>
+        <!-- 본문 컨텐츠 끝 -->
+    </section>
+</div>
+</body>
+</html>

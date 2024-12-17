@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8"> [TPH_I/common/common.html]
+</head>
+
+<body>
+
+    <div id="container">
+
+        <!-- TOP NAVIGATION -->
+        [TPH_I/common/header.html]
+
+        <!-- LEFT NAVIGATION -->
+        [TPH_Vleft]
+
+        <!-- CONTENT -->
+        <section id="page-content">
+            <!-- 본문 컨텐츠  시작-->
+            <div id="content-container" class="content_container">
+                <!--메인상단 왼쪽 레이아웃-->
+                <div id="left_content" class="left_content">
+                    <!--타이틀 시작-->
+                    <div class="title">
+                        [TPH_I/common/history.html]
+                    </div>
+                    <!--타이틀 끝-->
+                    <!--기본 검색정보 시작-->
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <table class="table_search_layout">
+                                <colgroup>
+                                    <col class="">
+                                    <col class="">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th class="th_text th_manu_print_produce_ord_01">인쇄업체 구분</th>
+                                        <td>
+                                            <select class="select_manu_print_produce_ord_01" id="extnl_etprs_seqno">
+                                            [TPH_Vmanu_html]
+                                            </select>
+                                        </td>
+                                        <th class="th_text th_manu_print_produce_ord_02">날짜</th>
+                                        <td>
+                                            <input type="text" id="date" class="datepicker_input input_manu_print_produce_ord_01">
+                                            <button type="button" class="btn_float_right btn_Turquoise01" onclick="printOrdSearch();">검색</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <!--기본검색정보 끝-->
+                    <!--검색정보 테이블 시작-->
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <!-- 탭 TAB -->
+                            <div class="5">
+                                <div class="">
+                                    <div class="-">
+                                        <div class="">
+                                            <div>
+                                                <div class="" style="height:26px; padding-bottom: 10px;">
+                                                    <button type="button" id="modi_button" class="btn_float_right btn_yellow h_26" onclick="PrintOrdModiMode(); return false;">지시 수정</button>
+                                                    <button type="button" id="comp_button" class="btn_float_right btn_yellow h_26" onclick="PrintOrdCompMode(); return false;"
+                                                        style="display:none;">지시 완료</button>
+                                                    <button type="button" id="canc_button" class="btn_float_right btn_yellow h_26" onclick="PrintOrdCancel(); return false;"
+                                                        style="display:none; margin-right:4px;">지시 취소</button>
+                                                    <button type="button" id="btn" class="btn_float_right btn_yellow h_26" style="margin-right:4px;" onclick="pagePrint(document.getElementById('print_page')); return false;">인쇄 생산지시 인쇄</button>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="table_basic">
+                                                <form id="frm">
+                                                    <div id="print_page">
+                                                        <table class="table_basic_layout" style="margin:10px 0 20px 0;">
+                                                            <colgroup>
+                                                                <col style="width:300px;">
+                                                                <col style="width:250px;">
+                                                                <col style="width:250px;">
+                                                                <col style="width:100px;">
+                                                            </colgroup>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>인쇄업체</th>
+                                                                    <!--th>당일판</th-->
+                                                                    <th>서울판</th>
+                                                                    <th>지방판</th>
+                                                                    <th id="col">합계</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="list">
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <input type="hidden" name="date" id="date_data">
+                                                </form>
+                                            </div>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 탭 박스 3 TAB -->
+                        </div>
+                    </section>
+                    <!--검색정보 테이블 끝-->
+                </div>
+                <!--메인상단 왼쪽 레이아웃 끝-->
+            </div>
+            <!-- 본문 컨텐츠 끝 -->
+        </section>
+    </div>
+</body>
+
+</html>

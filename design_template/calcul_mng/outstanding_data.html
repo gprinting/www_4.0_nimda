@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>정산관리</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+        <section id="page-content" class="fix_width1200">            
+
+            <!-- 히스토리 -->
+            [TPH_I/common/history.html]
+            <!-- 본문 컨텐츠  시작-->
+            
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group fix_width1200 clear">
+    			<ul class="tab_box mt25">
+    			    <li class="fl"><a class="box"> 기본검색정보 </a> </li>
+    			</ul>
+			    <form>
+			        <div class="tab_box_con">
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+        			        <select class="fix_width180">
+        					    <option>(주)굿프린팅</option>
+        		            </select>
+					    </div>
+					    
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar"> 팀구분</label><label class="fix_width20 fs14 tac">:</label>
+        			        <select class="fix_width85">
+        					    <option>어디팀..</option>
+        		            </select>
+					    </div>					    
+					    
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">미수상세구분</label><label class="fix_width20 fs14 tac">:</label>
+        			        <select class="fix_width180">
+        					    <option>미수액 > 0</option>
+        		            </select>
+					    </div>
+
+						<div class="form-group">
+    						<label class="control-label fix_width79 tar">매출조회일</label><label class="fix_width20 fs14 tac">:</label>
+						    <select class="fix_width150">
+                                <option>8/12/2018</option>
+                            </select>
+                            ~
+                            <select class="fix_width150">
+                                <option>8/12/2018</option>
+                            </select>
+                            <a href="#" class="btn btn_md fix_width40">어제</a>
+		                    <a href="#" class="btn btn_md fix_width55">오늘</a>
+		                    <a href="#" class="btn btn_md fix_width40">일주일</a>
+		                    <a href="#" class="btn btn_md fix_width63">한달</a>
+							<label class="fix_width105"></label>
+        		            <label class="control-label fix_width79 ">미수조회일</label><label class="fix_width20 fs14 tac">:</label>
+        		            <select class="fix_width180">
+        					    <option>제품구입(수기입력)</option>
+        		            </select>
+    					</div>
+
+
+			        </div>
+			    </form>
+            </div> <!-- 탭 박스 1 기본검색 -->           
+            
+             <!-- 상세검색버튼 -->
+            <div class="fix_width1200">
+                <p class="btn-lg red_btn">
+                    <a href="#">선택한 조건으로 검색</a>					
+                </p>
+            <div>
+
+
+			<br /><br />
+
+			<div class="table-body">
+                <ul class="table_top">	
+                    <li>
+					        <label class="fix_width25f tac">오늘 미수액 : 20</label>
+							<label class="fix_width25f tac">20</label>
+							<label class="fix_width25f tac">80</label>
+							<label class="tac">어제 미수액 : 100</label>
+                    </li>
+                </ul>
+                
+                <div class="table_basic">
+                
+			        <table class="table fix_width100f">
+                        <thead>
+			                <tr>
+			    	              <th class="bm2px">담당자</th>
+			    	              <th class="bm2px">미수총액</th>
+			    	              <th class="bm2px">총매출총액</th>
+			    	              <th class="bm2px">입금총액</th>
+			    	              <th class="bm2px">이전미수</th>
+			    	              <th class="bm2px">보기</th>	    	              
+			                </tr>
+                        </thead>
+                        <tbody>
+			                <tr>                  
+			                	<td>강미선</td>
+			                	<td>1,000</td>
+			                	<td>2,000</td>
+			                	<td>3,000</td>
+			                	<td>4,000</td>
+			                	<td><button class="btn btn_pu fix_width50 green fs12">상세보기</button></td>
+			                </tr>
+			                <tr class="cellbg">                  
+			                	<td>2</td>
+			                	<td></td>
+			                	<td></td>
+			                	<td></td>
+			                	<td></td>
+			                	<td></td>
+			                </tr>
+			                <tr>                  
+			                	<td>3</td>
+			                	<td></td>
+			                	<td></td>
+			                	<td></td>
+			                	<td></td>
+			                	<td></td>
+			                </tr>
+                        </tbody>
+			        </table>
+			        		              
+                </div>
+            </div>
+
+
+			<div class="table-body">
+                <ul class="table_top">	
+                    <li>
+					        <label class="fix_width100f tac">오늘부터 일주일</label>
+                    </li>
+                </ul>
+                
+                <div class="table_scroll">
+                
+			        <table class="table" style="width:1300px;">
+                        <thead>
+			                <tr>
+			    	              <th class="bm2px">거래처</th>
+			    	              <th class="bm2px">여신초과</th>
+			    	              <th class="bm2px">미수액</th>
+			    	              <th class="bm2px">순매출</th>
+			    	              <th class="bm2px">입금액</th>
+			    	              <th class="bm2px">13일</th>	   
+			    	              <th class="bm2px">12일</th>
+			    	              <th class="bm2px">11일</th>
+			    	              <th class="bm2px">10일</th>
+			    	              <th class="bm2px">09일</th>
+			    	              <th class="bm2px">08일</th>
+			    	              <th class="bm2px">여신한도</th>				
+			    	              <th class="bm2px">총매출</th>
+			    	              <th class="bm2px">매출에누리</th>									  
+			                </tr>
+                        </thead>
+                        <tbody>
+			                <tr>                  
+			                	<td>강미선</td>
+			                	<td>1,000</td>
+			                	<td>2,000</td>
+			                	<td>3,000</td>
+			                	<td>4,000</td>
+			                	<td></td>
+			                	<td>강미선</td>
+			                	<td>1,000</td>
+			                	<td>2,000</td>
+			                	<td>3,000</td>
+			                	<td>4,000</td>
+			                	<td>11</td>
+			                    <td>4,000</td>
+			                	<td>11</td>
+							</tr>
+			                <tr class="cellbg">                  
+			                	<td>강미선</td>
+			                	<td>1,000</td>
+			                	<td>2,000</td>
+			                	<td>3,000</td>
+			                	<td>4,000</td>
+			                	<td></td>
+			                	<td>강미선</td>
+			                	<td>1,000</td>
+			                	<td>2,000</td>
+			                	<td>3,000</td>
+			                	<td>4,000</td>
+			                	<td>11</td>
+			                    <td>4,000</td>
+			                	<td>11</td>
+			                </tr>
+			                <tr>                  
+			                	<td>강미선</td>
+			                	<td>1,000</td>
+			                	<td>2,000</td>
+			                	<td>3,000</td>
+			                	<td>4,000</td>
+			                	<td></td>
+			                	<td>강미선</td>
+			                	<td>1,000</td>
+			                	<td>2,000</td>
+			                	<td>3,000</td>
+			                	<td>4,000</td>
+			                	<td>11</td>
+			                    <td>4,000</td>
+			                	<td>11</td>
+			                </tr>
+                        </tbody>
+			        </table>
+			        
+			        <p class="p_num_b fs12">
+			            Showing 1 to 5 of 30 entries
+			            <select class="fix_width55">
+			                 <option>5</option>
+			                 <option>10</option>
+			                 <option>20</option>
+			                 <option>30</option>
+			            </select>
+			        </p>
+			        <div class="tac clear">
+			    	    <ul class="pagination">
+			    	        <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+			    	        <li class="disabled"><i class="fa fa-angle-left"></i></li>
+			    	        <li><a class="active" href="#">1</a></li>
+			    	        <li><a href="#">2</a></li>
+			    	        <li><a href="#">3</a></li>
+			    	        <li><a href="#">4</a></li>
+			    	        <li><a href="#">5</a></li>
+			    	        <li><a href="#">...</a></li>
+			    	        <li><a href="#" class="fa fa-angle-right"></a></li>
+			    	        <li><a href="#" class="fa fa-angle-double-right"></a></li>
+			    	    </ul>
+			    	</div>			              
+                </div>
+            </div>
+
+
+        </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

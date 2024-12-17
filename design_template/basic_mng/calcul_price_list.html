@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8"> [TPH_I/common/common.html]
+    <script src="[TPH_Vdesign_dir]/js/common/common_modi_popup.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/basic_mng/calcul_price_list_paper.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/basic_mng/calcul_price_list_output.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/basic_mng/calcul_price_list_print.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/basic_mng/calcul_price_list_sale_paper.js"></script>
+</head>
+
+<body>
+
+    <div id="container">
+        <!-- TOP NAVIGATION -->
+        [TPH_I/common/header.html]
+        <!-- LEFT NAVIGATION -->
+        [TPH_Vleft]
+        <!-- CONTENT -->
+        <section id="page-content" class="">
+            <!-- 본문 컨텐츠  시작-->
+            <div id="content-container" class="content_container">
+                <!--메인상단 왼쪽 레이아웃-->
+                <div id="left_content" class="left_content">
+                    <!--타이틀 시작-->
+                    <div class="title">
+                        [TPH_I/common/history.html]
+                    </div>
+                    <!--타이틀 끝-->
+                    <!--기본 검색정보 시작-->
+                    <section class="content_section">
+                        <div class="content_wrapper">
+                            <ul class="nav nav-tabs" id="root_tab">
+                                <li class="active" dvs="paper">
+                                    <a href="#tab_p1" data-toggle="tab"> 종이</a>
+                                </li>
+                                <li dvs="output">
+                                    <a href="#tab_p2" data-toggle="tab"> 출력 </a>
+                                </li>
+                                <li dvs="print">
+                                    <a href="#tab_p3" data-toggle="tab"> 인쇄 </a>
+                                </li>
+                                <li>
+                                    <a href="#tab_p4" data-toggle="tab"> 후공정 </a>
+                                </li>
+                                <li>
+                                    <a href="#tab_p5" data-toggle="tab"> 옵션 </a>
+                                </li>
+                                <li dvs="sale_paper">
+                                    <a href="#tab_p6" data-toggle="tab"> 수량별 종이 할인 </a>
+                                </li>
+                            </ul>
+                            <!-- TAB UI -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_p1">
+                                    <!-- 종이 -->
+                                    <table class="table_search_layout">
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">판매채널</th>
+                                            <td>
+                                                <select id="paper_sell_site" class="select_basic_calcul_price_01">
+                                                    [TPH_Vsell_site]
+                                                </select>
+                                                <button type="button" class="btn_float_right btn_Turquoise01" onclick="cndSearch.exec('paper', false);">검색</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">부가세</th>
+                                            <td>
+                                                <label class="check_box_wrapper_calcul_price">
+                                                    <input type="radio" checked="checked" name="paper_tax_yn" value="Y" class="checkbox_align"> 포함가격
+                                                </label>
+                                                <label class="check_box_wrapper_calcul_price">
+                                                    <input type="radio" name="paper_tax_yn" value="N" class="checkbox_align"> 미포함가격
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <hr class="section_bar">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">종이</th>
+                                            <td>
+                                                <select id="paper_sort" onchange="paperSelectCalc.exec('SORT', this.value);" class="select_basic_calcul_price_02">
+                                                    [TPH_Vpaper_html]
+                                                </select>
+                                                <select id="paper_name" onchange="paperSelectCalc.exec('NAME', this.value);" class="select_basic_calcul_price_02">
+                                                    <option value="">종이명</option>
+                                                </select>
+                                                <select id="paper_dvs" onchange="paperSelectCalc.exec('DVS', this.value);" class="select_basic_calcul_price_02">
+                                                    <option value="">구분</option>
+                                                </select>
+                                                <select id="paper_color" onchange="paperSelectCalc.exec('COLOR', this.value);" class="select_basic_calcul_price_02">
+                                                    <option value="">색상</option>
+                                                </select>
+                                                <select id="paper_basisweight" class="select_basic_calcul_price_02">
+                                                    <option value="">평량</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">계열</th>
+                                            <td>
+                                                <label class="check_box_wrapper_calcul_price_02">
+                                                    <input type="checkbox" onclick="clickAffil.exec(this, '46', 'paper');" class="checkbox_align"> 46계열
+                                                </label>
+                                                <label class="check_box_wrapper_calcul_price_02">
+                                                    <input type="checkbox" onclick="clickAffil.exec(this, 'GUK', 'paper');" class="checkbox_align"> 국계열
+                                                </label>
+                                                <label class="check_box_wrapper_calcul_price_02">
+                                                    <input type="checkbox" onclick="clickAffil.exec(this, 'SPC', 'paper');" class="checkbox_align"> 별계열
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">사이즈</th>
+                                            <td>
+                                                <select id="paper_size" onchange="selectSize('paper', this.value);" class="select_basic_calcul_price_02">
+                                                    <option value="">전체</option>
+                                                </select>
+                                                <label style="padding-left:20px;">가로사이즈</label>
+                                                <input type="text" id="paper_size_width" class="select_basic_calcul_price_02 date" value="*" disabled="disabled">
+                                                <label style="padding-left:20px;">세로사이즈</label>
+                                                <input type="text" id="paper_size_height" class="select_basic_calcul_price_02 date" value="*" disabled="disabled">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <hr class="section_bar">
+                                    <!-- TAB UI -->
+                                    <ul class="nav nav-tabs mt25">
+                                        <li class="active">
+                                            <a href="#tab_p0" data-toggle="tab"> 전체검색테이블 </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab_p0">
+                                            <div class="table-body">
+                                                <div class="table_scroll">
+                                                    <table class="table" id="paper_price_list" style="width:1120px; display:none;">
+                                                    </table>
+                                                </div>
+                                                <br /><br />
+                                                <!-- 엑셀 업/다운로드 -->
+                                                <div class="dnup">
+                                                    <input id="paper_price_excel_path" name="upload_file" class="disableInputField" placeholder="Choose File" disabled="disabled"
+                                                    />
+
+                                                    <label class="fileUpload">
+                                                        <input id="paper_price_excel" name="excel_file_img" type="file" accept=".xlsx" class="upload"/>
+                                                        <span class="btn_file_search"><i class="fa fa-folder-open"></i> 파일찾기</span>
+                                                    </label>
+
+                                                    <script type="text/javascript">
+                                                        document.getElementById("paper_price_excel").onchange = function () {
+                                                            document.getElementById("paper_price_excel_path").value = this.value;
+                                                        };
+                                                    </script>
+                                                    <label onclick="uploadFile('paper_sell_price');" class="fileUpload">
+                                                        <span class="btn_file_upload"><i class="fa fa-upload"></i> 업로드</span>
+                                                    </label>
+
+                                                    <hr class="hr_bd">
+
+                                                    <button type="button" onclick="downloadFile.exec('paper');" style="height:32px;" class="btn btn-warning">
+                                                        <span class="btn_download"><i class="fa fa-file-excel-o"></i> 종이 가격 다운로드</span>
+                                                    </button>
+                                                </div>
+                                                <!-- 엑셀 업/다운로드 -->
+                                                <!-- 일괄수정 팝업창 -->
+                                                <div class="pop_add_box fix_width500" style="display:none;" id="modi_all_paper_price">
+                                                    <dl>
+                                                        <dt class="tit">
+                                                            <h4>가격등록 조건입력</h4>
+                                                        </dt>
+                                                        <dt class="cls">
+                                                            <button type="button" onclick="hideModiPop();" class="btn btn-sm btn-danger fa fa-times"></button>
+                                                        </dt>
+                                                    </dl>
+                                                    <div class="pop-base">
+                                                        <div class="pop-content">
+                                                            <div class="form-group fs12">
+                                                                기존 판매금액의
+                                                                <select class="fix_width120" name="modi_all_price_dvs" disabled="disabled">
+                                                                    <option value="R">요율</option>
+                                                                    <option value="A">적용금액</option>
+                                                                </select>
+                                                                <input type="text" id="modi_all_paper_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);" class="input_co3 fix_width75"
+                                                                    value="">                                                                % / 원을 적용합니다.
+                                                            </div>
+                                                            <div class="form-group tar">
+                                                                <label class="btn btn_md fix_width55" onclick="aplyPriceInfo.exec('paper');"> 적용 </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 일괄수정 팝업창 -->
+                                                <!-- 개별수정 팝업창 -->
+                                                <div class="popover top" style="display:none;" id="modi_each_paper_price">
+                                                    <div class="arrow"></div>
+                                                    <div class="editable-input" style="position: relative;">
+                                                        <input type="text" id="modi_each_paper_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);" placeholder="요율,적용금액">
+                                                        <span class="editable-clear-x cp"></span>
+                                                    </div>
+                                                    <button type="button" onclick="aplyPriceInfoEach.exec('paper');" class="btn btn-xs">
+                                                        <i class="fa fa-fw fa-check"></i>
+                                                    </button>
+                                                    <button type="button" onclick="hideModiPop();" class="btn btn-default btn-xs">
+                                                        <i class="fa fa-fw fa-times"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- 개별수정 팝업창 -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--tab-content -->
+                                </div>
+
+
+
+
+
+                                <div class="tab-pane" id="tab_p2">
+                                    <!-- 출력 -->
+                                    <table class="table_search_layout">
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">판매채널</th>
+                                            <td>
+                                                <select id="output_sell_site" class="select_basic_calcul_price_01">
+                                                    [TPH_Vsell_site]
+                                                </select>
+                                                <button type="button" class="btn_float_right btn_Turquoise01" onclick="cndSearch.exec('output', false);">검색</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">부가세</th>
+                                            <td>
+                                                <label class="check_box_wrapper_calcul_price">
+                                                    <input type="radio" checked="checked" name="output_tax_yn" value="Y" class="checkbox_align"> 포함가격
+                                                </label>
+                                                <label class="check_box_wrapper_calcul_price">
+                                                    <input type="radio" name="output_tax_yn" value="N" class="checkbox_align"> 미포함가격
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <hr class="section_bar">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">출력</th>
+                                            <td>
+                                                <select id="output_name" onchange="outputSelect(this.value);" class="select_basic_calcul_price_02">
+                                                    [TPH_Voutput_html]
+                                                </select>
+                                                <select id="output_board_dvs" class="select_basic_calcul_price_02">
+                                                    <option value="">판구분</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <hr class="section_bar">
+                                    <!-- TAB UI -->
+                                    <ul class="nav nav-tabs mt25">
+                                        <li class="active">
+                                            <a href="#tab_p0" data-toggle="tab"> 전체검색테이블 </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab_p0">
+                                            <div class="table-body">
+                                                <div class="table_scroll">
+                                                    <table class="table" id="output_price_list" style="width:1120px; display:none;">
+                                                    </table>
+                                                </div>
+                                                <br /><br />
+                                                <!-- 엑셀 업/다운로드 -->
+                                                <div class="dnup">
+                                                    <input id="output_price_excel_path" name="upload_file" class="disableInputField" placeholder="Choose File" disabled="disabled"
+                                                    />
+
+                                                    <label class="fileUpload">
+                                                        <input id="output_price_excel" name="excel_file_img" type="file" accept=".xlsx" class="upload"/>
+                                                        <span class="btn_file_search"><i class="fa fa-folder-open"></i> 파일찾기</span>
+                                                    </label>
+
+                                                    <script type="text/javascript">
+                                                        document.getElementById("output_price_excel").onchange = function () {
+                                                            document.getElementById("output_price_excel_path").value = this.value;
+                                                        };
+                                                    </script>
+                                                    <label onclick="uploadFile('output_sell_price');" class="fileUpload">
+                                                        <span class="btn_file_upload"><i class="fa fa-upload"></i> 업로드</span>
+                                                    </label>
+
+                                                    <hr class="hr_bd">
+
+                                                    <button type="button" onclick="downloadFile.exec('output');" style="height:32px;" class="btn btn-warning">
+                                                        <span class="btn_download"><i class="fa fa-file-excel-o"></i> 출력 가격 다운로드</span>
+                                                    </button>
+                                                </div>
+                                                <!-- 엑셀 업/다운로드 -->
+
+                                                <!-- 일괄수정 팝업창 -->
+                                                <div class="pop_add_box fix_width500" style="display:none;" id="modi_all_output_price">
+                                                    <dl>
+                                                        <dt class="tit">
+                                                            <h4>가격등록 조건입력</h4>
+                                                        </dt>
+                                                        <dt class="cls">
+                                                            <button type="button" onclick="hideModiPop();" class="btn btn-sm btn-danger fa fa-times"></button>
+                                                        </dt>
+                                                    </dl>
+                                                    <div class="pop-base">
+                                                        <div class="pop-content">
+                                                            <div class="form-group fs12">
+                                                                기존 판매금액의
+                                                                <select class="fix_width120" name="modi_all_price_dvs" disabled="disabled">
+                                                                    <option value="R">요율</option>
+                                                                    <option value="A">적용금액</option>
+                                                                </select>
+                                                                <input type="text" id="modi_all_output_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);" class="input_co3 fix_width75"
+                                                                    value="">                                                                % / 원을 적용합니다.
+                                                            </div>
+                                                            <div class="form-group tar">
+                                                                <label class="btn btn_md fix_width55" onclick="aplyPriceInfo.exec('output');"> 적용 </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 일괄수정 팝업창 -->
+
+                                                <!-- 개별수정 팝업창 -->
+                                                <div class="popover top" style="display:none;" id="modi_each_output_price">
+                                                    <div class="arrow"></div>
+                                                    <div class="editable-input" style="position: relative;">
+                                                        <input type="text" id="modi_each_output_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);" placeholder="요율,적용금액">
+                                                        <span class="editable-clear-x cp"></span>
+                                                    </div>
+                                                    <button type="button" onclick="aplyPriceInfoEach.exec('output');" class="btn btn-primary btn-xs">
+                                                        <i class="fa fa-fw fa-check"></i>
+                                                    </button>
+                                                    <button type="button" onclick="hideModiPop();" class="btn btn-default btn-xs">
+                                                        <i class="fa fa-fw fa-times"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- 개별수정 팝업창 -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--tab-content -->
+                                </div>
+
+
+
+
+
+                                <div class="tab-pane" id="tab_p3">
+                                    <!-- 인쇄 -->
+                                    <table class="table_search_layout">
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">판매채널</th>
+                                            <td>
+                                                <select id="print_sell_site" class="select_basic_calcul_price_01">
+                                                    [TPH_Vsell_site]
+                                                </select>
+                                                <button type="button" class="btn_float_right btn_Turquoise01" onclick="cndSearch.exec('print', false);">검색</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">카테고리</th>
+                                            <td>
+                                                <select id="cate_top" onchange="cateSelect.exec('top', this.value);" class="select_basic_calcul_price_02">
+                                                    [TPH_Vcate_html]
+                                                </select>
+                                                <select id="cate_mid" onchange="initPrintInfo(this.value);" class="select_basic_calcul_price_02">
+                                                    <option value="">중분류(전체)</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">부가세</th>
+                                            <td>
+                                                <label class="check_box_wrapper_calcul_price">
+                                                    <input type="radio" checked="checked" name="print_tax_yn" value="Y" class="checkbox_align"> 포함가격
+                                                </label>
+                                                <label class="check_box_wrapper_calcul_price">
+                                                    <input type="radio" name="print_tax_yn" value="N" class="checkbox_align"> 미포함가격
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <hr class="section_bar">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">인쇄명</th>
+                                            <td>
+                                                <select id="print_name" onchange="printSelect(this.value);" class="select_basic_calcul_price_02">
+                                                    <option value="">인쇄명</option>
+                                                </select>
+                                                <select id="print_purp_dvs" class="select_basic_calcul_price_02">
+                                                    <option value="">인쇄용도</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">계열</th>
+                                            <td>
+                                                <label class="check_box_wrapper_calcul_price_02">
+                                                    <input type="checkbox" onclick="clickAffil.exec(this, '46', 'print');" class="checkbox_align"> 46계열</label>
+                                                <label class="fix_width15"></label>
+                                                <label class="check_box_wrapper_calcul_price_02">
+                                                    <input type="checkbox" onclick="clickAffil.exec(this, 'GUK', 'print');" class="checkbox_align"> 국계열</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">사이즈</th>
+                                            <td>
+                                                <select id="print_size" onchange="selectSize('print', this.value);" class="select_basic_calcul_price_02">
+                                                    <option value="">전체</option>
+                                                </select>
+                                                <label class="fix_width20"></label>
+                                                <label style="padding-left:20px;">가로사이즈</label>
+                                                <input type="text" id="print_size_width" class="select_basic_calcul_price_02 date" value="*" disabled="disabled">
+                                                <label class="fix_width20"></label>
+                                                <label style="padding-left:20px;">세로사이즈</label>
+                                                <input type="text" id="print_size_height" class="select_basic_calcul_price_02 date" value="*" disabled="disabled">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <hr class="section_bar">
+                                    <!-- TAB UI -->
+                                    <ul class="nav nav-tabs mt25">
+                                        <li class="active">
+                                            <a href="#tab_p0" data-toggle="tab"> 전체검색테이블 </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab_p0">
+                                            <div class="table-body">
+                                                <div class="table_scroll">
+                                                    <table class="table" id="print_price_list" style="width:1120px; display:none;">
+                                                    </table>
+                                                </div>
+                                                <br /><br />
+                                                <!-- 엑셀 업/다운로드 -->
+                                                <div class="dnup">
+                                                    <input id="print_price_excel_path" name="upload_file" class="disableInputField" placeholder="Choose File" disabled="disabled"
+                                                    />
+
+                                                    <label class="fileUpload">
+                                                        <input id="print_price_excel" name="excel_file_img" type="file" accept=".xlsx" class="upload"/>
+                                                        <span class="btn_file_search"><i class="fa fa-folder-open"></i> 파일찾기</span>
+                                                    </label>
+
+                                                    <script type="text/javascript">
+                                                        document.getElementById("print_price_excel").onchange = function () {
+                                                            document.getElementById("print_price_excel_path").value = this.value;
+                                                        };
+                                                    </script>
+                                                    <label onclick="uploadFile('print_sell_price');" class="fileUpload">
+                                                        <span class="btn_file_upload"><i class="fa fa-upload"></i> 업로드</span>
+                                                    </label>
+
+                                                    <hr class="hr_bd">
+
+                                                    <button type="button" onclick="downloadFile.exec('print');" class="btn btn-warning">
+                                                        <span class="btn_download"><i class="fa fa-file-excel-o"></i> 인쇄 가격 다운로드</span>
+                                                    </button>
+
+                                                </div>
+                                                <!-- 엑셀 업/다운로드 -->
+
+                                                <!-- 일괄수정 팝업창 -->
+                                                <div class="pop_add_box fix_width500" style="display:none;" id="modi_all_print_price">
+                                                    <dl>
+                                                        <dt class="tit">
+                                                            <h4>가격등록 조건입력</h4>
+                                                        </dt>
+                                                        <dt class="cls">
+                                                            <button type="button" onclick="hideModiPop();" class="btn btn-sm btn-danger fa fa-times"></button>
+                                                        </dt>
+                                                    </dl>
+                                                    <div class="pop-base">
+                                                        <div class="pop-content">
+                                                            <div class="form-group fs12">
+                                                                기존 판매금액의
+                                                                <select class="fix_width120" name="modi_all_price_dvs" disabled="disabled">
+                                                                    <option value="R">요율</option>
+                                                                    <option value="A">적용금액</option>
+                                                                </select>
+                                                                <input type="text" id="modi_all_print_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);" class="input_co3 fix_width75"
+                                                                    value="">                                                                % / 원을 적용합니다.
+                                                            </div>
+                                                            <div class="form-group tar">
+                                                                <label class="btn btn_md fix_width55" onclick="aplyPriceInfo.exec('print');"> 적용 </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 일괄수정 팝업창 -->
+
+                                                <!-- 개별수정 팝업창 -->
+                                                <div class="popover top" style="display:none;" id="modi_each_print_price">
+                                                    <div class="arrow"></div>
+                                                    <div class="editable-input" style="position: relative;">
+                                                        <input type="text" id="modi_each_print_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);" placeholder="요율,적용금액">
+                                                        <span class="editable-clear-x cp"></span>
+                                                    </div>
+                                                    <button type="button" onclick="aplyPriceInfoEach.exec('print');" class="btn btn-primary btn-xs">
+                                                        <i class="fa fa-fw fa-check"></i>
+                                                    </button>
+                                                    <button type="button" onclick="hideModiPop();" class="btn btn-default btn-xs">
+                                                        <i class="fa fa-fw fa-times"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- 개별수정 팝업창 -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--tab-content -->
+                                </div>
+
+
+
+
+
+                                <div class="tab-pane" id="tab_p4">
+                                    <!-- 후공정 -->
+                                    <button type="button" class="btn btn-danger fwb">계산형 가격에서  후공정 가격은 확정형 가격과 동일하게 적용됩니다. </button>
+                                </div>
+
+                                <!-- 탭 옵션 시작 -->
+                                <div class="tab-pane" id="tab_p5">
+                                    <button type="button" class="btn btn-warning fwb">계산형 가격에서  옵션 가격은 확정형 가격과 동일하게 적용됩니다. </button>
+                                </div>
+                                <!-- 탭 옵션 끝 -->
+
+                                <div class="tab-pane" id="tab_p6">
+                                    <!-- 수량별 종이 할인 -->
+                                    <table class="table_search_layout">
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">판매채널</th>
+                                            <td>
+                                                <select id="sale_paper_sell_site" class="select_basic_calcul_price_01">
+                                                    [TPH_Vsell_site]
+                                                </select>
+                                                <button type="button" class="btn_float_right btn_Turquoise01" onclick="cndSearch.exec('sale_paper', false);">검색</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">카테고리</th>
+                                            <td>
+                                                <select id="sale_cate_bot" onchange="initDetailInfo(this.value);" class="select_basic_calcul_price_01">
+                                                    [TPH_Vcalc_cate_html]
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">부가세</th>
+                                            <td>
+                                                <label class="check_box_wrapper_calcul_price">
+                                                    <input type="radio" checked="checked" name="sale_paper_tax_yn" value="Y" class="checkbox_align"> 포함가격
+                                                </label>
+                                                <label class="check_box_wrapper_calcul_price">
+                                                    <input type="radio" name="sale_paper_tax_yn" value="N" class="checkbox_align"> 미포함가격
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <hr class="section_bar">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">종이</th>
+                                            <td>
+                                                <select id="sale_paper_name" onchange="paperSelect.exec('NAME', this.value, 'sale');" class="select_basic_calcul_price_02">
+                                                    <option value="">종이명</option>
+                                                </select>
+                                                <select id="sale_paper_dvs" onchange="paperSelect.exec('DVS', this.value, 'sale');" class="select_basic_calcul_price_02">
+                                                    <option value="">구분</option>
+                                                </select>
+                                                <select id="sale_paper_color" onchange="paperSelect.exec('COLOR', this.value, 'sale');" class="select_basic_calcul_price_02">
+                                                    <option value="">색상</option>
+                                                </select>
+                                                <select id="sale_paper_basisweight" class="select_basic_calcul_price_02">
+                                                    <option value="">평량</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">사이즈</th>
+                                            <td>
+                                                <select id="sale_size_typ" class="select_basic_calcul_price_02" onchange="loadOutputSize(this.value, 'sale');">
+                                                    <option value="">사이즈유형(전체)</option>
+                                                </select>
+                                                <select id="sale_output_size" class="select_basic_calcul_price_02">
+                                                    <option value="">전체</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_text th_basic_calcul_price_01">수량</th>
+                                            <td>
+                                                <select id="sale_min_amt" class="select_basic_calcul_price_02">
+                                                    <option value="">최소수량</option>
+                                                </select>
+                                                <select id="sale_max_amt" class="select_basic_calcul_price_02">
+                                                    <option value="">최대수량</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <hr class="section_bar">
+                                    <!-- TAB UI -->
+                                    <ul class="nav nav-tabs mt25">
+                                        <li class="active">
+                                            <a href="#tab_p0" data-toggle="tab"> 전체검색테이블 </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab_p0">
+                                            <div class="table-body">
+                                                <div class="table_scroll">
+                                                    <table class="table" id="sale_paper_price_list" style="width:1120px; display:none;">
+                                                    </table>
+                                                </div>
+                                                <br /><br />
+                                                <!-- 엑셀 업/다운로드 -->
+                                                <div class="dnup">
+                                                    <input id="sale_paper_price_excel_path" name="upload_file" class="disableInputField" placeholder="Choose File" disabled="disabled"
+                                                    />
+                                                    <label class="fileUpload">
+                                                        <input id="sale_paper_price_excel" name="excel_file_img" type="file" accept=".xlsx" class="upload"/>
+                                                        <span class="btn_file_search"><i class="fa fa-folder-open"></i> 파일찾기</span>
+                                                    </label>
+                                                    <script type="text/javascript">
+                                                        document.getElementById("sale_paper_price_excel").onchange = function () {
+                                                            document.getElementById("sale_paper_price_excel_path").value = this.value;
+                                                        };
+                                                    </script>
+                                                    <label onclick="uploadFile('sale_paper_price');" style="height:32px;" class="fileUpload">
+                                                        <span class="btn_file_upload"><i class="fa fa-upload"></i> 업로드</span>
+                                                    </label>
+
+                                                    <hr class="hr_bd">
+
+                                                    <button type="button" onclick="downloadFile.exec('sale_paper');" style="height:32px;" class="btn btn-warning">
+                                                        <span class="btn_download"><i class="fa fa-file-excel-o"></i> 종이 가격 다운로드</span>
+                                                    </button>
+                                                </div>
+                                                <!-- 엑셀 업/다운로드 -->
+                                                <!-- 일괄수정 팝업창 -->
+                                                <div class="pop_add_box fix_width500" style="display:none;" id="modi_all_sale_paper_price">
+                                                    <dl>
+                                                        <dt class="tit">
+                                                            <h4>가격등록 조건입력</h4>
+                                                        </dt>
+                                                        <dt class="cls">
+                                                            <button type="button" onclick="hideModiPop();" class="btn btn-sm btn-danger fa fa-times"></button>
+                                                        </dt>
+                                                    </dl>
+                                                    <div class="pop-base">
+                                                        <div class="pop-content">
+                                                            <div class="form-group fs12">
+                                                                기존 판매금액의
+                                                                <select class="fix_width120" name="modi_all_price_dvs" disabled="disabled">
+                                                                    <option value="R">요율</option>
+                                                                    <option value="A">적용금액</option>
+                                                                </select>
+                                                                <input type="text" id="modi_all_sale_paper_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);"
+                                                                    class="input_co3 fix_width75" value="">                                                                % / 원을 적용합니다.
+                                                            </div>
+                                                            <div class="form-group tar">
+                                                                <label class="btn btn_md fix_width55" onclick="aplyPriceInfo.exec('sale_paper');"> 적용 </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 일괄수정 팝업창 -->
+                                                <!-- 개별수정 팝업창 -->
+                                                <div class="popover top" style="display:none;" id="modi_each_sale_paper_price">
+                                                    <div class="arrow"></div>
+                                                    <div class="editable-input" style="position: relative;">
+                                                        <input type="text" id="modi_each_sale_paper_price_val" name="popup_val" onkeyup="this.value = inputOnlyNumber(this.value);"
+                                                            placeholder="요율,적용금액">
+                                                        <span class="editable-clear-x cp"></span>
+                                                    </div>
+                                                    <button type="button" onclick="aplyPriceInfoEach.exec('sale_paper');" class="btn btn-primary btn-xs">
+                                                        <i class="fa fa-fw fa-check"></i>
+                                                    </button>
+                                                    <button type="button" onclick="hideModiPop();" class="btn btn-default btn-xs">
+                                                        <i class="fa fa-fw fa-times"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- 개별수정 팝업창 -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--tab-content -->
+                                </div>
+
+                            </div>
+                    </section>
+                    <!--기본검색정보 끝-->
+                    <!--검색정보 테이블 시작-->
+                    <iframe id="file_ifr" width="0" height="0" style="display:none;" src=""></iframe>
+                    </div>
+                </div>
+        </section>
+
+        </div>
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+                <!--주문정보-->
+                <section id="content2" class="content">
+                    <div class="tab_button">
+                        <span class="th_text order_info_span_text01">키워드 검색</span>
+                        <select id="order_info_search_dvs" class="order_order_info_secect_01">
+                            <option value="title">제작물 내용</option>
+                            <option value="typset_num">판번호</option>
+                        </select>
+                        <input type="text" id="order_info_search_keyword" class="order_order_info_input_01" style="margin-right:6px;"/>
+                        
+                        <span class="btn_float_right" style="margin-top:5px;"><button class="btn_Turquoise01" onclick="loadOrderInfo('order_info');" alt="search">검색</button></span>
+
+                        <span class="th_text order_info_span_text01">카테고리별  검색</span>
+                        <select class="order_order_info_secect_01" id="order_info_cate_top" onchange="cateSelect.exec('top', this.value, 'order_info');">
+                            [TPH_Vcate_html]
+                        </select>
+                        <select class="order_order_info_secect_02" id="order_info_cate_mid" onchange="cateSelect.exec('mid', this.value, 'order_info');" style="margin-right:6px;">
+                            <option value="">선택</option>
+                        </select>
+                        <select class="order_order_info_secect_02" id="order_info_cate_bot">
+                            <option value="">선택</option>
+                        </select>
+
+                        <br/>
+
+                        <span class="th_text order_info_span_text01">일자별 검색</span>
+                        <select class="order_order_info_secect_01">
+                            <option value="order_regi_date">주문일</option>
+                        </select>
+                        <input type="text" class="order_order_info_input_02 datepicker_input" id="order_info_from">-
+                        <input type="text" class="order_order_info_input_02 datepicker_input" id="order_info_to" style="margin-right:8px;">
+                        <span class="container_btn_align_01" style="margin-top: 5px;">
+                            <button type="button" class="btn_gray01" onclick="setDateVal('order_info', 'd', -1,  0, $(this).text(), true);">어제</button>
+                            <button type="button" class="btn_gray01" onclick="setDateVal('order_info', 't',  0,  0, $(this).text(), false);">오늘</button>
+                            <button type="button" class="btn_gray01" onclick="setDateVal('order_info', 'd', -7,  0, $(this).text(), false);">일주일</button>
+                            <button type="button" class="btn_gray01" onclick="setDateVal('order_info', 'm', -1,  0, $(this).text(), false);">한달</button>
+                            <button type="button" class="btn_gray01" onclick="setDateVal('order_info', 'y', -1, -1, $(this).text(), true);">작년동기</button>
+                        </span>
+                        <!--<button type="button" onclick="setDateVal('order_info', 'a',  0,  0, $(this).text(), false);">전체</button>-->
+
+                        <br/>
+                    </div>
+
+                    <div class="detail_table">
+                        <table class="table_basic_layout">
+                            <colgroup>
+                                <col style="width:50px">
+                                <col style="width:150px">
+                                <col style="width:340px">
+                                <col style="width:120px">
+                                <col style="width:80px">
+                                <col style="width:80px">
+                                <col style="width:80px">
+                            </colgroup>
+                            <thead>
+                                <tr class="big_table">
+                                    <th>No</th>
+                                    <th>품목</th>
+                                    <th>상품정보</th>
+                                    <th>결제금액</th>
+                                    <th>상태</th>
+                                    <th>배송유형</th>
+                                    <th>메모</th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr class="big_table2" id="order_info_sum">
+                                </tr>
+                            </thead>
+                            <tbody class="big_body" id="order_info_list">
+                            </tbody>
+                        </table>
+
+                        <div class="loading_oh" id="order_info_mask" style="display:none; top:874px;">
+                            <table  height="288" align="center" cellpadding="0" cellspacing="0" style="opacity:0.5; width:100%">
+                                <tr style="background:#CCC">
+                                    <td align="center"><img src="[TPH_Vdesign_dir]/images/business/loading.gif" border="0"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                <!--주문정보 끝-->
+<script>
+</script>

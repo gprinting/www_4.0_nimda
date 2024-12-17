@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Mobile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/manufacture/mobile_delivery_search.js"></script>
+</head>
+
+<!-- 첫 번째 페이지 -->
+<section id="page1" data-role="page">
+    <header data-role="header" data-add-back-btn="true" data-position="fixed"  data-theme="b">
+        <h1>배송리스트</h1>
+        <a href="#" data-icon="search" data-rel="back" data-theme="a">배송리스트</a>
+    </header>
+    <div data-role="fieldcontain">
+        <input type="text" name="order_detail_num" id="order_detail_num" value=""  placeholder=""/>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview" data-theme="c">
+            <ul data-role="listview" data-theme="c" id="item_list">
+            </ul>
+        </ul>
+    </div>
+    <footer data-role="footer" data-position="fixed"  >
+        <h2>ⓒcopyright 2016</h2>
+    </footer>
+</section>
+
+
+<!-- 두 번째 페이지 -->
+<section id="page2" data-role="page">
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-iconpos="top" data-icon="grid">Summary</a></li>
+                <li><a href="#" data-iconpos="top" data-icon="star" class="ui-btn-active">Map</a></li>
+                <li><a href="#" data-iconpos="top" data-icon="gear">Setup</a></li>
+            </ul>
+        </div>
+        <h2>ⓒcopyright 2016</h2>
+    </footer>
+</section>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    <!-- 기본 css -->
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font-awesome.min.css">
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/font.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/guide.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/common.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/tab.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/basic_manager.css" type="text/css"  />
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.css">
+
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/lib/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/jquery.scrollUp.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/toggle.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-tab.js"></script>
+    <script type="text/javascript" src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <!-- 공통 -->
+    <script src="[TPH_Vdesign_dir]/js/common/common.js"></script>
+    <!-- 생산공통 -->
+    <script src="[TPH_Vdesign_dir]/js/common/manufacture_common.js"></script>
+    <!-- 페이지별 js -->
+    <script src="[TPH_Vdesign_dir]/js/manufacture/print_process.js"></script>
+</head>
+<body>
+<div id="black_mask" style="display:none;position:absolute;left:0;top:0;z-index:9998;background-color:#000;opacity:0.3;"></div>
+<!--div id="alert_msg_440" style="display:none;position:absolute;z-index:9999;" class="pop_add_box" onmousedown="startDrag(event, this);"></div-->
+<div id="alert_msg_440" style="display:none;position:absolute;z-index:9999;" class="pop_add_box"></div>
+<div class="table-body3">
+    <ul class="table_top">
+        <li><span>* 인쇄 정보</span></li>
+    </ul>
+    <br />
+    <div class="table_basic">
+        <table class="table" style="width:100%;">
+            <tbody>
+            <tr>
+                <th style="background: #eee;">바코드</th>
+                <td colspan="3"><input type="text" style="width:95%;border:none;" id="typset_num" onkeydown="changeState(event, this.value);"></td>
+            </tr>
+            </tbody>
+            <tbody id="rs_info">
+            <tr>
+                <td colspan="2">
+                    <img src="" style="height:750px;">
+                </td>
+                <td colspan="2">
+                    <img src="" style="height:750px;">
+                </td>
+            </tr>
+            <tr>
+                <th>인쇄명</th>
+                <td></td>
+                <th>운영체제</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>조판자</th>
+                <td></td>
+                <th>작업자</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>종이</th>
+                <td></td>
+                <th>사이즈</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>인쇄 도수</th>
+                <td></td>
+                <th>수량</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>작업시각</th>
+                <td></td>
+                <th>마감구분</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>메모(특이사항)</th>
+                <td colspan="3"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

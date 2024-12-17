@@ -1,0 +1,102 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . '/com/nexmotion/job/nimda/common/NimdaCommonDAO.inc');
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$dao = new NimdaCommonDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dao;
+
+$state_arr = $fb->session("state_arr");
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "manufacture"; //생산
+$left = "cutting_mng"; //레프트 메뉴
+$left_sub = "cutting_process"; //레프트하위 메뉴, script 주소
+
+// 프리셋 카테고리
+$param = array();
+$param["table"] = "typset_format";
+$param["col"] = "DISTINCT(preset_cate) AS preset_cate";
+
+$rs = $dao->selectData($conn, $param);
+
+$option_html = "<option value=\"%s\">%s</option>";
+
+$cate_html = "<option value=\"\">전체</option>";
+while ($rs && !$rs->EOF) {
+    $cate_html .= sprintf($option_html,
+        $rs->fields["preset_cate"],
+        $rs->fields["preset_cate"]);
+    $rs->moveNext();
+}
+
+$template->reg("cate_html" , $cate_html);
+
+//제조사
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,manu_name";
+$param["where"]["pur_prdt"] = "재단";
+$rs = $dao->selectData($conn, $param);
+
+$option_html = "<option value=\"%s\">%s</option>";
+
+//상태
+$param = array();
+$param["table"] = "state_admin";
+$param["col"] = "state_code, erp_state_name";
+$param["where"]["dvs"] = "재단";
+$param["order"] = "state_code";
+
+// 주문상태값 배열 저장
+/*
+$state_html = "<option value=\"\">상태(전체)</option>";
+$rs  = $dao->selectData($conn, $param);
+while ($rs && !$rs->EOF) {
+
+    if ($rs->fields["state_code"] != $state_arr["재단준비"] &&
+        $rs->fields["state_code"] != $state_arr["재단보류"] &&
+        $rs->fields["state_code"] != $state_arr["인쇄완료"]) {
+        $state_html .= sprintf($option_html
+            , $rs->fields["state_code"]
+            , $rs->fields["erp_state_name"]);
+    }
+
+    $rs->MoveNext();
+}
+*/
+
+$opt = array();
+$opt[0] = "발주일";
+
+$optVal = array();
+$optVal[0] = "regi_date";
+
+$param = array();
+$param["value"] = $optVal;
+$param["fields"] = $opt;
+$param["id"] = "date_cnd";
+$param["flag"] = TRUE;
+$param["from_id"] = "from";
+$param["to_id"] = "to";
+
+//날짜 검색
+$template->reg("datepicker_html" , makeDatePickerHtml($param));
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

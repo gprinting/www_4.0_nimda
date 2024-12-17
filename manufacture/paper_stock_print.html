@@ -1,0 +1,59 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/manufacture/item_mng/PaperStockMngDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$dao = new PaperStockMngDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dao; 
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "manufacture"; //생산
+$left = "item_mng"; //레프트 메뉴
+$left_sub = "paper_stock_print"; //레프트하위 메뉴, script 주소
+
+//기본검색정보 : 종이종류
+$paper_rs = $dao->selectPaperName($conn);
+$paper_opt = "<option value=\"\">종이명(전체)</option>";
+while ($paper_rs && !$paper_rs->EOF) {
+    $paper_opt .= "<option value=\"". $paper_rs->fields["name"] ."\">" . $paper_rs->fields["name"] . "</option>";
+    $paper_rs->moveNext();
+}
+$template->reg("paper_opt", $paper_opt);
+
+//제조사 종이
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"] = "extnl_etprs_seqno ,manu_name";
+$param["where"]["pur_prdt"] = "종이";
+
+$rs = $dao->selectData($conn, $param);
+$paper_manu_html = "<option value=\"\">제조사(전체)</option>";
+$option_html = "<option value=\"%s\">%s</option>";
+while ($rs && !$rs->EOF) {
+
+    $paper_manu_html .= sprintf($option_html
+            , $rs->fields["extnl_etprs_seqno"]
+            , $rs->fields["manu_name"]);
+
+    $rs->moveNext();
+}
+
+$template->reg("manuList" , $paper_manu_html);
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

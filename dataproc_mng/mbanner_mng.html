@@ -1,0 +1,140 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/common/NimdaCommonDAO.inc");
+include_once(INC_PATH . "/com/nexmotion/doc/nimda/dataproc_mng/mbanner_mng/MbannerMngDOC.inc");
+include_once(INC_PATH . "/common_lib/CommonUtil.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$dao = new NimdaCommonDAO();
+$util = new CommonUtil();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dao; 
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "dataproc_mng"; //전산관리
+$left = "bulletin_mng"; //게시판관리
+$left_sub = "mbanner_mng"; //메인베너관리
+
+$param = array();
+$param["table"] = "main_banner_set";
+$param["col"] = "mb_count, slide_timer, main_banner_set_seqno";
+
+$rs = $dao->selectData($conn, $param);
+
+$main_banner_set_seqno = $rs->fields["main_banner_set_seqno"];
+
+$template->reg("set_seqno", $main_banner_set_seqno);
+$mb_count = $rs->fields["mb_count"];
+
+if (!$mb_count) {
+    $mb_count = 1;
+}
+
+$option_html = "<option value=\"%s\" %s>%s</option>";
+$mb_count_html = "";
+for ($i=1; $i<=10; $i++) {
+    $selected = "";
+    if ($i == $mb_count) {
+        $selected = "selected";
+    }
+    $mb_count_html .= sprintf($option_html, $i, $selected, $i);
+}
+
+$template->reg("mb_count_html", $mb_count_html);
+
+$slide_timer = $rs->fields["slide_timer"];
+$slide_timer1 = "checked";
+$slide_timer2 = "";
+$slide_timer3 = "";
+
+if ($slide_timer == "5") {
+    $slide_timer1 = "checked";
+    $slide_timer2 = "";
+    $slide_timer3 = "";
+} else if ($slide_timer == "10") {
+    $slide_timer1 = "";
+    $slide_timer2 = "checked";
+    $slide_timer3 = "";
+} else if ($slide_timer == "15") {
+    $slide_timer1 = "";
+    $slide_timer2 = "";
+    $slide_timer3 = "checked";
+}
+
+$template->reg("slide_timer1", $slide_timer1);
+$template->reg("slide_timer2", $slide_timer2);
+$template->reg("slide_timer3", $slide_timer3);
+
+$html = "";
+for ($i=1;$i<= $mb_count;$i++) {
+
+    $rs_param = array();
+    $rs_param["table"] = "main_banner";
+    $rs_param["col"] = "dvs, save_file_name, 
+        origin_file_name, url_addr, file_path, 
+        use_yn, seq, main_banner_seqno";
+    $rs_param["where"]["seq"] = $i;
+
+    $rs = $dao->selectData($conn, $rs_param);
+
+    $use_yn = $rs->fields["use_yn"];
+    $use_y = "checked";
+    $use_n = "";
+    if ($use_yn == "Y") {
+        $use_y = "checked";
+        $use_n = "";
+    } else if ($use_yn == "N") {
+        $use_y = "";
+        $use_n = "checked";
+    }
+    $dvs = $rs->fields["dvs"];
+    $dvs1 = "checked";
+    $dvs2 = "";
+    $dvs3 = "";
+    if ($dvs == "공지") {
+        $dvs1 = "checked";
+        $dvs2 = "";
+        $dvs3 = "";
+    } else if ($dvs == "상품소개") {
+        $dvs1 = "";
+        $dvs2 = "checked";
+        $dvs3 = "";
+    } else if ($dvs == "이벤트") {
+        $dvs1 = "";
+        $dvs2 = "";
+        $dvs3 = "checked";
+    }
+
+    $file_path = $util->getAliasAttachPath($rs->fields["file_path"]);
+    
+    $param["img_html"] = "<img src=\"" . $file_path . '/' . $rs->fields["save_file_name"] . "\" width=\"460px\" height=\"235px\">";
+    $param["count"] = $i;
+    $param["origin_file_name"] = "<a href=\"/common/main_banner_file_down.inc?seqno=" . $rs->fields["main_banner_seqno"] . "\">" . $rs->fields["origin_file_name"] . "</a>";
+    $param["url_addr"] = $rs->fields["url_addr"];
+    $param["use_y"] = $use_y;
+    $param["use_n"] = $use_n;
+    $param["dvs1"] = $dvs1;
+    $param["dvs2"] = $dvs2;
+    $param["dvs3"] = $dvs3;
+    $param["seqno"] = $rs->fields["main_banner_seqno"];
+
+    $html .= setContentHtml($param);
+}
+
+$template->reg("banner_contents", $html);
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+$conn->close();
+?>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+    <script src="[TPH_Vdesign_dir]/js/common/common_modi_popup.js"></script>
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+       <section id="page-content">
+
+            <!-- 본문 컨텐츠  시작-->
+			<div id="content-container" class="content_container mkt_common content_container_cp_mng">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀-->
+					<div class="title">
+						[TPH_I/common/history.html]
+					</div>
+					<!--기본 검색정보 시작-->
+
+						<section class="content_section">
+							<div class="content_wrapper">
+								<!-- TAB UI START -->
+								<ul class="nav nav-tabs">
+									<li class="active">
+										<a href="#tab_level1" data-toggle="tab"> 쿠폰통계 </a>
+									</li>
+									<li>
+										<a href="#tab_level2" onclick="loadCpList();" data-toggle="tab"> 쿠폰정책 </a>
+									</li>
+								</ul>
+								<!-- TAB UI END -->
+
+								<!-- TAB CONTENT START -->
+								<div class="tab-content">
+									<div class="tab-pane active" id="tab_level1">
+										<!-- 검색 영역 START -->
+										<table class="table_search_layout">
+											<tbody>
+												<tr>
+													<th class="th_text mkt_mng_th_left">판매 채널</th>
+													<td>
+														<select id="sell_site" class="fix_width200">
+															[TPH_Vsell_site]
+														</select>
+														<button type="button" class="btn_float_right btn_Turquoise01" onclick="loadCpStatsList();">검색</button>
+													</td>
+												</tr>
+												<tr>
+													<th class="th_text mkt_mng_th_left">월</th>
+													<td>
+														<select id="year" class="fix_width120">
+															[TPH_Vyear_html]
+														</select>
+														<select id="mon" class="fix_width73">
+															[TPH_Vday_opt]
+														</select>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="">
+											<div class="table_basic">
+												<table class="table_basic_layout">
+													<thead>
+													<tr>
+														<th class="bm2px">번호</th>					                      				    
+														<th class="bm2px">채널</th>
+														<th class="bm2px">쿠폰명</th>
+														<th class="bm2px">카테고리</th>
+														<th class="bm2px">내역</th>
+														<th class="bm2px">발행건수</th>
+														<th class="bm2px">사용건수</th>
+														<th class="bm2px">사용된금액</th>
+													</tr>					                      				
+													</thead>
+													<tbody id="cp_stats_list">	
+													
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+
+									<div class="tab-pane" id="tab_level2"> <!-- 쿠폰정책TAB TAB 02 -->
+										<table class="table_search_layout">
+											<tbody>
+												<tr>
+													<th class="th_text mkt_mng_th_left">판매 채널</th>
+													<td>
+														<select onchange="loadCpList();" id="policy_sell_site" class="fix_width200">
+															[TPH_Vsell_site]
+														</select>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="">
+											<div class="table_basic">
+												<table class="table_basic_layout">
+													<thead>
+													<tr>
+														<th class="bm2px">번호</th>		
+														<th class="bm2px">채널</th>
+														<th class="bm2px">쿠폰명</th>
+														<th class="bm2px" style="width:200px;">할인내용</th>
+														<th class="bm2px">발행일</th>
+														<th class="bm2px">소멸일</th>
+														<th class="bm2px">발행여부</th>
+														<th class="bm2px">관리</th>
+													</tr>					                      				
+													</thead>
+													<tbody id="cp_list">
+			
+													</tbody>
+												</table>					                    
+												<div class="btn_wrapper">
+													<button class="btn btn_orange fix_width120 fix_height30 co_blue fs12" onclick="regiCpPopup();">등록</button>
+												</div>
+											</div>					                  
+										</div>
+                                    </div>
+								</div>
+								<!-- TAB CONTENT END -->
+
+							</div>
+						</section>
+				</div>
+			</div>
+       </section>
+</div>
+</body>
+</html>

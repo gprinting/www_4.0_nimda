@@ -1,0 +1,35 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/mkt/mkt_mng/GradeMngDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$gradeDAO = new GradeMngDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $gradeDAO; 
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "mkt"; //기초관리
+$left = "mkt_mng"; //레프트 메뉴
+$left_sub = "grade_mng"; //레프트하위 메뉴, script 주소
+
+$select_day = $result->fields["day"];
+//산정 일자 html
+$day_html = makeDaySelectList($select_day);
+$template->reg("day_html", $day_html);
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.inc');
+
+$conn->close();
+?>

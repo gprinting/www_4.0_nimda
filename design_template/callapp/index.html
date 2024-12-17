@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="./js/jquery.min.js" ></script>
+    <script type="text/javascript" src="./js/ws_ctrl.js"></script>
+    <script type="text/javascript" src="./js/call_ctrl.js"></script>
+    <script type="text/javascript" src="./js/swfobject.js"></script>
+    <script type="text/javascript" src="./js/iesocket.js"></script>
+    <script type="text/javascript" src="./js/utils.js"></script>
+
+    <title></title>
+</head>
+<body>
+<div>
+    <textarea id="TALOG" style="width:100%; height:200px;"></textarea>
+</div>
+<div style="margin-top:10px; margin-left:10px;">
+    <fieldset>
+        <legend>Account</legend>
+        <table>
+            <tr>
+                <td >
+                    <!--Websocket URL: <input type="text" id="txtWsURL" value="e3sample.e3ts.co.kr" style="width:300px;">-->
+                    Websocket URL: <input type="text" id="txtWsURL" value="172.16.33.195" style="width:300px;">
+                    Websocket Port: <input type="text" id="txtWsPort" value="9410" style="width:100px;">
+                    <button id="btnConnect">Connect To Server</button>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    Group: <input type="text" id="txtGroup" value="G9900" style="width:100px;">
+                    Phone IP: <input type="text" id="txtPhoneIP" value="172.16.0.XXX" style="width:100px;">
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    Agent Account: <input type="text" id="txtUserID" value="">
+                    Agent Password: <input id="txtUserPWD" value="">
+                    Phone ID: <input type="text" id="txtPhoneID" value="admin" style="width:100px;">
+                    Phone Password: <input type="text" id="txtPhonePWD" value="e3ts0408" style="width:100px;">
+                    Ext No: <input type="text" id="txtPhoneExt" value="">
+                    <button id="BTN_REG">Register</button><button id="BTN_UNREG" style="display:none;">Unregister</button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+</div>
+
+<div style="margin-top:10px; margin-left:10px;">
+    <fieldset>
+        <legend>Status</legend>
+        <table>
+            <tr>
+                <td style="width:300px;" nowrap>Current Agent State : <span id="SPAN_AGENTSTATE"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="btnSetReady">대기</button>
+                    <button id="btnSetShift">이석</button>
+                    <button id="btnSetRest">휴식</button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+</div>
+
+<div style="margin-top:10px; margin-left:10px;">
+    <fieldset>
+        <legend>Call Control</legend>
+        <table>
+            <tr>
+                <td nowrap>Called Number: <input id="TXDNIS" type="text" value="901084675288"></td>
+            </tr>
+            <tr>
+                <td colspan="4" nowrap>
+                    <button id="BTN_MK" style="">Make Call</button>
+
+                    <button id="BTN_HG" style="display:none;">Hangup Call</button>
+                    <button id="BTN_AK" style="display:none;">Answer Call</button>
+                    <button id="BTN_MT" style="display:none;">Mute</button>
+                    <button id="BTN_HD" style="display:none;">HOLD</button>
+                </td>
+            </tr>
+            <tr id="DIV_DTMF" style="display:none;">
+                <td colspan="4" nowrap>
+                    <button onclick="DTMF('0')">0</button><button onclick="DTMF('1')">1</button><button onclick="DTMF('2')">2</button>
+                    <button onclick="DTMF('3')">3</button><button onclick="DTMF('4')">4</button><button onclick="DTMF('5')">5</button>
+                    <button onclick="DTMF('6')">6</button><button onclick="DTMF('7')">7</button><button onclick="DTMF('8')">8</button>
+                    <button onclick="DTMF('9')">9</button><button onclick="DTMF('*')">*</button><button onclick="DTMF('#')">#</button>
+                </td>
+            </tr>
+            <tr id="DIV_TRANS" style="display:none;">
+                <td colspan="4" nowrap>
+                    Call Transfer To : <input id="TXTRANS" type="text">
+                    <button id="btn2ndCall">2nd Call</button>
+                    <button id="btnTrans">Transfer</button>
+                    <button id="btnRetrieve">Retrieve</button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</div>
+
+<iframe id="controlFrame" src=""></iframe>
+
+</body>
+</html>

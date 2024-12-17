@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+       <!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+
+	   <!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+
+       <!-- CONTENT --> 
+        <section id="page-content">            
+
+        <!-- 히스토리 -->
+        [TPH_I/common/history.html]
+            
+            <!-- 본문 컨텐츠  시작-->
+            
+            <!-- 탭 박스 1 기본검색 -->
+            <div class="tb_group clear">
+    			<ul class="tab_box mt25">
+                    <!--
+    			    <li class="fl"><a class="box"> 기본 검색 정보 </a> </li>
+                    -->
+    			</ul>
+			        <div class="tab_box_con">			 	
+					    <div class="form-group">
+			                <label class="control-label fix_width79 tar">판매채널</label><label class="fix_width20 fs14 tac">:</label>
+                            <select id="sell_site" class="fix_width180">
+                              [TPH_Vsell_site]
+        		            </select>        		            
+					    </div>								
+					
+    					<div class="form-group">
+        			        <label class="control-label fix_width79 tar">조건 검색</label><label class="fix_width20 fs14 tac">:</label>        			        
+	                        <select class="fix_width180" id="cnd_val" onchange="changeSearchCnd(this.value);">
+								<option value="office_nick">사내닉네임</option>
+								<option value="member_id">회원아이디</option>
+				            </select>
+				            <input type="text" class="input_co2 fix_width297" id="search_val" onkeyup="searchCnd(event, this.value);" placeholder="검색창 팝업 사용"> 
+                            <input type="hidden" id="search_cnd">
+                            <input type="hidden" id="search_txt">
+    					</div>
+			        </div>
+            </div> <!-- 탭 박스 1 기본검색 -->
+           
+             <!-- 상세검색버튼 --> 
+            <div>
+                <p class="btn-lg red_btn">
+					<a style="cursor: pointer;" onclick="cndSearch.exec();">선택 조건으로 검색</a>
+                </p>
+            <div>
+
+            <!-- 탭 박스 3 TAB -->
+            <div class="tb_group mt25">
+              <!--
+              <ul class="tab_box mt25">
+                <li>
+                  <a class="box">회원 리스트</a>
+                </li>
+              </ul>
+              -->
+                    <div class="tabbable">                  	
+                        <div class="tab-content">                     	
+                     	    <div class="tab-pane active" id="tab_list1">
+                                <div class="table-body">
+                                    <div class="table_basic">
+					                    <ul class="table_top">
+					                    	<li class="sel">                              			
+					                    	</li>
+					                    	<li class="sel tar">					                              		          
+					                    	</li>
+					                    </ul>
+					                    <table class="table fix_width100f">
+                                            <thead>
+								                <tr>
+								                    <th class="bm2px">번호</th>
+								                    <th class="bm2px">회사명</th>
+								                    <th class="bm2px">회원명</th>
+								                    <th class="bm2px">ID</th>
+								                    <th class="bm2px">전화</th>
+								                    <th class="bm2px">핸드폰</th>
+								                    <th class="bm2px">관리</th>
+								                </tr>
+                                            </thead>
+                                            <tbody id="list">
+                                            </tbody>
+					                   	</table>
+					                   	<p class="p_num_b fs12">                                
+					                   	    Showing 1 to 5 of 30 entries
+					                        <select name="list_set" class="fix_width55" onchange="showPageSetting(this.value);">
+					                   	        <option>5</option>
+					                   	        <option>10</option>
+					                   	        <option>20</option>
+					                            <option selected="selected">30</option>
+					                   	    </select>
+					                   	</p>
+					                   	<div class="tac clear" id="page">
+								        </div>					                   		
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                     	 
+                    </div>                    
+            	</div>
+        </section>
+</div>
+</body>
+</html>

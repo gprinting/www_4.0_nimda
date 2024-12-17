@@ -1,0 +1,49 @@
+09:17:26->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161005NC000040101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161005NC0000401' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-05 09:17:26SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+10:08:12->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161005NC000060101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161005NC0000601' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-05 10:08:12SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '31' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+10:10:42->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161005NC000070101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161005NC0000701' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-05 10:10:42SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+10:11:14->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161005NC000080101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161005NC0000801' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-05 10:11:14SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '31' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+12:08:53->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161005NC000310101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161005NC0003101' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-05 12:08:53SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '31' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+14:39:56->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161005NC000320101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161005NC0003201' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-05 14:39:56SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------
+15:07:40->SELECT order_detail_count_file_seqno AS idx FROM order_detail_count_file WHERE order_detail_file_num = 'SGPT161005NC000520101' AND state = '2220'
+-----------------------------------
+SELECT amt_unit_dvs AS unit FROM order_detail WHERE order_detail_dvs_num = 'SGPT161005NC0005201' LIMIT 1
+-----------------------------------
+-----------------------------------
+2016-10-05 15:07:40SELECT oc.cate_sortcode AS cate_sortcode, oc.amt AS amt, oc.amt_unit_dvs amt_unit, oah.after_name AS aft_name, oah.depth1 AS depth1, oah.depth2 AS depth2, oah.depth3 AS depth3, aft.extnl_brand_seqno AS eb_idx FROM order_common AS oc, order_after_history AS oah, after AS aft, basic_produce_after AS bpa WHERE oc.order_common_seqno = oah.order_common_seqno AND oah.after_name = aft.name AND oah.basic_yn = 'Y' AND bpa.typset_format_seqno = '22' AND bpa.after_seqno = aft.after_seqno GROUP BY oah.after_name
+-----------------------------------

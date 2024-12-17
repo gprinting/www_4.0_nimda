@@ -1,0 +1,244 @@
+<html>
+<head>
+    <title>명세서 출력</title>
+    <script src="[TPH_Vdesign_dir]/js/lib/jquery-1.11.2.min.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="[TPH_Vdesign_dir]/css/[TPH_Vtop]/datepicker.css">
+    <style>
+        #statement {width:893px;}
+        * {font-size:12px;}
+
+        #statement .stat_top {margin:22px 0px;}
+        #statement .stat_top .stat_ul {padding:10px;margin:0;}
+        #statement .stat_top .stat_ul>li {list-style:none;display:inline-block;}
+        #statement .stat_top .span-left {margin-left:30px;}
+        #statement .stat_top select,
+        #statement .stat_top input {padding:5px 8px;}
+        #statement .stat_top button {border:none;padding:5px 30px;margin-left:19px;}
+
+        #statement .stat_table {width:100%;border-collapse: collapse;}
+        #statement .stat_table th {background:#eee;}
+        #statement .stat_table th,
+        #statement .stat_table td{padding:10px 0px;border:1px solid #ccc;text-align:center;}
+
+        .datepicker_input {/*border:1px solid #ccc;*/width:83px;/*height:20px;*/padding:5px;}
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 160px;
+            padding: 5px 0;
+            margin: 2px 0 0;
+            font-size: 14px;
+            list-style: none;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+            background-clip: padding-box;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".datepicker_input").datepicker({
+                format         : "yyyy-mm-dd",
+                autoclose      : true,
+                todayBtn       : "linked",
+                todayHighlight : true
+            });
+
+            var from = "[TPH_Vfrom]";
+            var to   = "[TPH_Vto]";
+
+            if (from === "") {
+                $("#from").datepicker("setDate", '0');
+            } else {
+                $("#from").datepicker("setDate", from);
+            }
+
+            if (to === "") {
+                $("#to").datepicker("setDate", '0');
+            } else {
+                $("#to").datepicker("setDate", to);
+            }
+
+            cndSearch();
+        });
+
+        /**
+         * @brief 거래명세서 검색
+         *
+         * @param event = 키다운 이벤트
+         * @param val   = 검색할 사내닉네임
+         */
+        var searchMember = function(event, val) {
+            if(event.keyCode !== 13){
+                return false;
+            }
+
+            $.ajax({
+                type     : "POST",
+                url      : "/json/business/order_mng/load_member_list.php",
+                dataType : "json",
+                data     : {
+                    "office_nick" : encodeURI($("#office_nick").val())
+                },
+                success  : function(result) {
+                    console.log(result);
+                    // 후처리 필요, 팝업 등
+                },
+                error    : function(request,status,error) {
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+            });
+        };
+
+        /**
+         * @brief 거래명세서 검색
+         */
+        var cndSearch = function() {
+            $.ajax({
+                type     : "POST",
+                url      : "/ajax/business/order_mng/load_specification_list.php",
+                dataType : "html",
+                data     : {
+                    "from"  : $("#from").val(),
+                    "to"    : $("#to").val(),
+                    "seqno" : $("#member_seqno").val()
+                },
+                success  : function(result) {
+                    $("#list").html(result);
+                },
+                error    : function(request,status,error) {
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+            });
+        };
+        
+        /**
+         * @brief 엑셀다운로드 함수
+         * 
+         * @param dvs = 다운로드할 엑셀파일 구분 > 쓸지 말지 고민좀 해보자
+         */
+        var downloadFile = function() {
+        
+            var url = "/ajax/business/order_mng/"; 
+            var data = null; 
+            // 데이터는 cndSearch의 데이터를 사용
+            data = cndSearch.data;
+            // 추가로 다운로드 url을 붙임 
+            url += "down_excel_pop_specification.php";
+
+            $.ajax({
+                type     : "POST",
+                url      : url,
+                dataType : "text",
+                data     : {
+                    "from"  : $("#from").val(),
+                    "to"    : $("#to").val(),
+                    "member_seqno" : $("#member_seqno").val(),
+                    "office_nick"  : $("#office_nick").val()
+                },
+                success  : function(result) {
+                    if (result === "FALSE") {
+                        alert("엑셀파일 생성에 실패했습니다.");
+                    } else if (result === "NOT_INFO") {
+                        alert("엑셀로 생성할 정보가 존재하지 않습니다.");
+                    } else {
+                        var nameArr  = result.split('!');
+                        var downUrl  = "/common/excel_file_down.php?name=" + nameArr[1];
+                            downUrl += "&from=" + $("#from").val();
+                            downUrl += "&to=" + $("#to").val();
+                            downUrl += "&file_dvs=" + nameArr[0];
+                            
+                        $("#file_ifr").attr("src", downUrl);
+
+                    }
+                },
+                error    : function(request,status,error) {
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+<div id="statement">
+  <div class="stat_top">
+    <ul class="stat_ul">
+      <li>
+        <span>거래일자 :</span>
+        <input type="text" class="datepicker_input" readonly="readonly" id="from" />
+        <span style="margin:0px 10px;">~</span>
+        <input type="text" class="datepicker_input" readonly="readonly" id="to" />
+      </li>
+      <li>
+        <span class="span-left">업체명 :</span>
+        <input type="text" id="office_nick" value="[TPH_Voffice_nick]" onkeydown="searchMember(event, this.value);" disabled/>
+        <input type="hidden" id="member_seqno" value="[TPH_Vmember_seqno]" />
+      </li>
+    </ul>
+    <ul class="stat_ul">
+      <li>
+        <span>명세서 발송 구분 :</span>
+        <select style="width:150px;">
+          <option></option>
+        </select>
+      </li>
+      <li>
+        <span class="span-left">수금 담당 :</span>
+        <input type="text"></input>
+      </li>
+      <li>
+        <span class="span-left">미수금 :</span>
+        <input type="text"></input>
+      </li>
+      <li>
+        <button type="button" onclick="cndSearch();">조회</button>
+      </li>
+      <li>
+        <!--<button type="button" onclick="downloadFile();">엑셀 다운로드</button>-->
+        <iframe id="file_ifr" width="0" height="0" style="display:none;" src=""></iframe>
+      </li>
+    </ul>
+  </div>
+  <table class="stat_table">
+    <colspan>
+      <col width="35">
+      <col width="75">
+      <col width="150">
+      <col width="">
+      <col width="55">
+      <col width="30">
+      <col width="80">
+      <col width="80">
+      <col width="80">
+    </colspan>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>일자</th>
+        <th>제작물 내용</th>
+        <th>상세</th>
+        <th>수량</th>
+        <th>건수</th>
+        <th>공급가</th>
+        <th>차감액</th>
+        <th>합계</th>
+      </tr>
+    </thead>
+    <tbody id="list">
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

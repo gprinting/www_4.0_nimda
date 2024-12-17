@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/common/common.html]
+</head>
+<body>
+
+<div id="container">
+    	
+    	<!-- TOP NAVIGATION --> 
+       [TPH_I/common/header.html]
+		<!-- LEFT NAVIGATION --> 
+       [TPH_Vleft]
+       <!-- CONTENT --> 
+       <section id="page-content">
+
+            <!-- 본문 컨텐츠  시작-->
+            <div id="content-container" class="content_container mkt_common content_container_point_mng">
+				<!--메인상단 왼쪽 레이아웃-->
+				<div id="left_content" class="left_content">
+					<!--타이틀-->
+					<div class="title">
+						[TPH_I/common/history.html]
+					</div>
+					<!--기본 검색정보 시작-->
+
+						<section class="content_section">
+							<div class="content_wrapper">
+								<!-- TAB UI START -->
+								<ul class="nav nav-tabs">
+									<li class="active">
+										<!--a href="#tab_level1" onclick="loadPointStats();" data-toggle="tab"> 포인트 지급 </a-->
+										<a href="#tab_level1"  onclick="loadPointStats();" data-toggle="tab"> 포인트 지급 </a>
+									</li>
+									<li>
+										<a href="#tab_level2" data-toggle="tab"> 포인트 내역 관리 </a>
+									</li>
+									<li>
+										<a href="#tab_level3" data-toggle="tab"> 출석체크 정책 관리 </a>
+									</li>
+									<li>
+										<a href="#tab_level4" data-toggle="tab"> 출석체크 통계 관리 </a>
+									</li>
+									<li>
+										<a href="#tab_level5" data-toggle="tab" onclick = ""> 주문상품 포인트 사용내역 관리 </a>
+									</li>
+									<li>
+										<a href="#tab_level6" data-toggle="tab" onclick = "load_member()"> 포인트 통계관리 </a>
+									</li>
+								</ul>
+								<!-- TAB UI END -->
+
+								<!-- TAB CONTENT START -->
+								<div class="tab-content">
+									<div class="tab-pane active" id="tab_level1">
+									 <form id="point_am">
+										<!-- 검색 영역 START -->
+										<table class="table_search_layout">
+											<tbody>
+                                                <tr>
+                                                    <th class="th_text mkt_mng_th_left">회원아이디</th>
+													<td><input type="text" id="mb_id_point" onkeydown="searchOfficeNick2(event, this.value, '')" name="mb_id_point" class="input_co2 fix_width200" placeholder="검색창 팝업 사용">
+													<input type="hidden" name="member_seqno" id="member_seqno"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_text mkt_mng_th_left">지급/차감 여부</th>
+                                                    <td><input type="radio" value="add" checked id="add" name="add_minus_check" style="vertical-align:middle;"><label for="add">지급(+)</label>
+													 <input type="radio" value="minus" id="minus" name="add_minus_check" style="vertical-align:middle; margin-left:4px;"><label for="minus">차감(-)</label>
+													 <input type="radio" value="chk" id="chk" name="add_minus_check" style="vertical-align:middle; margin-left:4px;"><label for="minus">관리등록</label></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_text mkt_mng_th_left">지급 포인트</th>
+                                                    <td><input type="text" name="send_points" id="send_points" class="input_co2 fix_width150"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="th_text mkt_mng_th_left">지급/차감 사유</th>
+                                                    <td>
+														<select id="add_minus_reason" name="add_minus_reason">
+															<option value="">선택하세요.</option>
+															<option value="상품구매 추가 포인트">상품구매 추가 포인트</option>
+															<option value="가입 추천인 적립">가입 추천인 적립</option>
+															<option value="가입 피추천인 적립">가입 피추천인 적립</option>
+															<option value="결제금액 적립 이벤트">결제금액 적립 이벤트</option>
+															<option value="상품평 등록">상품평 등록</option>
+															<option value="설문 참여">설문 참여</option>
+															<option value="사용적립금 복구">사용적립금 복구(관리자)</option>
+															<option value="추천인 첫구매">추천인 첫구매</option>
+															<option value="피추천인 첫구매">피추천인 첫구매</option>
+															<option value="direct">기타(관리자입력)</option>
+														</select>
+														<input type="text" id="selboxDirect" placeholder="기타 사유를 입력해주세요." name="selboxDirect"/>
+                                                    </td>
+                                                </tr>
+                                                <script>
+													$(function(){
+														//직접입력 인풋박스 기존에는 숨어있다가
+														$("#selboxDirect").hide();
+
+														$("#add_minus_reason").change(function() {
+															//직접입력을 누를 때 나타남
+															if($("#add_minus_reason").val() == "direct") {
+															$("#selboxDirect").show();
+															}  else {
+															$("#selboxDirect").hide();
+															}
+														}) 
+													});
+                                                </script>
+											</tbody>
+										</table>
+										<div class="btn_wrapper">
+											<button type="button" class="btn_save" onclick="sendPoints(); return false;">관리자 지급처리</button>
+										</div>
+										</form>
+									</div>
+
+									<div class="tab-pane" id="tab_level2"> <!-- 포인트정책 TAB 02 -->
+									<!--기본 검색정보 시작
+									<section class="content_section">
+										<div class="content_wrapper">
+											탭 박스 1 기본검색
+											<div class="">
+												<ul class="tab_box mt25">
+																	</ul>
+																	<form>
+																		<div class="tab_box_con">
+																			<div class="form-group">
+																				검색버튼
+															<div class="div_search_btn_align">
+																<button type="button" class="btn_Turquoise01"
+																	onclick="searchPoint();">검색</button>
+															</div>
+																			</div>
+																			<div class="form-group">
+																				<label class="lable_member_common_left">일자별 검색</label>
+																				[TPH_Vdatepicker_html]
+																			</div>
+																		</div>
+																	</form>
+											</div>
+										</div>
+									</section>
+									기본검색정보 끝 -->
+										<div class="div_table_container">
+											<table class="table_search_layout">
+												<tbody>
+													<tr>
+														<th class="th_text calcul_mng_th_left">기간별</th>
+														<td>
+															<div class="form-group">
+																<span class="">
+																	<input type="text" placeholder="yyyy-MM-dd" class="input_co2 fix_width83 date" name="acc_date_from" id="acc_date_from">
+																	~
+																	<input id="acc_date_to" name="acc_date_to" class="input_co2 fix_width83 date" type="text" placeholder="yyyy-MM-dd">
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('1')">어제</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('0')">오늘</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('7')">일주일</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('30')">한달</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('all')">전체</button>
+																</span>
+															</div>
+														</td colspan="3">
+													</tr>
+													
+													<tr>
+														<th class="th_text mkt_mng_th_left">회원아이디</th>
+														<td><input type="text" id="mb_id_point" onkeydown="searchOfficeNick2(event, this.value, '')" name="mb_id_point" class="input_co2 fix_width200" placeholder="검색창 팝업 사용">
+														<input type="hidden" name="member_seqno2" id="member_seqno2"></td>
+														<button type="button" class="btn_float_right btn_Turquoise01" onclick="PointListAjaxCall();">검색</button>
+													</tr>
+													<tr>
+														<td colspan="3" style="text-align:right; padding-right: 30px; font-size: medium;">지급포인트 합계 : <span id ="point_text"style="font-size: large;">0</span> point / 사용포인트 합계 : <span id ="point_text5"style="font-size: large;">0</span> point / 잔여포인트 합계 : <span id ="point_text6"style="font-size: large;">0</span> point  </td>
+														<!--지급포인트 합계 : 1,000,000 / 사용포인트 합계 : 300,000 / 잔여포인트 합계 : 7000,000 -->
+													</tr>
+													
+													
+												</tbody>
+											</table>
+											<br><br><br>
+											<table class="table_member_common_list">
+												<thead>
+													<tr>
+														<th class="bm2px">번호</th>
+														<th class="bm2px">아이디</th>
+														<th class="bm2px">업체명</th>
+														<th class="bm2px">지급내용</th>
+														<th class="bm2px">날짜</th>
+														<th class="bm2px">지급포인트</th>
+														<th class="bm2px">사용포인트</th>
+														<th class="bm2px">포인트총합</th>
+													</tr>
+												</thead>
+												<tbody id="point_lists">
+												</tbody>
+											</table>
+											<p class="p_num_b fs12">
+												Showing 1 to 5 of 30 entries
+												<select name="list_set" class="fix_width55" onchange="showPageSetting2(this.value);">
+													<option>5</option>
+													<option>10</option>
+													<option>20</option>
+													<option selected="selected">30</option>
+												</select>
+											</p>
+											<div class="tac clear" id="point_page">
+											</div>
+										</div>
+										
+                                    </div>
+									
+									<div class="tab-pane" id="tab_level3"> <!-- 출석체크 탭 -->
+                                        <form id="Attform">
+                                            <table class="table_search_layout">
+												<tbody>
+													<tr>
+														<th class="th_text mkt_mng_th_left">출석체크 포인트</th>
+														<td>
+                                                            <input name="AttCheckPoint" id="give_join_point" type="text" value="[TPH_Vpoint01]" class="input_co2 fix_width200">
+                                                            <label class="fix_width10"></label>Point
+                                                        </td>
+													</tr>
+                                                    <tr>
+														<th class="th_text mkt_mng_th_left">10일 개근 포인트</th>
+														<td>
+                                                            <input name="PefAttCheck10" id="PefAttCheck10" type="text" value="[TPH_Vpoint02]" class="input_co2 fix_width200">
+                                                            <label class="fix_width10"></label>Point
+                                                        </td>
+													</tr>
+                                                    <tr>
+														<th class="th_text mkt_mng_th_left">30일 개근 포인트</th>
+														<td>
+                                                            <input name="PefAttCheck30" id="PefAttCheck30" type="text" value="[TPH_Vpoint03]" class="input_co2 fix_width200">
+                                                            <label class="fix_width10"></label>Point
+                                                        </td>
+													</tr>
+												</tbody>
+											</table>
+											<div class="btn_wrapper">
+												<button type="button" class="btn_save" onclick="savePointAtt(); return false;">출석체크 세팅을 저장합니다</button>
+											</div>
+                                       </form>
+                                    </div>
+									<div class="tab-pane" id="tab_level4"> <!-- 출석체크 탭 -->
+									<!--기본 검색정보 시작
+										<section class="content_section">
+											<div class="content_wrapper">
+												탭 박스 1 기본검색
+												<div class="">
+													<ul class="tab_box mt25">
+																		</ul>
+																		<form>
+																			<div class="tab_box_con">
+																				<div class="form-group">
+																					검색버튼
+																<div class="div_search_btn_align">
+																	<button type="button" class="btn_Turquoise01"
+																		onclick="searchPoint();">검색</button>
+																</div>
+																				</div>
+																				<div class="form-group">
+																					<label class="lable_member_common_left">일자별 검색</label>
+																					[TPH_Vdatepicker_html]
+																				</div>
+																			</div>
+																		</form>
+												</div>
+											</div>
+										</section>
+										기본검색정보 끝 -->
+										<div class="div_table_container">
+											<table class="table_search_layout">
+												<tbody>
+													<tr>
+														<th class="th_text calcul_mng_th_left">기간별</th>
+														<td>
+															<div class="form-group">
+																<span class="">
+																	<input type="text" placeholder="yyyy-MM-dd" class="input_co2 fix_width83 date" name="acc_date_from2" id="acc_date_from2">
+																	~
+																	<input id="acc_date_to2" name="acc_date_to2" class="input_co2 fix_width83 date" type="text" placeholder="yyyy-MM-dd">
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('1')">어제</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('0')">오늘</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('7')">일주일</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('30')">한달</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('all')">전체</button>
+																</span>
+															</div>
+														</td colspan="3">
+													</tr>
+													
+													<tr>
+														<th class="th_text mkt_mng_th_left">회원아이디</th>
+														<td><input type="text" id="mb_id_point" onkeydown="searchOfficeNick2(event, this.value, '')" name="mb_id_point" class="input_co2 fix_width200" placeholder="검색창 팝업 사용">
+														<input type="hidden" name="member_seqno2" id="member_seqno2"></td>
+														<button type="button" class="btn_float_right btn_Turquoise01" onclick="AttListAjaxCall();">검색</button>
+													</tr>
+													<tr>
+														<td colspan="3" style="text-align:right; padding-right: 30px; font-size: medium;">출석포인트 지급 합계 : <span id ="point_text2"style="font-size: large;">0</span> point</td>
+														
+													</tr>
+													
+												</tbody>
+											</table>
+											<br><br><br>
+											<table class="table_member_common_list">
+												<thead>
+													<tr>
+														<th class="bm2px">번호</th>
+														<th class="bm2px">아이디</th>
+														<th class="bm2px">업체명</th>
+														<th class="bm2px">날짜</th>
+														<th class="bm2px">개근날짜</th>
+														<th class="bm2px">적립포인트</th>
+													</tr>
+												</thead>
+												<tbody id="att_list">
+												</tbody>
+											</table>
+											<p class="p_num_b fs12">
+												Showing 1 to 5 of 30 entries
+												<select name="list_set" class="fix_width55" onchange="showPageSetting2(this.value);">
+													<option>5</option>
+													<option>10</option>
+													<option>20</option>
+													<option selected="selected">30</option>
+												</select>
+											</p>
+											<div class="tac clear" id="att_page">
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane" id="tab_level5"> <!-- 출석체크 탭 -->
+										<!--기본 검색정보 시작
+											
+											기본검색정보 끝 -->
+											<table class="table_search_layout">
+												<tbody>
+													<tr>
+														<th class="th_text calcul_mng_th_left">기간별</th>
+														<td>
+															<div class="form-group">
+																<span class="">
+																	<input type="text" placeholder="yyyy-MM-dd" class="input_co2 fix_width83 date" name="acc_date_from3" id="acc_date_from3">
+																	~
+																	<input id="acc_date_to3" name="acc_date_to3" class="input_co2 fix_width83 date" type="text" placeholder="yyyy-MM-dd">
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('1')">어제</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('0')">오늘</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('7')">일주일</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('30')">한달</button>
+																	<button type="button" class="btn_gray01" onclick="evidDateSet('all')">전체</button>
+																</span>
+															</div>
+														</td colspan="3">
+													</tr>
+													
+													<tr>
+														<th class="th_text mkt_mng_th_left">회원아이디</th>
+														<td><input type="text" id="mb_id_point" onkeydown="searchOfficeNick2(event, this.value, '')" name="mb_id_point" class="input_co2 fix_width200" placeholder="검색창 팝업 사용">
+														<input type="hidden" name="member_seqno2" id="member_seqno2"></td>
+														<button type="button" class="btn_float_right btn_Turquoise01" onclick="pUseListAjaxCall();">검색</button>
+													</tr>
+													<tr>
+														<td colspan="3" style="text-align:right; padding-right: 30px; font-size: medium;">주문(결제)금액 : <span id ="point_text3"style="font-size: large;">0</span> 원 / 포인트 사용 합계 : <span id ="point_text4"style="font-size: large;">0</span> point  </td>
+														
+													</tr>
+													
+												</tbody>
+											</table>
+											<br><br><br>
+											<div class="div_table_container">
+												<table class="table_member_common_list">
+													<thead>
+														<tr>
+															<th class="bm2px">주문번호/주문</th>
+															<th class="bm2px">주문일자</th>
+															<th class="bm2px">업체명</th>															
+															<th class="bm2px">인쇄제목</th>
+															<th class="bm2px">주문상세</th>
+															<th class="bm2px">주문상태</th>
+															<th class="bm2px">건수</th>
+															<th class="bm2px">수량</th>
+															<th class="bm2px">원 주문금액</th>
+															<th class="bm2px">주문금액</th>
+															<th class="bm2px">포인트사용</th>
+														</tr>
+													</thead>
+													<tbody id="puse_list">
+													</tbody>
+												</table>
+												<p class="p_num_b fs12">
+													Showing 1 to 5 of 30 entries
+													<select name="list_set" class="fix_width55" onchange="showPageSetting2(this.value);">
+														<option>5</option>
+														<option>10</option>
+														<option>20</option>
+														<option selected="selected">30</option>
+													</select>
+												</p>
+												<div class="tac clear" id="att_page">
+												</div>
+											</div>
+										</div>
+									
+										<div class="tab-pane" id="tab_level6"> <!-- 출석체크 탭 -->
+											<!--기본 검색정보 시작
+												
+												기본검색정보 끝 -->
+												<form id="member_am">
+
+												<table class="table_search_layout">
+													<tbody>
+														<tr>
+															<th class="th_text calcul_mng_th_left">기간별</th>
+															<td>
+																<div class="form-group">
+																	<span class="">
+																		<input type="text" placeholder="yyyy-MM-dd" class="input_co2 fix_width83 date" name="acc_date_from3" id="acc_date_from3">
+																		~
+																		<input id="acc_date_to3" name="acc_date_to3" class="input_co2 fix_width83 date" type="text" placeholder="yyyy-MM-dd">
+																		<button type="button" class="btn_gray01" onclick="evidDateSet('1')">어제</button>
+																		<button type="button" class="btn_gray01" onclick="evidDateSet('0')">오늘</button>
+																		<button type="button" class="btn_gray01" onclick="evidDateSet('7')">일주일</button>
+																		<button type="button" class="btn_gray01" onclick="evidDateSet('30')">한달</button>
+																		<button type="button" class="btn_gray01" onclick="evidDateSet('all')">전체</button>
+																	</span>
+																</div>
+															</td colspan="3">
+														</tr>
+														
+														<tr>
+															<th class="th_text mkt_mng_th_left">회원아이디</th>
+															<td><input type="text" id="mb_id_point" onkeydown="searchOfficeNick2(event, this.value, '')" name="mb_id_point" class="input_co2 fix_width200" placeholder="검색창 팝업 사용">
+															<input type="hidden" name="member_seqno2" id="member_seqno2"></td>
+														</tr>
+														<tr>
+															<th class="th_text mkt_mng_th_left">담당자</th>
+															<td><input type="text" id="mb_id_point"  name="mb_id_point" class="input_co2 fix_width200" >
+															<input type="hidden" name="member_seqno2" id="member_seqno2"></td>
+														</tr>
+														<tr>
+															<th class="th_text mkt_mng_th_left">처리상태</th>
+															<td><input type="text" id="mb_id_point" name="mb_id_point" class="input_co2 fix_width200" >
+															<input type="hidden" name="member_seqno2" id="member_seqno2"></td>
+															<button type="button" class="btn_float_right btn_Turquoise01" onclick="load_member();">검색</button>
+														</tr>
+														<tr>
+															<td colspan="3" style="text-align:left; padding-top: 30px; font-size: medium;">검색회원수 : <span id ="point_text7"style="font-size: large;">0</span> 명</td>
+															
+														</tr>
+														
+													</tbody>
+												</table>
+												<br><br><br>
+												<div class="div_table_container">
+													<table class="table_member_common_list">
+														<thead>
+															<tr>
+																<th class="bm2px">번호</th>
+																<th class="bm2px">업체명</th>															
+																<th class="bm2px">최근지급내역</th>
+																<th class="bm2px">최근지급날짜</th>
+																<th class="bm2px">상담건수</th>
+																<th class="bm2px">지급포인트</th>
+																<th class="bm2px">사용포인트</th>
+																<th class="bm2px">잔여포인트</th>
+																<th class="bm2px">담당자</th>
+																<th class="bm2px">상담이력</th>
+															</tr>
+														</thead>
+														<tbody id="member_list">
+														</tbody>
+													</table>
+													<p class="p_num_b fs12">
+														Showing 1 to 5 of 30 entries
+														<select name="list_set" class="fix_width55" onchange="showPageSetting2(this.value);">
+															<option>5</option>
+															<option>10</option>
+															<option>20</option>
+															<option selected="selected">30</option>
+														</select>
+													</p>
+													<div class="tac clear" id="att_page">
+													</div>
+												</div>
+												</form>
+											</div>
+								</div>
+								<!-- TAB CONTENT END -->
+
+							</div>
+						</section>
+				</div>
+			</div>
+       </section>
+
+
+</div>
+
+   
+   
+</body>
+</html>

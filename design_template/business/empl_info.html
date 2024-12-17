@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <title>[TPH_Vmain_title]</title>
+    <meta charset="utf-8">
+    [TPH_I/business/common/include.html]
+    <script src="[TPH_Vdesign_dir]/js/uploader/plupload.full.min.js"></script>
+    <script src="[TPH_Vdesign_dir]/js/business/empl_info.js"></script>
+</head>
+<body>
+
+<div id="container">
+    	
+        <!-- TOP NAVIGATION --> 
+        [TPH_I/common/header.html]
+
+        <!-- LEFT NAVIGATION --> 
+        [TPH_Vleft]
+
+        <!-- CONTENT --> 
+        <section id="page-content">            
+            <div id="content-container" class="content_container">
+            <!-- 본문 컨텐츠  시작-->
+            <!--메인상단 왼쪽 레이아웃-->
+            <div id="left_content" class="left_content">
+                <!--타이틀 시작-->
+                <div class="title">
+                    [TPH_I/common/history.html]
+                </div>
+                <!--타이틀 끝-->
+                <!--기본 검색정보 시작-->
+                <section class="content_section">
+                    <div id="basic_search" class="content_wrapper">
+                        <table class="table_search_layout">
+                            <colgroup>
+                                <col class="">
+                                <col class="">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th class="th_text th_claim_list_left">키워드 검색</th>
+                                    <td colspan="8">
+                                        <!--<select id="search_dvs" class="select_claim_list_01">
+                                            <option value="status">상태</option>
+                                        </select>-->
+                                        <input type="text" id="search_keyword" placeholder="사원번호 또는 이름을 입력하세요." class="input_claim_list_01" style="margin-right:6px;" />
+                                        <div class="div_search_btn_align">
+                                            <button type="button" class="btn_Turquoise01" onclick="searchEmpl.exec();">검색</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <!--<th class="th_text th_claim_list_left">판매채널</th>
+                                    <td colspan="4" class="daily_form daily-form">
+                                        <select id="sell_site" class="select_claim_list_01">
+                                        [TPH_Vsell_site_html]
+                                        </select>
+                                        <input type="text" class="datepicker_input input_claim_list_02" readonly="readonly" id="basic_from">-
+                                        <input type="text" class="datepicker_input input_claim_list_02" readonly="readonly" id="basic_to">
+                                        <span class="container_btn_align_02">
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -1,  0, $(this).text(), true);">어제</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 't',  0,  0, $(this).text(), false);">오늘</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'd', -7,  0, $(this).text(), false);">일주일</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'm', -1,  0, $(this).text(), false);">한달</button>
+                                            <button type="button" class="btn_gray01" onclick="setDateVal('basic', 'y', -1, -1, $(this).text(), true);">작년동기</button>
+                                        </span>-->
+                                        <!--<button type="button" onclick="setDateVal('basic', 'a',  0,  0, $(this).text(), false);">전체</button>-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <!--<th class="th_text th_claim_list_left">팀/담당자</th>
+                                    <td>
+                                        <select id="depar" class="select_claim_list_01" onchange="changeDepar(this.value, '');">
+                                            [TPH_Vdepar_html]
+                                        </select>
+                                        <select id="empl" class="select_claim_list_01">
+                                            <option value=''>전체</option>
+                                            [TPH_Vempl_html]
+                                        </select>
+                                    </td>
+                                    <th class="th_text th_claim_list_right">회원등급</th>
+                                    <td>
+                                        <select id="member_typ" class="select_claim_list_01">
+                                            <option value="">전체</option>
+                                            <option value="일반회원">일반회원</option>
+                                            <option value="예외업체">예외업체</option>
+                                        </select>
+                                        <select id="member_grade" class="select_claim_list_01">
+                                            [TPH_Vmember_grade_html]
+                                        </select>
+                                    </td>
+                                    -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <!--기본검색정보 끝-->
+                <!--검색정보 테이블 시작-->
+                <section class="content_section">
+                    <div class="content_wrapper">
+                        <!-- 클레임 리스트 TAB -->
+                        <div class="div_bottom_content_container">
+                            <ul class="table_top">
+                                <li class="sel">
+                                </li>
+                                <li class="sel tar">
+                                </li>
+                            </ul>
+                            <div class="overflow_auto">
+                                <table class="table_basic_layout">
+                                    <colgroup>
+                                        <col width="50px">
+                                        <col width="100px">
+                                        <col width="120px">
+                                        <col width="120px">
+                                        <col width="140px">
+                                        <col width="80px">
+                                        <col width="100px">
+                                        <col width="100px">
+                                        <col width="100px">
+                                        <col width="90px">
+                                        <col width="100px">
+                                        <col width="100px">
+                                        <col width="80px">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th class="bm2px"><input type="checkbox" id="chkAll" /></th>
+                                            <th class="bm2px">사원번호</th>
+                                            <th class="bm2px">부서명</th>
+                                            <th class="bm2px">이름/직급</th>
+                                            <th class="bm2px">이메일</th>
+                                            <th class="bm2px">수신여부</th>
+                                            <th class="bm2px">휴대폰</th>
+                                            <th class="bm2px">전화번호</th>
+                                            <th class="bm2px">상태</th>
+                                            <th class="bm2px">권한</th>
+                                            <th class="bm2px">최종접속</th>
+                                            <th class="bm2px">가입일</th>
+                                            <th class="bm2px">관리</th>
+                                        </tr>
+                                    </thead>
+                                    <thead id="total">
+                                    </thead>
+                                    <tbody id="list">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="empl_page" class="page_bar">
+                            </div>				                   		
+                            <div class="div_search_btn_align">
+                                <button type="button" class="btn_Turquoise01" onclick="insertEmpl();">등록</button>
+                            </div>
+                            <form name="frm" id="frm">
+                                <input type="hidden" id="seqno" name="seqno">
+                                <input type="hidden" id="claim_page" name="claim_page">
+                            </form>
+                            <!-- 클레임 상세 TAB -->
+                            <div id="claim_cont">
+                            </div><!-- 클레임 상세 TAB -->
+                        </div>
+                    </div>
+                </section>
+                <!--검색정보 테이블 끝-->
+            </div>
+            <!--메인상단 왼쪽 레이아웃 끝-->
+        </div>			
+        [TPH_I/common/common_mask.html]
+    </section>
+</div>
+</body>
+</html>

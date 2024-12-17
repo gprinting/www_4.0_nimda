@@ -1,0 +1,31 @@
+
+15:03:09 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0127501%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0379001%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0379001%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0052301%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0052301%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0136501%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0136501%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0256801%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0256801%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0177701%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0177701%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0390401%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0390401%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0390401%' ORDER BY seq ASC
+\n\n\n
+15:03:10 -> SELECT order_detail_count_file_seqno, order_detail_file_num, state FROM order_detail_count_file WHERE order_detail_file_num LIKE 'SGPT180108NC0390401%' ORDER BY seq ASC
+\n\n\n

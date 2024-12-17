@@ -1,0 +1,66 @@
+/* 회원등급리스트 */
+.input_dis {color: #999; background: #fafafa; border:#ccc 1px solid; padding-left: 5px;margin: 0 2px; height: 25px;}
+.input_co2 {background: #fff; border:#e1e5ea 1px solid;vertical-align: middle;padding-left: 5px;margin: 0 2px;height: 25px; color: #515151} 
+.title_info {background: #ddd;
+              color: #333;
+              padding: 4px;
+              border: #aaa 1px solid;
+              text-align: center;
+              vertical-align: middle;
+              font-weight: bold;
+              font-size: 15px;
+              margin-left: 0;
+              width: 162px; height: 20px}
+.link_info {background: ;
+              color: #5644d9;
+              padding: 9px 15px 0;
+              border-bottom: #5644d9 1px solid;
+              text-align: center;
+              vertical-align: top;
+              font-weight: bold;
+              font-size: 14px;
+              margin-left: 30px;
+              width: 572px;}  
+.posi_stan {position: relative;}
+.posi_left {position: absolute;
+            left: 0px; top: 7px;}
+
+/* 회원포인트리스트 tabel open content */
+.tocont {vertical-align: middle; 
+        padding: 2px;
+        text-align: left;}
+.tocont label{display:inline-block;}
+.violet {background-color: slateblue; 
+        color: #333;}
+.pink {background-color: palevioletred; color: #333;}
+.line_bt {border-bottom: #666 1px solid;
+          width: 180px;
+          margin-bottom: 0;
+          vertical-align: bottom;}
+
+/* 회원등록 */
+.input_ta {background: #fff; border:#e1e5ea 1px solid;padding-left: 5px;
+          height: 150px;
+          margin: 5px 2px;}
+.form-group2 {margin: 0 -15px 5px -15px;}
+.form-group2 label {display:inline-block;}
+.form-group2 .control-label {font-size:14px; font-weight:bold; }
+
+/* 마케팅 */
+.tocont_rel {
+        vertical-align: middle; 
+        height: 62px;
+        padding: 2px;
+        text-align: left;
+        position: relative;
+        left:39px}
+.tocont_rel2 {
+        vertical-align: middle; 
+        height: 62px;
+        padding: 2px;
+        text-align: left;
+        position: relative;
+        left:101px}
+.tocont_posi {position: absolute;
+              left: 127px; top:35px;}
+.input_h { border:#ccc 1px solid; padding-left: 5px;margin: 0 2px;}

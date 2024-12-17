@@ -1,0 +1,110 @@
+                <!--품목별현황정보-->
+                <section id="content7" class="content">
+                    <div class="tab_button">
+                        <span class="span_prdt_info_text_01">기간별 검색</span>
+                        <select class="selcect_prdt_info_01">
+                          <option>월별</option>
+                        </select>
+                        <input type="text" class="input_prdt_info_01 datepicker_input" id="prdt_info_from">-
+                        <input type="text" class="input_prdt_info_01 datepicker_input" id="prdt_info_to">
+                        <span class="btn_float_right" style="margin-top: 5px;">
+                            <button class="btn_gray01" onclick="setDateVal('prdt_info', 'd', -1, 0, $(this).text(), true);">어제</button>
+                            <button class="btn_gray01" onclick="setDateVal('prdt_info', 't',  0, 0, $(this).text(), false);">오늘</button>
+                            <button class="btn_gray01" onclick="setDateVal('prdt_info', 'd', -3, 0, $(this).text(), true);">최근3일</button>
+                            <button class="btn_gray01" onclick="setDateVal('prdt_info', 'd', -7, 0, $(this).text(), true);">지난주</button>
+                            <button class="btn_gray01" onclick="setDateVal('prdt_info', 'd', -21, 0, $(this).text(), true);">최근3주</button>
+                            <button class="btn_gray01" onclick="setDateVal('prdt_info', 'y', -3, 0, $(this).text(), true);">최근3년</button>
+                            <button class="btn_Turquoise01" onclick="loadPrdtInfo('prdt_info')">검색</button>
+                        </span>
+                        <!--<button class="daily_button" onclick="setDateVal('prdt_info', 'a',  0, 0, $(this).text(), false);">전체</button>-->
+                    </div>
+
+                    <div class="detail_table">
+                        <table id="tableData3" class="table_basic_layout">
+                            <colgroup>
+                                <col style="width:360px">
+                                <col style="width:540px">
+                            </colgroup>
+                            <thead>
+                                <tr class="big_table">
+                                    <th>회원명</th>
+                                    <th>상품정보</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="big_body" id="prdt_info_list">
+                                <tr>
+                                    <td colspan="2">검색된 결과가 없습니다.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <main>
+                        <div class="content_tab">
+                        <input id="prdt_info_detail" type="radio" name="prdt_info_tab" value="detail" checked>
+                        <label class="tab_label" for="prdt_info_detail">품목별 상세 현황 정보</label>
+
+                        <input id="prdt_info_chart" type="radio" name="prdt_info_tab" value="chart">
+                        <label class="tab_label" for="prdt_info_chart">품목별 그래프 현황</label>
+
+                            <section id="item_content">
+                                <form>
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:120px">
+                                            <col style="width:120px">
+                                            <col style="width:120px">
+                                            <col style="width:120px">
+                                            <col style="width:120px">
+                                            <col style="width:120px">
+                                            <col style="width:120px">
+                                            <col style="width:120px">
+                                            <col style="width:120px">
+                                            <col style="width:120px">
+                                            <col style="width:120px">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                            <th>상품명</th>
+                                            <th>건수/금액<br/><span id="prdt_info_cur_date"></span></th>
+                                            <th>증감</th>
+                                            <th>건수/금액<br/><span id="prdt_info_last_year_date"></span></th>
+                                            <th>증감</th>
+                                            <th>건수/금액<br/><span id="prdt_info_m1_date"></span></th>
+                                            <th>증감</th>
+                                            <th>건수/금액<br/><span id="prdt_info_m2_date"></span></th>
+                                            <th>증감</th>
+                                            <th>건수/금액<br/><span id="prdt_info_m3_date"></span></th>
+                                            <th>증감</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="prdt_info_detail_list">
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </section>
+
+                            <section id="graph_content">
+                                <div id="prdt_info_chart_area" class="update" style="margin:50px 20px 20px 20px;">
+                                </div>
+                                <!--
+                                <div class="pie" style="margin:65px;">
+                                <div id="container_pie1" style="min-width: 350px; height: 400px; max-width: 400px;display:inline-block;"></div>
+                                <div id="container_pie2" style="min-width: 350px; height: 400px; max-width: 400px;display:inline-block"></div>
+                                <div id="container_pie3" style="min-width: 350px; height: 400px; max-width: 400px;display:inline-block"></div>
+                                <div id="container_pie4" style="min-width: 350px; height: 400px; max-width: 400px;display:inline-block"></div>
+                                </div>
+                                <div class="pie_part2" style="margin:65px;">
+                                <div id="container_part1" style="min-width: 350px; height: 400px; max-width: 400px;display:inline-block;"></div>
+                                <div id="container_part2" style="min-width: 350px; height: 400px; max-width: 400px;display:inline-block;"></div>
+                                <div id="container_part3" style="min-width: 350px; height: 400px; max-width: 400px;display:inline-block;"></div>
+                                <div id="container_part4" style="min-width: 350px; height: 400px; max-width: 400px;display:inline-block;"></div>
+                                </div>
+                                -->
+                            </section>
+                        </div>
+                    </main>
+                      <!--차트 끝-->
+                </section>
+                <!--품목별현황정보 끝-->

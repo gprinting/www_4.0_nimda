@@ -1,0 +1,738 @@
+                <!--CRM정보-->
+                <section id="content5" class="content">
+                    <!--회원 CRM정보-->
+                    <div class="page-title">
+                        <table class="page-table">
+                            <colgroup>
+                                <col style="width:80px">
+                                <col style="width:150px">
+                            </colgroup>
+                            <tbody>
+                            <!--<tr>
+                                    <th>고객형태 구분 :</th>
+                                    <td>
+                                        <select class="btnCRM" id="crm_info_client_class">
+                                            <option>잠재고객</option>
+                                            <option>기존고객</option>
+                                        </select>
+                                    </td>
+                                    <th>I/O 구분 :</th>
+                                    <td>
+                                        <select class="btnCRM" id="crm_info_io_class">
+                                            <option>Inbound Call</option>
+                                            <option>Outbound Call</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>요청 연락처 :</th>
+                                    <td>
+                                        <input type="text" class="btnCRM" style="width:117px;" id="crm_info_request_tel" />
+                                    </td>
+                                    <th>발신 연락처 :</th>
+                                    <td>
+                                        <input type="text" class="btnCRM" style="width:117px;"id="crm_info_send_tel" disabled />
+                                    </td>
+                                </tr>
+                            </tbody> -->
+                        </table>
+                    </div>
+
+                    <!--영업,수금 탭-->
+                    <div class="radio-tabs">
+                        <input class="state" type="radio" title="Starks" name="houses-state" id="crm_business" value="crm_business" checked="checked" />
+                        <input class="state" type="radio" title="Lanisters" name="houses-state" id="crm_collect" value="crm_collect" />
+
+                        <div class="tabs">
+                            <label for="crm_business" id="starks-tab" class="tab" onclick="changeCrmTab('crm_business')">영업</label>
+                            <label for="crm_collect" id="lannisters-tab" class="tab" onclick="changeCrmTab('crm_collect')">수금</label>
+                        </div>
+
+                        <!--탭 레이아웃-->
+                        <div class="panels">
+                            <!--영업 레이아웃-->
+                            <div id="starks-panel" class="panel active">
+                                <!--상담유도-->
+                                <table class="table_hor1">
+                                    <colgroup>
+                                        <col width="80">
+                                        <col style="400">
+                                        <col style="400">
+                                        <col style="400">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th class="th_crm_info_left">영업상담일자</th>
+                                            <td>
+                                                <input type="text" class="input_crm_info_business_01 datepicker_input" id="crm_info_cs_date" />
+                                            </td>
+                                            <th class="th_crm_info_right">상담목적 유형</th>
+                                            <td>
+                                                <input type="text" class="input_crm_info_business_01" id="crm_info_cs_indu" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_crm_info_left">상담약속일</th>
+                                            <td>
+                                                <input type="text" class="input_crm_info_business_01 datepicker_input" id="crm_info_cs_promi_date">
+                                            </td>
+                                            <th class="th_crm_info_right">영업형식</th>
+                                            <td>
+                                                <input type="text" class="input_crm_info_business_01" id="crm_info_cs_type">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_crm_info_left">관심분야</th>
+                                            <td>
+                                                <input type="text" class="input_crm_info_business_01" id="crm_info_interest_field" />
+                                            </td>
+                                            <th class="th_crm_info_right">관심상품</th>
+                                            <td>
+                                                <select class="select_crm_info_business_01" id="crm_info_interest_prdt">
+                                                    [TPH_Vcate_html]
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_crm_info_left">예상매출</th>
+                                            <td>
+                                                <input type="text" class="input_crm_info_business_01" id="crm_info_expec_sales" />
+                                            </td>
+                                            <th class="th_crm_info_right">관심아이템</th>
+                                            <td>
+                                                <input type="text" class="input_crm_info_business_01" id="crm_info_interest_item" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_crm_info_left">복수거래 여부</th>
+                                            <td>
+                                                <select class="select_crm_info_business_01" id="crm_info_plural_deal_yn" onchange="toggleMultiEtprs(this.value);">
+                                                    <option value="N">단수거래</option>
+                                                    <option value="Y">복수거래</option>
+                                                </select>
+                                                <!--<input type="radio" name="crm_info_plural_deal_yn" id="crm_info_plural_deal_n" value="N" onclick="toggleMultiEtprs(this.value);" checked="" />단수거래
+                                            </td>
+                                            <td>
+                                                <input type="radio" name="crm_info_plural_deal_yn" id="crm_info_plural_deal_y" value="Y" onclick="toggleMultiEtprs(this.value);" checked=""/>복수거래-->
+                                            </td>
+                                            <th class="th_crm_info_right">관심이벤트</th>
+                                            <td>
+                                                <select class="select_crm_info_business_01" id="crm_info_interest_event">
+                                                    <option value="">오특이</option>
+                                                    <option value="">내특이</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr id="crm_info_multi_etprs" style="margin-top:14px;">
+                                            <th class="th_crm_info_left">중복 거래업체</th>
+                                            <!--<td>
+                                                <input type="text" class="btnCRM" style="width:117px; margin-right:10px;" />
+                                            </td>-->
+                                            <td style="margin-bottom:20px;">
+                                                <button class="btn_crm_info_add" style="width:50px;height:21px;margin-top:0px;" onclick="inputAppend.exec('etprs', '_btn')">추가 +</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td id="etprs">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_crm_info_left">영업 상담 내용</th>
+                                            <td colspan="3" class="td_crm_info_checkbox_align">
+                                                <label class="label_crm_info_checkbox_align_01"><input type="checkbox" name="crm_info_sales_dvs" value="자사소개" />자사소개</label>
+                                                <label class="label_crm_info_checkbox_align_02"><input type="checkbox" name="crm_info_sales_dvs" value="인쇄공정시스템" />인쇄공정시스템</label>
+                                                <label class="label_crm_info_checkbox_align_03"><input type="checkbox" name="crm_info_sales_dvs" value="후공정시스템" />후공정시스템</label>
+                                                <label class="label_crm_info_checkbox_align_04"><input type="checkbox" name="crm_info_sales_dvs" value="품질향상노력홍보" />품질향상노력홍보</label>
+                                                <label class="label_crm_info_checkbox_align_05"><input type="checkbox" name="crm_info_sales_dvs" value="빠른납기시스템홍보" />빠른납기시스템홍보</label>
+                                                <label class="label_crm_info_checkbox_align_06"><input type="checkbox" name="crm_info_sales_dvs" value="직접배송시스템홍보" />직접배송시스템홍보</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td colspan="3" class="td_crm_info_checkbox_align">
+                                                <label class="label_crm_info_checkbox_align_01"><input type="checkbox" name="crm_info_sales_dvs" value="회원가입 감사 멘트" />회원가입 감사 멘트</label>
+                                                <label class="label_crm_info_checkbox_align_02"><input type="checkbox" name="crm_info_sales_dvs" value="이용중 불편한 점" />이용중 불편한 점</label>
+                                                <label class="label_crm_info_checkbox_align_03"><input type="checkbox" name="crm_info_sales_dvs" value="배송 설정" />배송 설정</label>
+                                                <label class="label_crm_info_checkbox_align_04"><input type="checkbox" name="crm_info_sales_dvs" value="상업인쇄 독판 홍보" />상업인쇄 독판 홍보</label>
+                                                <label class="label_crm_info_checkbox_align_05"><input type="checkbox" name="crm_info_sales_dvs" value="당일판 이용 홍보" />당일판 이용 홍보</label>
+                                                <label class="label_crm_info_checkbox_align_06"><input type="checkbox" name="crm_info_sales_dvs" value="자주 연락 약속" />자주 연락 약속</label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!--영업 상담메모-->
+                                <div class="table_hor">
+                                    <table style="width:100%;">
+                                        <colgroup>
+                                            <col width="80">
+                                            <col width="0">
+                                            <col width="0">
+                                            <col width="0">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th class="th_crm_info_left">영업 상담메모</th>
+                                                <td colspan="3">
+                                                    <textarea class="comment-textArea" id ="crm_info_business_cont" name="text" placeholder=""></textarea>
+                                                <input type="hidden" id="crm_info_business_empl_name" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--영업 상담메모 끝-->
+                                <!--버튼영역-->
+                                <div class="crm_btn">
+                                    <!--문자발송 영역-->
+                                    <button onclick="showCrmMmsPop('crm_info_business_mms')" class="btn_crm_info_01">문자 발송</button>
+                                    <div id="crm_info_business_mms_modal" class="crm_modal" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" role="dialog">
+                                        수신자 : <span id="crm_info_business_mms_name"></span>&nbsp;/&nbsp;<span id="crm_info_business_mms_cell_num"></span>
+                                        <div role="document">
+                                            <form name="form1" onSubmit="return false;">
+                                                <textarea id="crm_info_business_mms_title" class="modal_area" name="text" rows="1" placeholder="제목"></textarea>
+                                                <textarea id="crm_info_business_mms_msg" class="modal_area" name="text" rows="6" placeholder="내용"></textarea>
+                                                           <!-- <button id="modalCloseButton" class="modalCloseButton" title="Close registration form"><span>X</span></button>-->
+                                                <div class="modal_btn">
+                                                    <button class="btn_orange" style="margin-right:15px;" onclick="sendMmsMessage('crm_info_business_mms')">발송</button>
+                                                    <button class="btn_gray" onclick="hideModal('crm_info_business_mms')">취소</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!--문자발송 영역 끝-->
+                                    <button onclick="insertCrmInfoBusiness()" class="btn_crm_info_01">신규등록</button>
+                                    <button onclick="modiCrmInfoBusiness()" class="btn_crm_info_01">수정</button>
+                                </div>
+                                <!--버튼영역 끝--> 
+
+                                <!--복수거래여부-->
+                                <div class="">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:150px">
+                                            <col style="width:65px">
+                                            <col style="width:65px">
+                                            <col style="width:100px">
+                                        </colgroup>
+                                        <tbody>
+                                    </table>
+                                </div>
+                                <!--복수거래여부 끝-->
+                            </div>
+                            <!--영업 레이아웃 끝-->
+
+                            <!--수금 레이아웃 시작-->
+                            <div id="lannisters-panel" class="panel">
+                                <!--가상계좌-->
+                                <table class="lannisters_table">
+                                    <colgroup>
+                                        <col width="width:0px">
+                                        <col width="width:0px">
+                                        <col width="width:0px">
+                                        <col width="width:0px">
+                                        <col width="width:0px">
+                                        <col width="width:0px">
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th class="th_crm_info_01">상담일자</th>
+                                            <td>
+                                                <input type="text" class="input_crm_info_collect_01" id="crm_info_collect_cs_date" readonly disabled />
+                                            </td>
+                                            <th class="th_crm_info_02">가상계좌</th>
+                                            <td colspan="4">
+                                                <input type="text" class="input_crm_info_collect_01" id="crm_info_bank_name" style="margin-right:18px;" disabled />
+                                                <input type="text" class="input_crm_info_collect_01" id="crm_info_ba_num" style="width:120px;" disabled />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_crm_info_01">여신한도</th>
+                                            <td>
+                                                <input type="text" class="input_crm_info_collect_01" id="crm_info_loan_limit" disabled>&nbsp;원
+                                            </td>
+                                            <th class="th_crm_info_02">한도 소진금액</th>
+                                            <td colspan="3">
+                                                <input type="text" class="input_crm_info_collect_01" id="crm_info_loan_lack" disabled>&nbsp;원
+                                                <input type="text" class="input_crm_info_collect_01" id="crm_info_loan_ratio" style="width:120px;" disabled>
+                                            <!--<select class="btnCRM" style="width:80px">
+                                                    <option></option>
+                                                </select>-->
+                                                <span id="crm_info_loan_alert"></span>상태입니다.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th_crm_info_01">결제종류</th>
+                                            <td>
+                                                <select id="crm_info_collect_wm" class="select_crm_info_collect_01" onchange="toggleWeekMonth('crm_info_collect_wm', 'crm_info_collect_day')">
+                                                    <option value="100">매주</option>
+                                                    <option value="101">매월</option>
+                                                </select>
+                                                <select id="crm_info_collect_day" class="select_crm_info_collect_01">
+                                                </select>
+                                            </td>
+                                            <th class="th_crm_info_02">결제 약속일</th>
+                                            <td>
+                                                <input type="text" id="crm_info_collect_loan_promi_date" class="input_crm_info_collect_01">
+                                            </td>
+                                            <th class="th_crm_info_03">결제 약속금액</th>
+                                            <td>
+                                                <input type="text" id="crm_info_collect_loan_promi_price" class="input_crm_info_collect_01">&nbsp;원
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                            <td colspan="5">
+                                                <textarea class="comment-textArea" id="crm_info_collect_memo" name="text" rows="6" placeholder=""></textarea>
+                                                <input type="hidden" id="crm_info_collect_empl_name" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!--가상계좌 끝-->
+                                <!--처리여부-->
+                                <div class="table_hor">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:0px">
+                                            <col style="width:170px">
+                                            <col style="width:200px">
+                                            <col style="width:190px">
+                                            <col style="width:180px">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th class="th_crm_info_04">처리 여부</th>
+                                                <td>
+                                                    <input type="radio" name="crm_info_collect_handle_dvs" value="0" style="margin-right:3px;height:14px;"/>잘 지켜지고 있습니다
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="crm_info_collect_handle_dvs" value="1" style="margin-right:3px;height:14px;"/>일정부분 지켜지고 있습니다.
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="crm_info_collect_handle_dvs" value="2" style="margin-right:3px;height:14px;"/>조금 안 지켜지고 있습니다
+                                                </td>
+                                                <td>
+                                                    <input type="radio" name="crm_info_collect_handle_dvs" value="3" style="margin-right:3px;height:14px;"/>조치가 필요합니다
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:0px">
+                                            <col style="width:0px">
+                                            <col style="width:0px">
+                                            <col style="width:0px">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th class="th_crm_info_04">영업진행상태</th>
+                                                <td>
+                                                    <select class="btnCRM" style="width:131px;padding:0px 9px;height:30px;" id="crm_info_collect_cs_type">
+                                                        <option value="100">영업진행중</option>
+                                                        <option value="101">영업대기</option>
+                                                        <option value="102">영업전화중</option>
+                                                        <option value="103">영업전화대기</option>
+                                                        <option value="104">영업완료</option>
+                                                    </select>
+                                                </td>
+                                                <th class="th_crm_info_05">처리일시</th>
+                                                <td>
+                                                    <input type="text" id="crm_info_collect_handle_date" class="input_crm_info_collect_01">
+                                                    <!--<button id="lannisters_modal" class="btn_view" style="padding:0 37px;">문자 발송</button>-->
+                                                    <!--<button class="btn_view" style="padding:0 37px;" onclick="showModal('crm_info_collect_mms')">문자 발송</button>-->
+                                                </td>
+                                                <th></th>
+                                                <td>
+                                                    <div id="crm_info_collect_mms_modal" class="crm_modal" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" role="dialog">
+                                                        <div role="document">
+                                                            <form name="form1" onSubmit="return false;">
+                                                                <textarea id="crm_info_collect_mms_title" class="modal_area" name="text" rows="1" placeholder="제목"></textarea>
+                                                                <textarea id="crm_info_collect_mms_msg" class="modal_area" name="text" rows="6" placeholder="내용"></textarea>
+                                                                <button id="modalCloseButton" class="modalCloseButton" title="Close registration form"><span>X</span></button>
+                                                                <div class="modal_btn">
+                                                                    <button class="btn_orange" style="margin-right:15px;" onclick="sendMmsMessage('crm_info_collect_mms')">발송</button>
+                                                                    <button class="btn_gray" onclick="hideModal('crm_info_collect_mms')">취소</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--처리여부 끝-->
+
+                                <!--처리방법-->
+                                <div class="table_hor3 table_hor">
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:0px">
+                                            <col style="width:120px">
+                                            <col style="width:90px">
+                                            <col style="width:90px">
+                                            <col style="width:90px">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th class="th_crm_info_04">처리 방법</th>
+                                                <td>
+                                                    <input type="radio" class="checkbox_align" name="crm_info_collect_handle_typ" value="0"/>악성업체등록
+                                                </td>
+                                                <td>
+                                                    <input type="radio" class="checkbox_align" name="crm_info_collect_handle_typ" value="1"/>접수정지
+                                                </td>
+                                                <td>
+                                                    <input type="radio" class="checkbox_align" name="crm_info_collect_handle_typ" value="2"/>출고정지
+                                                </td>
+                                                <td>
+                                                    <input type="radio" class="checkbox_align" name="crm_info_collect_handle_typ" value="3"/>거래정지
+                                                </td>
+                                                <td>
+                                                    <input type="radio" class="checkbox_align" name="crm_info_collect_handle_typ" value="4"/>기타
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <table>
+                                        <colgroup>
+                                            <col style="width:0px">
+                                            <col style="width:80px">
+                                            <col style="width:80px">
+                                            <col style="width:80px">
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th class="th_crm_info_04">승인요청</th>
+                                                <td>
+                                                    <input type="checkbox" class="checkbox_align" id="crm_info_collect_aprvl_req_1">담당자
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" class="checkbox_align" id="crm_info_collect_aprvl_req_2">팀장
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" class="checkbox_align" id="crm_info_collect_aprvl_req_3">본부장
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" class="checkbox_align" id="crm_info_collect_aprvl_req_4">대표이사
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--처리방법 끝-->
+                                <div class="section_bar" style="margin: 0px 0 20px 0;"></div>
+
+                                <!--문자발송/신규등록/수정 버튼-->
+                                <div class="crm_btn">
+                                    <!--문자발송 영역-->
+                                    <button onclick="showCrmMmsPop('crm_info_collect_mms')" class="btn_crm_info_01">문자 발송</button>
+                                    <div id="crm_info_collect_mms_modal" class="crm_modal" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDescription" role="dialog">
+                                        수신자 : <span id="crm_info_collect_mms_name"></span>&nbsp;/&nbsp;<span id="crm_info_collect_mms_cell_num"></span>
+                                        <div role="document">
+                                            <form name="form1" onSubmit="return false;">
+                                                <textarea id="crm_info_collect_mms_title" class="modal_area" name="text" rows="1" placeholder="제목"></textarea>
+                                                <textarea id="crm_info_collect_mms_msg" class="modal_area" name="text" rows="6" placeholder="내용"></textarea>
+                                                           <!-- <button id="modalCloseButton" class="modalCloseButton" title="Close registration form"><span>X</span></button>-->
+                                                <div class="modal_btn">
+                                                    <button class="btn_orange" style="margin-right:15px;" onclick="sendMmsMessage('crm_info_collect_mms')">발송</button>
+                                                    <button class="btn_gray" onclick="hideModal('crm_info_collect_mms')">취소</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!--문자발송 영역 끝-->
+
+                                    <button onclick="insertCrmInfoCollect()" class="btn_crm_info_01">신규등록</button>
+                                    <button onclick="modiCrmInfoCollect()" class="btn_crm_info_01">저장</button>
+                                </div>
+                                <!--신규등록/수정 버튼 끝-->
+                            </div>
+                            <!--수금 레이아웃 끝-->
+                        </div>
+                        <!--탭 레이아웃 끝-->
+                    </div>
+                    <!--영업, 수금 탭 끝-->
+                    <div class="modalOverlay" tabindex="-1"></div>
+                    
+                    <div class="table_hor3">
+                        <div class="tab_button">
+                            <span>영업진행상태&nbsp;</span>
+                            <select id="crm_info_search_cs_type" class="select_crm_info_business_02">
+                                <option value="100">영업진행중</option>
+                                <option value="101">영업대기</option>
+                                <option value="102">영업전화중</option>
+                                <option value="103">영업전화대기</option>
+                                <option value="104">영업완료</option>
+                            </select>
+                            <span>&nbsp;상담날짜&nbsp;</span>
+                            <input type="text" id="crm_info_date" class="input_crm_info_business_02 datepicker_input">
+                            <div style="float:right">
+                                <span>상담자&nbsp;</span>
+                                <select id="crm_info_depar" onchange="changeDepar(this.value, 'crm_info_');" class="select_crm_info_business_02">
+                                    [TPH_Vdepar_html]
+                                </select>
+                                <select id="crm_info_empl" class="select_crm_info_business_02">
+                                    <option value=''>전체</option>
+                                    [TPH_Vempl_html]
+                                </select>
+                                <select id="crm_info_search_dvs" class="select_crm_info_business_02">
+                                    <option value="member_name">회원 이름</option>
+                                </select>
+                                <input type="text" id="crm_info_search_txt" class="input_crm_info_business_02">
+                                <button class="btn_Turquoise01" onclick="loadCrmInfoList();">검색</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CRM 리스트 시작-->
+                    <div class="">
+                        <table id="tableData4" class="table_basic_layout">
+                            <colgroup>
+                                <!--
+                                    <col width="100">
+                                    <col width="100">
+                                    <col width="500">
+                                    <col width="100">
+                                    <col width="70">
+                                -->
+                                <col style="width:50px">
+                                <col style="width:100px">
+                                <col style="width:166px">
+                                <col style="width:100px">
+                                <col style="width:80px">
+                                <col style="width:100px">
+                                <col style="width:180px">
+                                <col style="width:60px">
+                            </colgroup>
+                            <thead>
+                                <tr class="big_table">
+                                    <th>No</th>
+                                    <th>상담날짜</th>
+                                    <th>회원명</th>
+                                    <th>상담유형</th>
+                                    <th>상담자</th>
+                                    <th>약속일</th>
+                                    <th>상담내용</th>
+                                    <th>문자발송</th>
+                                <!--
+                                    <th>문자발송</th>
+                                    <th>No</th>
+                                    <th>상담날짜</th>
+                                    <th>회원명</th>
+                                    <th>상담자</th>
+                                    <th>상담건수</th>
+                                -->
+                                </tr>
+                                <tr class="big_table2" id="crm_info_sum">
+                                </tr>
+                            </thead>
+                            <tbody class="big_body" id="crm_info_list">
+                            </tbody>
+                        </table>
+
+                        <div id="crm_info_page" class="page_bar">
+                        </div>
+
+
+                        <div class="loading_oh" id="crm_info_list_mask" style="display:none; top:843px;">
+                            <table  height="288" align="center" cellpadding="0" cellspacing="0" style="opacity:0.5; width:100%">
+                                <tr style="background:#CCC">
+                                    <td><img src="[TPH_Vdesign_dir]/images/business/loading.gif" alt="로딩"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--
+                        <div class="loading_oh" id="crm_info_list_page_mask" style="display:none; top:893px; width:1111px;">
+                            <table  height="41" align="center" cellpadding="0" cellspacing="0" style="opacity:0.5;">
+                                <tr style="background:#CCC">
+                                    <td align="center"><img src="[TPH_Vdesign_dir]/images/business/loading.gif" border="0"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        -->
+                    </div>
+                    <!--CRM 리스트 끝-->
+                    <div style="width:700px;height:50px"></div>
+                    <!--메모 리스트 시작-->
+                    <div class="user_container">
+                        <div class="user_left">
+                            <div class="userTable">
+                                <label class="userTab_label">회원메모</label>
+                            </div>
+                            <table class="table_basic_layout">
+                                <colgroup>
+                                    <col style="width:50px;">
+                                    <col style="width:30px;">
+                                    <col style="width:80px;">
+                                    <col style="width:240px;">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th><input type="checkbox" id="chkAll" /></th>
+                                        <th>기록날짜</th>
+                                        <th>내용</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="crm_memo_tbody">
+                                </tbody>
+                                <thead id="crm_memo_thead">
+                                </thead>
+                            </table>
+                            <div id="crm_memo_list_page" class="page_bar">
+                            </div>
+                        </div>
+                        <!--메모 리스트 끝-->
+                        <!--집계 리스트 시작-->
+                        <div class="user_right">
+                            <div class="userTable">
+                                <input id="userTable_weeks" type="radio" name="userTable_tab" value="weeks" checked="checked">
+                                <label class="userTab_label" for="userTable_weeks" onclick="showTotal('w')">주별집계</label>
+                                <input id="userTable_month" type="radio" name="userTable_tab" value="month">
+                                <label class="userTab_label" for="userTable_month" onclick="showTotal('m')">월별집계</label>
+                                <input id="userTable_years" type="radio" name="userTable_tab" value="years">
+                                <label class="userTab_label" for="userTable_years" onclick="showTotal('y')">년별집계</label>
+
+                                <section id="ut_weeks" style="border-top:1px solid #ddd; padding-top:20px;">
+                                    <table class="table_basic_layout" style="margin:0px;">
+                                        <colgroup>
+                                            <col style="width:50px;">
+                                            <!--<col width="30">-->
+                                            <col style="width:130px;">
+                                            <col style="width:100px;">
+                                            <col style="width:100px;">
+                                            <col style="width:100px;">
+                                        </colgroup>
+                                        <thead>
+                                            <th>No.</th>
+                                            <!--<th><input type="checkbox" /></th>-->
+                                            <th>기간</th>
+                                            <th>순매출</th>
+                                            <th>입금액</th>
+                                            <th>선입금</th>
+                                        </thead>
+                                        <thead id="crm_total_thead_w">
+                                        </thead>
+                                        <tbody id="crm_total_tbody_w">
+                                            <!--<tr>
+                                                <td>1</td>-->
+                                                <!--<td><input type="checkbox" /></td>-->
+                                                <!--<td>2017-06-01</td>
+                                                <td>900,000</td>
+                                                <td>1,500,000</td>
+                                                <td>600,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>-->
+                                                <!--<td><input type="checkbox" /></td>-->
+                                                <!--<td>2017-06-01</td>
+                                                <td>1,000,000</td>
+                                                <td>1,000,000</td>
+                                                <td></td>
+                                            </tr>-->
+                                        </tbody>
+                                    </table>
+                                </section>
+                                <section id="ut_month" style="border-top:1px solid #ddd; padding-top:20px;">
+                                    <table class="table_basic_layout" style="margin:0px;">
+                                        <colgroup>
+                                            <col style="width:50px;">
+                                            <!--<col width="30">-->
+                                            <col style="width:130px;">
+                                            <col style="width:100px;">
+                                            <col style="width:100px;">
+                                            <col style="width:100px;">
+                                        </colgroup>
+                                        <thead>
+                                            <th>No.</th>
+                                            <!--<th><input type="checkbox" /></th>-->
+                                            <th>기간</th>
+                                            <th>순매출</th>
+                                            <th>입금액</th>
+                                            <th>선입금</th>
+                                        </thead>
+                                        <thead id="crm_total_thead_m">
+                                        </thead>
+                                        <tbody id="crm_total_tbody_m">
+                                            <!--<tr>
+                                                <td>1</td>-->
+                                                <!--<td><input type="checkbox" /></td>-->
+                                                <!--<td>2017-05-25</td>
+                                                <td>9,000</td>
+                                                <td>500,000</td>
+                                                <td>700,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>-->
+                                                <!--<td><input type="checkbox" /></td>-->
+                                                <!--<td>2017-04-24</td>
+                                                <td>800,000</td>
+                                                <td>70,000</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>-->
+                                                <!--<td><input type="checkbox" /></td>-->
+                                                <!--<td>2017-03-24</td>
+                                                <td>8,000</td>
+                                                <td>120,000</td>
+                                                <td></td>
+                                            </tr>-->
+                                        </tbody>
+                                    </table>
+                                </section>
+                                <section id="ut_years" style="border-top:1px solid #ddd; padding-top:20px;">
+                                    <table class="table_basic_layout" style="margin:0px;">
+                                        <colgroup>
+                                            <col style="width:50px;">
+                                            <!--<col width="30">-->
+                                            <col style="width:130px;">
+                                            <col style="width:100px;">
+                                            <col style="width:100px;">
+                                            <col style="width:100px;">
+                                        </colgroup>
+                                        <thead>
+                                            <th>No.</th>
+                                            <!--<th><input type="checkbox" /></th>-->
+                                            <th>기간</th>
+                                            <th>순매출</th>
+                                            <th>입금액</th>
+                                            <th>선입금</th>
+                                        </thead>
+                                        <thead id="crm_total_thead_y">
+                                        </thead>
+                                        <tbody id="crm_total_tbody_y">
+                                            <!--<tr>
+                                                <td>1</td>-->
+                                                <!--<td><input type="checkbox" /></td>-->
+                                                <!--<td>2017-06-30</td>
+                                                <td>1,000</td>
+                                                <td>4,000</td>
+                                                <td>500,000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>-->
+                                                <!--<td><input type="checkbox" /></td>-->
+                                                <!--<td>2017-02-31</td>
+                                                <td>700,000</td>
+                                                <td>800,000</td>
+                                                <td></td>
+                                            </tr>-->
+                                        </tbody>
+                                    </table>
+                                </section>
+                            </div>
+                        </div>
+                        <!--집계 리스트 끝-->
+                        <!-- right 끝-->
+                        <div class="user_btn">
+                            <button onclick="showCrmMemoModal.exec('insert')" class="btn_crm_info_02">추가</button>
+                            <button onclick="delCrmMemoModal()" class="btn_crm_info_02">삭제</button>
+                            <button onclick="showCrmMemoModal.exec('update')" class="btn_crm_info_02">수정</button>
+                        </div>
+                    </div>
+                </section>
+                <!--CRM정보 끝-->
