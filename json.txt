@@ -1,0 +1,130 @@
+pid : O11MOB080OM14S0 qty : 10 pri : 9900
+
+pid : O11MOB080OM14S0 qty : 20 pri : 12100
+
+pid : O11MOB080OM14S0 qty : 30 pri : 14300
+
+pid : O11MOB080OM14S0 qty : 40 pri : 15400
+
+pid : O11MOB080OM14S0 qty : 50 pri : 
+
+pid : O11MOB080OM14S0 qty : 60 pri : 
+
+pid : O11MOB080OM14S0 qty : 70 pri : 
+
+pid : O11MOB080OM14S0 qty : 80 pri : 26400
+
+pid : O11MOB080OM14S0 qty : 90 pri : 
+
+pid : O11MOB080OM14S0 qty : 100 pri : 
+
+pid : O11MOB080OM14S0 qty : 120 pri : 35200
+
+pid : O11MOB080OM14S0 qty : 160 pri : 45100
+
+pid : O11MOB080OM14S0 qty : 200 pri : 53900
+
+pid : O11MOB080OM14S0 qty : 240 pri : 63800
+
+pid : O11MOB080OM14S0 qty : 280 pri : 73700
+
+pid : O11MOB080OM14S0 qty : 300 pri : 
+
+pid : O11MOB080OM14S0 qty : 320 pri : 82500
+
+pid : O11MOB080OM14S0 qty : 400 pri : 101200
+
+pid : O11MOB080OM14S0 qty : 480 pri : 119900
+
+pid : O11MOB080OM14S0 qty : 500 pri : 
+
+pid : O11MOB080OM14S0 qty : 600 pri : 147400
+
+pid : O11MOB080OM14S0 qty : 640 pri : 157300
+
+pid : O11MOB080OM14S0 qty : 700 pri : 
+
+pid : O11MOB080OM14S0 qty : 720 pri : 177100
+
+pid : O11MOB080OM14S0 qty : 800 pri : 194700
+
+pid : O11MOB080OM14S0 qty : 900 pri : 
+
+pid : O11MOB080OM14S0 qty : 960 pri : 232100
+
+pid : O11MOB080OM14S0 qty : 1000 pri : 240900
+
+pid : O11MOB080OM14S0 qty : 1120 pri : 267300
+
+pid : O11MOB080OM14S0 qty : 1200 pri : 284900
+
+pid : O11MOB080OM14S0 qty : 1280 pri : 
+
+pid : O11MOB080OM14S0 qty : 1440 pri : 
+
+pid : O11MOB080OM14S0 qty : 1500 pri : 
+
+pid : O11MOB080OM14S0 qty : 1600 pri : 
+
+pid : O11MOB080OM14S0 qty : 1680 pri : 
+
+pid : O11MOB080OM14S0 qty : 1760 pri : 
+
+pid : O11MOB080OM14S0 qty : 1920 pri : 
+
+pid : O11MOB080OM14S0 qty : 2000 pri : 
+
+pid : O11MOB080OM14S0 qty : 2080 pri : 
+
+pid : O11MOB080OM14S0 qty : 2160 pri : 
+
+pid : O11MOB080OM14S0 qty : 2240 pri : 
+
+pid : O11MOB080OM14S0 qty : 2400 pri : 
+
+pid : O11MOB080OM14S0 qty : 2560 pri : 
+
+pid : O11MOB080OM14S0 qty : 2640 pri : 
+
+pid : O11MOB080OM14S0 qty : 2720 pri : 
+
+pid : O11MOB080OM14S0 qty : 2880 pri : 
+
+pid : O11MOB080OM14S0 qty : 3000 pri : 
+
+pid : O11MOB080OM14S0 qty : 3040 pri : 
+
+pid : O11MOB080OM14S0 qty : 3120 pri : 
+
+pid : O11MOB080OM14S0 qty : 3200 pri : 
+
+pid : O11MOB080OM14S0 qty : 3360 pri : 
+
+pid : O11MOB080OM14S0 qty : 3520 pri : 
+
+pid : O11MOB080OM14S0 qty : 3600 pri : 
+
+pid : O11MOB080OM14S0 qty : 3680 pri : 
+
+pid : O11MOB080OM14S0 qty : 3840 pri : 
+
+pid : O11MOB080OM14S0 qty : 4000 pri : 
+
+pid : O11MOB080OM14S0 qty : 4080 pri : 
+
+pid : O11MOB080OM14S0 qty : 4160 pri : 
+
+pid : O11MOB080OM14S0 qty : 4320 pri : 
+
+pid : O11MOB080OM14S0 qty : 4480 pri : 
+
+pid : O11MOB080OM14S0 qty : 4560 pri : 
+
+pid : O11MOB080OM14S0 qty : 4640 pri : 
+
+pid : O11MOB080OM14S0 qty : 4800 pri : 
+
+pid : O11MOB080OM14S0 qty : 4960 pri : 
+
+pid : O11MOB080OM14S0 qty : 5000 pri : 
+

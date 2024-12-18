@@ -1,0 +1,15 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+
+$fb = new FormBean();
+if (empty($fb->session("empl_seqno")) === false) {
+    header("Location: /order/order_common_mng.html");
+    exit;
+}
+
+$template = new Template();
+$template->reg("design_dir" , "/design_template"); 
+$template->htmlPrint($_SERVER["PHP_SELF"]); 
+?>

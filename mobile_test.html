@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Mobile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<!-- 첫 번째 페이지 -->
+<section id="page1" data-role="page">
+    <header data-role="header" data-position="fixed"  data-theme="b">
+        <a href="#" data-rel="back" data-icon="arrow-l" data-theme="a">back</a>
+        <h1>Page Header</h1>
+        <a href="#" data-icon="home" data-theme="a">home</a>
+    </header>
+    <div class="content" data-role="content">
+        <p>첫 번째 페이지</p>
+        <a href="#page2">두 번째 페이지로 이동</a>
+    </div>
+    <footer data-role="footer" data-position="fixed"  >
+        <h2>ⓒcopyright 2016</h2>
+    </footer>
+</section>
+
+
+<!-- 두 번째 페이지 -->
+<section id="page2" data-role="page">
+    <header data-role="header" data-position="fixed"  data-theme="b">
+        <a href="#" data-icon="gear" data-theme="a" class="ui-btn-right">Option</a>
+        <h1>Page Header</h1>
+    </header>
+    <div class="content" data-role="content">
+        <p>두 번째 페이지</p>
+        <a href="#page1">첫 번째 페이지로 이동</a>
+    </div>
+    <footer data-role="footer" data-position="fixed" data-theme="b" >
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-iconpos="top" data-icon="grid">Summary</a></li>
+                <li><a href="#" data-iconpos="top" data-icon="star" class="ui-btn-active">Map</a></li>
+                <li><a href="#" data-iconpos="top" data-icon="gear">Setup</a></li>
+            </ul>
+        </div>
+        <h2>ⓒcopyright 2016</h2>
+    </footer>
+</section>
+</body>
+</html>
