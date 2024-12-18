@@ -1,0 +1,157 @@
+<?php
+/*
+ * Copyright (c) 2017 Nexmotion, Inc.
+ * All rights reserved.
+ *
+ * REVISION HISTORY (reverse chronological order)
+ *=============================================================================
+ * 2017/07/06 엄준현 생성
+ *=============================================================================
+ */
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/order_mng/OrderMngDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+
+$fb = new FormBean();
+$dao = new OrderMngDAO();
+
+if (empty($fb->session("empl_seqno"))) {
+    echo "<script>alert('로그인 상태가 아닙니다.'); window.close();</script>";
+    exit;
+}
+
+$state_arr = $fb->session("state_arr");
+
+$fb = $fb->getForm();
+
+$order_status_code = $fb["code"];
+$member_seqno      = $fb["seqno"];
+$from              = $fb["from"];
+$to                = $fb["to"];
+$member_name       = $fb["name"];
+$cell_num          = $fb["cell"];
+
+$template->reg("member_name", $member_name);
+$template->reg("cell_num"   , $cell_num);
+
+//$order_status_code = '1320';
+//$member_seqno      = '24724';
+
+$param = [];
+$param["order_state"]  = $order_status_code;
+$param["member_seqno"] = $member_seqno;
+$param["from"]         = $from;
+$param["to"]           = $to;
+
+//$conn->debug = 1;
+$rs = $dao->selectOrderCommonByStatus($conn, $param);
+
+// 장바구니
+$tr_form  = "<tr>";
+$tr_form .=     "<td>%s</td>"; // no
+$tr_form .=     "<td>%s</td>"; // title | order_regi_date
+$tr_form .=     "<td style=\"text-align:left;\">%s</td>"; // order_detail | title
+$tr_form .=     "<td>%s</td>"; // amt | order_detail
+$tr_form .=     "<td>%s</td>"; // count | amt
+$tr_form .=     "<td>%s</td>"; // after_price | count
+$tr_form .=     "<td>%s</td>"; // sell_price | sell_price
+if ($order_status_code !== $state_arr["주문대기"]) {
+    $tr_form .=     "<td>%s</td>"; // sale_price
+    $tr_form .=     "<td>%s</td>"; // pay_price
+}
+$tr_form .= "</tr>";
+
+$total_price = 0;
+$tr_html = '';
+$i = 1;
+while ($rs && !$rs->EOF) {
+    $fields = $rs->fields;
+
+
+    if ($order_status_code === $state_arr["주문대기"]) {
+        $sum_price = intval($fields["sell_price"])
+                     + intval($fields["add_after_price"])
+                     + intval($fields["grade_sale_price"])
+                     + intval($fields["member_sale_price"]);
+        $total_price += $sum_price;
+
+        $tr_html .= sprintf($tr_form, $i++
+                                    , $fields["title"]
+                                    , $fields["order_detail"]
+                                    , $fields["amt"]
+                                    , $fields["count"]
+                                    , number_format($fields["add_after_price"])
+                                    , number_format($sum_price));
+    } else {
+        $sum_sale = intval($fields["grade_sale_price"])
+                    + intval($fields["member_sale_price"]);
+        $sale_price = intval($fields["sell_price"]) + $sum_sale;
+        $total_price += $sale_price;
+
+        $tr_html .= sprintf($tr_form, $i++
+                                    , $fields["order_regi_date"]
+                                    , $fields["title"]
+                                    , $fields["order_detail"]
+                                    , $fields["amt"]
+                                    , $fields["count"]
+                                    , number_format($fields["sell_price"])
+                                    , number_format($sum_sale)
+                                    , number_format($sale_price));
+    }
+
+    $rs->MoveNext();
+}
+
+// 상단 테이블 tr, thead 값
+$top_tr_html = null;
+$bot_thead_html = null;
+if ($order_status_code === $state_arr["주문대기"]) {
+    $top_tr_html  = "<tr>";
+    $top_tr_html .=     "<th>총저장수</th>";
+    $top_tr_html .=     "<td>" . $rs->RecordCount() . "</td>";
+    $top_tr_html .=     "<th>총주문예정금액</th>";
+    $top_tr_html .=     "<td>" . number_format($total_price) . "</td>";
+    $top_tr_html .= "</tr>";
+
+    $bot_thead_html  = "<th>번호</th>";
+    $bot_thead_html .= "<th>제작물 내용</th>";
+    $bot_thead_html .= "<th>재질 및 규격</th>";
+    $bot_thead_html .= "<th>수량</th>";
+    $bot_thead_html .= "<th>건수</th>";
+    $bot_thead_html .= "<th>후가공 금액</th>";
+    $bot_thead_html .= "<th>총금액</th>";
+} else {
+    $order_lack_price = $dao->selectCrmInfoLack($conn, $param);
+    $order_lack_price = $order_lack_price->fields["order_lack_price"];
+
+    $top_tr_html  = "<tr>";
+    $top_tr_html .=     "<th>총주문금액</th>";
+    $top_tr_html .=     "<td>" . number_format($total_price) . "</td>";
+    $top_tr_html .=     "<th>주문부족금액</th>";
+    $top_tr_html .=     "<td>" . number_format($order_lack_price) . "</td>";
+    $top_tr_html .= "</tr>";
+
+    $bot_thead_html  = "<th>번호</th>";
+    $bot_thead_html .= "<th>주문일</th>";
+    $bot_thead_html .= "<th>제작물 내용</th>";
+    $bot_thead_html .= "<th>재질 및 규격</th>";
+    $bot_thead_html .= "<th>수량</th>";
+    $bot_thead_html .= "<th>건수</th>";
+    $bot_thead_html .= "<th>주문금액</th>";
+    $bot_thead_html .= "<th>할인금액</th>";
+    $bot_thead_html .= "<th>결제금액</th>";
+}
+
+$template->reg("top_tr_html", $top_tr_html);
+$template->reg("bot_thead_html", $bot_thead_html);
+$template->reg("list_html", $tr_html);
+
+$template->htmlPrint($_SERVER["PHP_SELF"]);
+$conn->Close();

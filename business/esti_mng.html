@@ -1,0 +1,54 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/order_mng/EstiMngDAO.inc");
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/common_define/common_info.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+
+$fb = new FormBean();
+$dao = new EstiMngDAO();
+$leftSetting = new LeftMenuSetting();
+$commonDAO = $dao;
+
+$session = $fb->getSession();
+
+$param = array();
+//$conn->debug = 1;
+
+// 판매채널
+$cpn_admin_html = $dao->selectSellSite($conn);
+$template->reg("cpn_admin_html", $cpn_admin_html);
+
+// 팀
+$param["cpn_admin_seqno"] = $session["sell_site"];
+//$param["depar_name"] = $session["depar_name"];
+$depar_info = $dao->selectReceiptDeparInfo($conn, $param);
+$template->reg("depar_html", $depar_info["html"]);
+// 직원
+unset($param);
+$param["depar_code"] = $depar_info["depar_code"];
+$empl_html = $dao->selectEmplHtml($conn, $param);
+$template->reg("empl_html", $empl_html);
+
+// 업체등급
+$member_grade_html = "<option value=''>전체</option>";
+foreach (GRADE_KO as $grade => $name) {
+   $name = sprintf("%s(%s등급)", $name, $grade);
+   $member_grade_html .= option($name, $grade);
+}
+$template->reg("member_grade_html", $member_grade_html);
+
+$top = "business"; //기초관리
+$left = "order_mng"; //레프트 메뉴
+$left_sub = "esti_mng"; //레프트하위 메뉴, script 주소
+
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+?>

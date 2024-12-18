@@ -1,0 +1,79 @@
+<?
+/*
+ * Copyright (c) 2017 Nexmotion, Inc.
+ * All rights reserved.
+ *
+ * REVISION HISTORY (reverse chronological order)
+ *=============================================================================
+ * 2017/07/20 엄준현 생성
+ *=============================================================================
+ */
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/settle_mng/SettleMngDAO.inc");
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/common_define/common_info.inc");
+include_once(INC_PATH . "/define/nimda/order_mng_define.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+
+$fb = new FormBean();
+$dao = new SettleMngDAO();
+$leftSetting = new LeftMenuSetting();
+$commonDAO = $dao;
+
+$session = $fb->getSession();
+
+$param = array();
+//$conn->debug = 1;
+
+// 판매채널
+$cpn_admin_html = $dao->selectSellSite($conn);
+$template->reg("cpn_admin_html", $cpn_admin_html);
+
+// 팀
+$param["cpn_admin_seqno"] = $session["sell_site"];
+//$param["depar_name"] = $session["depar_name"];
+$depar_info = $dao->selectReceiptDeparInfo($conn, $param);
+$template->reg("depar_html", $depar_info["html"]);
+
+// 입금유형
+$depo_input_typ_arr = DEPO_INPUT_TYPE[1];
+$depo_input_typ_html = "<option value=''>전체</option>";
+foreach ($depo_input_typ_arr as $code => $dvs) {
+    $depo_input_typ_html .= option($dvs, $code);
+}
+$template->reg("depo_input_typ_html", $depo_input_typ_html);
+
+// 업체등급
+$grade_arr = GRADE_KO;
+$member_grade_html = "<option value=''>전체</option>";
+foreach ($grade_arr as $grade => $name) {
+    $name = sprintf("%s(%s등급)", $name, $grade);
+    $member_grade_html .= option($name, $grade);
+}
+$template->reg("member_grade_html", $member_grade_html);
+
+// 배송유형
+$dlvr_dvs_html = "<option value=''>전체</option>";
+foreach (DLVR_TYP as $code => $name) {
+    $dlvr_dvs_html .= option($name, $code);
+}
+$template->reg("dlvr_dvs_html", $dlvr_dvs_html);
+
+// 카테고리
+$cate_html = $dao->selectCateList($conn);
+$template->reg("cate_html", $cate_html);
+
+$top = "business"; //기초관리
+$left = "order_mng"; //레프트 메뉴
+$left_sub = "settle_mng"; //레프트하위 메뉴, script 주소
+
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+?>

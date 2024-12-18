@@ -1,0 +1,94 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/common/BasicMngCommonDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$basicMngDAO = new BasicMngCommonDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $basicMngDAO; 
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "basic_mng"; //기초관리
+$left = "prdc_prdt_mng"; //레프트 메뉴
+$left_sub = "opt_mng"; //레프트하위 메뉴, script 주소
+
+//옵션 이름
+$param = Array();
+$param["table"] = "opt";
+$param["col"] = "DISTINCT name";
+
+$result = $basicMngDAO->selectData($conn, $param);
+
+$arr = [];
+$arr["flag"] = "Y";
+$arr["def"] = "옵션명(전체)";
+$arr["dvs"] = "name";
+$arr["val"] = "name";
+
+$name_html = makeSelectOptionHtml($result, $arr);
+$template->reg("name_html", $name_html);
+
+//옵션 depth1
+$param = Array();
+$param["table"] = "opt";
+$param["col"] = "DISTINCT depth1";
+
+$result = $basicMngDAO->selectData($conn, $param);
+
+$arr = [];
+$arr["flag"] = "Y";
+$arr["def"] = "depth1(전체)";
+$arr["dvs"] = "depth1";
+$arr["val"] = "depth1";
+
+$depth1_html = makeSelectOptionHtml($result, $arr);
+$template->reg("depth1_html", $depth1_html);
+
+//옵션 depth2
+$param = Array();
+$param["table"] = "opt";
+$param["col"] = "DISTINCT depth2";
+
+$result = $basicMngDAO->selectData($conn, $param);
+
+$arr = [];
+$arr["flag"] = "Y";
+$arr["def"] = "depth2(전체)";
+$arr["dvs"] = "depth2";
+$arr["val"] = "depth2";
+
+$depth2_html = makeSelectOptionHtml($result, $arr);
+$template->reg("depth2_html", $depth2_html);
+
+//옵션 depth3
+$param = Array();
+$param["table"] = "opt";
+$param["col"] = "DISTINCT depth3";
+
+$result = $basicMngDAO->selectData($conn, $param);
+
+$arr = [];
+$arr["flag"] = "Y";
+$arr["def"] = "depth3(전체)";
+$arr["dvs"] = "depth3";
+$arr["val"] = "depth3";
+
+$depth3_html = makeSelectOptionHtml($result, $arr);
+$template->reg("depth3_html", $depth3_html);
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

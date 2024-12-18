@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <form action="/api/ao_adchunha_send_json.php" method="post">
+            <textarea name="data" style="margin: 0px; width: 1200px; height: 300px;">
+{
+    "token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ImNvbXMiLCJpYXQiOjE1MTU0NjU4NzAsImV4cCI6MTUxNTUwOTA3MH0.OTwggA9vFhXuI6CPlfHODJgw-XhWVahFeZ9og19lQ-k"
+    ,"order_num_arr" : [
+         ""
+        ,""
+        ,""
+    ]
+    ,"dlvr_way" : "502"
+    ,"d_name" : "굿프린팅"
+    ,"d_tel" : "02-2260-9022"
+    ,"d_hp" : "010-5057-3759"
+    ,"d_zipcode" : "04626"
+    ,"d_addr1" : "서울 중구 필동2가 84-12"
+    ,"d_addr2" : "(주)굿프린팅"
+}
+            </textarea>
+            <button type="submit">전송</button>
+        </form>
+        <br/>
+        <span>dlvr_code : 502=택배, 504=퀵, 507=화물, 50=직배</span>
+        <br/>
+        <span>dlvr_code가 직배가 아닐 때 받으시는분 항목 입력</span>
+    </body>
+</html>

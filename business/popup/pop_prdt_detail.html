@@ -1,0 +1,80 @@
+<?
+/*
+ * Copyright (c) 2017 Nexmotion, Inc.
+ * All rights reserved.
+ *
+ * REVISION HISTORY (reverse chronological order)
+ *=============================================================================
+ * 2017/06/05 엄준현 생성
+ *=============================================================================
+ */
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/order_mng/OrderMngDAO.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/ErpCommonUtil.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/PopPrdtDetailUtil.inc");
+
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/order_mng/TempDAO.inc");
+
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+
+$dao2 = new TempDAO();
+
+$fb = new FormBean();
+$dao = new OrderMngDAO();
+$util = new ErpCommonUtil();
+$popUtil = new PopPrdtDetailUtil(array("conn" => $conn, "dao" => $dao2));
+$commonDAO = $dao;
+
+if (empty($fb->session("empl_seqno"))) {
+    echo "<script>alert('로그인 상태가 아닙니다.'); window.close();</script>";
+    exit;
+}
+
+$fb = $fb->getForm();
+
+$sortcode_t   = $fb["sortcode_t"];
+$member_seqno = $fb["member_seqno"];
+$member_name  = $fb["member_name"];
+$member_nick  = $fb["member_nick"];
+
+// 회원정보
+$template->reg("member_name", $member_name);
+$template->reg("member_nick", $member_nick);
+
+// 카테고리
+$cate_info_arr = $dao2->selectCateTMBHtml($conn, $sortcode_t);
+$template->reg("cate_top", $cate_info_arr["top"]);
+$template->reg("cate_mid", $cate_info_arr["mid"]);
+$template->reg("cate_bot", $cate_info_arr["bot"]);
+
+// 일자
+$date_arr = $util->getDateRangeArr();
+$template->reg("cur_date"      , substr($date_arr["0"]["from"], 0, -3));
+$template->reg("last_year_date", substr($date_arr["1"]["from"], 0, -3));
+$template->reg("m1_date"       , substr($date_arr["2"]["from"], 0, -3));
+$template->reg("m2_date"       , substr($date_arr["3"]["from"], 0, -3));
+$template->reg("m3_date"       , substr($date_arr["4"]["from"], 0, -3));
+
+echo '<pre style="text-align: left;">';
+$param = array();
+$param["member_seqno"]  = $member_seqno;
+$param["cate_name"]     = $cate_info_arr["cate_name"];
+$param["flattyp_yn"]    = $cate_info_arr["flattyp_yn"];
+$param["cate_sortcode"] = $cate_info_arr["cate_sortcode"];
+
+// 상세정보 html
+$prdt_detail_html = $popUtil->makePrdtDetailHtml($param, $date_arr);
+$template->reg("prdt_detail_html", $prdt_detail_html);
+// 카테고리 대분류별 후공정 건수
+echo "</pre>";
+
+$template->htmlPrint($_SERVER["PHP_SELF"]);
+$conn->Close();
+?>

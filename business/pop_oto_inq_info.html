@@ -1,0 +1,170 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/oto_inq_mng/OtoInqMngDAO.inc");
+include_once(INC_PATH . "/com/nexmotion/doc/nimda/business/oto_inq_mng/OtoInquireInfo.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$dao = new OtoInqMngDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $dao; 
+$top = "business";
+$left_sub = "oto_inq_list";
+$template->reg("top" , $top);
+$template->reg("active" , $left_sub);
+$template->reg("on" , $left_sub);
+
+$seqno = $fb->form("seqno");
+
+$param = array();
+$param["oto_inq_seqno"] = $seqno;
+
+$inq_rs = $dao->selectOtoInqCont($conn, $param);
+$reply_rs = $dao->selectOtoReplyCont($conn, $param);
+$param = array();
+$param["table"] = "oto_inq_file";
+$param["col"] = "origin_file_name, oto_inq_file_seqno, file_path, save_file_name";
+$param["where"]["oto_inq_seqno"] = $seqno;
+
+$inq_file_rs = $dao->selectData($conn, $param);
+/*
+$inq_file_html = "";
+if (!$inq_file_rs->EOF == 1) {
+    $i = 0;
+    while ($inq_file_rs && !$inq_file_rs->EOF) {
+
+        if ($i == 0) {
+            $inq_file_html .= "<label class=\"control-label cp\">";
+            $inq_file_html .= "<a href=\"/common/esti_file_down.inc?seqno=";
+            $inq_file_html .= $inq_file_rs->fields["esti_file_seqno"] . "\">";
+            $inq_file_html .= $inq_file_rs->fields["origin_file_name"] . "</a></label>";
+        } else {
+            $inq_file_html .= "<br /><label class=\"fix_width174\"></label>";
+            $inq_file_html .= "<label class=\"control-label cp\">";
+            $inq_file_html .= "<a href=\"/common/esti_file_down.inc?seqno=";
+            $inq_file_html .= $inq_file_rs->fields["esti_file_seqno"] . "\">";
+            $inq_file_html .= $inq_file_rs->fields["origin_file_name"] . "</a></label>";
+        }
+
+        $i++;
+        $inq_file_rs->moveNext();
+    }
+} else {
+    $inq_file_html .= "<label class=\"control-label cp\">";
+    $inq_file_html .= "첨부파일 없음";
+    $inq_file_html .= "</label>";
+}
+*/
+
+$inq_file_html = "";
+if ($inq_file_rs->EOF == null) {
+    $i = 0;
+    while ($inq_file_rs && !$inq_file_rs->EOF) {
+        if ($i == 0) {
+            $inq_file_html .= "<div class=\"fileWrap\"><a href=\"https://orderplatform.s3.ap-northeast-2.amazonaws.com";
+            $inq_file_html .= $inq_file_rs->fields["file_path"] . $inq_file_rs->fields["save_file_name"] . "\">";
+            $inq_file_html .= $inq_file_rs->fields["origin_file_name"]."</a>";
+        } else {
+            $inq_file_html .= "<label class=\" fix_width67\"></label><label class=\"control-label cp\">";
+            $inq_file_html .= "<a href=\"/common/ftf_file_down.inc?seqno=";
+            $inq_file_html .= $inq_file_rs->fields["oto_inq_file_seqno"] . "\">";
+            $inq_file_html .= $inq_file_rs->fields["origin_file_name"] . "</a></label><br>";
+        }
+
+        $i++;
+        $inq_file_rs->moveNext();
+    }
+} else {
+    $inq_file_html .= "<label class=\"control-label fix_width120 tar\">첨부파일</label><label class=\"fix_width20 fs14 tac\">:</label>";
+    $inq_file_html .= "<label class=\"control-label cp clear\">";
+    $inq_file_html .= "첨부파일 없음";
+    $inq_file_html .= "</label><br>";
+}
+
+$param = array();
+$param["table"] = "oto_inq_reply_file";
+$param["col"] = "origin_file_name, oto_inq_reply_file_seqno";
+$param["where"]["oto_inq_reply_seqno"] = $reply_rs->fields["oto_inq_reply_seqno"];
+$reply_file_rs = $dao->selectData($conn, $param);
+
+
+if ($reply_file_rs->EOF == 1) {
+    $reply_file_html = "";
+} else {
+    $reply_file_html .= "<label class=\"fix_width140\"></label>";	
+    $reply_file_html .= "\n<input type=\"text\" onclick=\"adminFtfFileDown('".$reply_file_rs->fields["oto_inq_reply_file_seqno"]."');\" style=\"margin: 0px;\" class=\"input_dis fix_width201\" value=\"".$reply_file_rs->fields["origin_file_name"]."\" readonly=\"\">";     
+    $reply_file_html .= "\n<button type=\"button\" class=\"btn btn-sm bred fa fa-times\" onclick=\"delAdminFtfFile('" . $reply_file_rs->fields["oto_inq_reply_file_seqno"] . "');\"></button>";
+    $reply_file_html .= "\n<br/>";
+}
+
+
+//로그인 개발 후 추가 개발 필요
+$param = array();
+$param["title"] = $inq_rs->fields["title"];
+$param["inq_typ"] = $inq_rs->fields["inq_typ"];
+$param["member_name"] = $inq_rs->fields["member_name"];
+$param["office_nick"] = $inq_rs->fields["office_nick"];
+$param["tel_num"] = $inq_rs->fields["tel_num"];
+$param["cell_num"] = $inq_rs->fields["cell_num"];
+$param["mail"] = $inq_rs->fields["mail"];
+$param["inq_cont"] = $inq_rs->fields["cont"];
+$param["inq_file_html"] = $inq_file_html;
+$param["reply_cont"] = $reply_rs->fields["cont"];
+$param["reply_file_html"] = $reply_file_html;
+//$param["reply_file"] = $reply_file_rs->fields["origin_file_name"];
+$param["oto_inq_seqno"] = $seqno;
+
+if ($inq_rs->fields["answ_yn"] == "Y") {
+    $param["name"] = $reply_rs->fields["depar_name"] . " " . $reply_rs->fields["name"];
+    $template->reg("name", $reply_rs->fields["depar_name"] . " " . $reply_rs->fields["name"]);
+} else {
+    $param["name"] = $fb->session("name");
+    $template->reg("name", $fb->session("name"));
+}
+
+$template->reg("title", $inq_rs->fields["title"]);
+$template->reg("inq_typ", $inq_rs->fields["inq_typ"]);
+$template->reg("member_name", $inq_rs->fields["member_name"]);
+$template->reg("office_nick", $inq_rs->fields["office_nick"]);
+$template->reg("tel_num", $inq_rs->fields["tel_num"]);
+$template->reg("cell_num", $inq_rs->fields["cell_num"]);
+$template->reg("mail", $inq_rs->fields["mail"]);
+$template->reg("inq_cont", $inq_rs->fields["cont"]);
+$template->reg("inq_file_html", $inq_file_html);
+$template->reg("reply_cont", $reply_rs->fields["cont"]);
+//$template->reg("reply_file", $reply_file_rs->fields["origin_file_name"]);
+$template->reg("reply_file_html", $reply_file_html);
+$template->reg("oto_inq_seqno", $seqno);
+//echo makeInquireContHtml($param) . "♪" . $inq_rs->fields["answ_yn"];
+
+if ($inq_rs->fields["answ_yn"] == "Y") {
+    $template->reg("regi_btn", "");
+    $template->reg("cancel_regi_btn", "<label class=\"btn btn_md fix_width120\" id=\"reply_btn\" onclick=\"cancelRegiReply.exec('".$seqno."');\"> 답변취소</label>");
+    $template->reg("disabled", "disabled");
+} else {
+    $template->reg("regi_btn", "<label class=\"btn btn_md fix_width120\" id=\"reply_btn\" onclick=\"regiReply.exec('".$seqno."');\"> 등록한내용으로 답변</label>");
+    $template->reg("cancel_regi_btn", "");
+    $template->reg("disabled", "");
+}
+
+//로그인 체크
+if (!$fb->session("empl_seqno")) {
+    header("Location: /login.html");
+}
+
+//design_dir 경로
+$template->reg("design_dir" , "/design_template"); 
+$template->htmlPrint($_SERVER["PHP_SELF"]); 
+
+
+$conn->close();
+?>

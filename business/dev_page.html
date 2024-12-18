@@ -1,0 +1,38 @@
+
+<?
+/*
+ * Copyright (c) 2017 Nexmotion, Inc.
+ * All rights reserved.
+ *
+ * REVISION HISTORY (reverse chronological order)
+ *=============================================================================
+ * 2017/04/18 엄준현 생성
+ *=============================================================================
+ */
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/order_mng/OrderMngDAO.inc");
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/common_define/common_info.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+
+$fb = new FormBean();
+$dao = new OrderMngDAO();
+$leftSetting = new LeftMenuSetting();
+$commonDAO = $dao;
+
+$session = $fb->getSession();
+
+$top = "business"; //기초관리
+$left = "order_mng"; //레프트 메뉴
+$left_sub = "dev_page"; //레프트하위 메뉴, script 주소
+
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+?>

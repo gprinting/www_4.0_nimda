@@ -1,0 +1,72 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/calcul_mng/cashbook/CashbookRegiDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$cashbookDAO = new CashbookRegiDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $cashbookDAO; 
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "calcul_mng"; //정산관리
+$left = "cashbook"; //금전출납부
+$left_sub = "cashbook_regi"; //금전출납등록
+
+//판매채널 검색
+$sell_site_html = $commonDAO->selectSellSite($conn);
+$template->reg("sell_site" , $sell_site_html);
+
+//계정과목 검색
+$param = array();
+$param["table"] = "acc_subject";
+$param["col"] = "acc_subject_seqno, name";
+$param["group"] = "name";
+$param["order"] = "acc_subject_seqno";
+$result = $cashbookDAO->selectData($conn, $param);
+
+//계정과목 셀렉트 옵션 셋팅
+$param = array();
+$param["flag"] = "N";
+$param["val"] = "acc_subject_seqno";
+$param["dvs"] = "name";
+$acc_html = makeSelectOptionHtml($result, $param);
+$template->reg("acc_html" , $acc_html);
+
+//입출금 경로 검색
+$param = array();
+$param["table"] = "depo_withdraw_path";
+$param["col"] = "name";
+$result = $cashbookDAO->selectData($conn, $param);
+
+//입출금경로 셀렉트 옵션 셋팅
+$param = array();
+$param["flag"] = "N";
+$param["val"] = "name";
+$param["dvs"] = "name";
+$path_html = makeSelectOptionHtml($result, $param);
+$template->reg("path_html", $path_html);
+
+$param = array();
+$param["flag"] = FALSE;
+$param["from_id"] = "from_only";
+$param["to_id"] = "to_only";
+
+//날짜 검색
+$template->reg("datepicker_html" , makeDatePickerHtml($param));
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

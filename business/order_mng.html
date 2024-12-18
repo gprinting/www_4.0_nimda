@@ -1,0 +1,123 @@
+<?
+/*
+ * Copyright (c) 2017 Nexmotion, Inc.
+ * All rights reserved.
+ *
+ * REVISION HISTORY (reverse chronological order)
+ *=============================================================================
+ * 2017/04/18 엄준현 생성
+ *=============================================================================
+ */
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/order_mng/OrderMngDAO.inc");
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/common_define/common_info.inc");
+include_once(INC_PATH . "/define/nimda/order_mng_define.inc");
+
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+
+$fb = new FormBean();
+$dao = new OrderMngDAO();
+$leftSetting = new LeftMenuSetting();
+$commonDAO = $dao;
+
+$session = $fb->getSession();
+
+$param = array();
+//$conn->debug = 1;
+
+// 판매채널
+$cpn_admin_html = $dao->selectSellSite($conn);
+$template->reg("cpn_admin_html", $cpn_admin_html);
+
+// 팀
+$param["cpn_admin_seqno"] = $session["sell_site"];
+//$param["depar_name"] = $session["depar_name"];
+$depar_info = $dao->selectReceiptDeparInfo($conn, $param);
+$template->reg("depar_html", $depar_info["html"]);
+// 직원
+/* 2017-05-22 팀 전체 추가해서 직원 검색 안함
+unset($param);
+$param["depar_code"] = $depar_info["depar_code"];
+$empl_html = $dao->selectEmplHtml($conn, $param);
+$template->reg("empl_html", $empl_html);
+*/
+$template->reg("empl_html", '');
+
+// 운영체제
+unset($param);
+$pro_typ_info = $dao->selectProTypInfo($conn, $param);
+$template->reg("oper_sys_html", $pro_typ_info["html"]);
+
+// 업체등급
+$grade_arr = GRADE_KO;
+$member_grade_html = "<option value=''>전체</option>";
+foreach ($grade_arr as $grade => $name) {
+    $name = sprintf("%s(%s등급)", $name, $grade);
+    $member_grade_html .= option($name, $grade);
+}
+$template->reg("member_grade_html", $member_grade_html);
+
+// 배송유형
+$dlvr_dvs_html = "<option value=''>전체</option>";
+foreach (DLVR_TYP as $code => $name) {
+    $dlvr_dvs_html .= option($name, $code);
+}
+$template->reg("dlvr_dvs_html", $dlvr_dvs_html);
+
+// 카테고리 중분류
+$cate_mid_html = $dao->selectMidCateList($conn);
+$template->reg("cate_mid_html", $cate_mid_html);
+
+// 주문정보 - 카테고리
+$cate_html = $dao->selectCateList($conn);
+$template->reg("cate_html", $cate_html);
+
+// 주문상태 - 주문상태
+$arr = $session["state_arr"];
+$status_html = '';
+foreach ($arr as $ko => $code) {
+    switch ($ko) {
+        case "주문대기":
+        case "입금대기":
+        case "주문취소":
+        case "접수중":
+        case "조판중":
+        case "생산중":
+        case "배송중":
+            $status_html .= option($ko, $code);
+            break;
+    }
+}
+$template->reg("status_html", $status_html);
+
+// 매출액/입금액 조정 팝업 카드사 html
+$card_comp_arr = CARD_COMPANY;
+$card_comp_html = '';
+foreach ($card_comp_arr as $comp) {
+    $card_comp_html .= option($comp, $comp);
+}
+$template->reg("card_comp_html", $card_comp_html);
+
+// 매출액/입금액 조정, 매출액 VIEW 입금방법 html
+$depo_view_arr = DEPO_INPUT_TYPE['1'];
+$depo_view_html = '';
+foreach ($depo_view_arr as $typ_b_code => $typ) {
+    $depo_view_html .= option($typ, '1' . $typ_b_code);
+}
+$template->reg("depo_view_html", $depo_view_html);
+
+$top = "business"; //기초관리
+$left = "order_mng"; //레프트 메뉴
+$left_sub = "order_mng"; //레프트하위 메뉴, script 주소
+
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+?>

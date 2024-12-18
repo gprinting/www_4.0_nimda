@@ -1,0 +1,168 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/ErpCommonUtil.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/empl_info/EmplInfoDAO.inc");
+include_once(INC_PATH . "/common_define/common_info.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$dao = new EmplInfoDAO();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$commonDAO = $dao;
+$util = new ErpCommonUtil();
+
+$session = $fb->getSession();
+
+
+// 정보 불러오기
+$seqno = $_GET["seqno"];
+$info_param = array();
+$info_param["seqno"] = $seqno;
+
+$empl_info = $dao->selectEmplDetail($conn, $info_param);
+print_r($empl_info);
+$fields = $empl_info->fields;
+$template->reg("empl_seqno", $seqno);
+
+// 사번
+$empl_num = $fields["empl_num"];
+$template->reg("empl_num", $empl_num);
+
+// 이름
+$empl_name = $fields["name"];
+$template->reg("empl_name", $empl_name);
+
+// 직책
+$empl_job = $fields["job"];
+$template->reg("empl_job", $empl_job);
+
+// 직급
+$posi_arr      = $dao->selectEmplRegiPosition($conn);
+$posi_val      = $fields["posi_code"];
+$posi_arr_html = "<option value=''>선택</option>";
+$sel           = "selected=\"selected\"";
+foreach ($posi_arr as $posi_code => $posi_name) {
+    if ($posi_name["posi_code"] == $posi_val) {
+        $posi_arr_html .= option($posi_name["posi_name"], $posi_name["posi_code"], $sel);
+    }
+    $posi_arr_html .= option($posi_name["posi_name"], $posi_name["posi_code"]);
+}
+$template->reg("posi_arr_html", $posi_arr_html);
+
+// 부서-상위 개발필요
+$dept_top_arr = $dao->selectEmplRegiDeptTop($conn, $dept_param);
+$dept_val     = $fields["depar_code"];
+$dept_len     = strlen($dept_val);
+if ($dept_len == "4") {
+    $dept_mid_val = $dept_val; 
+    $dept_val     = substr($dept_val, 0 , 2);
+    $template->reg("mid_dept_val", $dept_mid_val);
+}
+$dept_top_arr_html = "<option value=''>선택</option>";
+foreach ($dept_top_arr as $dept_info => $dept_name) {
+    if ($dept_name["depar_code"] == $dept_val) {
+        $dept_top_arr_html .= option($dept_name["depar_name"], $dept_name["depar_code"], $sel);
+    }
+    $dept_top_arr_html .= option($dept_name["depar_name"], $dept_name["depar_code"]);
+}
+$template->reg("top_dept_html", $dept_top_arr_html);
+
+// 이메일
+$empl_mail = $fields["mail"];
+$template->reg("empl_mail", $empl_mail);
+
+// 휴대폰
+$empl_mp = $fields["tel_num"];
+$empl_mp_arr = explode('-', $empl_mp);
+$template->reg("empl_cell_mid", $empl_mp_arr[1]);
+$template->reg("empl_cell_end", $empl_mp_arr[2]);
+
+// 내선번호
+$empl_exten = $fields["exten_num"];
+$template->reg("empl_exten", $empl_exten);
+
+// 상태
+$stat_arr_tex = array();
+$stat_arr_tex[0] = "정상";
+$stat_arr_tex[1] = "퇴사";
+
+$stat_arr_val = array();
+$stat_arr_val[0] = "Y";
+$stat_arr_val[1] = "N";
+$stat_dvs_html = "";
+$empl_status = $fields["resign_yn"];
+$stat_option_html = "<option value=\"%s\" %s>%s</option>";
+
+for ($i = 0; $i < 2; $i++) {
+    $selected = "";
+    if ($empl_status == $stat_arr_val[$i]) {
+        $selected = " selected=\"selected\"";
+    }
+    $stat_dvs_html .= sprintf($stat_option_html, $stat_arr_val[$i]
+                                              , $selected
+                                              , $stat_arr_tex[$i]);
+}
+$template->reg("empl_status", $stat_dvs_html);
+
+// 권한
+$auth_arr_tex = array();
+$auth_arr_tex[0] = "---";
+$auth_arr_tex[1] = "A";
+$auth_arr_tex[2] = "SA";
+
+$auth_arr_val = array();
+$auth_arr_val[0] = "";
+$auth_arr_val[1] = "A";
+$auth_arr_val[2] = "SA";
+$auth_dvs_html = "";
+$empl_auth = $fields["admin_auth"];
+$auth_option_html = "<option value=\"%s\" %s>%s</option>";
+
+for ($i = 0; $i < 3; $i++) {
+    $selected = "";
+    if ($empl_auth == $auth_arr_val[$i]) {
+        $selected = " selected=\"selected\"";
+    }
+    $auth_dvs_html .= sprintf($auth_option_html, $auth_arr_val[$i]
+                                               , $selected
+                                               , $auth_arr_tex[$i]);
+}
+$template->reg("empl_auth", $auth_dvs_html);
+
+
+
+// 데이트피커 세팅
+$opt = array();
+
+$optVal = array();
+$optVal[0] = "regi_date";
+
+$param = array();
+$param["value"] = $optVal;
+$param["fields"] = $opt;
+$param["id"] = "search_cnd";
+$param["flag"] = TRUE;
+$param["from_id"] = "from";
+$param["to_id"] = "to";
+
+//날짜 검색
+$template->reg("datepicker_html" , makeDatePickerHtml($param));
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "business"; //기초관리
+$left = "claim_mng"; //레프트 메뉴
+$left_sub = "claim_list"; //레프트하위 메뉴, script 주소
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->Close();
+?>

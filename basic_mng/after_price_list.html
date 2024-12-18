@@ -1,0 +1,38 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . '/com/nexmotion/job/nimda/basic_mng/prdt_price_mng/AfterPriceListDAO.inc');
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$afterPriceDAO = new AfterPriceListDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $afterPriceDAO; 
+
+// 카테고리 대분류 검색
+$cate_html = $commonDAO->selectCateList($conn);
+$template->reg("cate_html" , $cate_html);
+
+// 판매채널 검색
+$sell_site_html = $commonDAO->selectSellSite($conn);
+$template->reg("sell_site" , $sell_site_html);
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "basic_mng"; //기초관리
+$left = "prdt_price_mng"; //레프트 메뉴
+$left_sub = "after_price_list"; //레프트하위 메뉴, script 주소
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->close();
+?>

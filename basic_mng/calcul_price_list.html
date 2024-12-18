@@ -1,0 +1,52 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . '/com/nexmotion/job/nimda/basic_mng/prdt_price_mng/CalculPriceListDAO.inc');
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$calculPriceDAO = new CalculPriceListDAO();
+
+//공통 footer 사용을 위한 변수 선언
+$commonDAO = $calculPriceDAO; 
+
+// 판매채널 검색
+$sell_site_html = $commonDAO->selectSellSite($conn);
+$template->reg("sell_site", $sell_site_html);
+
+// 카테고리 대분류 검색
+$cate_html = $commonDAO->selectCateList($conn);
+$template->reg("cate_html" , $cate_html);
+
+// 종이명 검색
+$paper_html =
+    $calculPriceDAO->selectPrdtPaperInfoHtml($conn, "SORT", array());
+$template->reg("paper_html", $paper_html);
+
+// 출력명 검색
+$output_html =
+    $calculPriceDAO->selectPrdtOutputInfoHtml($conn, "NAME", array());
+$template->reg("output_html", $output_html);
+
+// 계산형 카테고리 소분류 검색
+$calc_cate_html = $calculPriceDAO->selectCalcCate($conn);
+$template->reg("calc_cate_html", $calc_cate_html);
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "basic_mng"; //기초관리
+$left = "prdt_price_mng"; //레프트 메뉴
+$left_sub = "calcul_price_list"; //레프트하위 메뉴, script 주소
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->Close();
+?>

@@ -1,0 +1,268 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/claim_mng/ClaimListDAO.inc");
+include_once(INC_PATH . "/com/nexmotion/doc/nimda/business/claim_mng/ClaimInfo.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$fb = new FormBean();
+$dao = new ClaimListDAO();
+$commonDAO = $dao;
+
+$seqno    = $fb->form("seqno");
+$now_page = $fb->form("claim_page");
+
+//$conn->debug = "1";
+
+$param = array();
+$param["order_claim_seqno"] = $seqno;
+
+// 회원정보, 회원클레임내역정보, 회원주문내역 일부 
+$rs = $dao->selectClaimView($conn, $param);
+
+// 회원정보 중 팀구분 
+$param["member_seqno"] = $rs->fields["member_seqno"];
+$rs_team = $dao->selectMemberTeamCode($conn, $param);
+$param["resp_deparcode"] = $rs_team->fields["resp_deparcode"];
+$team_name = $dao->selectMemberTeamName($conn, $param);
+
+// 회원주문내역 중 상품명
+$param["order_common_seqno"] = $rs->fields["order_common_seqno"];
+$prdt_name = $dao->selectClaimPrdtName($conn, $param);
+
+// 회원주문내역 중 규격, 수량, 건수
+$flattyp_yn = $prdt_name->fields["flattyp_yn"];
+$tbl_dvs = "";
+if ($flattyp_yn == "Y") {
+    $order_status = $dao->selectClaimOrderDetail($conn, $param);
+} else if ($flattyp_yn == "N") {
+    $order_status = $dao->selectClaimOrderDetailBrochure($conn, $param);
+}
+
+// 회원주문내역 중 재질
+$param["mpcode"] = $order_status->fields["cate_paper_mpcode"];
+$paper_qual      = $dao->selectClaimOrderPaper($conn, $param);
+
+// 회원주문내역 중 도수
+$param["cate_sortcode"] = $prdt_name->fields["sortcode"];
+$degree                 = $dao->selectClaimOrderDegree($conn, $param);
+
+// 회원주문내역 중 후가공(후공정)
+$after_history = $dao->selectClaimOrderAfter($conn, $param);
+
+// 회원주문내역 중 판번호
+$param["order_num"] = $rs->fields["order_num"];
+$sheet_typset = $dao->selectSheetTypsetSeq($conn, $param);
+$param["sheet_typset_seqno"] = $sheet_typset->fields["sheet_typset_seqno"];
+$typset_num = $dao->selectTypsetNum($conn, $param);
+
+
+// 클레임합의정보 중 협의금액 퍼센트 표시(템플릿은 하단에 붙임)
+$bp_option_html = "<option value=\"%s\">%s</option>";
+$bp_status_html = sprintf($bp_option_html, "직접입력", "직접입력");
+for ($i = 0; $i < 11; $i++) {
+    $bp_status_html .= sprintf($bp_option_html, $i*10, ($i*10) . "%");
+}
+
+/** 클레임 합의정보 클레임 상태 START **/
+$claim_status_dvs = $rs->fields["state"];
+$claim_status_arr = array();
+$claim_status_arr[0] = "처리중";
+$claim_status_arr[1] = "합의";
+$claim_status_html = "";
+$claim_status_option_html = "<option value=\"%s\" %s>%s</option>";
+
+for ($i = 0; $i < 2; $i++) {
+    $status_selected = "";
+    if ($claim_status_dvs == $claim_status_arr[$i]) {
+        $status_selected = " selected=\"selected\"";
+    }
+    $claim_status_html .= sprintf($claim_status_option_html, $claim_status_arr[$i]
+                                                           , $status_selected
+                                                           , $claim_status_arr[$i]);
+}
+/** 클레임 합의정보 클레임 상태 END **/
+
+/* 클레임 합의정보 책임구분 START */
+$claim_resp_dvs = $rs->fields["resp_dvs"];
+$claim_resp_dvs_ex = explode("!", $claim_resp_dvs);
+$pur_prdt  = $claim_resp_dvs_ex[0];
+$pur_manu  = $claim_resp_dvs_ex[1];
+$pur_brand = $claim_resp_dvs_ex[2];
+$pur_memo  = $claim_resp_dvs_ex[3];
+
+/* 클레임 합의정보 책임구분 END */
+
+if ($rs->fields["state"] == "요청") {
+
+    $param = array();
+    $param["table"] = "order_claim"; 
+    $param["col"]["empl_seqno"] = $fb->session("empl_seqno");
+    $param["col"]["state"] = "처리중";
+    $param["prk"] = "order_claim_seqno";
+    $param["prkVal"] = $seqno;
+
+    $dao->updateData($conn, $param);
+}
+
+$param = array();
+$param["table"] = "order_claim_file";
+$param["col"] = "origin_file_name";
+$param["where"]["order_claim_seqno"] = $seqno;
+
+$order_claim_file_rs = $dao->selectData($conn, $param);
+
+if ($order_claim_file_rs->EOF == 1) {
+    $order_claim_file = "";
+} else {
+    $order_claim_file .= $order_claim_file_rs->fields["origin_file_name"];     
+}
+
+$sample_origin_file_name = "";
+if ($rs->fields["sample_origin_file_name"]) {
+    $sample_origin_file_name  = "<a href=\"/common/claim_file_down.php?seqno=" . $seqno . "\">";
+    $sample_origin_file_name .= $rs->fields["sample_origin_file_name"] . "</a>";
+
+} else {
+    $sample_origin_file_name = "첨부파일 없음";
+}
+
+$empl_name = $fb->session("name");
+if ($rs->fields["empl_name"]) {
+    $empl_name = $rs->fields["empl_name"];
+}
+
+$claim_dvs = $rs->fields["dvs"];
+
+$arr = array();
+$arr[0] = "인쇄잡티";
+$arr[1] = "파손";
+$arr[2] = "환불";
+$arr[3] = "반품";
+$claim_dvs_html = "";
+$option_html = "<option value=\"%s\" %s>%s</option>";
+
+for ($i = 0; $i < 4; $i++) {
+    $selected = "";
+    if ($claim_dvs == $arr[$i]) {
+        $selected = " selected=\"selected\"";
+    }
+    $claim_dvs_html .= sprintf($option_html 
+            ,$arr[$i] ,$selected ,$arr[$i]);
+}
+
+
+/* 클레임처 selectbox START */
+$param = array();
+$param["table"] = "extnl_etprs";
+$param["col"]   = "extnl_etprs_seqno, manu_name";
+$param["where"]["deal_yn"] = "Y";
+
+$extnl_etprs_rs = $dao->selectData($conn, $param);
+$extnl_etprs_html = "";
+
+while ($extnl_etprs_rs && !$extnl_etprs_rs->EOF) {
+    $selected = "";
+    if ($rs->fields["extnl_etprs_seqno"] == 
+            $extnl_etprs_rs->fields["extnl_etprs_seqno"]) {
+        $selected = " selected=\"selected\"";
+    }
+    $extnl_etprs_html .= sprintf($option_html ,$extnl_etprs_rs->fields["extnl_etprs_seqno"] 
+                                              ,$selected
+                                              ,$extnl_etprs_rs->fields["manu_name"]);   
+    $extnl_etprs_rs->MoveNext();
+}
+/* 클레임처 selectbox END */
+
+$count = $rs->fields["count"];
+if ($rs->fields["reorder_count"]) {
+    $count = $rs->fields["reorder_count"];
+}
+
+$template->reg("claim_dvs_html", $claim_dvs_html);
+$template->reg("order_claim_seqno", $seqno);
+$template->reg("order_common_seqno", $rs->fields["order_common_seqno"]);
+$template->reg("order_info_html", $dao->selectOrderInfoNonePop($conn, $rs->fields["order_common_seqno"]));
+
+//회원정보
+$template->reg("member_name", $rs->fields["member_name"]);                          // 회원명
+$template->reg("tel_num", $rs->fields["tel_num"]);                                  // 회원 TEL
+$template->reg("cell_num", $rs->fields["cell_num"]);                                // 회원 휴대폰
+$template->reg("team_dvs", $team_name->fields["depar_name"]);                       // 회원 팀구분
+$template->reg("dlvr_code", $rs->fields["dlvr_code"]);                              // 회원 배송구분
+$template->reg("addr", $rs->fields["addr"] . " " .  $rs->fields["addr_detail"]);    // 회원 주소
+
+//회원주문내역
+$template->reg("order_regi_date", substr($rs->fields["order_regi_date"], 0, 10));   // 주문일
+$template->reg("order_num", $rs->fields["order_num"]);                              // 주문번호
+$template->reg("sheet_typset", $typset_num->fields["typset_num"]);                  // 판번호
+$template->reg("prdt_name", $prdt_name->fields["cate_name"]);                       // 상품명
+$template->reg("paper_qual", $paper_qual->fields["name"]);                          // 재질
+$template->reg("stan_name", $order_status->fields["stan_name"]);                    // 규격
+$template->reg("amt", $order_status->fields["amt"]);                                // 수량
+$template->reg("degree", $degree->fields["name"]);                                  // 도수
+$template->reg("count", $order_status->fields["count"]);                            // 건수
+$template->reg("after_history", $after_history->fields["after_name"]);              // 후가공
+$template->reg("order_title", $rs->fields["order_title"]);                          // 제작물내용
+$template->reg("pay_price", number_format($rs->fields["pay_price"]));               // 주문금액
+
+//회원클레임내역 
+$template->reg("regi_date", substr($rs->fields["regi_date"], 0, 10));               // 클레임요청일
+$template->reg("order_claim_seqno", $rs->fields["order_claim_seqno"]);              // 클레임번호
+$template->reg("claim_dvs", $rs->fields["dvs"]);                                    // 클레임유형
+$template->reg("sample_origin_file_name", $rs->fields["sample_origin_file_name"]);  // 견본이미지
+$template->reg("claim_title", $rs->fields["title"]);                                // 클레임제목
+
+//클레임 합의정보
+//$template->reg("extnl_etprs_html", $extnl_etprs_html);                              // 클레임 처
+//$template->reg("receipt_mng", $rs->fields["receipt_mng"]);                          // 작업자
+$template->reg("accident_cause", $rs->fields["accident_cause"]);                    // 사고원인
+$template->reg("accident_type", $rs->fields["accident_type"]);                      // 사고 판독 유형 
+$template->reg("outsource_pur_prdt", $pur_prdt);                                    // 책임 구분
+$template->reg("outsource_pur_manu", $pur_manu);                                    // 책임 기업
+$template->reg("outsource_pur_brand", $pur_brand);                                  // 책임 브랜드
+$template->reg("outsource_pur_memo", $pur_memo);                                    // 책임 메모
+$template->reg("bp_status_html", $bp_status_html);                                  // 합의금액 퍼센트
+$template->reg("claim_status", $claim_status_html);                                 // 클레임 상태, 처리 상태(처리정보)
+
+// 승인
+$template->reg("aprvl_code", $rs->fields["aprvl_code"]);                            // 승인 코드
+$template->reg("aprvl_user", $rs->fields["aprvl_user"]);                            // 최근 승인자
+
+// 최근 페이지
+$template->reg("claim_page", $now_page);
+
+
+$template->reg("occur_price", number_format($rs->fields["occur_price"]));       
+$template->reg("sample_origin_file_name", $sample_origin_file_name);
+$template->reg("cust_cont", $rs->fields["cust_cont"]);
+$template->reg("empl_name", $empl_name);
+$template->reg("dvs_detail", $rs->fields["dvs_detail"]);
+$template->reg("mng_cont", $rs->fields["mng_cont"]);
+$template->reg("refund_prepay", number_format($rs->fields["refund_prepay"]));
+$template->reg("refund_money", number_format($rs->fields["refund_money"]));
+$template->reg("cust_burden_price", number_format($rs->fields["cust_burden_price"]));
+$template->reg("outsource_burden_price", number_format($rs->fields["outsource_burden_price"]));
+$template->reg("count", $count);
+$template->reg("order_claim_file", $order_claim_file);
+$template->reg("extnl_etprs_seqno", $rs->fields["extnl_etprs_seqno"]);
+$template->reg("agree_yn", $rs->fields["agree_yn"]);
+$template->reg("order_yn", $rs->fields["order_yn"]);
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "business"; //기초관리
+$left = "claim_mng"; //레프트 메뉴
+$left_sub = "claim_list"; //레프트하위 메뉴, script 주소
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+$conn->Close();
+?>

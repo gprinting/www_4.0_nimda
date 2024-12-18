@@ -1,0 +1,374 @@
+<?php
+/**
+ * 광고천하 데이터 전송용 json 생성
+ */
+
+define(INC_PATH, $_SERVER["INC"]);
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/api/AoAdchunhaDAO.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/PasswordEncrypt.inc");
+include_once(INC_PATH . "/define/nimda/api_define.inc");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/application/libraries/JWT.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/application/helpers/labelhelper.php");
+use \Firebase\JWT\JWT;
+
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$dao = new AoAdchunhaDAO();
+
+$data = $_GET["data"] ?? $_POST["data"];
+$data = json_decode($data, true);
+
+$token         = $data["token"];
+$order_num_arr = $data["order_num_arr"];
+$dlvr_way      = $data["dlvr_way"];
+
+$d_name    = $data["d_name"];
+$d_tel     = $data["d_tel"];
+$d_hp      = $data["d_hp"];
+$d_zipcode = $data["d_zipcode"];
+$d_addr1   = $data["d_addr1"];
+$d_addr2   = $data["d_addr2"];
+
+if (empty($token) || count($order_num_arr) === 0 || empty($dlvr_way)) {
+    $json['result']['code'] = '0003';
+    $json['result']['value'] = 'adchunha api error';
+
+    echo json_encode($json);
+    exit;
+}
+
+$decoded = JWT::decode($token, labelhelper::$KEY, ['HS256']);
+
+// 선택한 배송방법에 따라서 발송자 정보 변경
+$f_name = '';
+$f_tel  = '';
+$f_addr = '';
+if ($dlvr_way === "택배") {
+    $f_name = "(주)굿프린팅";
+    $f_tel  = "02-2260-9000";
+    $f_addr = "서울 중구 필동2가 84-12 (주)굿프린팅";
+}
+
+//#연번 필수(Y/N) 설명
+$json_form  = "[";
+$json_form .=     "{";
+$json_form .=         " \"userId\"       : \"%s\""; //#1 Y 로그인 아이디
+$json_form .=         ",\"userPw\"       : \"%s\""; //#2 Y 로그인 비밀번호
+$json_form .=         ",\"userKey\"      : \"%s\""; //#3 Y 전송키
+$json_form .=         ",\"a_type\"       : \"%s\""; //#4 Y 1:무통장, 9:미수금
+$json_form .=         ",\"order_idx\"    : \"%s\""; //#5 Y 고객사주문번호
+
+$json_form .=         ",\"name\"         : \"%s\""; //#6 Y 주문자명
+$json_form .=         ",\"tel\"          : \"%s\""; //#7 Y 주문자 전화번호
+$json_form .=         ",\"hp\"           : \"%s\""; //#8 Y 주문자 휴대폰
+$json_form .=         ",\"hp2\"          : \"%s\""; //#9 Y 시안확인 휴대폰
+$json_form .=         ",\"email\"        : \"%s\""; //#10 N 주문자 이메일
+
+$json_form .=         ",\"f_name\"       : \"%s\""; //#11 N 발송자 이름
+$json_form .=         ",\"f_tel\"        : \"%s\""; //#12 N 발송자 전화번호
+$json_form .=         ",\"f_addr\"       : \"%s\""; //#13 N 발송자 주소
+
+$json_form .=         ",\"d_name\"       : \"%s\""; //#14 N 받는사람 이름
+$json_form .=         ",\"d_tel\"        : \"%s\""; //#15 N 받는사람 전화번호
+$json_form .=         ",\"d_hp\"         : \"%s\""; //#16 N 받는사람 휴대폰
+$json_form .=         ",\"d_zipcode\"    : \"%s\""; //#17 N 받는사람 우편번호(5자리)
+$json_form .=         ",\"d_addr1\"      : \"%s\""; //#18 N 받는사람 주소 1
+$json_form .=         ",\"d_addr2\"      : \"%s\""; //#19 N 받는사람 주소 2
+$json_form .=         ",\"d_type_admin\" : \"%s\""; //#20 Y 배송방법(502:택배, 504:퀵, 507:화물)
+$json_form .=         ",\"d_fee\"        : \"%s\""; //#21 Y 배송비 구분(0:미정, 2:착불, 3:신용, 4:신용(청구))
+$json_form .=         ",\"d_loc2\"       : \"%s\""; //#22 N 화물지점(경동, 대신화물)
+$json_form .=         ",\"d_time\"       : \"%s\""; //#23 N 납품시간(6~23)
+
+$json_form .=         ",\"items\"       : [";
+$json_form .=             "%s";                     //#24 품목
+$json_form .=         "]";
+$json_form .=     "}";
+$json_form .= "]";
+
+//////////////////////////////
+$item_json_form .=             "{";
+$item_json_form .=                 " \"item_code\"  : \"%s\""; //#24-1 Y 4자리 코드
+$item_json_form .=                 ",\"item_name3\" : \"%s\""; //#24-2 Y 간편주문명칭
+$item_json_form .=                 ",\"size1\"      : \"%s\""; //#24-3 Y 가로 mm
+$item_json_form .=                 ",\"size2\"      : \"%s\""; //#24-4 Y 세로 mm
+$item_json_form .=                 ",\"qnt\"        : \"%s\""; //#24-5 Y 수량
+$item_json_form .=                 ",\"amount\"     : \"%s\""; //#24-6 Y 금액
+
+$item_json_form .=                 ",\"filename\"   : \"%s\""; //#24-7 Y 원본파일경로
+$item_json_form .=                 ",\"subject\"    : \"%s\""; //#24-8 N 주문명
+
+$item_json_form .=                 ",\"opt1\"       : \"%s\""; //#24-9 Y 원단옵션
+$item_json_form .=                 ",\"opt2\"       : \"%s\""; //#24-10 Y 잉크옵션
+$item_json_form .=                 ",\"opt3\"       : \"%s\""; //#24-11 N 코팅옵션
+$item_json_form .=                 ",\"opt4\"       : \"%s\""; //#24-12 Y 후가공옵션
+$item_json_form .=                 ",\"opt5\"       : \"%s\""; //#24-13 N 추가후가공옵션
+$item_json_form .=                 ",\"opt6\"       : \"%s\""; //#24-14 N 합지옵션
+$item_json_form .=                 ",\"opt7\"       : \"%s\""; //#24-15 N 추가물품옵션
+$item_json_form .=             "}";
+//////////////////////////////
+/*
+*/
+
+echo "<pre>";
+
+// !@#!@#!@#!@#
+$price = 10000;
+
+$order_num_str = '';
+
+$item = '';
+$item_arr = [];
+$param = [];
+foreach ($order_num_arr as $order_num) {
+    $order_num_str .= $order_num . '|';
+
+    unset($param);
+    $param["order_num"] = $order_num;
+    $order_rs = $dao->selectAoOrderInfo($conn, $param);
+
+    unset($param);
+    $param["order_detail_seqno"] = $order_rs["order_detail_seqno"];
+    $file_rs = $dao->selectAoOrderFileInfo($conn, $param);
+    $file_url  = FILE_URL . "?seqno=" . $file_rs["order_detail_count_file_seqno"];
+    $file_url .= "&hash=" . password_hash($file_rs["save_file_name"], PASSWORD_DEFAULT);
+
+    unset($param);
+    $param["mpcode"] = $order_rs["cate_paper_mpcode"];
+    $opt1 = $dao->selectCatePaper($conn, $param)->fields["name"];
+    $param["cate_sortcode"] = $order_rs["cate_sortcode"];
+    $param["mpcode"] = $order_rs["cate_beforeside_print_mpcode"];
+    $opt2 = $dao->selectCatePrintTmpt($conn, $param)->fields["name"];
+
+    unset($param);
+    $param["order_common_seqno"] = $order_rs["order_common_seqno"];
+    $after_rs = $dao->selectAoAfterInfo($conn, $param);
+    $opt_rs   = $dao->selectAoOptInfo($conn, $param);
+
+    $opt_arr = getOpt3To7($after_rs, $opt_rs);
+
+    $item .= sprintf($item_json_form, ITEM_CODE[$order_rs["cate_sortcode"]] //#24-1
+                                    , ITEM_NAME[$order_rs["cate_sortcode"]] //#24-2
+                                    , $order_rs["cut_size_wid"] //#24-3
+                                    , $order_rs["cut_size_vert"] //#24-4
+                                    , $order_rs["amt"] //#24-5
+                                    , $price //#24-6
+                                    , $file_url //#24-7
+                                    , $order_rs["title"] //#24-8
+                                    , $opt1 //#24-9
+                                    , $opt2 //#24-10
+                                    , $opt_arr["opt3"] //#24-11
+                                    , $opt_arr["opt4"] //#24-12
+                                    , $opt_arr["opt5"] //#24-13
+                                    , $opt_arr["opt6"] //#24-14
+                                    , $opt_arr["opt7"] //#24-15
+                                    );
+    $item .= ',';
+    /*
+    $item_arr[] = [
+         "item_code"  =>  ITEM_CODE[$order_rs["cate_sortcode"]] //#24-1 Y 4자리 코드
+        ,"item_name3" =>  ITEM_NAME[$order_rs["cate_sortcode"]] //#24-2 Y 간편주문명칭
+        ,"size1"      =>  $order_rs["cut_size_wid"]             //#24-3 Y 가로 mm
+        ,"size2"      =>  $order_rs["cut_size_vert"]            //#24-4 Y 세로 mm
+        ,"qnt"        =>  $order_rs["amt"]                      //#24-5 Y 수량
+        ,"amount"     =>  $price                                //#24-6 Y 금액
+        ,"filename"   =>  $file_url                             //#24-7 Y 원본파일경로
+        ,"subject"    =>  $order_rs["title"]                    //#24-8 N 주문명
+        ,"opt1"       =>  $opt1                                 //#24-9 Y 원단옵션
+        ,"opt2"       =>  $opt2                                 //#24-10 Y 잉크옵션
+        ,"opt3"       =>  $opt_arr["opt3"]                      //#24-11 N 코팅옵션
+        ,"opt4"       =>  $opt_arr["opt4"]                      //#24-12 Y 후가공옵션
+        ,"opt5"       =>  $opt_arr["opt5"]                      //#24-13 N 추가후가공옵션
+        ,"opt6"       =>  $opt_arr["opt6"]                      //#24-14 N 합지옵션
+        ,"opt7"       =>  $opt_arr["opt7"]                      //#24-15 N 추가물품옵션
+    ];
+    */
+}
+$conn->Close();
+
+$order_num_str = substr($order_num_str, 0, -1);
+
+$json = sprintf($json_form, ID //#1
+                          , PW //#2
+                          , KEY //#3
+                          , '9' //#4
+                          , $order_num_str //#5
+                          , ORDERER["name"] //#6
+                          , ORDERER["tel"] //#7
+                          , ORDERER["hp"] //#8
+                          , ORDERER["hp2"] //#9
+                          , ORDERER["email"] //#10
+                          , $f_name //#11
+                          , $f_tel //#12
+                          , $f_addr //#13
+                          , $d_name //#14
+                          , $d_tel //#15
+                          , $d_hp //#16
+                          , $d_zipcode //#17
+                          , $d_addr1 //#18
+                          , $d_addr2 //#19
+                          , $dlvr_way //#20
+                          , '3' //#21
+                          , '' //#22
+                          , '' //#23
+                          , substr($item, 0, -1) //#24
+                          );
+/*
+$arr = [
+     "userId"       =>  ID               //#1 Y 로그인 아이디
+    ,"userPw"       =>  PW               //#2 Y 로그인 비밀번호
+    ,"userKey"      =>  KEY              //#3 Y 전송키
+    ,"a_type"       =>  '9'              //#4 Y 1:무통장, 9:미수금
+    ,"order_idx"    =>  $order_num_str   //#5 Y 고객사주문번호
+
+    ,"name"         =>  ORDERER["name"]  //#6 Y 주문자명
+    ,"tel"          =>  ORDERER["tel"]   //#7 Y 주문자 전화번호
+    ,"hp"           =>  ORDERER["hp"]    //#8 Y 주문자 휴대폰
+    ,"hp2"          =>  ORDERER["hp2"]   //#9 Y 시안확인 휴대폰
+    ,"email"        =>  ORDERER["email"] //#10 N 주문자 이메일
+
+    ,"f_name"       =>  $f_name          //#11 N 발송자 이름
+    ,"f_tel"        =>  $f_tel           //#12 N 발송자 전화번호
+    ,"f_addr"       =>  $f_addr          //#13 N 발송자 주소
+
+    ,"d_name"       =>  $d_name          //#14 N 받는사람 이름
+    ,"d_tel"        =>  $d_tel           //#15 N 받는사람 전화번호
+    ,"d_hp"         =>  $d_hp            //#16 N 받는사람 휴대폰
+    ,"d_zipcode"    =>  $d_zipcode       //#17 N 받는사람 우편번호(5자리)
+    ,"d_addr1"      =>  $d_addr1         //#18 N 받는사람 주소 1
+    ,"d_addr2"      =>  $d_addr2         //#19 N 받는사람 주소 2
+    ,"d_type_admin" =>  $dlvr_way        //#20 Y 배송방법(502:택배, 504:퀵, 507:화물)
+    ,"d_fee"        =>  '3'              //#21 Y 배송비 구분(0:미정, 2:착불, 3:신용, 4:신용(청구))
+    ,"d_loc2"       =>  ''               //#22 N 화물지점(경동, 대신화물)
+    ,"d_time"       =>  ''               //#23 N 납품시간(6~23)
+
+    ,"items"        => $item_arr
+];
+*/
+
+//$json = json_encode([$arr], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+
+echo $json;
+echo "\n";
+echo "<pre><pre>";
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, URL);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+//curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: text/plain']);
+
+$response = curl_exec($ch);
+
+echo $response;
+
+exit;
+
+/******************************************************************************
+ ******************************************************************************/
+
+/**
+ * @brief 후공정, 옵션값으로 opt3~7 까지 값 생성
+ *
+ * @detail 카테고리별 opt 명세
+ *   * 공통
+ *      - opt1 : 소재(=종이)
+ *      - opt2 : 소재(=도수)
+ *   * 추가
+ *      - opt3 : 코팅(페트배너, 미니배너)
+ *      - opt4 : 기본후가공
+ *      - opt5 : 추가후가공
+ *      - opt6 : 고리(현수막, 가로등배너)
+ *      - opt7 : 추가물품
+ *
+ * @param $after_rs = 후공정 검색결과
+ * @param $opt_rs   = 옵션 검색결과
+ *
+ * @return opt3~7
+ */
+function getOpt3to7($after_rs, $opt_rs) {
+    $opt3 = '';
+    $opt4 = '';
+    $opt5 = '';
+    $opt6 = '';
+    $opt7 = '';
+
+    $makeInfo = function($add, ...$str_arr) {
+        $ret = '';
+
+        foreach ($str_arr as $str) {
+            if ($str === '-') {
+                continue;
+            }
+
+            $ret .= $str . '_';
+        }
+
+        $ret  = substr($ret, 0, -1);
+
+        if (!empty($add)) {
+            $ret .= '/' . $add;
+        }
+
+        return $ret;
+    };
+
+    while ($after_rs && !$after_rs->EOF) {
+        $fields = $after_rs->fields;
+
+        $name   = $fields["after_name"];
+        $depth1 = $fields["depth1"];
+        $depth2 = $fields["depth2"];
+        $depth3 = $fields["depth3"];
+
+        $detail = $fields["detail"];
+        $detail = str_replace('/', '', $detail);
+        $detail = str_replace('_', '', $detail);
+
+        $basic_yn = $fields["basic_yn"];
+
+        if ($name === "쿨코팅") {
+            $opt3 = sprintf("%s(%s)", $name, $depth1);
+        } else if ($name === "고리") {
+            $opt6 = $makeInfo($detail, $name, $depth1, $depth2, $depth3);
+        } else if ($basic_yn === 'Y' && empty($opt4)) {
+            // 기본후공정은 하나만 들어감
+            $opt4 = $makeInfo($detail, $name, $depth1, $depth2, $depth3);
+        } else {
+            $opt5 .= '[' . $makeInfo($detail, $name, $depth1, $depth2, $depth3) . ']';
+        }
+
+        $after_rs->MoveNext();
+    }
+    unset($after_rs);
+
+    while ($opt_rs && !$opt_rs->EOF) {
+        $fields = $opt_rs->fields;
+
+        $name   = $fields["opt_name"];
+        $depth1 = $fields["depth1"];
+        $depth2 = $fields["depth2"];
+        $depth3 = $fields["depth3"];
+
+        $detail = $fields["detail"];
+        $detail = str_replace('/', '', $detail);
+        $detail = str_replace('_', '', $detail);
+
+        $opt7 .= '[' . $makeInfo($detail, $name, $depth1, $depth2, $depth3) . ']';
+
+        $opt_rs->MoveNext();
+    }
+    unset($opt_rs);
+
+    return [
+         "opt3" => $opt3
+        ,"opt4" => $opt4
+        ,"opt5" => $opt5
+        ,"opt6" => $opt6
+        ,"opt7" => $opt7
+    ];
+}

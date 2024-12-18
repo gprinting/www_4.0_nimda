@@ -1,0 +1,68 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/left_menu.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/ErpCommonUtil.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/nimda/LeftMenuSetting.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/empl_info/EmplInfoDAO.inc");
+include_once(INC_PATH . "/common_define/common_info.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$dao = new EmplInfoDAO();
+$template = new Template();
+$leftSetting = new LeftMenuSetting();
+$commonDAO = $dao;
+$util = new ErpCommonUtil();
+
+$session = $fb->getSession();
+
+//$conn->debug=1;
+
+// 직급
+$posi_arr = $dao->selectEmplRegiPosition($conn);
+$posi_arr_html = "<option value=''>선택</option>";
+foreach ($posi_arr as $posi_code => $posi_name) {
+    $posi_arr_html .= option($posi_name["posi_name"], $posi_name["posi_code"]);
+}
+$template->reg("posi_arr_html", $posi_arr_html);
+
+// 부서-상위 개발필요
+$dept_top_arr = $dao->selectEmplRegiDeptTop($conn, $dept_param);
+$dept_top_arr_html = "<option value=''>선택</option>";
+foreach ($dept_top_arr as $dept_info => $dept_name) {
+    $dept_top_arr_html .= option($dept_name["depar_name"], $dept_name["depar_code"]);
+}
+$template->reg("top_dept_html", $dept_top_arr_html);
+
+// 데이트피커 세팅
+$opt = array();
+
+$optVal = array();
+$optVal[0] = "regi_date";
+
+$param = array();
+$param["value"] = $optVal;
+$param["fields"] = $opt;
+$param["id"] = "search_cnd";
+$param["flag"] = TRUE;
+$param["from_id"] = "from";
+$param["to_id"] = "to";
+
+//날짜 검색
+$template->reg("datepicker_html" , makeDatePickerHtml($param));
+
+//메뉴 세팅 변수 선언 - 여기만 세팅하면 됩니다.
+$top = "business"; //기초관리
+$left = "claim_mng"; //레프트 메뉴
+$left_sub = "claim_list"; //레프트하위 메뉴, script 주소
+
+//개발 공통 footer
+include_once($_SERVER["DOCUMENT_ROOT"] . '/common/dev_foot.php');
+
+$conn->Close();
+?>

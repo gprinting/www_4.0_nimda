@@ -1,0 +1,270 @@
+<?
+define("INC_PATH", $_SERVER["INC"]);
+include_once(INC_PATH . "/define/nimda/common_config.inc");
+include_once(INC_PATH . "/common_lib/CommonUtil.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/Template.inc");
+include_once(INC_PATH . "/com/nexmotion/common/util/ConnectionPool.inc");
+include_once(INC_PATH . "/com/nexmotion/common/entity/FormBean.inc");
+include_once(INC_PATH . "/com/nexmotion/job/nimda/business/order_mng/OrderCommonMngDAO.inc");
+
+$connectionPool = new ConnectionPool();
+$conn = $connectionPool->getPooledConnection();
+
+$fb = new FormBean();
+$template = new Template();
+$dao = new OrderCommonMngDAO();
+$util = new CommonUtil();
+
+if (!$fb->form("seqno")) {
+    echo "<script>alert('잘못된 접근입니다.');window.close();</script>";
+    exit;
+}
+
+$order_common_seqno = $fb->form("seqno");
+
+//주문정보 조회
+$param = array();
+$param["seqno"] = $order_common_seqno;
+
+$rs = $dao->selectOrderInfo($conn, $param);
+
+$flattyp_yn = $rs->fields["flattyp_yn"];
+$order_state = $rs->fields["order_state"];
+$dlvr_way = $rs->fields["dlvr_way"];
+$dlvr_sum_way = $rs->fields["dlvr_sum_way"];
+
+if ($order_state < 400 && $order_state > 100) {
+    echo "<script>alert('조판대기 상태부터 상세를 확인 할 수 있습니다." . $order_state . "');window.close();</script>";
+    exit;
+}
+
+//옵션 정보
+$param = array();
+$param["table"] = "order_opt_history";
+$param["col"] = "opt_name";
+$param["where"]["order_common_seqno"] = $order_common_seqno;
+
+$rs = $dao->selectData($conn, $param);
+
+$opt_info = "";
+while ($rs && !$rs->EOF) {
+
+    $opt_info .= "," . $rs->fields["opt_name"];
+    $rs->moveNext();
+}
+
+$template->reg("opt_info", substr($opt_info, 1)); 
+
+//배송 정보
+$param = array();
+$param["seqno"] = $order_common_seqno;
+
+$rs = $dao->selectOrderDlvrInfo($conn, $param);
+
+$dlvr_info = "배송방법 : " . $dlvr_way . " " . $dlvr_sum_way . "<br />";
+$ts_info = "";
+$rs_info = "";
+
+while ($rs && !$rs->EOF) {
+
+    if ($rs->fields["tsrs_dvs"] == "송신") {
+    
+        $ts_info .= "\n  송신인 : " . $rs->fields["name"] . "<br />";
+        $ts_info .= "\n     TEL : " . $rs->fields["tel_num"] . "<br />";
+        $ts_info .= "\n      HP : " . $rs->fields["tel_num"] . "<br />";
+        $ts_info .= "\n우편번호 : " . $rs->fields["zipcode"] . "<br />";
+        $ts_info .= "\n    주소 : " . $rs->fields["addr"] . "<br />";
+    } else {
+        $rs_info .= "\n  수신인 : " . $rs->fields["name"] . "<br />";
+        $rs_info .= "\n     TEL : " . $rs->fields["tel_num"] . "<br />";
+        $rs_info .= "\n      HP : " . $rs->fields["tel_num"] . "<br />";
+        $rs_info .= "\n우편번호 : " . $rs->fields["zipcode"] . "<br />";
+        $rs_info .= "\n    주소 : " . $rs->fields["addr"] . "<br />";
+    }
+    $rs->moveNext();
+}
+
+$dlvr_info .= $ts_info;
+$dlvr_info .= $rs_info;
+
+$template->reg("dlvr_info", $dlvr_info); 
+
+$tree_html  = "";
+
+if ($flattyp_yn == "Y") {
+    //낱장형
+
+    //1level 호출(order_detail) -> 무조건 1건
+    //주문상세
+    $param = array();
+    $param["table"] = "order_detail";
+    $param["col"] = "order_detail_seqno, order_detail_dvs_num";
+    $param["where"]["order_common_seqno"] = $order_common_seqno;
+
+    $detail_rs = $dao->selectData($conn, $param);
+    
+    //1level 배열 생성
+    $one_level = array();
+    $order_detail_seqno = $detail_rs->fields["order_detail_seqno"];
+    $order_detail_dvs_num = $detail_rs->fields["order_detail_dvs_num"];
+    $one_level[$order_detail_seqno] = "주문 - ". $order_detail_dvs_num;
+
+    //2level 검색
+    $param = array();
+    $param["table"] = "order_detail_count_file";
+    $param["col"] = "order_detail_count_file_seqno, seq";
+    $param["where"]["order_detail_seqno"] = $order_detail_seqno;
+
+    //2level 호출
+    $count_rs = $dao->selectData($conn, $param);
+    
+    //2level 배열 생성
+    $two_level = array();
+    //3level 배열 생성
+    $thr_level = array();
+
+    while ($count_rs && !$count_rs->EOF) {
+   
+        $order_detail_count_file_seqno = $count_rs->fields["order_detail_count_file_seqno"];
+        $seq = $count_rs->fields["seq"];
+
+        $two_level[$order_detail_seqno][$order_detail_count_file_seqno] = "주문건수 - ". $order_detail_dvs_num . "-". $seq;
+
+        //3level 검색
+        $param = array();
+        $param["table"] = "amt_order_detail_sheet";
+        $param["col"] = "amt_order_detail_sheet_seqno, sheet_typset_seqno, state";
+        $param["where"]["order_detail_count_file_seqno"] = $order_detail_count_file_seqno;
+
+        //3level 호출
+        $typ_rs = $dao->selectData($conn, $param);
+
+        while ($typ_rs && !$typ_rs->EOF) {
+
+            $amt_order_detail_sheet_seqno = $typ_rs->fields["amt_order_detail_sheet_seqno"];
+            $sheet_typset_seqno = $typ_rs->fields["sheet_typset_seqno"];
+            $state =  $typ_rs->fields["state"];
+            $stateDesc = getStateDesc($state);
+
+            if (empty($sheet_typset_seqno)) {
+                $value = "조판 및 분판 대기중";
+            } else {
+                $param = array();
+                $param["table"] = "amt_order_detail_sheet";
+                $param["col"] = "count(*) as cnt";
+                $param["where"]["order_detail_count_file_seqno"] = $order_detail_count_file_seqno;
+                $typ_cnt_rs = $dao->selectData($conn, $param);
+                $cnt = $typ_cnt_rs->fields["cnt"];
+
+                if ($cnt > 1) {
+                    $value = "분판 " . $stateDesc;
+                } else {
+                    $value = "조판 " . $stateDesc;
+                }
+            }
+            
+            $thr_level[$order_detail_count_file_seqno][$amt_order_detail_sheet_seqno] = $value;
+            
+            $typ_rs->moveNext();
+        }
+        $count_rs->moveNext();
+    }
+    $tree_html = getSheetTopTree($one_level, $two_level, $thr_level);
+} else {
+    //책자형
+    
+    //1level 호출(order_detail) -> 무조건 1건
+    //주문상세
+    $param = array();
+    $param["table"] = "order_detail_brochure";
+    $param["col"] = "order_detail_brochure_seqno, order_detail_dvs_num";
+    $param["where"]["order_common_seqno"] = $order_common_seqno;
+
+    $detail_rs = $dao->selectData($conn, $param);
+    
+    //1level 배열 생성
+    $one_level = array();
+    $order_detail_brochure_seqno = $detail_rs->fields["order_detail_brochure_seqno"];
+    $order_detail_dvs_num = $detail_rs->fields["order_detail_dvs_num"];
+    $one_level[$order_detail_brochure_seqno] = "주문 - ". $order_detail_dvs_num;
+        
+    //2level 검색
+    $param = array();
+    $param["table"] = "page_order_detail_brochure";
+    $param["col"] = "page_order_detail_brochure_seqno, brochure_typset_seqno, state";
+    $param["where"]["order_detail_dvs_num"] = $order_detail_dvs_num;
+
+    //2level 호출
+    $typ_rs = $dao->selectData($conn, $param);
+    
+    //2level 배열 생성
+    $two_level = array();
+    while ($typ_rs && !$typ_rs->EOF) {
+
+        $page_order_detail_brochure_seqno = $typ_rs->fields["page_order_detail_brochure_seqno"];
+        $brochure_typset_seqno = $typ_rs->fields["brochure_typset_seqno"];
+        $state =  $typ_rs->fields["state"];
+        $stateDesc = getStateDesc($state);
+
+        if (empty($brochure_typset_seqno)) {
+            $value = "조판 및 분판 대기중";
+        } else {
+            $param = array();
+            $param["table"] = "page_order_detail_brochure";
+            $param["col"] = "count(*) as cnt";
+            $param["where"]["order_detail_dvs_num"] = $order_detail_dvs_num;
+            $typ_cnt_rs = $dao->selectData($conn, $param);
+            $cnt = $typ_cnt_rs->fields["cnt"];
+
+            if ($cnt > 1) {
+                $value = "분판 " . $stateDesc;
+            } else {
+                $value = "조판 " . $stateDesc;
+            }
+        }
+
+        $two_level[$order_detail_brochure_seqno][$page_order_detail_brochure_seqno] = $value;
+
+        $typ_rs->moveNext();
+    }
+    $tree_html = getBrochureTopTree($one_level, $two_level);
+}
+
+
+$template->reg("flattyp_yn", $flattyp_yn); 
+$template->reg("tree_html", $tree_html); 
+$template->reg("design_dir", "/design_template"); 
+$template->htmlPrint($_SERVER["PHP_SELF"]); 
+$conn->close();
+
+//상태값
+function getStateDesc ($state) {
+    if ($state === "410") {
+        $stateDesc = "[조판대기]"; 
+    } else if ($state === "420") {
+        $stateDesc = "[조판중]"; 
+    }  else if ($state === "430") {
+        $stateDesc = "[조판취소]"; 
+    }  else if ($state === "610") {
+        $stateDesc = "[출력대기]"; 
+    }  else if ($state === "620") {
+        $stateDesc = "[출력중]"; 
+    }  else if ($state === "630") {
+        $stateDesc = "[출력취소]"; 
+    }  else if ($state === "710") {
+        $stateDesc = "[인쇄대기]"; 
+    }  else if ($state === "720") {
+        $stateDesc = "[인쇄중]"; 
+    }  else if ($state === "730") {
+        $stateDesc = "[인쇄취소]"; 
+    }  else if ($state === "810") {
+        $stateDesc = "[후공정대기]"; 
+    }  else if ($state === "720") {
+        $stateDesc = "[후공정중]"; 
+    }  else if ($state === "730") {
+        $stateDesc = "[후공정취소]"; 
+    } 
+
+   return $stateDesc; 
+}
+?>
